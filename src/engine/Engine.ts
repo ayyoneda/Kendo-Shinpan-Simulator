@@ -53,6 +53,7 @@ export class Engine {
   private flipCooldownUntilTs = 0;
   private lastFlipRawAngle: number | null = null;
   private flipBelowExitFrames = 0;
+  private spinLockUntilTs = 0;
 
   constructor(store: SimulationStore) {
     this.store = store;
@@ -196,6 +197,13 @@ export class Engine {
     }
     this.lastFlipRawAngle = pre.combatRadTarget;
 
+    const SPIN_LOCK_ANGVEL = 1.8; // ~100 deg/s
+    const SPIN_LOCK_LINGER_MS = 250;
+    if (axisAngVel > SPIN_LOCK_ANGVEL) {
+      this.spinLockUntilTs = ts + SPIN_LOCK_LINGER_MS;
+    }
+    const isSpinLocked = ts < this.spinLockUntilTs;
+
     const absDeg = Math.abs(pre.combatDegRaw);
 
     if (absDeg < state.config.exitFlip) {
@@ -210,16 +218,14 @@ export class Engine {
     const canConsiderFlip = (ts >= this.flipCooldownUntilTs);
     const wantsFlip = (absDeg > state.config.enterFlip);
 
-    if (canConsiderFlip && wantsFlip) {
-      const axisStableEnough = (axisAngVel <= FLIP_MAX_ANGVEL);
-      if (!axisStableEnough) {
-        this.flipHoldStartTs = null;
-      } else {
-        if (this.flipHoldStartTs === null) this.flipHoldStartTs = ts;
+    if (isSpinLocked) {
+      this.flipHoldStartTs = null;
+    } else if (canConsiderFlip && wantsFlip) {
+      if (this.flipHoldStartTs === null) this.flipHoldStartTs = ts;
 
-        if ((ts - this.flipHoldStartTs) >= FLIP_CONFIRM_MS) {
-          this.flipHoldStartTs = null;
-          this.flipCooldownUntilTs = ts + FLIP_COOLDOWN_MS;
+      if ((ts - this.flipHoldStartTs) >= FLIP_CONFIRM_MS) {
+        this.flipHoldStartTs = null;
+        this.flipCooldownUntilTs = ts + FLIP_COOLDOWN_MS;
 
           this.flipState.active = true;
           this.flipState.toFlag = state.flag + 1;
@@ -278,8 +284,11 @@ export class Engine {
     }
 
     const rawAngle = pre.combatRadTarget;
-    const dAng = angleDiff(this.targetAngle, rawAngle);
-    this.targetAngle += dAng * (1 - Math.exp(-state.config.smoothK * dt));
+    
+    if (!isSpinLocked) {
+      const dAng = angleDiff(this.targetAngle, rawAngle);
+      this.targetAngle += dAng * (1 - Math.exp(-state.config.smoothK * dt));
+    }
 
     const ca_tgt = Math.cos(this.targetAngle);
     const sa_tgt = Math.sin(this.targetAngle);
@@ -304,11 +313,13 @@ export class Engine {
     expDamp(state.fukushin1, tgtF1, state.config.smoothK, dt);
     expDamp(state.fukushin2, tgtF2, state.config.smoothK, dt);
 
-    state.angles.combatRadSmoothed = moveAngleTowards(
-      state.angles.combatRadSmoothed,
-      rawAngle,
-      maxAng
-    );
+    if (!isSpinLocked) {
+      state.angles.combatRadSmoothed = moveAngleTowards(
+        state.angles.combatRadSmoothed,
+        rawAngle,
+        maxAng
+      );
+    }
 
     this.updateRefereeAngles(midX, midY);
   }
