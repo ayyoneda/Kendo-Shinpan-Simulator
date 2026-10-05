@@ -1,0 +1,175 @@
+package_id: fik.regulations.2023-07-26
+review_file_schema_version: 0.1.0
+source_pdf: source/original.pdf
+review_status: reviewed_ok
+created_date: 2026-07-15
+last_updated: 2026-07-17
+status_values:
+- not_started
+- in_progress
+- reviewed_ok
+- issues_found
+- corrected_pending_recheck
+- not_applicable
+check_values:
+- unchecked
+- checked
+- not_done
+- not_applicable
+instructions:
+- Use the PDF as the authority.
+- Fill pdf_pages with the PDF page numbers checked.
+- Set status to reviewed_ok only after checking the item against the PDF.
+- If a problem is found, add an entry under issues and set the affected item to issues_found.
+- After a correction is made, change the affected item to corrected_pending_recheck until it is checked again.
+text_streams:
+- path: text/foreword.en.md
+  status: reviewed_ok
+  pdf_pages:
+  - 2
+  reviewer: Adrian Yoneda
+  reviewed_date: 2026-07-15
+  checks:
+    text_complete: checked
+    order_correct: checked
+    headings_correct: checked
+    no_conversion_artifacts: checked
+  notes: null
+- path: text/foreword.ja.md
+  status: reviewed_ok
+  pdf_pages:
+  - 2
+  reviewer: Adrian Yoneda
+  reviewed_date: 2026-07-15
+  checks:
+    text_complete: checked
+    order_correct: checked
+    headings_correct: checked
+    no_conversion_artifacts: checked
+  notes: null
+- path: text/regulations.en.md
+  status: reviewed_ok
+  pdf_pages:
+  - 6-25
+  reviewer: Adrian Yoneda
+  reviewed_date: 2026-07-15
+  checks:
+    text_complete: checked
+    article_order_correct: checked
+    headings_correct: checked
+    intra_article_separators_removed: checked
+    anchors_present: checked
+  notes: Regulation Articles 17 and 29 were corrected to remove intra-article horizontal rules.
+- path: text/subsidiary-rules.en.md
+  status: reviewed_ok
+  pdf_pages:
+  - 6-25
+  reviewer: Adrian Yoneda
+  reviewed_date: 2026-07-15
+  checks:
+    text_complete: checked
+    article_order_correct: checked
+    layout_inherited_themes_correct: checked
+    shinai_paragraphs_in_article_2: checked
+    anchors_present: checked
+  notes: Subsidiary Rule Article 2 was corrected after PDF comparison.
+- path: text/guidelines.en.md
+  status: reviewed_ok
+  pdf_pages:
+  - 32-41
+  reviewer: Adrian Yoneda
+  reviewed_date: 2026-07-15
+  checks:
+    text_complete: checked
+    shiai_sha_themes_correct: checked
+    shinpan_in_themes_correct: checked
+    shared_themes_correct: checked
+    anchors_present: checked
+  notes: Repository owner reported the guideline text appears ok; record page-by-page confirmation here.
+layout_alignment:
+  path: layout-alignment.yaml
+  status: reviewed_ok
+  pdf_pages:
+  - 6-25
+  - 32-41
+  checks:
+    regulations_subsidiary_alignment_correct: checked
+    guideline_shared_themes_correct: checked
+    guideline_independent_themes_correct: checked
+  notes: Team Line-up and shinpan-in positioning were separated as sequential independent themes.
+figures:
+  path: figures.yaml
+  status: reviewed_ok
+  review_scope: inventory_title_asset_and_description_review
+  pdf_pages:
+  - 29-30
+  - 42-45
+  reviewer: Adrian Yoneda
+  reviewed_date: 2026-07-16
+  checks:
+    inventory_complete: checked
+    official_titles_checked: checked
+    display_titles_non_canonical: checked
+    assets_extracted: checked
+    crop_boundaries_correct: checked
+    descriptions_verified: checked
+  notes: Repository owner Adrian Yoneda reviewed and approved all figure images and description.en.md files on 2026-07-16,
+    including corrected crops for regulation Figure 2 and guideline Figures 1, 2, and 11.
+tables:
+  path: tables.yaml
+  status: reviewed_ok
+  review_scope: inventory_title_and_structured_data_draft_review
+  pdf_pages:
+  - 26-28
+  - 46-47
+  reviewer: Adrian Yoneda
+  reviewed_date: 2026-07-17
+  checks:
+    inventory_complete: checked
+    official_titles_checked: checked
+    display_titles_non_canonical: checked
+    row_data_structured: checked
+  notes: Structured table data and the applied corrections were reviewed against the PDF by repository owner Adrian Yoneda.
+  visual_assets:
+    path: tables/crop-map.yaml
+    status: reviewed_ok
+    asset_count: 5
+    source_pdf_pages:
+    - 26-28
+    - 46-47
+    checks:
+      assets_extracted: checked
+      registry_and_metadata_linked: checked
+      crop_boundaries_reviewed_by_repository_owner: checked
+    notes: All five source-image crops for the four tables were reviewed and approved by repository owner Adrian Yoneda on 2026-07-17.
+glossary:
+  path: glossary-links.yaml
+  source_glossary: ontology/glossary.yaml
+  status: reviewed_ok
+  review_scope: source_inventory_definition_provenance_and_generated_link_audit
+  checks:
+    glossary_terms_created: checked
+    glossary_links_generated: checked
+    term_definitions_reviewed: not_applicable
+    definition_provenance_classified: checked
+    generated_links_reviewed: checked
+    source_glossary_terms_included: checked
+    glossary_alphabetized: checked
+    supplemental_terms_marked: checked
+  notes: 'Reconciled ontology/glossary.yaml against the original PDF glossary on pages 48-50: 94 source glossary terms included,
+    plus 1 supplemental corpus term (zarei). All 523 generated links passed deterministic anchored-source recount and ambiguity
+    checks with zero manual candidates. Definition statuses explicitly distinguish official definitions, editorial summaries,
+    and provisional source glosses. Complete dictionary-definition review is deferred until a reliable AJKF dictionary transcription
+    exists and is outside this first slice.'
+  source_glossary_inventory: ontology/source-glossaries/fik-regulations-2023-07-26.yaml
+  automated_link_audit: validation/glossary-link-audit.yaml
+anchors:
+  status: checked
+  article_anchor_source: nodes.yaml local_anchor
+  guideline_anchor_source: generated_from_guideline_side_and_theme
+  checks:
+    regulation_article_anchors_present: checked
+    subsidiary_rule_article_anchors_present: checked
+    guideline_theme_anchors_present: checked
+    duplicate_anchor_ids: checked
+issues: []

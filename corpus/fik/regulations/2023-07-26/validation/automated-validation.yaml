@@ -1,0 +1,35 @@
+package_id: fik.regulations.2023-07-26
+validation_type: structural_package_validation
+validator: tools/validate_package.py
+validation_date: 2026-07-17
+status: passed
+command: python tools/validate_package.py corpus/fik/regulations/2023-07-26
+result:
+  errors: 0
+  warnings: 0
+checks:
+  required_files_exist: passed
+  yaml_files_parse: passed
+  node_ids_unique: passed
+  node_source_lines_valid: passed
+  markdown_anchors_unique: passed
+  node_anchors_present: passed
+  relationship_sources_exist: passed
+  relationship_targets_exist: passed
+  figure_registry_consistent: passed
+  figure_asset_files: passed
+  figure_verified_description_status: passed
+  table_registry_consistent: passed
+  structured_table_data_files: passed
+  table_visual_asset_files: passed
+  glossary_terms_consistent: passed
+  glossary_links_consistent: passed
+  known_text_artifacts_absent: passed
+notes:
+  - This is structural validation only.
+  - It does not prove legal/textual equivalence to the source PDF.
+  - Figure asset files are validated for presence, metadata linkage, PNG signature, and verified-description status consistency.
+  - Structured table data is validated here for linkage and package consistency; source fidelity is recorded separately in manual-review.yaml.
+  - Table visual assets are validated for crop-map identity, ordered parts, source pages, metadata linkage, and PNG signatures.
+  - Glossary links are structurally validated here; exact anchored-source recount and ambiguity checks are recorded in glossary-link-audit.yaml.
+  - Generated exports are validated separately by tools/validate_exports.py and recorded in export-validation.yaml.

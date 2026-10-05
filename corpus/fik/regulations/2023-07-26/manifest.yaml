@@ -1,0 +1,152 @@
+package_id: fik.regulations.2023-07-26
+organization: FIK
+document_family: regulations
+official_title: The Regulations of Kendo Shiai and Shinpan
+official_version: 2023-07-26
+primary_language: en
+embedded_languages:
+- ja
+status: reviewed
+package_schema_version: 0.1.0
+rights_status: unknown
+publication_policy: internal_research_use_only
+source_redistribution: prohibited_until_rights_confirmed
+source:
+  path: source/original.pdf
+  original_filename: Regulations-of-Kendo-Shiai-and-Shinpan-EN_Jul2023.pdf
+  checksum:
+    algorithm: sha256
+    value: 869c0191bda126db307d08395cdda591312d5c0276ef0620d38c2137abb28d8d
+raw_inputs:
+  existing_transcription: raw/existing-transcription.md
+  extracted_text: raw/extracted-text.txt
+  extraction_metadata: raw/extraction.yaml
+planned_text_streams:
+- text/foreword.en.md
+- text/foreword.ja.md
+- text/regulations.en.md
+- text/subsidiary-rules.en.md
+- text/guidelines.en.md
+text_streams:
+- path: text/foreword.en.md
+  stream_id: foreword.en
+  language: en
+  status: reviewed
+  verification_status: verified_against_pdf_by_repository_owner
+- path: text/foreword.ja.md
+  stream_id: foreword.ja
+  language: ja
+  status: reviewed
+  verification_status: verified_against_pdf_by_repository_owner
+- path: text/regulations.en.md
+  stream_id: regulations.en
+  language: en
+  status: reviewed
+  verification_status: verified_against_pdf_by_repository_owner
+- path: text/subsidiary-rules.en.md
+  stream_id: subsidiary-rules.en
+  language: en
+  status: reviewed
+  verification_status: verified_against_pdf_by_repository_owner
+- path: text/guidelines.en.md
+  stream_id: guidelines.en
+  language: en
+  status: reviewed
+  verification_status: verified_against_pdf_by_repository_owner
+segmentation:
+  notes: segmentation-notes.yaml
+  status: reviewed
+  layout_alignment: layout-alignment.yaml
+planned_structured_assets:
+  nodes: nodes.yaml
+  figures: figures.yaml
+  tables: tables.yaml
+  figures_directory: figures/
+  tables_directory: tables/
+  relationships: relationships.yaml
+  glossary_links: glossary-links.yaml
+node_index:
+  path: nodes.yaml
+  status: reviewed
+  node_count: 69
+  article_count: 39
+  subsidiary_rule_count: 30
+  id_policy: typed_sequential_ids_with_official_citation_labels
+relationship_index:
+  path: relationships.yaml
+  status: draft
+  relationship_count: 28
+  registry_resolution_status: figure_and_table_targets_resolved_for_initial_relationships
+  included_streams:
+  - text/regulations.en.md
+  - text/subsidiary-rules.en.md
+  counts:
+    supplements: 14
+    references_figure: 10
+    references_table: 3
+    external_reference: 1
+figure_registry:
+  path: figures.yaml
+  status: reviewed
+  figure_count: 23
+  asset_status: extracted_from_pdf_render
+  asset_count: 23
+  crop_map: figures/crop-map.yaml
+  review_status: reviewed_ok
+  reviewed_by: Adrian Yoneda
+  reviewed_date: 2026-07-16
+  counts:
+    regulations: 5
+    guidelines: 18
+table_registry:
+  path: tables.yaml
+  status: reviewed
+  table_count: 4
+  structure_status: structured_verified
+  structured_data_files: 4
+  crop_map: tables/crop-map.yaml
+  visual_asset_status: verified_by_repository_owner
+  visual_asset_count: 5
+  visual_assets_reviewed_by: Adrian Yoneda
+  visual_assets_reviewed_date: 2026-07-17
+  counts:
+    regulations: 2
+    recording_guide: 2
+glossary_index:
+  path: glossary-links.yaml
+  source_glossary: ontology/glossary.yaml
+  status: generated_audited
+  term_count: 95
+  link_count: 523
+  generation_method: term_label_scan_against_nodes_and_guideline_sections
+  source_glossary_term_count: 94
+  supplemental_term_count: 1
+  source_glossary_inventory: ontology/source-glossaries/fik-regulations-2023-07-26.yaml
+  audit: validation/glossary-link-audit.yaml
+validation:
+  report: validation/report.yaml
+  manual_review: validation/manual-review.yaml
+  automated_validation: validation/automated-validation.yaml
+  glossary_link_audit: validation/glossary-link-audit.yaml
+  export_validation: validation/export-validation.yaml
+exports:
+  status: generated
+  generator: tools/export_package.py
+  generator_version: 0.1.0
+  generated_date: 2026-07-17
+  chunk_count: 224
+  jsonl: exports/jsonl/corpus.jsonl
+  sqlite: exports/sqlite/corpus.sqlite
+  jsonld: exports/jsonld/corpus.jsonld
+  markdown: exports/markdown/fik-regulations-2023-07-26.en.md
+  html: exports/html/fik-regulations-2023-07-26.en.html
+  citation_map: exports/citation-map.json
+rag_evaluation:
+  path: tests/rag-eval/fik-regulations-2023.yaml
+  status: lexical_baseline_scored
+  case_count: 13
+  runner: tools/run_rag_eval.py
+  baseline_result: tests/rag-eval/results/fik-regulations-2023-sqlite-fts5.yaml
+  baseline_retriever: sqlite_fts5
+  passed_cases: 11
+  mean_recall_at_5: 0.8846

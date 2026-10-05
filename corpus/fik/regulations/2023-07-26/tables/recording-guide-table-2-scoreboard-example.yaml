@@ -1,0 +1,202 @@
+package_id: fik.regulations.2023-07-26
+table_id: kkp:table:fik.recording-guide:000002
+citation_label: "Table 2"
+title: "An Example of Scoreboard Use for Dantai-shiai"
+data_status: structured_verified
+source_text: raw/existing-transcription.md
+source_raw_line: 287
+verification_status: verified_against_pdf_by_repository_owner
+reviewed_by: Adrian Yoneda
+reviewed_date: 2026-07-17
+scoreboard_orientation: "Score marks are modeled by player/color area and center marks; placement notes preserve source-table visual position."
+official_caption: "An Example of Scoreboard Use for Dantai-shiai"
+mark_schema:
+  code: "Visible letter, numeral, or symbol inside the mark; null when the mark has no internal code."
+  enclosure: "circle, square, rectangle, or none."
+  shape: "triangle is used for Hansoku marks."
+  fill: "empty or solid."
+  color: "Mark color when specified by the source table."
+  placement: "Visual placement relative to the score frame when relevant."
+fields:
+  referees:
+    shushin: "[Shushin Name]"
+    fukushin:
+      - "[Fukushin 1 Name]"
+      - "[Fukushin 2 Name]"
+  teams:
+    white:
+      side: "left"
+      score_area: white_area
+    red:
+      side: "right"
+      score_area: red_area
+rounds:
+  - order: "Senpo"
+    white_player: "[Player Name]"
+    white_result: null
+    result:
+      winner: red
+      win_type: ippon-gachi
+      points:
+        white: 0
+        red: 1
+    score_frame:
+      white_area:
+        marks_outer_to_center: []
+      center_marks: []
+      red_area:
+        marks_outer_to_center:
+          - mark_id: red_ippon_gachi
+            code: "1"
+            enclosure: square
+            fill: empty
+            meaning: "Ippon-gachi"
+            placement: "Placed to the left of the circled M in the source table because the point belongs to the red player."
+          - mark_id: red_men
+            code: "M"
+            enclosure: circle
+            fill: empty
+            meaning: "Men"
+    red_player: "[Player Name]"
+    red_result: "winner"
+  - order: "Jiho"
+    white_player: "[Player Name]"
+    white_result: null
+    result:
+      winner: red
+      win_type: hantei
+      points:
+        white: 0
+        red: 0
+    score_frame:
+      white_area:
+        marks_outer_to_center: []
+      center_marks:
+        - mark_id: encho
+          code: "E"
+          enclosure: rectangle
+          fill: empty
+          meaning: "Encho; the result occurred during time extension."
+      red_area:
+        marks_outer_to_center:
+          - mark_id: red_hantei
+            code: "Ht"
+            enclosure: circle
+            fill: empty
+            meaning: "Victory by Hantei"
+    red_player: "[Player Name]"
+    red_result: "winner"
+  - order: "Chuken"
+    white_player: "[Player Name]"
+    white_result: "winner"
+    result:
+      winner: white
+      win_type: fusen-gachi
+      points:
+        white: 2
+        red: 0
+    score_frame:
+      white_area:
+        marks_outer_to_center:
+          - mark_id: white_fusen_gachi_points
+            code: null
+            enclosure: circle
+            fill: empty
+            count: 2
+            meaning: "Fusen-gachi; two empty circles on the winner side."
+      center_marks: []
+      red_area:
+        marks_outer_to_center: []
+    red_player: "[Player Name]"
+    red_result: null
+  - order: "Fukusho"
+    white_player: "[Player Name]"
+    white_result: "draw"
+    result:
+      winner: null
+      win_type: hikiwake
+      points:
+        white: 1
+        red: 1
+    score_frame:
+      white_area:
+        marks_outer_to_center:
+          - mark_id: white_hansoku_ippon
+            code: "H"
+            enclosure: circle
+            fill: empty
+            meaning: "Hansoku ippon"
+      center_marks:
+        - mark_id: hikiwake
+          code: "X"
+          enclosure: none
+          meaning: "Hikiwake"
+      red_area:
+        marks_outer_to_center:
+          - mark_id: red_men
+            code: "M"
+            enclosure: circle
+            fill: empty
+            meaning: "Men"
+    red_player: "[Player Name]"
+    red_result: "draw"
+  - order: "Taisho"
+    white_player: "[Player Name]"
+    white_result: null
+    result:
+      winner: red
+      win_type: yuko-datotsu
+      points:
+        white: 1
+        red: 2
+    score_frame:
+      white_area:
+        marks_outer_to_center:
+          - mark_id: white_hansoku
+            code: null
+            shape: triangle
+            color: red
+            fill: solid
+            meaning: "Hansoku by the white player"
+            placement: "Closer to the white player's name than the score mark."
+          - mark_id: white_kote
+            code: "K"
+            enclosure: circle
+            fill: empty
+            meaning: "Kote"
+      center_marks: []
+      red_area:
+        marks_outer_to_center:
+          - mark_id: red_hansoku
+            code: null
+            shape: triangle
+            color: red
+            fill: solid
+            meaning: "Hansoku by the red player"
+            placement: "Closer to the red player's name than the score marks."
+          - mark_id: red_tsuki
+            code: "T"
+            enclosure: circle
+            fill: empty
+            meaning: "Tsuki"
+          - mark_id: red_men
+            code: "M"
+            enclosure: circle
+            fill: empty
+            meaning: "Men"
+    red_player: "[Player Name]"
+    red_result: "winner"
+totals:
+  white:
+    winners: 1
+    points: 4
+  red:
+    winners: 3
+    points: 4
+  draws: 1
+result: "Team Red Wins by a Margin of 3 Matches to 1."
+notes:
+  - Mark shapes and example results were corrected after repository-owner PDF review comments.
+  - Within each player's score area, scoring marks are recorded from the outer/player-name side toward the center.
+  - Hansoku triangles are placed closest to the relevant player's name when present.
+  - In the Senpo example, the square 1 is placed to the left of the circled M for the red player; a white-player Ippon-gachi equivalent would be placed to the right of the first point mark.

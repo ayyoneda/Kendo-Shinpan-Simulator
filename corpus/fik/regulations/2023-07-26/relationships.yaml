@@ -1,0 +1,325 @@
+package_id: fik.regulations.2023-07-26
+relationship_index_status: draft
+generated_date: 2026-07-15
+generation_method: explicit_text_pattern_extraction
+scope:
+  included_streams:
+    - text/regulations.en.md
+    - text/subsidiary-rules.en.md
+  excluded_streams:
+    - text/guidelines.en.md
+    - text/foreword.en.md
+    - text/foreword.ja.md
+notes:
+  - Draft relationships were generated only from explicit text references.
+  - Figure and table targets have been resolved to draft registry IDs where matching registry entries exist.
+  - Relationship evidence should be reviewed against the source PDF before release.
+relationships:
+  - relationship_id: rel-000001
+    type: references_figure
+    source_id: kkp:subsidiary-rule:fik.regulations:000002
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000002
+    source_citation_label: "Article 2"
+    target_id: kkp:figure:fik.regulations:000002
+    target_label: "Figure 2"
+    evidence: "Figure 2"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000002
+    type: references_figure
+    source_id: kkp:article:fik.regulations:000014
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000014
+    source_citation_label: "Article 14"
+    target_id: kkp:figure:fik.regulations:000003
+    target_label: "Figure 3"
+    evidence: "Figure 3"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000003
+    type: references_table
+    source_id: kkp:article:fik.regulations:000037
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000037
+    source_citation_label: "Article 37"
+    target_id: kkp:table:fik.regulations:000001
+    target_label: "Table 1"
+    evidence: "Table 1"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000004
+    type: references_table
+    source_id: kkp:article:fik.regulations:000038
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000038
+    source_citation_label: "Article 38"
+    target_id: kkp:table:fik.regulations:000001
+    target_label: "Table 1"
+    evidence: "Table 1"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000005
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000001
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000001
+    source_citation_label: "Article 1"
+    target_id: kkp:article:fik.regulations:000002
+    target_label: null
+    evidence: "Article 2 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000006
+    type: references_figure
+    source_id: kkp:subsidiary-rule:fik.regulations:000001
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000001
+    source_citation_label: "Article 1"
+    target_id: kkp:figure:fik.regulations:000001
+    target_label: "Figure 1"
+    evidence: "Figure 1"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000007
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000002
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000002
+    source_citation_label: "Article 2"
+    target_id: kkp:article:fik.regulations:000003
+    target_label: null
+    evidence: "Article 3 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000008
+    type: references_table
+    source_id: kkp:subsidiary-rule:fik.regulations:000002
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000002
+    source_citation_label: "Article 2"
+    target_id: kkp:table:fik.regulations:000002
+    target_label: "Table 2, A and B"
+    evidence: "Table 2, A and B"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000009
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000003
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000003
+    source_citation_label: "Article 3"
+    target_id: kkp:article:fik.regulations:000004
+    target_label: null
+    evidence: "Article 4 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000010
+    type: references_figure
+    source_id: kkp:subsidiary-rule:fik.regulations:000003
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000003
+    source_citation_label: "Article 3"
+    target_id: kkp:figure:fik.regulations:000003
+    target_label: "Figure 3"
+    evidence: "Figure 3"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000011
+    type: references_figure
+    source_id: kkp:subsidiary-rule:fik.regulations:000006
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000006
+    source_citation_label: "Article 5"
+    target_id: kkp:figure:fik.regulations:000004
+    target_label: "Figure 4"
+    evidence: "Figure 4"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000012
+    type: references_figure
+    source_id: kkp:subsidiary-rule:fik.regulations:000007
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000007
+    source_citation_label: "Article 6"
+    target_id: kkp:figure:fik.regulations:000005
+    target_label: "Figure 5"
+    evidence: "Figure 5"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000013
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000010
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000010
+    source_citation_label: "Article 9"
+    target_id: kkp:article:fik.regulations:000007
+    target_label: null
+    evidence: "Article 7 Item 5 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000014
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000011
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000011
+    source_citation_label: "Article 10"
+    target_id: kkp:article:fik.regulations:000012
+    target_label: null
+    evidence: "Article 12 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000015
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000014
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000014
+    source_citation_label: "Article 13"
+    target_id: kkp:article:fik.regulations:000014
+    target_label: null
+    evidence: "Article 14 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000016
+    type: references_figure
+    source_id: kkp:subsidiary-rule:fik.regulations:000014
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000014
+    source_citation_label: "Article 13"
+    target_id: kkp:figure:fik.regulations:000003
+    target_label: "Figure 3"
+    evidence: "Figure 3"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000017
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000015
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000015
+    source_citation_label: "Article 14"
+    target_id: kkp:article:fik.regulations:000015
+    target_label: null
+    evidence: "Article 15 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000018
+    type: external_reference
+    source_id: kkp:subsidiary-rule:fik.regulations:000015
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000015
+    source_citation_label: "Article 14"
+    target_id: null
+    target_label: "World Anti-Doping Agency (WADA) Prohibited List"
+    evidence: "latest Prohibited Table of the World Anti-Doping Agency (WADA)"
+    note: dynamic_external_authority
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000019
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000016
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000016
+    source_citation_label: "Article 15"
+    target_id: kkp:article:fik.regulations:000003
+    target_label: null
+    evidence: "Article 3 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000020
+    type: references_figure
+    source_id: kkp:subsidiary-rule:fik.regulations:000016
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000016
+    source_citation_label: "Article 15"
+    target_id: kkp:figure:fik.regulations:000003
+    target_label: "Figure 3"
+    evidence: "Figure 3"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000021
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000018
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000018
+    source_citation_label: "Article 17"
+    target_id: kkp:article:fik.regulations:000020
+    target_label: null
+    evidence: "Article 20 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000022
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000023
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000023
+    source_citation_label: "Article 22"
+    target_id: kkp:article:fik.regulations:000025
+    target_label: null
+    evidence: "Article 25 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000023
+    type: references_figure
+    source_id: kkp:subsidiary-rule:fik.regulations:000023
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000023
+    source_citation_label: "Article 22"
+    target_id: kkp:figure:fik.regulations:000005
+    target_label: "Figure 5"
+    evidence: "Fig. 5"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000024
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000025
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000025
+    source_citation_label: "Article 24"
+    target_id: kkp:article:fik.regulations:000027
+    target_label: null
+    evidence: "Article 27 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000025
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000026
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000026
+    source_citation_label: "Article 25"
+    target_id: kkp:article:fik.regulations:000028
+    target_label: null
+    evidence: "Article 28 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000026
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000029
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000029
+    source_citation_label: "Article 28"
+    target_id: kkp:article:fik.regulations:000031
+    target_label: null
+    evidence: "Article 31 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000027
+    type: supplements
+    source_id: kkp:subsidiary-rule:fik.regulations:000030
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000030
+    source_citation_label: "Article 29"
+    target_id: kkp:article:fik.regulations:000036
+    target_label: null
+    evidence: "Article 36 of the \"Regulations\""
+    note: null
+    status: draft
+    confidence: explicit_text_match
+  - relationship_id: rel-000028
+    type: references_figure
+    source_id: kkp:subsidiary-rule:fik.regulations:000030
+    source_node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000030
+    source_citation_label: "Article 29"
+    target_id: kkp:figure:fik.regulations:000005
+    target_label: "Figure 5"
+    evidence: "Fig. 5"
+    note: resolved_from_registry
+    status: draft
+    confidence: explicit_text_match

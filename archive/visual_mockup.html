@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visual Mockup: Wood Floor & Indicators</title>
+  <style>
+    body { margin: 0; background-color: #1a1a1a; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; color: white; }
+    canvas { background-color: #000; box-shadow: 0 0 20px rgba(0,0,0,0.8); }
+    #info { position: absolute; top: 20px; left: 20px; background: rgba(0,0,0,0.7); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); }
+  </style>
+</head>
+<body>
+  <div id="info">
+    <h3>Visual Proposals</h3>
+    <p>1. Realistic wood floor rendering (with planks and grain illusion)</p>
+    <p>2. Directional indicators (noses) showing where entities are facing</p>
+    <p>3. Dynamic shadows and lighting</p>
+  </div>
+  <canvas id="mockupCanvas" width="800" height="800"></canvas>
+  <script>
+    const canvas = document.getElementById('mockupCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    function drawWoodFloor() {
+      // Base wood color
+      ctx.fillStyle = '#b58b5e';
+      ctx.fillRect(0, 0, 800, 800);
+      
+      // Draw planks
+      const plankWidth = 40;
+      for (let x = 0; x < 800; x += plankWidth) {
+        // Plank border
+        ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, 800);
+        ctx.stroke();
+        
+        // Plank grain variations
+        for (let i = 0; i < 5; i++) {
+          ctx.fillStyle = (Math.random() > 0.5) ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)';
+          ctx.fillRect(x, Math.random() * 800, plankWidth, Math.random() * 200 + 100);
+        }
+      }
+      
+      // Global gradient for lighting
+      const grad = ctx.createRadialGradient(400, 400, 100, 400, 400, 600);
+      grad.addColorStop(0, 'rgba(255,255,255,0.1)');
+      grad.addColorStop(1, 'rgba(0,0,0,0.5)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 800, 800);
+    }
+    
+    function drawCourtLines() {
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.lineWidth = 6;
+      ctx.strokeRect(100, 100, 600, 600);
+      
+      // Center cross
+      ctx.beginPath();
+      ctx.moveTo(390, 400); ctx.lineTo(410, 400);
+      ctx.moveTo(400, 390); ctx.lineTo(400, 410);
+      ctx.stroke();
+      
+      // Kaishi-sen
+      ctx.beginPath();
+      ctx.moveTo(300, 380); ctx.lineTo(300, 420);
+      ctx.moveTo(500, 380); ctx.lineTo(500, 420);
+      ctx.stroke();
+    }
+    
+    function drawEntity(x, y, radius, color, label, facingAngle, isRef) {
+      // Shadow
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x + 5, y + 10, radius, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,0,0,0.4)';
+      ctx.filter = 'blur(4px)';
+      ctx.fill();
+      ctx.restore();
+      
+      // Directional Indicator (Nose/Arrow)
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(facingAngle);
+      ctx.beginPath();
+      ctx.moveTo(0, -radius * 0.8);
+      ctx.lineTo(radius * 1.5, 0);
+      ctx.lineTo(0, radius * 0.8);
+      ctx.closePath();
+      ctx.fillStyle = isRef ? 'rgba(255,255,255,0.5)' : color;
+      ctx.fill();
+      
+      // Stroke for the arrow
+      ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.restore();
+      
+      // Body
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.strokeStyle = isRef ? '#fff' : '#000';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      
+      // Label
+      ctx.fillStyle = isRef ? '#fff' : (color === '#ffffff' ? '#000' : '#fff');
+      ctx.font = 'bold 16px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(label, x, y);
+    }
+    
+    function render() {
+      drawWoodFloor();
+      drawCourtLines();
+      
+      // White and Red
+      drawEntity(300, 400, 20, '#ffffff', 'W', 0, false); // facing right
+      drawEntity(500, 400, 20, '#cc0000', 'R', Math.PI, false); // facing left
+      
+      // Referees facing center (400, 400)
+      const angleS = Math.atan2(400 - 150, 400 - 400); // Shushin at (400, 150)
+      drawEntity(400, 150, 18, '#2563eb', 'S', angleS, true);
+      
+      const angleF1 = Math.atan2(400 - 650, 400 - 600); // F1 at (600, 650)
+      drawEntity(600, 650, 18, '#fbbf24', 'F1', angleF1, true);
+      
+      const angleF2 = Math.atan2(400 - 650, 400 - 200); // F2 at (200, 650)
+      drawEntity(200, 650, 18, '#22c55e', 'F2', angleF2, true);
+    }
+    
+    render();
+  </script>
+</body>
+</html>

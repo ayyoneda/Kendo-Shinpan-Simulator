@@ -1,0 +1,18 @@
+source_file: original.pdf
+original_filename: Regulations-of-Kendo-Shiai-and-Shinpan-EN_Jul2023.pdf
+source_type: official_pdf
+acquisition_method: user_provided_file
+official_source_url: null
+acquired_by: Adrian Yu Yoneda
+acquired_date: 2026-07-15
+rights_status: unknown
+publication_policy: internal_research_use_only
+source_redistribution: prohibited_until_rights_confirmed
+checksum:
+  algorithm: sha256
+  value: 869c0191bda126db307d08395cdda591312d5c0276ef0620d38c2137abb28d8d
+notes: >
+  Source PDF was provided by the repository owner during first-slice intake.
+  Rights status is intentionally recorded as unknown until explicit permission
+  or distribution terms are confirmed. Generated artifacts remain internal and
+  the source PDF must not be redistributed publicly while this status applies.

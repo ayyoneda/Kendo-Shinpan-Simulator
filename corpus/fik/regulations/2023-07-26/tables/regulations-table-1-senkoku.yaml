@@ -1,0 +1,302 @@
+package_id: fik.regulations.2023-07-26
+table_id: kkp:table:fik.regulations:000001
+citation_label: "Table 1"
+title: "Senkoku by Shinpan-in and Use of Shinpan-ki"
+data_status: structured_verified
+source_text: raw/existing-transcription.md
+source_raw_line: 91
+verification_status: verified_against_pdf_by_repository_owner
+reviewed_by: Adrian Yoneda
+reviewed_date: 2026-07-17
+columns:
+  - macro_situation
+  - situation
+  - senkoku
+  - motion_of_shinpan_ki
+  - reference_figures
+rows:
+  - row_id: senkoku-001
+    macro_situation: "Beginning"
+    situation: "Beginning of Shiai"
+    senkoku: "Hajime"
+    motion_of_shinpan_ki: "Hold flags on both sides of the body."
+    reference_figures:
+      - citation_label: "Fig. 9"
+        figure_id: kkp:figure:fik.guidelines:000009
+  - row_id: senkoku-002
+    macro_situation: "Resumption"
+    situation: "Resumption of Shiai"
+    senkoku: "Hajime"
+    motion_of_shinpan_ki: "Same as above."
+    reference_figures:
+      - citation_label: "Fig. 9"
+        figure_id: kkp:figure:fik.guidelines:000009
+  - row_id: senkoku-003
+    macro_situation: "Suspension"
+    situation: "Suspension of Shiai"
+    senkoku: "Yame"
+    motion_of_shinpan_ki: "Raise flags straight up."
+    reference_figures:
+      - citation_label: "Fig. 14"
+        figure_id: kkp:figure:fik.guidelines:000014
+  - row_id: senkoku-004
+    macro_situation: "Yuko-datotsu"
+    situation: "Decision of Yuko-datotsu"
+    senkoku: "Men-, Kote-, Do-, Tsuki-Ari"
+    motion_of_shinpan_ki: "Raise a flag diagonally up on one side."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-005
+    macro_situation: "Yuko-datotsu"
+    situation: "Denial of Yuko-datotsu"
+    senkoku: null
+    motion_of_shinpan_ki: "Crisscross flags downward."
+    reference_figures:
+      - citation_label: "Fig. 11"
+        figure_id: kkp:figure:fik.guidelines:000011
+  - row_id: senkoku-006
+    macro_situation: "Yuko-datotsu"
+    situation: "Abstention from decision of judgment"
+    senkoku: null
+    motion_of_shinpan_ki: "Hold flags crossed downward."
+    reference_figures:
+      - citation_label: "Fig. 12"
+        figure_id: kkp:figure:fik.guidelines:000012
+  - row_id: senkoku-007
+    macro_situation: "Yuko-datotsu"
+    situation: "Torikeshi of Yuko-datotsu"
+    senkoku: "Torikeshi"
+    motion_of_shinpan_ki: "Crisscross flags downward."
+    reference_figures:
+      - citation_label: "Fig. 11"
+        figure_id: kkp:figure:fik.guidelines:000011
+  - row_id: senkoku-008
+    macro_situation: "Yuko-datotsu"
+    situation: "Beginning of Nihon-me"
+    senkoku: "Nihon-me"
+    motion_of_shinpan_ki: "Lower the raised flag."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-009
+    macro_situation: "Yuko-datotsu"
+    situation: "Beginning of Shobu"
+    senkoku: "Shobu"
+    motion_of_shinpan_ki: "Same as above."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-010
+    macro_situation: "Decision of Victory"
+    situation: "Decision of victory"
+    senkoku: "Shobu-ari"
+    motion_of_shinpan_ki: "Same as above."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-011
+    macro_situation: "Decision of Victory"
+    situation: "Beginning of Encho"
+    senkoku: "Encho-hajime"
+    motion_of_shinpan_ki: "Hold flags on both sides of the body."
+    reference_figures:
+      - citation_label: "Fig. 9"
+        figure_id: kkp:figure:fik.guidelines:000009
+  - row_id: senkoku-012
+    macro_situation: "Decision of Victory"
+    situation: "Ippon-gachi"
+    senkoku: "Shobu-ari"
+    motion_of_shinpan_ki: "Raise a flag diagonally up on one side."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-013
+    macro_situation: "Decision of Victory"
+    situation: "Pronouncing Hantei / Victory by Hantei"
+    senkoku:
+      - step: 1
+        call: "Hantei"
+      - step: 2
+        call: "Shobu-ari"
+    motion_of_shinpan_ki:
+      - step: 1
+        motion: "Same as above."
+      - step: 2
+        motion: "Lower the raised flag."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-014
+    macro_situation: "Decision of Victory"
+    situation: "Victory by Kiken"
+    senkoku: "Shobu-ari"
+    motion_of_shinpan_ki: "Raise a flag diagonally up on one side."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-015
+    macro_situation: "Decision of Victory"
+    situation: "Hikiwake"
+    senkoku: "Hikiwake"
+    motion_of_shinpan_ki: "Hold flags crossed above the forehead."
+    reference_figures:
+      - citation_label: "Fig. 13"
+        figure_id: kkp:figure:fik.guidelines:000013
+  - row_id: senkoku-016
+    macro_situation: "Decision of Victory"
+    situation: "Incapacitation in Shiai"
+    senkoku: "Shobu-ari"
+    motion_of_shinpan_ki: "Raise a flag diagonally up on one side."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-017
+    macro_situation: "Decision of Victory"
+    situation: "Victory by Chusen"
+    senkoku: "Shobu-ari"
+    motion_of_shinpan_ki: "Same as above."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-018
+    macro_situation: "Decision of Victory"
+    situation: "Daihyosha-sen"
+    senkoku: "Hajime"
+    motion_of_shinpan_ki: "Hold flags on both sides of the body."
+    reference_figures:
+      - citation_label: "Fig. 9"
+        figure_id: kkp:figure:fik.guidelines:000009
+  - row_id: senkoku-019
+    macro_situation: "Gogi"
+    situation: "Calling of Gogi"
+    senkoku: "Gogi"
+    motion_of_shinpan_ki: "Raise both flags straight up in the right hand."
+    reference_figures:
+      - citation_label: "Fig. 16"
+        figure_id: kkp:figure:fik.guidelines:000016
+  - row_id: senkoku-020
+    macro_situation: "Gogi"
+    situation: "Signaling of its result"
+    senkoku: null
+    motion_of_shinpan_ki: "Signal by Shushin with the flag."
+    reference_figures: []
+  - row_id: senkoku-021
+    macro_situation: "Hansoku"
+    situation: "Use or possession of prohibited substances"
+    senkoku: "Shobu-ari"
+    motion_of_shinpan_ki: "Raise a flag diagonally up on one side."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-022
+    macro_situation: "Hansoku"
+    situation: "Insulting or offensive acts"
+    senkoku: "Shobu-ari"
+    motion_of_shinpan_ki: "Same as above."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-023
+    macro_situation: "Hansoku"
+    situation: "Use of Fusei-yogu"
+    senkoku: "Shobu-ari"
+    motion_of_shinpan_ki: "Same as above."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-024
+    macro_situation: "Hansoku"
+    situation: "Tripping or Sweeping-off opponent's leg(s)"
+    senkoku: "Hansoku ( ) kai"
+    motion_of_shinpan_ki: "First, raise flags diagonally downward on one side, and declare the number of Hansoku with finger(s) towards the violator."
+    reference_figures:
+      - citation_label: "Fig. 17"
+        figure_id: kkp:figure:fik.guidelines:000017
+  - row_id: senkoku-025
+    macro_situation: "Hansoku"
+    situation: "Pushing the opponent out of Shiai-jo"
+    senkoku: "Same as above."
+    motion_of_shinpan_ki: "Same as above."
+    reference_figures:
+      - citation_label: "Fig. 17"
+        figure_id: kkp:figure:fik.guidelines:000017
+  - row_id: senkoku-026
+    macro_situation: "Hansoku"
+    situation: "Leaving hold of Shinai"
+    senkoku: "Same as above."
+    motion_of_shinpan_ki: "Same as above."
+    reference_figures:
+      - citation_label: "Fig. 17"
+        figure_id: kkp:figure:fik.guidelines:000017
+  - row_id: senkoku-027
+    macro_situation: "Hansoku"
+    situation: "Request for a break without a justifiable reason"
+    senkoku: "Same as above."
+    motion_of_shinpan_ki: "Same as above."
+    reference_figures:
+      - citation_label: "Fig. 17"
+        figure_id: kkp:figure:fik.guidelines:000017
+  - row_id: senkoku-028
+    macro_situation: "Hansoku"
+    situation: "Hansoku simultaneously committed by both Shiai-sha"
+    senkoku: "Same as above."
+    motion_of_shinpan_ki: "Raise flags diagonally downward on both sides."
+    reference_figures:
+      - citation_label: "Fig. 18"
+        figure_id: kkp:figure:fik.guidelines:000018
+  - row_id: senkoku-029
+    macro_situation: "Hansoku"
+    situation: "Miscellaneous violations of the Regulations"
+    senkoku: "Same as above."
+    motion_of_shinpan_ki: "First, raise a flag diagonally downward on one side and then declare the number of Hansoku with finger(s) towards the violator."
+    reference_figures:
+      - citation_label: "Fig. 17"
+        figure_id: kkp:figure:fik.guidelines:000017
+  - row_id: senkoku-030
+    macro_situation: "Hansoku"
+    situation: "Having committed second Hansoku"
+    senkoku: "Hansoku-nikai and Ippon-ari"
+    motion_of_shinpan_ki: "Raise a flag diagonally up on one side."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+  - row_id: senkoku-031
+    macro_situation: "Hansoku"
+    situation: "Applying Sosai"
+    senkoku: "Sosai or Onajiku-sosai after the second offset"
+    motion_of_shinpan_ki: "Crisscross flags downward."
+    reference_figures:
+      - citation_label: "Fig. 11"
+        figure_id: kkp:figure:fik.guidelines:000011
+  - row_id: senkoku-032
+    macro_situation: "Wakare"
+    situation: "When tsubazeriai reaches a stalemate / To resume Shiai"
+    senkoku:
+      - step: 1
+        call: "Wakare"
+      - step: 2
+        call: "Hajime"
+    motion_of_shinpan_ki:
+      - step: 1
+        motion: "Raise both flags straight forward."
+      - step: 2
+        motion: "Lower both flags downward."
+    reference_figures:
+      - citation_label: "Fig. 15"
+        figure_id: kkp:figure:fik.guidelines:000015
+      - citation_label: "Fig. 9"
+        figure_id: kkp:figure:fik.guidelines:000009
+  - row_id: senkoku-033
+    macro_situation: "Injury, Accident, Kiken"
+    situation: "Shiai-funo due to injury, accident or Kiken"
+    senkoku: "Shobu-ari"
+    motion_of_shinpan_ki: "Raise a flag diagonally up on one side."
+    reference_figures:
+      - citation_label: "Fig. 10"
+        figure_id: kkp:figure:fik.guidelines:000010
+notes:
+  - Reference figures belong to the guideline figure set.
+  - The first source-table column has no explicit title and is represented as macro_situation.
+  - The second source-table column is represented as situation; the official Senkoku column is represented as senkoku.
+  - Row data was structured from the current transcription and cross-checked against PDF extraction lines 1001-1084.

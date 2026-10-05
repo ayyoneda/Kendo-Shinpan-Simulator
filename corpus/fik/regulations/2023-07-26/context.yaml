@@ -1,0 +1,20 @@
+organization: FIK
+document_family: regulations
+official_title: The Regulations of Kendo Shiai and Shinpan
+official_version: 2023-07-26
+primary_language: en
+embedded_languages:
+  - ja
+source_file: source/original.pdf
+original_source_filename: Regulations-of-Kendo-Shiai-and-Shinpan-EN_Jul2023.pdf
+document_type: regulations
+known_context: >
+  Official FIK regulations, subsidiary rules, and guidelines for Kendo Shiai
+  and Shinpan. The document includes regulations, subsidiary rules, guidelines,
+  tables, figures, appendices, and glossary material.
+rights_status: unknown
+publication_policy: internal_research_use_only
+source_redistribution: prohibited_until_rights_confirmed
+existing_transcription: raw/existing-transcription.md
+intake_status: approved
+intake_date: 2026-07-15

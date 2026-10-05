@@ -1,0 +1,898 @@
+package_id: fik.regulations.2023-07-26
+node_index_status: reviewed
+generated_from:
+  - text/regulations.en.md
+  - text/subsidiary-rules.en.md
+generated_date: 2026-07-15
+id_policy: typed_sequential_ids_with_official_citation_labels
+layout_alignment: layout-alignment.yaml
+nodes:
+  - canonical_id: kkp:article:fik.regulations:000001
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000001
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 17
+    citation_label: "Article 1"
+    local_number: "1"
+    local_anchor: reg-fik-regulations-000001
+    title: "The Purpose of the \"Regulations\""
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000002
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000002
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 29
+    citation_label: "Article 2"
+    local_number: "2"
+    local_anchor: reg-fik-regulations-000002
+    title: "Shiai-jo"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000003
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000003
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 37
+    citation_label: "Article 3"
+    local_number: "3"
+    local_anchor: reg-fik-regulations-000003
+    title: "Shinai"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000004
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000004
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 43
+    citation_label: "Article 4"
+    local_number: "4"
+    local_anchor: reg-fik-regulations-000004
+    title: "Kendo-gu"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000005
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000005
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 49
+    citation_label: "Article 5"
+    local_number: "5"
+    local_anchor: reg-fik-regulations-000005
+    title: "Uniform"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000006
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000006
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 59
+    citation_label: "Article 6"
+    local_number: "6"
+    local_anchor: reg-fik-regulations-000006
+    title: "Duration of Shiai"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000007
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000007
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 65
+    citation_label: "Article 7"
+    local_number: "7"
+    local_anchor: reg-fik-regulations-000007
+    title: "Decision of Victory"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000008
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000008
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 76
+    citation_label: "Article 8"
+    local_number: "8"
+    local_anchor: reg-fik-regulations-000008
+    title: "Dantai-shiai"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000009
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000009
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 84
+    citation_label: "Article 9"
+    local_number: "9"
+    local_anchor: reg-fik-regulations-000009
+    title: "The Start and End of Shiai"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000010
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000010
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 90
+    citation_label: "Article 10"
+    local_number: "10"
+    local_anchor: reg-fik-regulations-000010
+    title: "Suspension and Resumption of Shiai"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000011
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000011
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 96
+    citation_label: "Article 11"
+    local_number: "11"
+    local_anchor: reg-fik-regulations-000011
+    title: "Request for Suspension of Shiai"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000012
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000012
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 104
+    citation_label: "Article 12"
+    local_number: "12"
+    local_anchor: reg-fik-regulations-000012
+    title: "Yuko-datotsu"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000013
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000013
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 110
+    citation_label: "Article 13"
+    local_number: "13"
+    local_anchor: reg-fik-regulations-000013
+    title: "Datotsu-bu of the Shinai"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000014
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000014
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 116
+    citation_label: "Article 14"
+    local_number: "14"
+    local_anchor: reg-fik-regulations-000014
+    title: "Datotsu-bui"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000015
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000015
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 132
+    citation_label: "Article 15"
+    local_number: "15"
+    local_anchor: reg-fik-regulations-000015
+    title: "Use or possession of prohibited substances"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000016
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000016
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 138
+    citation_label: "Article 16"
+    local_number: "16"
+    local_anchor: reg-fik-regulations-000016
+    title: "Insulting or Offensive Behavior"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000017
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000017
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 144
+    citation_label: "Article 17"
+    local_number: "17"
+    local_anchor: reg-fik-regulations-000017
+    title: "Miscellaneous Prohibitions"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000018
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000018
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 159
+    citation_label: "Article 18"
+    local_number: "18"
+    local_anchor: reg-fik-regulations-000018
+    title: "Taijo"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000019
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000019
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 165
+    citation_label: "Article 19"
+    local_number: "19"
+    local_anchor: reg-fik-regulations-000019
+    title: "Fusei-yogu"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000020
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000020
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 174
+    citation_label: "Article 20"
+    local_number: "20"
+    local_anchor: reg-fik-regulations-000020
+    title: "Others"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000021
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000021
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 188
+    citation_label: "Article 21"
+    local_number: "21"
+    local_anchor: reg-fik-regulations-000021
+    title: "Composition of the Shinpan Group"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000022
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000022
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 194
+    citation_label: "Article 22"
+    local_number: "22"
+    local_anchor: reg-fik-regulations-000022
+    title: "Shinpan-cho"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000023
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000023
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 200
+    citation_label: "Article 23"
+    local_number: "23"
+    local_anchor: reg-fik-regulations-000023
+    title: "Shinpan-shunin"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000024
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000024
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 206
+    citation_label: "Article 24"
+    local_number: "24"
+    local_anchor: reg-fik-regulations-000024
+    title: "Shinpan-in"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000025
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000025
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 215
+    citation_label: "Article 25"
+    local_number: "25"
+    local_anchor: reg-fik-regulations-000025
+    title: "Kakari-in Group"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000026
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000026
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 227
+    citation_label: "Article 26"
+    local_number: "26"
+    local_anchor: reg-fik-regulations-000026
+    title: "Decisions on Yuko-datotsu"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000027
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000027
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 235
+    citation_label: "Article 27"
+    local_number: "27"
+    local_anchor: reg-fik-regulations-000027
+    title: "Torikeshi of Yuko-datotsu"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000028
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000028
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 241
+    citation_label: "Article 28"
+    local_number: "28"
+    local_anchor: reg-fik-regulations-000028
+    title: "Mistakes in Decisions for Yuko-datotsu and Other Judgements"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000029
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000029
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 247
+    citation_label: "Article 29"
+    local_number: "29"
+    local_anchor: reg-fik-regulations-000029
+    title: "Procedures for Shinpan"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000030
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000030
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 261
+    citation_label: "Article 30"
+    local_number: "30"
+    local_anchor: reg-fik-regulations-000030
+    title: "Injury or Accident"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000031
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000031
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 271
+    citation_label: "Article 31"
+    local_number: "31"
+    local_anchor: reg-fik-regulations-000031
+    title: "Kiken"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000032
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000032
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 277
+    citation_label: "Article 32"
+    local_number: "32"
+    local_anchor: reg-fik-regulations-000032
+    title: "Points Gained by Shiai-funo-sha or Kiken-sha"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000033
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000033
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 283
+    citation_label: "Article 33"
+    local_number: "33"
+    local_anchor: reg-fik-regulations-000033
+    title: "Points or acquired Status of the Offender"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000034
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000034
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 291
+    citation_label: "Article 34"
+    local_number: "34"
+    local_anchor: reg-fik-regulations-000034
+    title: "Gogi"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000035
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000035
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 297
+    citation_label: "Article 35"
+    local_number: "35"
+    local_anchor: reg-fik-regulations-000035
+    title: "Igi"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000036
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000036
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 300
+    citation_label: "Article 36"
+    local_number: "36"
+    local_anchor: reg-fik-regulations-000036
+    title: "Igi"
+    title_source: carried_forward_heading
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000037
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000037
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 308
+    citation_label: "Article 37"
+    local_number: "37"
+    local_anchor: reg-fik-regulations-000037
+    title: "Senkoku"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000038
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000038
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 312
+    citation_label: "Article 38"
+    local_number: "38"
+    local_anchor: reg-fik-regulations-000038
+    title: "Use of Shinpan-ki"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:article:fik.regulations:000039
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000039
+    node_type: article
+    stream_id: regulations.en
+    path: text/regulations.en.md
+    source_line: 320
+    citation_label: "Article 39"
+    local_number: "39"
+    local_anchor: reg-fik-regulations-000039
+    title: "Supplementary Matters"
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000001
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000001
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 23
+    citation_label: "Article 1"
+    local_number: "1"
+    local_anchor: sub-fik-regulations-000001
+    title: "Shiai-jo"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000002
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000002
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000002
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 32
+    citation_label: "Article 2"
+    local_number: "2"
+    local_anchor: sub-fik-regulations-000002
+    title: "Shinai"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000003
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000003
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000003
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 47
+    citation_label: "Article 3"
+    local_number: "3"
+    local_anchor: sub-fik-regulations-000003
+    title: "Kendo-gu"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000004
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000004
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000004
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 53
+    citation_label: "Article 3-2"
+    local_number: "3-2"
+    local_anchor: sub-fik-regulations-000004
+    title: "Kendo-gu"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000004
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000005
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000005
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 59
+    citation_label: "Article 4"
+    local_number: "4"
+    local_anchor: sub-fik-regulations-000005
+    title: "Uniform"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000005
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000006
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000006
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 62
+    citation_label: "Article 5"
+    local_number: "5"
+    local_anchor: sub-fik-regulations-000006
+    title: "Uniform"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000005
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000007
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000007
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 65
+    citation_label: "Article 6"
+    local_number: "6"
+    local_anchor: sub-fik-regulations-000007
+    title: "Uniform"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000005
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000008
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000008
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 68
+    citation_label: "Article 7"
+    local_number: "7"
+    local_anchor: sub-fik-regulations-000008
+    title: "Uniform"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000005
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000009
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000009
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 71
+    citation_label: "Article 8"
+    local_number: "8"
+    local_anchor: sub-fik-regulations-000009
+    title: null
+    title_source: no_aligned_theme
+    aligned_with: null
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000010
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000010
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 83
+    citation_label: "Article 9"
+    local_number: "9"
+    local_anchor: sub-fik-regulations-000010
+    title: "Decision of Victory"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000007
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000011
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000011
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 95
+    citation_label: "Article 10"
+    local_number: "10"
+    local_anchor: sub-fik-regulations-000011
+    title: "Yuko-datotsu"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000012
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000012
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000012
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 98
+    citation_label: "Article 11"
+    local_number: "11"
+    local_anchor: sub-fik-regulations-000012
+    title: "Yuko-datotsu"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000012
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000013
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000013
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 104
+    citation_label: "Article 12"
+    local_number: "12"
+    local_anchor: sub-fik-regulations-000013
+    title: "Yuko-datotsu"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000012
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000014
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000014
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 112
+    citation_label: "Article 13"
+    local_number: "13"
+    local_anchor: sub-fik-regulations-000014
+    title: "Datotsu-bui"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000014
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000015
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000015
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 126
+    citation_label: "Article 14"
+    local_number: "14"
+    local_anchor: sub-fik-regulations-000015
+    title: "Use or possession of prohibited substances"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000015
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000016
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000016
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 132
+    citation_label: "Article 15"
+    local_number: "15"
+    local_anchor: sub-fik-regulations-000016
+    title: "Miscellaneous Prohibitions"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000017
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000017
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000017
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 142
+    citation_label: "Article 16"
+    local_number: "16"
+    local_anchor: sub-fik-regulations-000017
+    title: "Miscellaneous Prohibitions"
+    title_source: carried_forward_heading
+    aligned_with: kkp:article:fik.regulations:000017
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000018
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000018
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 159
+    citation_label: "Article 17"
+    local_number: "17"
+    local_anchor: sub-fik-regulations-000018
+    title: "Others"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000020
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000019
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000019
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 173
+    citation_label: "Article 18"
+    local_number: "18"
+    local_anchor: sub-fik-regulations-000019
+    title: "Shinpan-cho"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000022
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000020
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000020
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 180
+    citation_label: "Article 19"
+    local_number: "19"
+    local_anchor: sub-fik-regulations-000020
+    title: "Shinpan-cho"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000022
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000021
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000021
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 188
+    citation_label: "Article 20"
+    local_number: "20"
+    local_anchor: sub-fik-regulations-000021
+    title: "Shinpan-shunin"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000023
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000022
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000022
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 198
+    citation_label: "Article 21"
+    local_number: "21"
+    local_anchor: sub-fik-regulations-000022
+    title: "Shinpan-in"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000024
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000023
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000023
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 209
+    citation_label: "Article 22"
+    local_number: "22"
+    local_anchor: sub-fik-regulations-000023
+    title: "Kakari-in Group"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000025
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000024
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000024
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 216
+    citation_label: "Article 23"
+    local_number: "23"
+    local_anchor: sub-fik-regulations-000024
+    title: "Kakari-in Group"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000025
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000025
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000025
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 233
+    citation_label: "Article 24"
+    local_number: "24"
+    local_anchor: sub-fik-regulations-000025
+    title: "Torikeshi of Yuko-datotsu"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000027
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000026
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000026
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 241
+    citation_label: "Article 25"
+    local_number: "25"
+    local_anchor: sub-fik-regulations-000026
+    title: "Mistakes in Decisions for Yuko-datotsu and Other Judgements"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000028
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000027
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000027
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 250
+    citation_label: "Article 26"
+    local_number: "26"
+    local_anchor: sub-fik-regulations-000027
+    title: "Procedures for Shinpan"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000029
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000028
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000028
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 255
+    citation_label: "Article 27"
+    local_number: "27"
+    local_anchor: sub-fik-regulations-000028
+    title: "Procedures for Shinpan"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000029
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000029
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000029
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 265
+    citation_label: "Article 28"
+    local_number: "28"
+    local_anchor: sub-fik-regulations-000029
+    title: "Kiken"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000031
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner
+  - canonical_id: kkp:subsidiary-rule:fik.regulations:000030
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000030
+    node_type: subsidiary-rule
+    stream_id: subsidiary-rules.en
+    path: text/subsidiary-rules.en.md
+    source_line: 276
+    citation_label: "Article 29"
+    local_number: "29"
+    local_anchor: sub-fik-regulations-000030
+    title: "Igi"
+    title_source: aligned_left_column_theme
+    aligned_with: kkp:article:fik.regulations:000036
+    status: reviewed
+    verification_status: verified_against_pdf_by_repository_owner

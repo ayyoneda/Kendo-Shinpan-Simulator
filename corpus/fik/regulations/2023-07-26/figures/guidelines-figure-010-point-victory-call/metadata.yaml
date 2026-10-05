@@ -1,0 +1,43 @@
+package_id: fik.regulations.2023-07-26
+figure_id: kkp:figure:fik.guidelines:000010
+citation_label: Figure 10
+figure_set: guidelines
+title: Yuko-datotsu, Hantei, or Decision of Victory
+display_title: Point/Victory Call
+source_pdf: source/original.pdf
+source_pdf_page: 44
+asset_path: figures/guidelines-figure-010-point-victory-call/source.png
+description_path: figures/guidelines-figure-010-point-victory-call/description.en.md
+provenance: official-source-rendered-crop
+description_provenance: editorial-description-verified-by-repository-owner
+asset_status: extracted_from_pdf_render
+verification_status: verified_by_repository_owner
+extracted_date: '2026-07-15'
+crop:
+  crop_map: figures/crop-map.yaml
+  reference_render_dpi: 200
+  reference_render_size_px:
+  - 1166
+  - 1653
+  reference_crop_box_px:
+  - 600
+  - 155
+  - 1090
+  - 570
+  reference_whiteout_boxes_px: []
+  extraction_render_dpi: 300
+  rendered_page_size_px:
+  - 1749
+  - 2481
+  actual_crop_box_px:
+  - 900
+  - 233
+  - 1635
+  - 856
+tool:
+  script: tools/extract_figure_assets.py
+  renderer: pdftoppm
+description_review:
+  status: verified
+  reviewer: Adrian Yoneda
+  reviewed_date: 2026-07-16

@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Simulador de Arbitragem de Kendo (Shinpan)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+    body { background-color: #1a1a1a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; touch-action: auto; }
+    .lang-jp { font-family: 'Noto Sans JP', sans-serif; }
+    canvas { display: block; outline: none; }
+    #kendoCanvas { touch-action: none; }
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 2px rgba(0,0,0,0.5); }
+    #controls-container { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; }
+    .collapsed { transform: translateX(-110%); opacity: 0; pointer-events: none; }
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='black'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.5rem center;
+      background-size: 1em;
+    }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+
+    @media (max-width: 640px) {
+      #controls-container {
+        top: auto !important;
+        bottom: 10px !important;
+        left: 10px !important;
+        right: 10px !important;
+        width: auto !important;
+        max-height: 60vh !important;
+      }
+      #controls-container.collapsed {
+        transform: translateY(120%) !important;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+	
+	#author {
+		position: fixed;
+		right: 12px;
+		bottom: 8px;
+		font-size: 12px;
+		color: rgba(255,255,255,0.65);
+		pointer-events: none;
+		}
+  </style>
+</head>
+
+<body class="h-screen w-screen relative">
+  <div id="author">Desenvolvido por: Adrian Yoneda</div>
+  <!-- Botão menu -->
+  <button id="open-menu-btn"
+          class="absolute top-3 left-3 sm:top-4 sm:left-4 z-40 bg-white p-3 rounded-full shadow-lg hover:bg-gray-100 transition-all text-gray-800"
+          onclick="toggleMenu()"
+          aria-label="Abrir painel">
+    <i class="fas fa-bars text-xl"></i>
+  </button>
+
+  <div id="controls-container"
+       class="absolute z-50 left-2 top-2 right-2 sm:right-auto sm:top-4 sm:left-4 w-auto sm:w-80 max-h-[92vh] sm:max-h-[95vh] flex flex-col glass-panel rounded-xl overflow-hidden transition-all duration-300">
+    <div class="bg-gray-800 text-white p-4 flex justify-between items-center">
+      <h1 class="text-lg font-bold flex items-center gap-2">
+        <i class="fas fa-users-cog"></i> <span id="ui-app-title">Kendo Shinpan</span>
+      </h1>
+      <button onclick="toggleMenu()" class="text-gray-400 hover:text-white transition" aria-label="Fechar painel">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="p-5 overflow-y-auto space-y-5">
+      <div class="flex items-center justify-between bg-gray-100 p-2 rounded-lg border border-gray-200">
+        <span id="ui-lang-label" class="text-xs font-bold text-gray-500 uppercase ml-1"><i class="fas fa-language"></i> Lang</span>
+        <select id="lang-select" class="bg-white border border-gray-300 text-gray-800 text-xs rounded px-6 py-1 focus:outline-none cursor-pointer">
+          <option value="pt">Português</option>
+          <option value="en">English</option>
+          <option value="jp">日本語</option>
+        </select>
+      </div>
+
+      <p id="ui-description" class="text-sm text-gray-600 leading-relaxed"></p>
+
+      <div class="space-y-3">
+        <h3 id="ui-label-viz" class="text-xs font-bold text-gray-500 uppercase tracking-wider"></h3>
+
+        <label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+          <input type="checkbox" id="toggle-triangle" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked>
+          <span id="ui-check-triangle" class="ml-3 text-gray-700 text-sm font-medium"></span>
+        </label>
+
+        <label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+		  <input type="checkbox" id="toggle-square-s" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+		  <span id="ui-check-square-s" class="ml-3 text-gray-700 text-sm font-medium"></span>
+		</label>
+
+		<label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+		  <input type="checkbox" id="toggle-square-f1" class="form-checkbox h-4 w-4 text-yellow-500 rounded">
+		  <span id="ui-check-square-f1" class="ml-3 text-gray-700 text-sm font-medium"></span>
+		</label>
+
+		<label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+		  <input type="checkbox" id="toggle-square-f2" class="form-checkbox h-4 w-4 text-green-600 rounded">
+		  <span id="ui-check-square-f2" class="ml-3 text-gray-700 text-sm font-medium"></span>
+		</label>
+
+        <label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+          <input type="checkbox" id="toggle-names" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked>
+          <span id="ui-check-labels" class="ml-3 text-gray-700 text-sm font-medium"></span>
+        </label>
+
+        <label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+          <input type="checkbox" id="toggle-debug" class="form-checkbox h-4 w-4 text-red-600 rounded">
+          <span id="ui-check-debug" class="ml-3 text-gray-700 text-sm font-medium"></span>
+        </label>
+      </div>
+
+      <!-- Ajuda curta -->
+      <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-900">
+        <div class="font-semibold mb-1"><i class="fas fa-info-circle"></i> <span id="ui-tip-title"></span></div>
+        <div id="ui-tip-body"></div>
+      </div>
+
+      <div class="h-px bg-gray-200"></div>
+
+      <!-- Debug -->
+      <div id="debug-panel" class="space-y-3 text-sm hidden">
+        <h3 id="ui-label-angles" class="text-xs font-bold text-gray-500 uppercase tracking-wider"></h3>
+
+        <div class="bg-blue-50 p-3 rounded-lg space-y-2 font-mono border border-blue-200">
+          <div class="flex justify-between items-center font-bold text-blue-800">
+            <span id="ui-angle-combat" class="text-gray-700"></span>
+            <span id="combat-angle-abs" class="font-bold text-blue-800">0°</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span id="ui-flag-label" class="text-gray-700 font-semibold"></span>
+            <span id="flag-status" class="font-bold text-blue-800">1</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span id="ui-mode-label" class="text-gray-700 font-semibold"></span>
+            <span id="mode-status" class="font-bold text-blue-800">STANDARD</span>
+          </div>
+		  <div class="flex justify-between items-center">
+			<span id="ui-freeze-label" class="text-gray-700 font-semibold"></span>
+			<span id="freeze-status" class="font-bold text-blue-800"></span>
+		  </div>
+        </div>
+
+        <div class="bg-gray-100 p-3 rounded-lg space-y-2 font-mono">
+          <div class="flex justify-between items-center">
+            <span id="ui-ref-s" class="text-blue-600 font-semibold"></span>
+            <span id="angle-shushin-abs" class="font-bold text-gray-800">0°</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span id="ui-ref-f1" class="text-yellow-600 font-semibold"></span>
+            <span id="angle-fukushin1-abs" class="font-bold text-gray-800">0°</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span id="ui-ref-f2" class="text-green-600 font-semibold"></span>
+            <span id="angle-fukushin2-abs" class="font-bold text-gray-800">0°</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-px bg-gray-200"></div>
+
+      <div class="space-y-3 text-sm">
+        <h3 id="ui-label-legend" class="text-xs font-bold text-gray-500 uppercase tracking-wider"></h3>
+        <div class="grid grid-cols-1 gap-2">
+          <div class="flex items-center"><span class="legend-dot bg-white border border-gray-400"></span><span id="ui-leg-white" class="text-gray-700"></span></div>
+          <div class="flex items-center"><span class="legend-dot bg-red-600"></span><span id="ui-leg-red" class="text-gray-700"></span></div>
+          <div class="flex items-center"><span class="legend-dot bg-blue-600"></span><span id="ui-leg-s" class="text-gray-700"></span></div>
+          <div class="flex items-center"><span class="legend-dot bg-yellow-400"></span><span id="ui-leg-f1" class="text-gray-700"></span></div>
+          <div class="flex items-center"><span class="legend-dot bg-green-500"></span><span id="ui-leg-f2" class="text-gray-700"></span></div>
+        </div>
+      </div>
+
+      <!-- Avançado -->
+      <details class="bg-gray-50 border border-gray-200 rounded-lg p-3">
+        <summary class="flex items-center justify-between text-xs font-bold text-gray-600 uppercase tracking-wider">
+          <span><i class="fas fa-sliders-h"></i> <span id="ui-advanced-title"></span></span>
+          <span id="ui-advanced-subtitle" class="text-gray-500 normal-case font-semibold"></span>
+        </summary>
+
+        <div class="mt-3 space-y-4 text-xs text-gray-700">
+          <!-- Movimento -->
+          <div class="space-y-3">
+            <div class="text-[11px] font-bold text-gray-500 uppercase tracking-wider" id="ui-advanced-section-motion"></div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-speed-label"></span>
+                <span id="ui-speed-val" class="font-mono">6.0</span>
+              </div>
+              <input id="speed-slider" type="range" min="4" max="12" step="0.1" value="8.0" class="w-full">
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-radius-label"></span>
+                <span id="ui-radius-val" class="font-mono">4.0</span>
+              </div>
+              <input id="radius-slider" type="range" min="2" max="8" step="0.1" value="4.0" class="w-full">
+            </div>
+          </div>
+
+          <!-- Thresholds -->
+          <div class="space-y-3 pt-2 border-t border-gray-200">
+            <div class="text-[11px] font-bold text-gray-500 uppercase tracking-wider" id="ui-advanced-section-thresholds"></div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-th-enter-vertex"></span>
+                <span id="ui-th-enter-vertex-val" class="font-mono">90</span>
+              </div>
+              <input id="th-enter-vertex" type="range" min="0" max="180" step="1" value="90" class="w-full">
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-th-exit-vertex"></span>
+                <span id="ui-th-exit-vertex-val" class="font-mono">45</span>
+              </div>
+              <input id="th-exit-vertex" type="range" min="0" max="180" step="1" value="45" class="w-full">
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-th-enter-sbase"></span>
+                <span id="ui-th-enter-sbase-val" class="font-mono">123</span>
+              </div>
+              <input id="th-enter-sbase" type="range" min="0" max="180" step="1" value="123" class="w-full">
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-th-exit-sbase"></span>
+                <span id="ui-th-exit-sbase-val" class="font-mono">90</span>
+              </div>
+              <input id="th-exit-sbase" type="range" min="0" max="180" step="1" value="90" class="w-full">
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-th-enter-flip"></span>
+                <span id="ui-th-enter-flip-val" class="font-mono">135</span>
+              </div>
+              <input id="th-enter-flip" type="range" min="0" max="180" step="1" value="168" class="w-full">
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-th-exit-flip"></span>
+                <span id="ui-th-exit-flip-val" class="font-mono">130</span>
+              </div>
+              <input id="th-exit-flip" type="range" min="0" max="180" step="1" value="160" class="w-full">
+            </div>
+          </div>
+		  
+		  <!-- Congelamento -->
+		  <div class="space-y-3 pt-2 border-t border-gray-200">
+  <div class="text-[11px] font-bold text-gray-500 uppercase tracking-wider" id="ui-advanced-section-freeze"></div>
+
+  <div class="space-y-1">
+    <div class="flex justify-between items-center">
+      <span id="ui-freeze-dist"></span>
+      <span id="ui-freeze-dist-val" class="font-mono">1.2</span>
+    </div>
+    <input id="freeze-dist-slider" type="range" min="0.8" max="2.0" step="0.05" value="1.2" class="w-full">
+  </div>
+
+  <div class="space-y-1">
+    <div class="flex justify-between items-center">
+      <span id="ui-freeze-window"></span>
+      <span id="ui-freeze-window-val" class="font-mono">200</span>
+    </div>
+    <input id="freeze-window-slider" type="range" min="80" max="500" step="10" value="200" class="w-full">
+  </div>
+
+  <div class="space-y-1">
+    <div class="flex justify-between items-center">
+      <span id="ui-freeze-angle"></span>
+      <span id="ui-freeze-angle-val" class="font-mono">90°</span>
+    </div>
+    <input id="freeze-angle-slider" type="range" min="30" max="180" step="5" value="90" class="w-full">
+  </div>
+
+  <div class="space-y-1">
+    <div class="flex justify-between items-center">
+      <span id="ui-freeze-time"></span>
+      <span id="ui-freeze-time-val" class="font-mono">300</span>
+    </div>
+    <input id="freeze-time-slider" type="range" min="100" max="800" step="50" value="300" class="w-full">
+  </div>
+</div>
+
+
+          <div id="ui-advanced-note" class="text-[11px] text-gray-500"></div>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="p-4 bg-gray-50 border-t border-gray-200">
+      <button id="reset-btn" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2.5 px-4 rounded-lg shadow-md transition transform active:scale-95 flex items-center justify-center gap-2">
+        <i class="fas fa-undo-alt text-sm"></i> <span id="ui-btn-reset"></span>
+      </button>
+    </div>
+  </div>
+
+  <canvas id="kendoCanvas" class="w-full h-full cursor-crosshair"></canvas>
+
+<script>
+// ----------------------------
+// i18n (todos os campos)
+// ----------------------------
+const i18n = {
+  pt: {
+    title: "Kendo Shinpan",
+    langLabel: "Idioma",
+    description: "Simulação da movimentação do trio de arbitragem (Shinpan) baseada no posicionamento dos atletas.",
+    labelViz: "Visualização",
+    checkTriangle: "Triângulo dos Árbitros",
+    checkAxis: "Eixo/Quadrado Dinâmico",
+    checkLabels: "Mostrar Rótulos",
+    checkDebug: "Modo Debug (Lógica)",
+    tipTitle: "Dica rápida",
+    tipBody: "Arraste <b>W</b> e <b>R</b>. Ative “Eixo/Quadrado” para visualizar zonas. O Debug mostra ângulos e estado.",
+    labelAngles: "Ângulos ABSOLUTOS (Centro)",
+    angleCombat: "Ângulo de Combate:",
+    flagLabel: "Flag:",
+    modeLabel: "Mode:",
+    refS: "Shushin (S):",
+    refF1: "Fukushin 1 (F1):",
+    refF2: "Fukushin 2 (F2):",
+    labelLegend: "Legenda",
+    legWhite: "Branco (Esq)",
+    legRed: "Vermelho (Dir)",
+    legS: "Shushin (Principal)",
+    legF1: "Fukushin 1",
+    legF2: "Fukushin 2",
+    advancedTitle: "Avançado",
+    advancedSubtitle: "parâmetros",
+    advancedSectionMotion: "Movimento",
+    advancedSectionThresholds: "Thresholds",
+    speedLabel: "Velocidade (m/s)",
+    radiusLabel: "Raio de giro (m)",
+    thEnterVertex: "Entrar VERTEX (°)",
+    thExitVertex: "Sair VERTEX → STANDARD (°)",
+    thEnterSbase: "Entrar S_BASE (°)",
+    thExitSbase: "Sair S_BASE → VERTEX (°)",
+    thEnterFlip: "Entrar FLIP (°)",
+    thExitFlip: "Sair FLIP (°)",
+    advancedNote: "Ajusta o “feeling” do movimento (linear e angular) e os thresholds. A lógica principal é mantida; apenas os valores mudam.",
+    btnReset: "Resetar Posições",
+	stable: "Estável",
+    frozen: "Congelado",
+	checkSquareS: "Área do Shushin",
+	checkSquareF1: "Área do Fukushin 1",
+	checkSquareF2: "Área do Fukushin 2",
+	advancedSectionFreeze: "Congelamento",
+	freezeDist: "Distância de tsubazeriai (m)",
+	freezeWindow: "Janela temporal (ms)",
+	freezeAngle: "Rotação acumulada (°)",
+	freezeTime: "Duração do congelamento (ms)",
+	author: "Desenvolvido por: Adrian Yoneda"
+  },
+  en: {
+    title: "Kendo Shinpan",
+    langLabel: "Language",
+    description: "Simulation of referee (Shinpan) movement based on competitor positioning.",
+    labelViz: "Visualization",
+    checkTriangle: "Referees Triangle",
+    checkAxis: "Combat Axis / Dynamic Square",
+    checkLabels: "Show Labels",
+    checkDebug: "Debug Mode (Logic)",
+    tipTitle: "Quick tip",
+    tipBody: "Drag <b>W</b> and <b>R</b>. Enable “Axis/Square” to visualize zones. Debug shows angles and state.",
+    labelAngles: "ABSOLUTE Angles (Center)",
+    angleCombat: "Combat Angle:",
+    flagLabel: "Flag:",
+    modeLabel: "Mode:",
+    refS: "Shushin (S):",
+    refF1: "Fukushin 1 (F1):",
+    refF2: "Fukushin 2 (F2):",
+    labelLegend: "Legend",
+    legWhite: "White (Left)",
+    legRed: "Red (Right)",
+    legS: "Shushin (Chief)",
+    legF1: "Fukushin 1",
+    legF2: "Fukushin 2",
+    advancedTitle: "Advanced",
+    advancedSubtitle: "parameters",
+    advancedSectionMotion: "Motion",
+    advancedSectionThresholds: "Thresholds",
+    speedLabel: "Speed (m/s)",
+    radiusLabel: "Turn radius (m)",
+    thEnterVertex: "Enter VERTEX (°)",
+    thExitVertex: "Exit VERTEX → STANDARD (°)",
+    thEnterSbase: "Enter S_BASE (°)",
+    thExitSbase: "Exit S_BASE → VERTEX (°)",
+    thEnterFlip: "Enter FLIP (°)",
+    thExitFlip: "Exit FLIP (°)",
+    advancedNote: "Adjusts movement feel (linear and angular) and thresholds. Core logic is preserved; only values change.",
+    btnReset: "Reset Positions",
+	stable: "Stable",
+    frozen: "Frozen",
+	checkSquareS: "Shushin Area",
+	checkSquareF1: "Fukushin 1 Area",
+	checkSquareF2: "Fukushin 2 Area",
+	advancedSectionFreeze: "Freeze",
+	freezeDist: "Tsubazeriai distance (m)",
+	freezeWindow: "Time window (ms)",
+	freezeAngle: "Accumulated rotation (°)",
+	freezeTime: "Freeze duration (ms)",
+	author: "Developed by: Adrian Yoneda (Brazil)"
+  },
+  jp: {
+    title: "剣道審判シミュレーター",
+    langLabel: "言語",
+    description: "試合者の位置に基づいた審判員（審判団）の動きのシミュレーション。",
+    labelViz: "表示設定",
+    checkTriangle: "審判の三角形",
+    checkAxis: "試合ライン／ダイナミックスクエア",
+    checkLabels: "ラベル表示",
+    checkDebug: "デバッグ（論理）",
+    tipTitle: "使い方",
+    tipBody: "<b>W</b> と <b>R</b> をドラッグ。ゾーン確認は「試合ライン／ダイナミックスクエア」。デバッグで角度と状態を表示。",
+    labelAngles: "絶対角度（中心）",
+    angleCombat: "試合軸の角度:",
+    flagLabel: "フラグ:",
+    modeLabel: "モード:",
+    refS: "主審 (S):",
+    refF1: "副審1 (F1):",
+    refF2: "副審2 (F2):",
+    labelLegend: "凡例",
+    legWhite: "白（左）",
+    legRed: "赤（右）",
+    legS: "主審",
+    legF1: "副審1",
+    legF2: "副審2",
+    advancedTitle: "詳細",
+    advancedSubtitle: "パラメータ",
+    advancedSectionMotion: "動き",
+    advancedSectionThresholds: "しきい値",
+    speedLabel: "速度 (m/s)",
+    radiusLabel: "旋回半径 (m)",
+    thEnterVertex: "VERTEX 進入角 (°)",
+    thExitVertex: "VERTEX→STANDARD (°)",
+    thEnterSbase: "S_BASE 進入角 (°)",
+    thExitSbase: "S_BASE→VERTEX (°)",
+    thEnterFlip: "FLIP 進入角 (°)",
+    thExitFlip: "FLIP 解除角 (°)",
+    advancedNote: "直進・旋回の“感覚”としきい値を調整。論理は保持し、値のみ変更します。",
+    btnReset: "位置をリセット",
+	stable:"安定",
+    frozen:"固定",
+	checkSquareS: "主審エリア",
+	checkSquareF1: "副審1エリア",
+	checkSquareF2: "副審2エリア",
+	advancedSectionFreeze: "固定判定",
+	freezeDist: "鍔迫り合い距離 (m)",
+	freezeWindow: "時間ウィンドウ (ms)",
+	freezeAngle: "累積回転角 (°)",
+	freezeTime: "固定時間 (ms)",
+	author: "開発: 米田裕（ブラジル）"
+  }
+};
+
+let currentLang = 'pt';
+
+function updateUIStrings() {
+  const s = i18n[currentLang];
+  document.getElementById('ui-app-title').innerText = s.title;
+  document.getElementById('ui-lang-label').innerHTML = `<i class="fas fa-language"></i> ${s.langLabel}`;
+  document.getElementById('ui-description').innerText = s.description;
+
+  document.getElementById('ui-label-viz').innerText = s.labelViz;
+  document.getElementById('ui-check-triangle').innerText = s.checkTriangle;
+  document.getElementById('ui-check-labels').innerText = s.checkLabels;
+  document.getElementById('ui-check-debug').innerText = s.checkDebug;
+
+  document.getElementById('ui-tip-title').innerText = s.tipTitle;
+  document.getElementById('ui-tip-body').innerHTML = s.tipBody;
+
+  document.getElementById('ui-label-angles').innerText = s.labelAngles;
+  document.getElementById('ui-angle-combat').innerText = s.angleCombat;
+  document.getElementById('ui-flag-label').innerText = s.flagLabel;
+  document.getElementById('ui-mode-label').innerText = s.modeLabel;
+  document.getElementById('ui-freeze-label').innerText =
+  currentLang === 'jp' ? '状態:' :
+  currentLang === 'en' ? 'State:' :
+  'Estado:';
+
+  document.getElementById('ui-ref-s').innerText = s.refS;
+  document.getElementById('ui-ref-f1').innerText = s.refF1;
+  document.getElementById('ui-ref-f2').innerText = s.refF2;
+
+  document.getElementById('ui-label-legend').innerText = s.labelLegend;
+  document.getElementById('ui-leg-white').innerText = s.legWhite;
+  document.getElementById('ui-leg-red').innerText = s.legRed;
+  document.getElementById('ui-leg-s').innerText = s.legS;
+  document.getElementById('ui-leg-f1').innerText = s.legF1;
+  document.getElementById('ui-leg-f2').innerText = s.legF2;
+
+  document.getElementById('ui-advanced-title').innerText = s.advancedTitle;
+  document.getElementById('ui-advanced-subtitle').innerText = s.advancedSubtitle;
+  document.getElementById('ui-advanced-section-motion').innerText = s.advancedSectionMotion;
+  document.getElementById('ui-advanced-section-thresholds').innerText = s.advancedSectionThresholds;
+
+  document.getElementById('ui-speed-label').innerText = s.speedLabel;
+  document.getElementById('ui-radius-label').innerText = s.radiusLabel;
+
+  document.getElementById('ui-th-enter-vertex').innerText = s.thEnterVertex;
+  document.getElementById('ui-th-exit-vertex').innerText = s.thExitVertex;
+  document.getElementById('ui-th-enter-sbase').innerText = s.thEnterSbase;
+  document.getElementById('ui-th-exit-sbase').innerText = s.thExitSbase;
+  document.getElementById('ui-th-enter-flip').innerText = s.thEnterFlip;
+  document.getElementById('ui-th-exit-flip').innerText = s.thExitFlip;
+
+  document.getElementById('ui-advanced-note').innerText = s.advancedNote;
+  document.getElementById('ui-btn-reset').innerText = s.btnReset;
+  
+  document.getElementById('ui-check-square-s').innerText  = s.checkSquareS;
+  document.getElementById('ui-check-square-f1').innerText = s.checkSquareF1;
+  document.getElementById('ui-check-square-f2').innerText = s.checkSquareF2;
+  
+  document.getElementById('ui-advanced-section-freeze').innerText = s.advancedSectionFreeze;
+  document.getElementById('ui-freeze-dist').innerText = s.freezeDist;
+  document.getElementById('ui-freeze-window').innerText = s.freezeWindow;
+  document.getElementById('ui-freeze-angle').innerText = s.freezeAngle;
+  document.getElementById('ui-freeze-time').innerText = s.freezeTime;
+
+
+  document.body.classList.toggle('lang-jp', currentLang === 'jp');
+  
+  const authorElem = document.getElementById('author');
+  if(authorElem) authorElem.innerText = s.author;
+}
+
+document.getElementById('lang-select').addEventListener('change', (e) => {
+  currentLang = e.target.value;
+  updateUIStrings();
+});
+
+// ----------------------------
+// Thresholds ajustáveis
+// ----------------------------
+let ENTER_VERTEX = 90;
+let EXIT_VERTEX  = 45;
+
+let ENTER_SBASE = 123;
+let EXIT_SBASE  = 90;
+
+let ENTER_FLIP_DEG = 135;
+let EXIT_FLIP_DEG  = 130; // mantido (não usado na lógica atual de flip)
+
+// ----------------------------
+// Canvas
+// ----------------------------
+const canvas = document.getElementById('kendoCanvas');
+const ctx = canvas.getContext('2d', { alpha: false });
+
+// ----------------------------
+// Geometria (preservada)
+// ----------------------------
+const D_REF = 4;
+const ANGLE_LOCAL_BASE = 33 * Math.PI / 180;
+const POS_X_LOCAL = D_REF * Math.sin(ANGLE_LOCAL_BASE);
+const POS_Y_LOCAL = D_REF * Math.cos(ANGLE_LOCAL_BASE);
+
+const FORMATION_STANDARD = { shushin:{x:0,y:4}, fukushin1:{x:2.6,y:-4}, fukushin2:{x:-2.6,y:-4} };
+const FORMATION_F1_VERTEX = { shushin:{x:POS_X_LOCAL,y:POS_Y_LOCAL}, fukushin1:{x:0,y:-D_REF}, fukushin2:{x:-POS_X_LOCAL,y:POS_Y_LOCAL} };
+const FORMATION_F2_VERTEX = { shushin:{x:-POS_X_LOCAL,y:POS_Y_LOCAL}, fukushin1:{x:POS_X_LOCAL,y:POS_Y_LOCAL}, fukushin2:{x:0,y:-D_REF} };
+const FORMATION_F2_VERTEX_S_BASE = { shushin:{x:POS_X_LOCAL,y:-POS_Y_LOCAL}, fukushin1:{x:-POS_X_LOCAL,y:-POS_Y_LOCAL}, fukushin2:{x:0,y:D_REF} };
+const FORMATION_F1_VERTEX_S_BASE = { shushin:{x:-POS_X_LOCAL,y:-POS_Y_LOCAL}, fukushin1:{x:0,y:D_REF}, fukushin2:{x:POS_X_LOCAL,y:-POS_Y_LOCAL} };
+
+// ----------------------------
+// Parâmetros de movimento (uniformizado)
+// ----------------------------
+let REF_MOVE_SPEED = 8.0;
+let REF_TURN_RADIUS = 4.0;
+let REF_ANG_SPEED = REF_MOVE_SPEED / REF_TURN_RADIUS;
+
+function recalcAngularSpeed() {
+  REF_ANG_SPEED = REF_MOVE_SPEED / Math.max(0.1, REF_TURN_RADIUS);
+}
+
+// ----------------------------
+// State
+// ----------------------------
+const state = {
+  dpr: 1,
+  scale: 40, centerX: 0, centerY: 0, width: 0, height: 0,
+  showTriangle: true,
+  showSquareS: false,
+  showSquareF1: false,
+  showSquareF2: false,
+  showNames: true,
+  showDebug: false,
+
+  currentFormation: {
+    shushin:   { x: 0,   y: 4 },
+    fukushin1: { x: 2.6, y: -4 },
+    fukushin2: { x: -2.6,y: -4 }
+  },
+
+  angles: {
+    shushinAbs: 0, fukushin1Abs: 0, fukushin2Abs: 0, combatRadSmoothed: 0
+  },
+
+  white: { x: -1.4, y: 0, radius: 0.4, dragging: false, color: '#ffffff', border: '#333', label: 'W' },
+  red:   { x: 1.4,  y: 0, radius: 0.4, dragging: false, color: '#cc0000', border: '#fff', label: 'R' },
+
+  shushin:   { x: 0,   y: 4,  color: '#2563eb', label: 'S',  radius: 0.3 },
+  fukushin1: { x: 2.6, y: -4, color: '#fbbf24', label: 'F1', radius: 0.3 },
+  fukushin2: { x: -2.6,y: -4, color: '#22c55e', label: 'F2', radius: 0.3 },
+
+  formationMode: 'STANDARD',
+  arbiterState: 'STABLE'
+};
+
+const HALF_COURT = 5;
+const KAISHISEN_DIST = 1.4;
+
+// ----------------------------
+// Utilitários
+// ----------------------------
+const radToDeg = (rad) => (rad * 180 / Math.PI);
+
+const normalizeAngle = (deg) => {
+  let angle = deg % 360;
+  if (angle > 180) angle -= 360;
+  else if (angle <= -180) angle += 360;
+  return angle;
+};
+
+function angleDiff(a, b) {
+  return Math.atan2(Math.sin(b - a), Math.cos(b - a));
+}
+
+function moveAngleTowards(curr, target, maxDeltaRad) {
+  const d = angleDiff(curr, target);
+  if (Math.abs(d) <= maxDeltaRad) return target;
+  return curr + Math.sign(d) * maxDeltaRad;
+}
+
+function moveTowards(curr, target, maxDelta) {
+  const dx = target.x - curr.x;
+  const dy = target.y - curr.y;
+  const d = Math.hypot(dx, dy);
+  if (d <= maxDelta || d === 0) {
+    curr.x = target.x; curr.y = target.y;
+    return true;
+  }
+  const s = maxDelta / d;
+  curr.x += dx * s;
+  curr.y += dy * s;
+  return false;
+}
+
+const tmpScreen = { x: 0, y: 0 };
+function toScreenInto(mX, mY, out) {
+  out.x = state.centerX + mX * state.scale;
+  out.y = state.centerY + mY * state.scale;
+  return out;
+}
+
+function toMeters(sX, sY) {
+  return { x: (sX - state.centerX) / state.scale, y: (sY - state.centerY) / state.scale };
+}
+
+function transformLocalToWorld(local, midX, midY, ca, sa) {
+  const rx = local.x * ca - local.y * sa;
+  const ry = local.x * sa + local.y * ca;
+  return { x: midX + rx, y: midY + ry };
+}
+
+const TSUBA_MIN_DIST = 0.8; // metros
+
+function applyTsubazeriaiConstraint() {
+  const dx = state.red.x - state.white.x;
+  const dy = state.red.y - state.white.y;
+  const d = Math.hypot(dx, dy);
+  if (d === 0 || d >= TSUBA_MIN_DIST) return;
+
+  const mx = (state.red.x + state.white.x) / 2;
+  const my = (state.red.y + state.white.y) / 2;
+
+  const nx = dx / d;
+  const ny = dy / d;
+  const h = TSUBA_MIN_DIST / 2;
+
+  state.white.x = mx - nx * h;
+  state.white.y = my - ny * h;
+  state.red.x   = mx + nx * h;
+  state.red.y   = my + ny * h;
+}
+
+let TSUBA_ACTIVE_DIST = 1.2;     // m
+let FREEZE_TIME_MS = 300;       // ms
+let FREEZE_WINDOW_MS = 200;     // ms
+let FREEZE_ANGLE_RAD = Math.PI * 0.5; // rad
+
+let freezeUntilTs = 0;
+let lastCombatAngle = null;
+let arbiterFrozen = false;
+let combatAngleAccum = 0;
+let lastFreezeCheckTs = 0;
+
+function updateArbiterFreeze(ts) {
+  const dx = state.red.x - state.white.x;
+  const dy = state.red.y - state.white.y;
+  const dist = Math.hypot(dx, dy);
+
+  // Fora do range de tsubazeriai: limpa estado e não congela
+  if (dist > TSUBA_ACTIVE_DIST) {
+    arbiterFrozen = false;
+    state.arbiterState = 'STABLE';
+    lastCombatAngle = null;
+    combatAngleAccum = 0;
+    lastFreezeCheckTs = ts;
+    return;
+  }
+
+  const ang = Math.atan2(dy, dx);
+
+  // Se já está congelado, apenas aguarda o tempo expirar
+  if (arbiterFrozen) {
+    if (ts > freezeUntilTs) {
+      arbiterFrozen = false;
+      state.arbiterState = 'STABLE';
+      combatAngleAccum = 0;
+      lastFreezeCheckTs = ts;
+    }
+    lastCombatAngle = ang;
+    return;
+  }
+
+  // Inicializa janela ao entrar em tsubazeriai
+  if (lastCombatAngle === null) {
+    lastCombatAngle = ang;
+    combatAngleAccum = 0;
+    lastFreezeCheckTs = ts;
+    return;
+  }
+
+  // Acumula rotação do eixo (detecção responsiva)
+  const da = Math.abs(angleDiff(lastCombatAngle, ang));
+  combatAngleAccum += da;
+
+  // Se a janela expirar, reinicia a contagem (evita "acumular para sempre")
+  if (ts - lastFreezeCheckTs > FREEZE_WINDOW_MS) {
+    combatAngleAccum = 0;
+    lastFreezeCheckTs = ts;
+  }
+
+  // Dispara o congelamento imediatamente quando ultrapassa o limiar
+  if (combatAngleAccum > FREEZE_ANGLE_RAD) {
+    arbiterFrozen = true;
+    state.arbiterState = 'FROZEN';
+    freezeUntilTs = ts + FREEZE_TIME_MS;
+
+    // IMPORTANTE: se um FLIP tiver iniciado por um instante instável,
+    // cancelamos aqui para evitar a inversão "vai e volta".
+    cancelFlip('freeze');
+
+    combatAngleAccum = 0;
+    lastFreezeCheckTs = ts;
+  }
+
+  lastCombatAngle = ang;
+}
+
+
+// ----------------------------
+// Cache do piso (HiDPI-aware)
+// ----------------------------
+const floorCache = { canvas: document.createElement('canvas'), ctx: null, valid: false };
+floorCache.ctx = floorCache.canvas.getContext('2d', { alpha: false });
+
+function rebuildFloorCache() {
+  const fc = floorCache.canvas;
+  const fctx = floorCache.ctx;
+
+  const dpr = state.dpr || 1;
+
+  fc.width = Math.round(state.width * dpr);
+  fc.height = Math.round(state.height * dpr);
+
+  // desenhar em unidades CSS no cache
+  fctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  // fundo
+  fctx.fillStyle = '#Cfb096';
+  fctx.fillRect(0, 0, state.width, state.height);
+
+  // tábuas
+  fctx.strokeStyle = 'rgba(160, 110, 80, 0.3)';
+  fctx.lineWidth = 2;
+
+  const plankW = 0.5 * state.scale;
+  const offset = (state.centerX % plankW) - plankW;
+
+  fctx.beginPath();
+  for (let x = offset; x < state.width; x += plankW) {
+    fctx.moveTo(x, 0);
+    fctx.lineTo(x, state.height);
+  }
+  fctx.stroke();
+
+  floorCache.valid = true;
+}
+
+function drawFloor() {
+  if (!floorCache.valid) rebuildFloorCache();
+  ctx.drawImage(
+  floorCache.canvas,
+  0, 0,
+  floorCache.canvas.width,
+  floorCache.canvas.height,
+  0, 0,
+  state.width,
+  state.height
+  );
+}
+
+// ----------------------------
+// Decisão de formação (preservada; thresholds variáveis)
+// ----------------------------
+function computeTargetsForFlag(flagCandidate, dxWorld, dyWorld, prevMode = 'STANDARD') {
+  const dx = (flagCandidate % 2 === 1) ? dxWorld : -dxWorld;
+  const dy = (flagCandidate % 2 === 1) ? dyWorld : -dyWorld;
+
+  const combatRadTarget = Math.atan2(dy, dx);
+  const combatDegRaw = radToDeg(combatRadTarget);
+  const absA = Math.abs(combatDegRaw);
+
+  let mode = prevMode;
+
+  if (absA > ENTER_FLIP_DEG) {
+    mode = 'STANDARD';
+  } else {
+    if (mode === 'S_BASE') {
+      if (absA <= EXIT_SBASE) mode = 'VERTEX';
+    } else {
+      if (absA >= ENTER_SBASE) mode = 'S_BASE';
+    }
+
+    if (mode !== 'S_BASE') {
+      if (mode === 'VERTEX') {
+        if (absA < EXIT_VERTEX) mode = 'STANDARD';
+      } else {
+        if (absA > ENTER_VERTEX) mode = 'VERTEX';
+      }
+    }
+  }
+
+  let targetFormation;
+  if (mode === 'STANDARD') targetFormation = FORMATION_STANDARD;
+  else if (mode === 'VERTEX') targetFormation = (combatDegRaw > 0) ? FORMATION_F1_VERTEX : FORMATION_F2_VERTEX;
+  else targetFormation = (combatDegRaw > 0) ? FORMATION_F2_VERTEX_S_BASE : FORMATION_F1_VERTEX_S_BASE;
+
+  return { combatRadTarget, combatDegRaw, targetFormation, mode };
+}
+
+// ----------------------------
+// Flip (uniformizado por velocidade)
+// ----------------------------
+let flag = 1;
+let atravessouFronteira = false;
+let lastTs = null;
+
+const flipState = { active: false, toFlag: 2, toAngle: 0, toWorld: null };
+
+// ----------------------------
+// Anti-jitter de FLIP (debounce + cooldown)
+// Objetivo: impedir inversões instantâneas em movimentações muito rápidas
+// (ex.: atravessadas e giros bruscos em tsubazeriai).
+// Mantém a lógica principal (3 estados + flip), apenas estabiliza o gatilho.
+// ----------------------------
+let flipHoldStartTs = null;
+let flipCooldownUntilTs = 0;
+let lastFlipRawAngle = null;
+
+// Tempo mínimo (ms) que o eixo precisa ficar além do threshold para confirmar o FLIP
+const FLIP_CONFIRM_MS = 180;
+
+// Após um FLIP, bloqueia novos flips por um curto período (evita "vai e volta")
+const FLIP_COOLDOWN_MS = 450;
+
+// Não confirma FLIP enquanto o eixo estiver girando muito rápido (rad/s)
+const FLIP_MAX_ANGVEL = 4.0;
+
+// Cancela um FLIP em andamento (usado quando entra em congelamento)
+function cancelFlip(reason = '') {
+  flipState.active = false;
+  flipState.toWorld = null;
+  flipHoldStartTs = null;
+  lastFlipRawAngle = null;
+  // (reason mantido para debug futuro, sem logs para não poluir)
+}
+
+
+// ----------------------------
+// Desenho (mantido)
+// ----------------------------
+function drawCourt() {
+  const half = HALF_COURT;
+
+  const p1 = toScreenInto(-half, -half, tmpScreen);
+  const x1 = p1.x, y1 = p1.y;
+
+  const p2 = toScreenInto(half, half, tmpScreen);
+  const size = p2.x - x1;
+
+  ctx.shadowColor = 'rgba(0,0,0,0.3)';
+  ctx.shadowBlur = 20;
+  ctx.fillStyle = '#e3cbb3';
+  ctx.fillRect(x1, y1, size, size);
+  ctx.shadowBlur = 0;
+
+  ctx.strokeStyle = 'white';
+  ctx.lineWidth = Math.max(3, 0.1 * state.scale);
+  ctx.strokeRect(x1, y1, size, size);
+
+  const c = toScreenInto(0, 0, tmpScreen);
+  const xSize = 0.14 * state.scale;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(c.x - xSize, c.y - xSize); ctx.lineTo(c.x + xSize, c.y + xSize);
+  ctx.moveTo(c.x + xSize, c.y - xSize); ctx.lineTo(c.x - xSize, c.y + xSize);
+  ctx.stroke();
+
+  const kX = KAISHISEN_DIST * state.scale;
+  const kLen = 0.25 * state.scale;
+  ctx.beginPath(); ctx.moveTo(c.x - kX, c.y - kLen); ctx.lineTo(c.x - kX, c.y + kLen); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(c.x + kX, c.y - kLen); ctx.lineTo(c.x + kX, c.y + kLen); ctx.stroke();
+}
+
+function drawGuides() {
+  if (!state.showTriangle && !state.showSquareS && !state.showSquareF1 && !state.showSquareF2) return;
+
+  const midX = (state.white.x + state.red.x) / 2;
+  const midY = (state.white.y + state.red.y) / 2;
+  const hs = 4.0;
+
+  const s  = toScreenInto(state.shushin.x,   state.shushin.y,   {x:0,y:0});
+  const f1 = toScreenInto(state.fukushin1.x, state.fukushin1.y, {x:0,y:0});
+  const f2 = toScreenInto(state.fukushin2.x, state.fukushin2.y, {x:0,y:0});
+
+  if (state.showTriangle) {
+    ctx.save();
+    ctx.strokeStyle = 'rgba(37, 99, 235, 0.4)';
+    ctx.fillStyle = 'rgba(37, 99, 235, 0.05)';
+    ctx.setLineDash([8, 8]);
+    ctx.beginPath();
+    ctx.moveTo(s.x, s.y); ctx.lineTo(f1.x, f1.y); ctx.lineTo(f2.x, f2.y);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+  }
+
+    
+  if (state.showSquareS) {
+    ctx.fillStyle = 'rgba(37, 99, 235, 0.15)';
+    const pS1 = toScreenInto(midX - hs, midY, {x:0,y:0});
+    ctx.fillRect(pS1.x, pS1.y, (hs*2)*state.scale, hs*state.scale);
+	}
+
+  if (state.showSquareF1) {
+    ctx.fillStyle = 'rgba(251, 191, 36, 0.2)';
+    ctx.beginPath();
+    const pM1  = toScreenInto(midX + hs, midY - hs, {x:0,y:0});
+    const pF1T = toScreenInto(midX + hs, midY + hs, {x:0,y:0});
+    const pF1R = toScreenInto(midX - hs, midY - hs, {x:0,y:0});
+    ctx.moveTo(pM1.x, pM1.y); ctx.lineTo(pF1T.x, pF1T.y); ctx.lineTo(pF1R.x, pF1R.y);
+    ctx.closePath(); ctx.fill();
+	}
+
+  if (state.showSquareF2) {
+    ctx.fillStyle = 'rgba(34, 197, 94, 0.2)';
+    ctx.beginPath();
+    const pM2  = toScreenInto(midX - hs, midY - hs, {x:0,y:0});
+    const pF2T = toScreenInto(midX - hs, midY + hs, {x:0,y:0});
+    const pF2L = toScreenInto(midX + hs, midY - hs, {x:0,y:0});
+    ctx.moveTo(pM2.x, pM2.y); ctx.lineTo(pF2T.x, pF2T.y); ctx.lineTo(pF2L.x, pF2L.y);
+    ctx.closePath(); ctx.fill();
+	}
+
+  if (state.showSquareS || state.showSquareF1 || state.showSquareF2) {
+    ctx.save();
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.4)';
+    ctx.lineWidth = 2;
+
+    const qtl = toScreenInto(midX - hs, midY - hs, {x:0,y:0});
+    ctx.strokeRect(qtl.x, qtl.y, (hs*2)*state.scale, (hs*2)*state.scale);
+
+    ctx.setLineDash([5, 5]);
+    ctx.beginPath();
+
+    const pM1  = toScreenInto(midX + hs, midY - hs, {x:0,y:0});
+    const pF1T = toScreenInto(midX + hs, midY + hs, {x:0,y:0});
+    const pF1R = toScreenInto(midX - hs, midY - hs, {x:0,y:0});
+
+    const pM2  = toScreenInto(midX - hs, midY - hs, {x:0,y:0});
+    const pF2T = toScreenInto(midX - hs, midY + hs, {x:0,y:0});
+    const pF2L = toScreenInto(midX + hs, midY - hs, {x:0,y:0});
+
+    ctx.moveTo(pF2L.x, pF2L.y); ctx.lineTo(pF1R.x, pF1R.y);
+    ctx.moveTo(pM1.x, pM1.y);   ctx.lineTo(pF1T.x, pF1T.y);
+    ctx.moveTo(pM2.x, pM2.y);   ctx.lineTo(pF2T.x, pF2T.y);
+
+    ctx.stroke();
+    ctx.restore();
+  }
+
+}
+
+let hoveredEnt = null;
+function drawEntity(ent, isRef) {
+  const p = toScreenInto(ent.x, ent.y, {x:0,y:0});
+  const r = (ent.radius || 0.3) * state.scale;
+
+  const isCompetitor = (ent === state.white || ent === state.red);
+  const isHover = isCompetitor && (hoveredEnt === ent || ent.dragging);
+
+  if (isHover) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, r * 1.35, 0, Math.PI*2);
+    ctx.fillStyle = 'rgba(255,255,255,0.10)';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,0.25)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  ctx.beginPath();
+  ctx.arc(p.x, p.y + r*0.2, r, 0, Math.PI*2);
+  ctx.fillStyle = 'rgba(0,0,0,0.3)';
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(p.x, p.y, r, 0, Math.PI*2);
+  ctx.fillStyle = ent.color;
+  ctx.fill();
+
+  ctx.strokeStyle = ent.border || 'rgba(0,0,0,0.3)';
+  ctx.lineWidth = isRef ? 2 : 3;
+  ctx.stroke();
+
+  if (state.showNames && ent.label) {
+    ctx.fillStyle = isRef ? 'white' : (ent.color === '#ffffff' ? 'black' : 'white');
+    ctx.font = `bold ${Math.max(12, r * 0.9)}px 'Segoe UI', Arial`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(ent.label, p.x, p.y);
+  }
+}
+
+// ----------------------------
+// Debug cache + throttle
+// ----------------------------
+const ui = {
+  combatAngle: null, flag: null, mode: null,
+  s: null, f1: null, f2: null,
+  debugPanel: null,
+
+  speedSlider: null, speedVal: null,
+  radiusSlider: null, radiusVal: null,
+
+  thEnterVertex: null, thEnterVertexVal: null,
+  thExitVertex: null, thExitVertexVal: null,
+  thEnterSbase: null, thEnterSbaseVal: null,
+  thExitSbase: null, thExitSbaseVal: null,
+  thEnterFlip: null, thEnterFlipVal: null,
+  thExitFlip: null, thExitFlipVal: null,
+  freezeDist: null, freezeDistVal: null,
+  freezeWindow: null, freezeWindowVal: null,
+  freezeAngle: null, freezeAngleVal: null,
+  freezeTime: null, freezeTimeVal: null
+};
+
+let debugAcc = 0;
+const DEBUG_PERIOD = 0.10;
+
+function updateDebugUI(force=false) {
+  if (!state.showDebug) return;
+  if (!force && debugAcc < DEBUG_PERIOD) return;
+  debugAcc = 0;
+
+  ui.combatAngle.textContent = `${Math.round(radToDeg(state.angles.combatRadSmoothed))}°`;
+  ui.flag.textContent = `${flag}`;
+  ui.mode.textContent = `${state.formationMode}`;
+  ui.s.textContent = `${state.angles.shushinAbs.toFixed(1)}°`;
+  ui.f1.textContent = `${state.angles.fukushin1Abs.toFixed(1)}°`;
+  ui.f2.textContent = `${state.angles.fukushin2Abs.toFixed(1)}°`;
+
+  const freezeLabel =
+    state.arbiterState === 'FROZEN'
+      ? i18n[currentLang].frozen
+      : i18n[currentLang].stable;
+
+  document.getElementById('freeze-status').textContent = freezeLabel;
+}
+
+
+// ----------------------------
+// Atualização (movimento por velocidade)
+// ----------------------------
+function updateReferees(dt, ts) {
+  const midX = (state.white.x + state.red.x) / 2;
+  const midY = (state.white.y + state.red.y) / 2;
+
+  const dxWorld = state.red.x - state.white.x;
+  const dyWorld = state.red.y - state.white.y;
+
+  const maxStep = REF_MOVE_SPEED * dt;
+  const maxAng  = REF_ANG_SPEED * dt;
+
+  // ----------------------------
+  // FLIP ativo (animação em progresso)
+  // ----------------------------
+  if (flipState.active) {
+    // enquanto está animando o flip, ignoramos debounce (já foi confirmado)
+    flipHoldStartTs = null;
+    lastFlipRawAngle = null;
+
+    state.angles.combatRadSmoothed = moveAngleTowards(
+      state.angles.combatRadSmoothed,
+      flipState.toAngle,
+      maxAng
+    );
+
+    const okS  = moveTowards(state.shushin,   flipState.toWorld.shushin,   maxStep);
+    const okF1 = moveTowards(state.fukushin1, flipState.toWorld.fukushin1, maxStep);
+    const okF2 = moveTowards(state.fukushin2, flipState.toWorld.fukushin2, maxStep);
+
+    const angOk = Math.abs(angleDiff(state.angles.combatRadSmoothed, flipState.toAngle)) < 1e-4;
+
+    if (okS && okF1 && okF2 && angOk) {
+      flipState.active = false;
+      flag = flipState.toFlag;
+      state.formationMode = 'STANDARD';
+      state.currentFormation = {
+        shushin:   { ...FORMATION_STANDARD.shushin },
+        fukushin1: { ...FORMATION_STANDARD.fukushin1 },
+        fukushin2: { ...FORMATION_STANDARD.fukushin2 }
+      };
+    }
+
+    state.angles.shushinAbs   = normalizeAngle(radToDeg(Math.atan2(state.shushin.y - midY,   state.shushin.x - midX)));
+    state.angles.fukushin1Abs = normalizeAngle(radToDeg(Math.atan2(state.fukushin1.y - midY, state.fukushin1.x - midX)));
+    state.angles.fukushin2Abs = normalizeAngle(radToDeg(Math.atan2(state.fukushin2.y - midY, state.fukushin2.x - midX)));
+    return;
+  }
+
+  // ----------------------------
+  // Cálculo normal de alvos
+  // ----------------------------
+  const pre = computeTargetsForFlag(flag, dxWorld, dyWorld, state.formationMode);
+  state.formationMode = pre.mode;
+
+  // ----------------------------
+  // Gate de FLIP: evita disparo em "atravessadas" e giros muito bruscos.
+  // - exige persistência por alguns ms
+  // - exige velocidade angular do eixo baixa (mais "estável")
+  // - aplica cooldown após flip
+  // ----------------------------
+  let axisAngVel = 0;
+  if (lastFlipRawAngle !== null && dt > 0) {
+    axisAngVel = Math.abs(angleDiff(lastFlipRawAngle, pre.combatRadTarget)) / dt; // rad/s
+  }
+  lastFlipRawAngle = pre.combatRadTarget;
+
+  const absDeg = Math.abs(pre.combatDegRaw);
+
+  // reset do "hold" se saiu bem da região de flip (histerese usando EXIT_FLIP_DEG)
+  if (absDeg < EXIT_FLIP_DEG) {
+    flipHoldStartTs = null;
+  }
+
+  const canConsiderFlip = (ts >= flipCooldownUntilTs);
+  const wantsFlip = (absDeg > ENTER_FLIP_DEG);
+
+  if (canConsiderFlip && wantsFlip) {
+    const axisStableEnough = (axisAngVel <= FLIP_MAX_ANGVEL);
+
+    if (!axisStableEnough) {
+      // eixo ainda está girando rápido demais -> não confirma flip
+      flipHoldStartTs = null;
+    } else {
+      if (flipHoldStartTs === null) flipHoldStartTs = ts;
+
+      if ((ts - flipHoldStartTs) >= FLIP_CONFIRM_MS) {
+        // confirma flip
+        flipHoldStartTs = null;
+        flipCooldownUntilTs = ts + FLIP_COOLDOWN_MS;
+
+        flipState.active = true;
+        flipState.toFlag = flag + 1;
+
+        flipState.toAngle = pre.combatRadTarget + Math.PI;
+		flipState.toAngle = Math.atan2(Math.sin(flipState.toAngle), Math.cos(flipState.toAngle));
+
+
+        const ca2 = Math.cos(flipState.toAngle);
+        const sa2 = Math.sin(flipState.toAngle);
+
+        flipState.toWorld = {
+          shushin:   transformLocalToWorld(FORMATION_STANDARD.shushin,   midX, midY, ca2, sa2),
+          fukushin1: transformLocalToWorld(FORMATION_STANDARD.fukushin1, midX, midY, ca2, sa2),
+          fukushin2: transformLocalToWorld(FORMATION_STANDARD.fukushin2, midX, midY, ca2, sa2)
+        };
+        return;
+      }
+    }
+  }
+
+  // ----------------------------
+  // Ângulo (suavizado por velocidade angular)
+  // ----------------------------
+  state.angles.combatRadSmoothed = moveAngleTowards(
+    state.angles.combatRadSmoothed,
+    pre.combatRadTarget,
+    maxAng
+  );
+
+  // alvos no mundo
+  const a = state.angles.combatRadSmoothed;
+  const ca = Math.cos(a);
+  const sa = Math.sin(a);
+
+  const tf = pre.targetFormation;
+
+  const tgtS  = transformLocalToWorld(tf.shushin,   midX, midY, ca, sa);
+  const tgtF1 = transformLocalToWorld(tf.fukushin1, midX, midY, ca, sa);
+  const tgtF2 = transformLocalToWorld(tf.fukushin2, midX, midY, ca, sa);
+
+  moveTowards(state.shushin,   tgtS,  maxStep);
+  moveTowards(state.fukushin1, tgtF1, maxStep);
+  moveTowards(state.fukushin2, tgtF2, maxStep);
+
+  state.currentFormation = {
+    shushin:   { ...tf.shushin },
+    fukushin1: { ...tf.fukushin1 },
+    fukushin2: { ...tf.fukushin2 }
+  };
+
+  state.angles.shushinAbs   = normalizeAngle(radToDeg(Math.atan2(state.shushin.y - midY,   state.shushin.x - midX)));
+  state.angles.fukushin1Abs = normalizeAngle(radToDeg(Math.atan2(state.fukushin1.y - midY, state.fukushin1.x - midX)));
+  state.angles.fukushin2Abs = normalizeAngle(radToDeg(Math.atan2(state.fukushin2.y - midY, state.fukushin2.x - midX)));
+}
+
+
+// ----------------------------
+// Loop
+// ----------------------------
+function animate(ts) {
+  if (lastTs == null) lastTs = ts;
+  const dt = (ts - lastTs) / 1000;
+  lastTs = ts;
+
+  debugAcc += dt;
+
+  applyTsubazeriaiConstraint();
+  updateArbiterFreeze(ts);
+
+  // flip ativo sempre tem prioridade
+// Quando congelado, mantém árbitros parados (não força FLIP em andamento).
+  if (!arbiterFrozen) {
+    updateReferees(dt, ts);
+  }
+
+
+  drawFloor();
+  drawCourt();
+  drawGuides();
+
+  drawEntity(state.white, false);
+  drawEntity(state.red, false);
+  drawEntity(state.shushin, true);
+  drawEntity(state.fukushin1, true);
+  drawEntity(state.fukushin2, true);
+
+  updateDebugUI(false);
+
+  requestAnimationFrame(animate);
+}
+
+// ----------------------------
+// Interação (Pointer Events: mouse + touch unificados)
+// ----------------------------
+function onPointerDown(e) {
+  canvas.setPointerCapture(e.pointerId);
+
+  const p = toMeters(e.clientX, e.clientY);
+  const isTouch = (e.pointerType === 'touch');
+
+  if (isHit(p, state.red, isTouch)) state.red.dragging = true;
+  else if (isHit(p, state.white, isTouch)) state.white.dragging = true;
+
+  if (state.red.dragging || state.white.dragging) e.preventDefault();
+}
+
+function onPointerMove(e) {
+  const p = toMeters(e.clientX, e.clientY);
+  const isTouch = (e.pointerType === 'touch');
+
+  const clamp = (v) => Math.min(Math.max(v, -HALF_COURT), HALF_COURT);
+
+  hoveredEnt = null;
+
+  if (state.red.dragging) {
+    state.red.x = clamp(p.x);
+    state.red.y = clamp(p.y);
+    hoveredEnt = state.red;
+  } else if (state.white.dragging) {
+    state.white.x = clamp(p.x);
+    state.white.y = clamp(p.y);
+    hoveredEnt = state.white;
+  } else {
+    if (isHit(p, state.red, isTouch)) hoveredEnt = state.red;
+    else if (isHit(p, state.white, isTouch)) hoveredEnt = state.white;
+  }
+
+  canvas.style.cursor = hoveredEnt ? 'move' : 'default';
+}
+
+function onPointerUp() {
+  state.red.dragging = false;
+  state.white.dragging = false;
+  hoveredEnt = null;
+}
+
+function isHit(pos, ent, isTouch) {
+  const base = isTouch ? 2.4 : 1.5;
+  const smallScreenBoost = (Math.min(state.width, state.height) < 500) ? 1.25 : 1.0;
+  const mult = base * smallScreenBoost;
+
+  const dx = pos.x - ent.x, dy = pos.y - ent.y;
+  return (dx*dx + dy*dy) < Math.pow(ent.radius * mult, 2);
+}
+
+// ----------------------------
+// Menu
+// ----------------------------
+function toggleMenu() {
+  const menu = document.getElementById('controls-container');
+  const btn = document.getElementById('open-menu-btn');
+  menu.classList.toggle('collapsed');
+  btn.style.display = menu.classList.contains('collapsed') ? 'block' : 'none';
+}
+
+// ----------------------------
+// Reset
+// ----------------------------
+function resetPositions() {
+  state.white.x = -KAISHISEN_DIST; state.white.y = 0;
+  state.red.x = KAISHISEN_DIST; state.red.y = 0;
+
+  state.currentFormation = {
+    shushin:   {...FORMATION_STANDARD.shushin},
+    fukushin1: {...FORMATION_STANDARD.fukushin1},
+    fukushin2: {...FORMATION_STANDARD.fukushin2}
+  };
+
+  state.angles.combatRadSmoothed = 0;
+  flag = 1;
+  atravessouFronteira = false;
+  state.formationMode = 'STANDARD';
+
+  flipState.active = false;
+  flipState.toWorld = null;
+}
+
+// ----------------------------
+// Resize (HiDPI + CSS pixels)
+// ----------------------------
+function resize() {
+  const dpr = Math.max(1, window.devicePixelRatio || 1);
+
+  const cssW = window.innerWidth;
+  const cssH = window.innerHeight;
+
+  canvas.style.width = cssW + "px";
+  canvas.style.height = cssH + "px";
+  canvas.width = Math.round(cssW * dpr);
+  canvas.height = Math.round(cssH * dpr);
+
+  // desenhar em unidades CSS (mantém toda a lógica em "pixels CSS")
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  state.dpr = dpr;
+  state.width = cssW;
+  state.height = cssH;
+  state.centerX = state.width / 2;
+  state.centerY = state.height / 2;
+
+  const minDim = Math.min(state.width, state.height);
+  state.scale = minDim / 13;
+
+  floorCache.valid = false;
+}
+
+// ----------------------------
+// Init
+// ----------------------------
+function init() {
+  resize();
+  window.addEventListener('resize', resize);
+
+  canvas.addEventListener('pointerdown', onPointerDown, { passive: false });
+  canvas.addEventListener('pointermove', onPointerMove, { passive: true });
+  window.addEventListener('pointerup', onPointerUp, { passive: true });
+  window.addEventListener('pointercancel', onPointerUp, { passive: true });
+
+  document.getElementById('toggle-triangle').addEventListener('change', (e) => state.showTriangle = e.target.checked);
+  document.getElementById('toggle-square-s').addEventListener('change', e => state.showSquareS = e.target.checked);
+  document.getElementById('toggle-square-f1').addEventListener('change', e => state.showSquareF1 = e.target.checked);
+  document.getElementById('toggle-square-f2').addEventListener('change', e => state.showSquareF2 = e.target.checked);
+  document.getElementById('toggle-names').addEventListener('change', (e) => state.showNames = e.target.checked);
+
+  // Debug DOM cache
+  ui.debugPanel = document.getElementById('debug-panel');
+  ui.combatAngle = document.getElementById('combat-angle-abs');
+  ui.flag = document.getElementById('flag-status');
+  ui.mode = document.getElementById('mode-status');
+  ui.s = document.getElementById('angle-shushin-abs');
+  ui.f1 = document.getElementById('angle-fukushin1-abs');
+  ui.f2 = document.getElementById('angle-fukushin2-abs');
+
+  document.getElementById('toggle-debug').addEventListener('change', (e) => {
+    state.showDebug = e.target.checked;
+    ui.debugPanel.classList.toggle('hidden', !state.showDebug);
+    updateDebugUI(true);
+  });
+
+  document.getElementById('reset-btn').addEventListener('click', resetPositions);
+
+  // Sliders de movimento
+  ui.speedSlider = document.getElementById('speed-slider');
+  ui.speedVal = document.getElementById('ui-speed-val');
+  ui.radiusSlider = document.getElementById('radius-slider');
+  ui.radiusVal = document.getElementById('ui-radius-val');
+
+  ui.speedSlider.value = String(REF_MOVE_SPEED);
+  ui.speedVal.textContent = REF_MOVE_SPEED.toFixed(1);
+  ui.radiusSlider.value = String(REF_TURN_RADIUS);
+  ui.radiusVal.textContent = REF_TURN_RADIUS.toFixed(1);
+
+  ui.speedSlider.addEventListener('input', () => {
+    REF_MOVE_SPEED = parseFloat(ui.speedSlider.value);
+    ui.speedVal.textContent = REF_MOVE_SPEED.toFixed(1);
+    recalcAngularSpeed();
+  });
+
+  ui.radiusSlider.addEventListener('input', () => {
+    REF_TURN_RADIUS = parseFloat(ui.radiusSlider.value);
+    ui.radiusVal.textContent = REF_TURN_RADIUS.toFixed(1);
+    recalcAngularSpeed();
+  });
+
+  // Sliders de thresholds
+  ui.thEnterVertex = document.getElementById('th-enter-vertex');
+  ui.thEnterVertexVal = document.getElementById('ui-th-enter-vertex-val');
+  ui.thExitVertex = document.getElementById('th-exit-vertex');
+  ui.thExitVertexVal = document.getElementById('ui-th-exit-vertex-val');
+
+  ui.thEnterSbase = document.getElementById('th-enter-sbase');
+  ui.thEnterSbaseVal = document.getElementById('ui-th-enter-sbase-val');
+  ui.thExitSbase = document.getElementById('th-exit-sbase');
+  ui.thExitSbaseVal = document.getElementById('ui-th-exit-sbase-val');
+
+  ui.thEnterFlip = document.getElementById('th-enter-flip');
+  ui.thEnterFlipVal = document.getElementById('ui-th-enter-flip-val');
+  ui.thExitFlip = document.getElementById('th-exit-flip');
+  ui.thExitFlipVal = document.getElementById('ui-th-exit-flip-val');
+  
+  // Slideres de congelamento
+  ui.freezeDist = document.getElementById('freeze-dist-slider');
+  ui.freezeDistVal = document.getElementById('ui-freeze-dist-val');
+
+  ui.freezeWindow = document.getElementById('freeze-window-slider');
+  ui.freezeWindowVal = document.getElementById('ui-freeze-window-val');
+
+  ui.freezeAngle = document.getElementById('freeze-angle-slider');
+  ui.freezeAngleVal = document.getElementById('ui-freeze-angle-val');
+
+  ui.freezeTime = document.getElementById('freeze-time-slider');
+  ui.freezeTimeVal = document.getElementById('ui-freeze-time-val');
+
+
+  // inicializa valores
+  ui.thEnterVertex.value = String(ENTER_VERTEX); ui.thEnterVertexVal.textContent = `${ENTER_VERTEX}`;
+  ui.thExitVertex.value  = String(EXIT_VERTEX);  ui.thExitVertexVal.textContent  = `${EXIT_VERTEX}`;
+  ui.thEnterSbase.value  = String(ENTER_SBASE);  ui.thEnterSbaseVal.textContent  = `${ENTER_SBASE}`;
+  ui.thExitSbase.value   = String(EXIT_SBASE);   ui.thExitSbaseVal.textContent   = `${EXIT_SBASE}`;
+  ui.thEnterFlip.value   = String(ENTER_FLIP_DEG);ui.thEnterFlipVal.textContent   = `${ENTER_FLIP_DEG}`;
+  ui.thExitFlip.value    = String(EXIT_FLIP_DEG); ui.thExitFlipVal.textContent    = `${EXIT_FLIP_DEG}`;
+  ui.freezeDist.value = TSUBA_ACTIVE_DIST;
+  ui.freezeDistVal.textContent = TSUBA_ACTIVE_DIST.toFixed(2);
+  ui.freezeWindow.value = FREEZE_WINDOW_MS;
+  ui.freezeWindowVal.textContent = FREEZE_WINDOW_MS;
+  ui.freezeAngle.value = radToDeg(FREEZE_ANGLE_RAD);
+  ui.freezeAngleVal.textContent = `${radToDeg(FREEZE_ANGLE_RAD).toFixed(0)}°`;
+  ui.freezeTime.value = FREEZE_TIME_MS;
+  ui.freezeTimeVal.textContent = FREEZE_TIME_MS;
+
+
+  // handlers com coerência mínima (garante ENTER >= EXIT para histerese)
+  ui.thEnterVertex.addEventListener('input', () => {
+    ENTER_VERTEX = parseInt(ui.thEnterVertex.value, 10);
+    ui.thEnterVertexVal.textContent = `${ENTER_VERTEX}`;
+    if (EXIT_VERTEX > ENTER_VERTEX) {
+      EXIT_VERTEX = ENTER_VERTEX;
+      ui.thExitVertex.value = String(EXIT_VERTEX);
+      ui.thExitVertexVal.textContent = `${EXIT_VERTEX}`;
+    }
+  });
+
+  ui.thExitVertex.addEventListener('input', () => {
+    EXIT_VERTEX = parseInt(ui.thExitVertex.value, 10);
+    ui.thExitVertexVal.textContent = `${EXIT_VERTEX}`;
+    if (EXIT_VERTEX > ENTER_VERTEX) {
+      EXIT_VERTEX = ENTER_VERTEX;
+      ui.thExitVertex.value = String(EXIT_VERTEX);
+      ui.thExitVertexVal.textContent = `${EXIT_VERTEX}`;
+    }
+  });
+
+  ui.thEnterSbase.addEventListener('input', () => {
+    ENTER_SBASE = parseInt(ui.thEnterSbase.value, 10);
+    ui.thEnterSbaseVal.textContent = `${ENTER_SBASE}`;
+    if (EXIT_SBASE > ENTER_SBASE) {
+      EXIT_SBASE = ENTER_SBASE;
+      ui.thExitSbase.value = String(EXIT_SBASE);
+      ui.thExitSbaseVal.textContent = `${EXIT_SBASE}`;
+    }
+  });
+
+  ui.thExitSbase.addEventListener('input', () => {
+    EXIT_SBASE = parseInt(ui.thExitSbase.value, 10);
+    ui.thExitSbaseVal.textContent = `${EXIT_SBASE}`;
+    if (EXIT_SBASE > ENTER_SBASE) {
+      EXIT_SBASE = ENTER_SBASE;
+      ui.thExitSbase.value = String(EXIT_SBASE);
+      ui.thExitSbaseVal.textContent = `${EXIT_SBASE}`;
+    }
+  });
+
+  ui.thEnterFlip.addEventListener('input', () => {
+    ENTER_FLIP_DEG = parseInt(ui.thEnterFlip.value, 10);
+    ui.thEnterFlipVal.textContent = `${ENTER_FLIP_DEG}`;
+    if (EXIT_FLIP_DEG > ENTER_FLIP_DEG) {
+      EXIT_FLIP_DEG = ENTER_FLIP_DEG;
+      ui.thExitFlip.value = String(EXIT_FLIP_DEG);
+      ui.thExitFlipVal.textContent = `${EXIT_FLIP_DEG}`;
+    }
+  });
+
+  ui.thExitFlip.addEventListener('input', () => {
+    EXIT_FLIP_DEG = parseInt(ui.thExitFlip.value, 10);
+    ui.thExitFlipVal.textContent = `${EXIT_FLIP_DEG}`;
+    if (EXIT_FLIP_DEG > ENTER_FLIP_DEG) {
+      EXIT_FLIP_DEG = ENTER_FLIP_DEG;
+      ui.thExitFlip.value = String(EXIT_FLIP_DEG);
+      ui.thExitFlipVal.textContent = `${EXIT_FLIP_DEG}`;
+    }
+  });
+  
+  ui.freezeDist.addEventListener('input', () => {
+    TSUBA_ACTIVE_DIST = parseFloat(ui.freezeDist.value);
+    ui.freezeDistVal.textContent = TSUBA_ACTIVE_DIST.toFixed(2);
+  });
+
+  ui.freezeWindow.addEventListener('input', () => {
+    FREEZE_WINDOW_MS = parseInt(ui.freezeWindow.value, 10);
+    ui.freezeWindowVal.textContent = FREEZE_WINDOW_MS;
+  });
+
+  ui.freezeAngle.addEventListener('input', () => {
+    FREEZE_ANGLE_RAD = parseInt(ui.freezeAngle.value, 10) * Math.PI / 180;
+    ui.freezeAngleVal.textContent = `${ui.freezeAngle.value}°`;
+  });
+
+  ui.freezeTime.addEventListener('input', () => {
+    FREEZE_TIME_MS = parseInt(ui.freezeTime.value, 10);
+    ui.freezeTimeVal.textContent = FREEZE_TIME_MS;
+  });
+
+
+  // i18n inicial
+  updateUIStrings();
+
+  // Debug coerente
+  const dbg = document.getElementById('toggle-debug');
+  dbg.checked = state.showDebug;
+  ui.debugPanel.classList.toggle('hidden', !state.showDebug);
+
+  // Menu inicia aberto
+  document.getElementById('open-menu-btn').style.display = 'none';
+
+  requestAnimationFrame(animate);
+}
+
+init();
+</script>
+</body>
+</html>

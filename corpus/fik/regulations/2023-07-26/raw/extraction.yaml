@@ -1,0 +1,20 @@
+package_id: fik.regulations.2023-07-26
+extraction_date: 2026-07-15
+source_pdf: source/original.pdf
+output_text: raw/extracted-text.txt
+status: draft
+tool:
+  name: pdftotext
+  family: Poppler
+  version: 25.12.0
+command_options:
+  - -layout
+  - -enc UTF-8
+  - UTF-8
+warning_summary:
+  - Poppler emitted repeated "Invalid Font Weight" warnings during extraction.
+review_status: not_compared_against_pdf_or_existing_transcription
+notes:
+  - Extraction was created as an independent comparison aid, not as the canonical text stream.
+  - The source PDF uses a two-column aligned layout that must be preserved through package metadata.
+  - Text streams remain draft until compared against both the PDF and the raw extraction.

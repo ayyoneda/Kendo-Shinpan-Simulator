@@ -1,0 +1,155 @@
+package_id: fik.regulations.2023-07-26
+table_id: kkp:table:fik.regulations:000002
+citation_label: "Table 2"
+title: "Specifications of Shinai"
+data_status: structured_verified
+source_text: raw/existing-transcription.md
+source_raw_line: 131
+verification_status: verified_against_pdf_by_repository_owner
+reviewed_by: Adrian Yoneda
+reviewed_date: 2026-07-17
+sections:
+  - section_id: itto
+    title: "A. Itto"
+    audience_columns:
+      - column_id: junior_high_school
+        label: "Junior High School (12-15 yrs)"
+      - column_id: high_school
+        label: "High School (15-18 yrs) and the same age bracket"
+      - column_id: university_adults
+        label: "University and other Adults (18 yrs and up)"
+    rows:
+      - specification: "Length"
+        gender: "Male and Female"
+        measurement: "maximum_total_length"
+        unit: "cm"
+        values:
+          junior_high_school: 114
+          high_school: 117
+          university_adults: 120
+      - specification: "Weight"
+        gender: "Male"
+        measurement: "minimum_total_weight"
+        unit: "grams"
+        values:
+          junior_high_school: 440
+          high_school: 480
+          university_adults: 510
+      - specification: "Weight"
+        gender: "Female"
+        measurement: "minimum_total_weight"
+        unit: "grams"
+        values:
+          junior_high_school: 400
+          high_school: 420
+          university_adults: 440
+      - specification: "Thickness"
+        gender: "Male"
+        measurement: "minimum_diameter_of_tip"
+        unit: "mm"
+        values:
+          junior_high_school: 25
+          high_school: 26
+          university_adults: 26
+      - specification: "Thickness"
+        gender: "Male"
+        measurement: "minimum_diameter_of_chikuto"
+        unit: "mm"
+        values:
+          junior_high_school: 20
+          high_school: 21
+          university_adults: 21
+      - specification: "Thickness"
+        gender: "Female"
+        measurement: "minimum_diameter_of_tip"
+        unit: "mm"
+        values:
+          junior_high_school: 24
+          high_school: 25
+          university_adults: 25
+      - specification: "Thickness"
+        gender: "Female"
+        measurement: "minimum_diameter_of_chikuto"
+        unit: "mm"
+        values:
+          junior_high_school: 19
+          high_school: 20
+          university_adults: 20
+  - section_id: nito
+    title: "B. Nito"
+    audience: "University Students and other Adults (18 yrs and up)"
+    weapon_columns:
+      - column_id: daito
+        label: "Daito"
+      - column_id: shoto
+        label: "Shoto"
+    rows:
+      - specification: "Length"
+        gender: "Male and Female"
+        measurement: "maximum_total_length"
+        unit: "cm"
+        values:
+          daito: 114
+          shoto: 62
+      - specification: "Weight"
+        gender: "Male"
+        measurement: "minimum_total_weight"
+        unit: "grams"
+        values:
+          daito: 440
+          shoto:
+            minimum: 280
+            maximum: 300
+      - specification: "Weight"
+        gender: "Female"
+        measurement: "minimum_total_weight"
+        unit: "grams"
+        values:
+          daito: 400
+          shoto:
+            minimum: 250
+            maximum: 280
+      - specification: "Thickness"
+        gender: "Male"
+        measurement: "minimum_diameter_of_tip"
+        unit: "mm"
+        values:
+          daito: 25
+          shoto: 24
+      - specification: "Thickness"
+        gender: "Male"
+        measurement: "minimum_diameter_of_chikuto"
+        unit: "mm"
+        values:
+          daito: 20
+          shoto: 19
+      - specification: "Thickness"
+        gender: "Female"
+        measurement: "minimum_diameter_of_tip"
+        unit: "mm"
+        values:
+          daito: 24
+          shoto: 24
+      - specification: "Thickness"
+        gender: "Female"
+        measurement: "minimum_diameter_of_chikuto"
+        unit: "mm"
+        values:
+          daito: 19
+          shoto: 19
+measurement_methods:
+  - measurement: "minimum_diameter_of_tip"
+    object: "sakigawa"
+    requirements:
+      - "The length of the sakigawa must be at least 5 cm."
+      - "The point of measurement is 1.5 cm from the tip."
+      - "Measurement is the diameter between opposite sides."
+  - measurement: "minimum_diameter_of_chikuto"
+    object: "chikuto"
+    requirements:
+      - "The point of measurement is 8 cm from the tip."
+      - "Measurement is the minimum diameter between opposing corners."
+notes:
+  - Numeric values are semantic structured values derived from the source table.
+  - Length rows represent maximum allowed length. Weight and thickness rows represent minimum required values.
+  - Row data was structured from the current transcription and cross-checked against PDF extraction lines 1090-1118.

@@ -1,0 +1,2028 @@
+                              Foreword
+
+This book is a revision of the rulebook of the International Kendo
+Federation (FIK) “The Regulations of Kendo Shiai and Shinpan. The
+Subsidiary Rules of Kendo Shiai and Shinpan” published on December
+7, 2006. The original version was translated from the rulebook of the All
+Japan Kendo Federation issued on March 26, 1997. The alterations
+made in this book are mainly linguistic in nature, and no major
+changes were made.
+
+You will find some sentences to be not exactly translated word for
+word from corresponding Japanese ones, but all the sentences are
+correctly presented to convey what are to be done and how.
+
+For your convenience, Japanese words and phrases that are normally
+used in Japanese are shown in italics and their English counterparts are
+given in Glossary on the last page.
+
+
+
+
+                                序    言
+
+
+此の冊子は2006年12月７日発行の国際剣道連盟（FIK）
+                            「剣道試
+合・審判規則並びに剣道試合・審判細則」の改定規則集である。
+初版は1997年３月26日発行の全日本剣道連盟・規則集を翻訳し
+たものであった。この冊子に反映された改定点は主に言語上の
+もので内容に主要な変更はない。
+
+二、三の文章は対応する日本語のそれを逐語的に翻訳したもの
+ではないが、文言は全て為すべきこととその方法について正確
+に述べている。
+
+読者の便宜の為に、通常日本語のままで使用される幾つかの日
+本語の語句はそのままイタリック体で示し、最後の頁に語類集
+としてそれ等の相対する英語表現を記載した。
+                                              CONTENTS
+The Regulations of Kendo Shiai                         The Subsidiary Rules of Kendo
+and Shinpan                                            Shiai and Shinpan
+
+
+Article 1 The Purpose of the
+          “Regulations”....................1
+
+             Part I: Shiai
+       Chapter 1: General Rules                        Article 1: Shiai-jo
+Article 2 Shiai-jo. .............................1     Article 2: Shinai
+Article 3 Shinai. ...............................1     Article 3: Kendo-gu
+Article 4 Kendo-gu............................2        Article 3-2 Kendo-gi sleeves
+Article 5 Uniform. ............................2       Article 4: Mejirushi of Shiai-sha
+                                                       Article 5: Nafuda for Shiai-sha
+                                                       Article 6: The specifications of
+                                                                  Shinpan-ki and others
+                                                       Article 7: Use of supporters and
+                                                                  others
+                                                       Article 8: Entering and leaving
+           Chapter 2 : Shiai                                      Shiai-jo and Shiai-sha
+ Section 1: Matters Relative to Shiai                             manners
+Article 6 Duration of Shiai...............3
+Article 7 Decision of Victory. ..........3
+Article 8 Dantai-shiai.......................4
+Article 9 The Start and End of                         Article 9: Hantei in Article 7-5 of
+           Shiai. .................................5              the “Regulations”
+Article 10 Suspension and
+           resumption of Shiai. .........5
+Article 11 Request for Suspension of
+           Shiai. .................................5
+
+        Section 2: Yuko-datotsu
+Article 12 Yuko-datotsu. .....................5        Article 10: Yukodatotsu in Article 12
+                                                                   of the “Regulations”
+                                                       Article 11: Yuko Datotsu in particular
+                                                                   situations
+Article 13 Datotsu-bu of Shinai..........6             Article 12: Invalid Datotsu
+Article 14 Datotsu-bui. .......................6
+                                                       Article 13: Datotsu-bui in Article 14
+         Chapter 3: Prohibitions                                   of the “Regulations”
+        Section 1: Prohibited Acts
+              the Regulations                                  the Subsidiary Rules
+
+Article 15 Use or possession of                         Article 14: Article 15 of the
+           prohibited substances.......7                            “Regulations” (Use or
+Article 16 Insulting or Offensive                                   possession of prohibited
+           Behavior. ...........................7                   substances)
+Article 17 Miscellaneous                                Article 15: Article 17-1 (Illegal
+           Prohibitions.......................7                     equipment)
+                                                        Article 16: Other acts violative of the
+          Section 2: Penalties                                      Rules in Article 17-7 of
+Article 18 Taijo....................................8               the “Regulations”
+Article 19 Fusei-yogu. .........................8
+Article 20 Others. ...............................9     Article 17: Sosai of Hansoku in
+                                                                    Article 20 of the
+           Part II: Shinpan                                         “Regulations”
+       Chapter 1: General Rules
+Article 21 Composition of the
+           Shinpan Group................10              Article 18: Duties of Shinpan-cho
+Article 22 Shinpan-cho......................10          Article 19: Signal of Shinpan-cho for
+                                                                    the beginning of Shiai
+Article 23 Shinpan-shunin. ..............11             Article 20: Duties of Shinpan-shunin
+Article 24 Shinpan-in. ......................11         Article 21: Duties of Shinpan-in
+Article 25 Kakari-in Group..............12              Article 22: Composition and duties of
+                                                                    Kakari-in in Article 25 of
+          Chapter 2: Shinpan                                        the “Regulations”
+      Section 1: Matters Relative                       Article 23: Uniform of Shinpan-in
+                to Shinpan
+Article 26 Decisions on Yuko-
+            datotsu. ............................14
+Article 27 Torikeshi of Yuko-                           Article 24: Torikeshi of Yuko-datotsu
+           datotsu. ............................14                  in Article 27 of the
+                                                                    “Regulations”
+Article 28 Mistakes in Decisions for                    Article 25: Mistakes in decisions on
+           Yuko-datotsu and Other                                   Yuko-datotsu and others
+           Judgements. ....................14                       in Article 28 of the
+                                                                    “Regulations”
+Article 29 Procedures for                               Article 26: Wakare in Article 29-4 of
+           Shinpan. ..........................15                    the “Regulations”
+                                                        Article 27: Procedures for improperly
+  Section 2: Shinpan-in Procedures                                  oriented Tsuru
+Article 30 Injury or Accident............16
+              the Regulations                                   the Subsidiary Rules
+
+Article 31 Kiken................................17       Article 28: Kiken in Article 31 of the
+                                                                     “Regulations”
+Article 32 Points gained by Shiai-
+           funo-sha or Kiken-
+           sha....................................17
+Article 33 Points or acquired Status
+           of the Offender................17
+         Section 3: Gogi or Igi
+Article 34 Gogi. .................................17
+Article 35 Igi. ....................................18
+Article 36 Doubts..............................18        Article 29: Filing Igi against possible
+                                                                     mistakes in Decision by
+                                                                     Shinpan-in in Article 36
+                                                                     of the “Regulations”
+    Chapter 3: Senkoku and Use of
+             Shinpan-ki
+Article 37 Senkoku............................18
+Article 38 Use of Shinpan-ki............18
+
+        Chapter 4: Supplement
+Article 39 Supplementary
+           Matters............................18
+Appendices.........................................19
+Table 1: Senkoku by Shinpan-ki. .....20
+Table 2: Specification of
+          Shinpan-ki.........................22
+Figure 1: Shiai-jo..............................23
+Figure 2: Name of Parts of
+           Shinai. .............................23
+Figure 3: Kendo-gu and
+           Datotsu-bui......................24
+Figure 4: Nafuda...............................24
+Figure 5: Specification of
+           Flags. ...............................24
+             Regulations                            the Subsidiary Rules
+
+（The Purpose of the “Regulations”）
+ Article 1: The purpose of the
+   “Regulations” is to get shiai-sha to
+   compete fairly in shiai of the
+   INTERNATIONAL KENDO
+   FEDERATION (FIK), in accordance
+   with the principles of the sword,
+   and to properly referee the shiai
+   without prejudice.
+
+              PartⅠ: Shiai
+      Chapter 1: General Rules
+（Shiai-jo）
+ Article 2: As a rule, the shiai-jo        Article 1: The specifications of the
+   should have a wooden floor, and its       shiai-jo prescribed in Article 2 of the
+   specifications shall be as follows:       “Regulations” are as follows:
+   1. The shiai-jo should be a square or     1. A space of at least 1.5 meters wide
+      a rectangle with sides of 9 to 11         should be kept outside of the
+      meters in length inclusive of the         shiai-jo.
+      width of the line.
+   2. The center of the shiai-jo should        2. The width of the lines should be 5
+      be marked by a cross, and two               to 10 centimeters, and the color
+      kaishi-sen should be marked on              thereof should be white as a
+      both sides of the center at an              general rule.
+      equal distance. The length of the
+      kaishi-sen and the distance
+      between them are stipulated in
+      the “Subsidiary Rules.”
+                                               3. The cross at the center of the
+                                                  shiai-jo, the length of the kaishi-
+                                                  sen and the distance between
+                                                  them are shown in Figure 1.
+
+（Shinai）
+ Article 3: The shinai should be made      Article 2: The specifications for shinai
+   from bamboo, or from synthetic            refer red to in Ar ticle 3 of the
+   material as a substitute for bamboo       “Regulations” shall be as follows:
+   that is approved by the ALL JAPAN         1. The shinai shall consist of four
+   K E N D O F E D E R AT I O N . T h e         slats (quartered bamboo) and
+
+                                       — 1 —
+             Regulations                             the Subsidiary Rules
+
+   str ucture, length, weight, and                should not include therein other
+   diameter of the shinai, and                    objects other than the core inside
+   specifications for tsuba are stipulated        the sakigawa, and the chigiri at
+   in the “Subsidiary Rules.”                     the end of the tsuka.
+                                                  Shinai with large gaps in the
+                                                  alignment of the slats or with
+                                                  processing or shape alterations
+                                                  that significantly impair safety
+                                                  must not be used.
+                                                  The names of the respective parts
+                                                  of the shinai are indicated in
+                                                  Figure 2.
+                                               2. Specifications for the shinai are
+                                                  indicated in Table 2, A and B. The
+                                                  length indicated therein refers to
+                                                  the total length of the shinai
+                                                  inclusive of its accessories; and
+                                                  the weight to the total weight
+                                                  thereof inclusive of its accessories
+                                                  other than the tsuba. The required
+                                                  thickness shall be determined by
+                                                  the smallest diameter of the tip of
+                                                  the sakigawa (distance between
+                                                  opposite sides), and the diameter
+                                                  of the chikuto (distance between
+                                                  opposing corners 8cm from the tip
+                                                  of the shinai). The tip of the
+                                                  shinai shall be the narrowest part
+                                                  of the chikuto, which shall become
+                                                  b ro a d e r f ro m t h e t i p t o t h e
+                                                  monouchi.
+                                               3. The tsuba should be round in
+                                                  shape, and made of leather or
+                                                  synthetic material; it should be 9
+                                                  centimeters or smaller in
+                                                  diameter, and be fixed onto the
+（Kendo-gu）                                        shinai.
+Article 4: The kendo-gu shall consist        Article 3: Kendo-gu referred to in
+  of men, kote, do and tare.                   Article 4 of the “Regulations” is
+
+                                         — 2 —
+            Regulations                       the Subsidiary Rules
+
+                                         illustrated in Figure 3.
+                                      1. The men-buton shall be long enough
+                                         to protect the shoulder joints and
+                                         have sufficient shock-absorbing
+                                         capacity to cushion the impact of a
+                                         strike.
+                                      2. Kote shall protect at least one-half of
+                                         the forearm (the longest section
+                                         between the elbow and the wrist).
+                                         The kote fist and the kote-buton shall
+                                         have sufficient shock-absorbing
+                                         capacity.
+                                      3. The gouge in the kote-buton shall
+                                         not exceed 2.5cm between its
+                                         longest and shortest parts.
+                                      Article 3-2 The sleeves of the kendo-
+                                         gi shall be long enough to protect
+（Uniform）                                the elbow joint.
+Article 5: The kendo uniform shall    Article 4: Each shiai-sha shall wear a
+  consist of a kendo-gi and hakama.      mejirushi, a strip of red or white
+                                         cloth with a total length of 70
+                                         centimeters and width of 5
+                                         centimeters. The mejirushi are
+                                         attached by being folded in half at
+                                         the crossing point of the do strings.
+                                      Article 5: The nafuda, as illustrated
+                                         in Figure 4, shall be affixed to the
+                                         center panel of the tare.
+                                      Article 6: The specifications for
+                                         shinpan-ki are shown in Figure 5.
+                                         The standard size for the flag
+                                         handles shall be 1.5 centimeters in
+                                         diameter.
+                                      Article 7: Shiai-sha may use
+                                         supporters or other items only in
+                                         case of medical need, provided that
+                                         they are tidy and not hazardous to
+                                         the opponent, and subject to
+                                         approval by the shinpan-shunin or
+
+                                  — 3 —
+                Regulations                               the Subsidiary Rules
+
+                                                     shinpan-cho.
+                                                   Article 8: The shiai-sha procedures
+              Chapter 2: Shiai                       for entering and leaving the shiai-jo,
+     Section 1: Matters Relative                     and the manner for rei may be
+                     to Shiai                        specified at each tournament.
+（Duration of Shiai）
+ Article 6: The standard duration for
+   shiai shall be five minutes, and
+   encho shall be three minutes. The
+   time from the senkoku for yuko-
+   datotsu or suspension pronounced
+   by the shushin, until resumption of
+   the shiai, shall not be counted in the
+   shiai duration.
+（Decision of Victory）
+ Article 7: Victory in shiai shall be
+   decided in accordance with the
+   following rules:
+   1. In principle, victory shall be
+      decided in accordance with the
+      sanbon-shobu rule; however, it
+      may be decided in accordance with
+      the ippon-shobu rule depending on
+      the managerial needs for each
+      tournament.
+   2. In sanbon-shobu, the shiai-sha
+      who first scores two points within
+      the shiai duration shall be the
+      winner. However, if a shiai-sha
+      scores one point without allowing
+      the other any point within the
+      shiai duration, the former shall
+      be the winner.
+   3. In case victory has not been
+      decided within the shiai duration,
+      encho may be employed wherein
+      the shiai-sha who first scores one
+      p o i n t s h a l l b e t h e w i n n e r.
+      Otherwise, victory may be
+
+                                               — 4 —
+              Regulations                            the Subsidiary Rules
+
+      decided by hantei or by chusen, or
+      the shiai may be declared a
+      hikiwake.
+   4. In case victory has been decided
+      by hantei or by chusen, the winner
+      shall be awarded one point.
+   5. In the case of hantei, shinpan-in       Article 9: The hantei prescribed in
+      shall take into consideration, first      Article 7 Item 5 of the “Regulations”
+      the skills of the shiai-sha , then        shall be based on the following
+      their attitude in the shiai.              criteria:
+                                                1. In the case where a shiai-sha
+                                                   makes datotsu nearly equal to
+                                                   yuko-datotsu , his or her skill
+                                                   should be regarded as superior.
+                                                2. In the case where a shiai-sha is
+                                                   superior in posture and movement,
+                                                   his or her attitude should be
+                                                   regarded as superior.
+（Dantai-shiai）
+ Article 8: Dantai-shiai shall be
+   carried out in accordance with the
+   following rules; however, the rules
+   may be modified at each tournament
+   if necessary:
+   1. The team which has more
+       winners than the other shall be
+       the victor. In the case where the
+       number of winners turns out to
+       be equal, the team which has
+       scored more points than the other
+       shall be the victor. Furthermore,
+       in case the number of scored
+       points happens to be equal, one
+       daihyosha from each team shall
+       fight to decide the match.
+   2 . In the case of the kachinuki
+       method, the shiai-sha continues to
+       fight for as long as he or she keeps
+       winning. The team which defeats
+
+                                          — 5 —
+              Regulations                           the Subsidiary Rules
+
+      the last shiai-sha of the opponent’s
+      team shall be the victor.
+（The Start and End of Shiai）
+ Article 9: The start and end of shiai
+   shall be declared by the shushin.
+（Suspension and Resumption of
+ Shiai）
+ Article 10: Suspension of a shiai can
+   be declared by the shinpan-in, while
+   resumption of a shiai shall be
+   pronounced by the shushin.
+（Request for Suspension of Shiai）
+ Article 11: In case a shiai-sha
+   becomes unable to continue fighting
+   due to an accident etc., that shiai-
+   sha may request a suspension of the
+   shiai.
+
+       Section 2: Yuko-datotsu
+（Yuko-datotsu）
+ Article 12: A yuko-datotsu is defined as    Article 10: The “accurate” strike
+   an accurate strike or thrust made           prescribed in Article 12 of the
+   onto designated targets (datotsu-bui)       “Regulations” means a strike made
+   of the opponent’s kendo-gu . The            in the same direction as the jin-bu
+   strike or thrust must be executed in        of the shinai.
+   high spirits with correct posture,
+   using the striking section (datotsu-bu)   Article 11: The following datotsu
+   of the shinai with the correct angle        shall be valid:
+   (hasuji), and followed by zanshin.          1. Datotsu made to the opponent
+                                                  immediately after the opponent
+                                                  has let go of his or her shinai.
+                                               2. Datotsu made simultaneously to
+                                                  the opponent stepping out of the
+                                                  shiai-jo.
+                                               3. Datotsu made immediately after
+                                                  the opponent has fallen down.
+                                             Article 12: Datotsu in the following
+                                               cases shall not be valid:
+                                               1. Ai-uchi.
+
+                                         — 6 —
+              Regulations                             the Subsidiary Rules
+
+                                                2. As the datotsu is made, the
+                                                   attacker is checked at the upper-
+                                                   f ro n t b o d y b y t h e t i p o f t h e
+                                                   recipient’s shinai, who is in high
+                                                   spirits and in the right posture.
+
+
+
+（Datotsu-bu of the Shinai）
+ Article 13: The datotsu-bu of the shinai
+   shall be centered on the striking
+   part (monouchi) of the jinbu on the
+   opposite side of the cord (tsuru).
+（Datotsu-bui）
+ Article 14: The datotsu-bui are as         Article 13: The datotsu-bui prescribed
+   follows (Figure 3):                        in Article 14 of the “Regulations”
+   1. Men-bu, (shomen and sayu-men)           are shown in Figure 3. The target
+                                              areas of men and kote are as follows:
+   2. Kote-bu , ( migi-kote and hidari-       1. Right and left men shall be above
+      kote)                                      the temples.
+                                              2. The target area for kote shall be
+                                                 the right forearm in the case of
+                                                 chudan-no-kamae (the left
+                                                 forearm if the opponent holds his
+                                                 or her shinai with the left hand
+                                                 forward), or the left and right
+                                                 forearms in the case of other
+                                                 kamae.
+
+   3. Do-bu, (migi-do and hidari-do)
+   4. Tsuki-bu, (tsuki-dare)
+
+       Chapter 3: Prohibitions
+     Section 1: Prohibited Acts
+（Use or possession of prohibited
+ substances）
+ Article 15: Using or possessing pro-       Article 14: Prohibited substances and
+   hibited substances, or implementing        prohibited methods under Article
+   prohibited methods.                        15 of the “Regulations” mean those
+                                              listed in the latest Prohibited Table
+
+                                        — 7 —
+              Regulations                            the Subsidiary Rules
+
+                                                 of the World Anti-Doping Agency
+                                                 (WADA).
+（Insulting or Offensive Behavior）
+ Article 16: Shiai-sha are prohibited
+   from insulting or acting offensively
+   towards shinpan-in or opponents.
+（Miscellaneous Prohibitions）
+ Article 17: Shiai-sha are prohibited
+   from engaging in the following acts:
+   1. Use of non-regulation kendo
+      equipment.
+   2. Tripping the opponent or sweeping
+      their legs.
+   3. Unfairly shoving or pushing the
+      opponent out of the shiai-jo.
+   4. Jogai, or stepping out of the shiai-   Article 15: The illegal equipment as
+      jo while the match is in play.           stipulated in Article 17 No. 1 of the
+                                               “Regulations” refers to all items
+                                               other than the shinai as specified in
+                                               Ar ticle 3 of the “Regulations”
+                                               (limited to those that meet the
+                                               standards stipulated in Article 2 of
+                                               the “Subsidiary Rules”), and the
+                                               kendo-gu (men, kote, do, and tare as
+                                               illustrated in Figure 3). For the time
+                                               being, any kendo equipment or
+                                               kendo-gi that does not meet the
+                                               criteria of Article 3 No. 2~4 and
+                                               Ar ticle 3-2 of the “Subsidiar y
+                                               Rules” will not be considered illegal
+                                               equipment. In such cases, a caution
+                                               will be given by the shinpan-in after
+                                               the match.
+                                               ② Jogai as prescribed in Article 17,
+                                               Item 4 of the “Regulations” is
+                                               specified as follows:
+                                               1. Having one foot totally outside
+                                                  the boundary line.
+                                               2. Falling on the floor with a part of
+
+                                         — 8 —
+             Regulations                             the Subsidiary Rules
+
+                                                   the body outside the boundary
+                                                   line.
+                                                3. Supporting the body with a part of
+                                                   the body or shinai outside the
+                                                   boundary line.
+   5. Letting go of the shinai.
+   6. Requesting for suspension of the
+      shiai without a justifiable reason.
+   7. Committing other acts that violate
+      the “Regulations”.
+
+
+
+                                            Article 16: Prohibited acts prescribed
+                                              in Article 17, Item 7 of the
+                                              “Regulations” shall include the
+                                              following:
+                                              1. Putting one’s hand on the
+                                                 opponent, or holding the opponent
+                                                 in one’s arms.
+                                              2. Taking hold of the opponent’s
+                                                 shinai , or grasping one’s own
+                                                 shinai on its jin-bu.
+                                              3. Taking hold of the opponent’s
+                                                 shinai under one’s arm.
+                                              4. Intentionally putting one’s shinai
+                                                 on the opponent’s shoulder.
+                                              5. Lying face down after falling on
+                                                 the floor without counteracting
+                                                 the opponent.
+                                              6. Intentionally wasting time.
+                                              7. Doing inappropriate tsubazeriai or
+                                                 datotsu.
+
+
+
+        Section 2: Penalties
+（Taijo）
+Article 18: A shiai-sha who commits
+  any of the hansoku prescribed in
+  Articles 15 and 16 shall lose the
+
+                                        — 9 —
+              Regulations                           the Subsidiary Rules
+
+   shiai and be ordered to retire from
+   the shiai area (taijo). The points or
+   status hitherto gained by the
+   violator shall be totally nullified,
+   whereas the opponent will be given
+   two points.
+（Fusei-yogu）
+ Article 19: A shiai-sha who commits
+   the hansoku stipulated in Article 17,
+   Item 1 shall receive the penalties
+   outlined below. In cases whereby
+   both shiai-sha commit such
+   hansoku , both shall lose the shiai
+   and their points or status gained
+   hitherto shall be nullified.
+   1. A shiai-sha who uses prohibited
+      kendo equipment ( fusei yogu )
+      shall lose the shiai. Any points or
+      status acquired hitherto shall be
+      nullified, whereas the opponent
+      will be given two points.
+   2. The penalty stipulated in the
+      preceding paragraph will not be
+      retroactive to the preceding shiai
+      wherein the use of prohibited
+      kendo equipment had not been
+      detected.
+   3. A shiai-sha who is detected using
+      prohibited equipment will be
+      disallowed from participating in
+      the remaining shiai; however, the
+      violator may be substituted in
+      dantai-shiai unless otherwise
+      stipulated.
+
+（Others）
+ Article 20:
+   1. In the case whereby a shiai-sha        Article 17: Sosai applied to simulta-
+      commits two hansoku stipulated           neous hansoku as prescribed in
+
+                                        — 10 —
+             Regulations                              the Subsidiary Rules
+
+      under Article 17, Items 2 to 7, the        Article 20 of the “Regulations” shall
+      opponent shall be given one point.         be implemented as follows:
+      The number of such hansoku shall           1. In the case of the first sosai, the
+      be cumulative during the round of             senkoku of hansoku shall be first
+      the concerned shiai . However,                addressed to the shiai-sha on the
+      when both shiai-sha have gained               red side and then to the white
+      one point respectively, a second              side, followed by another senkoku
+      hansoku simultaneously                        of sosai.
+      committed by both shiai-sha shall          2. In the case of a second or
+      be cancelled ( sosai ) and not                subsequent sosai, the senkoku and
+      subject to penalization.                      signalling with the shinpan-ki
+   2. In the hansoku stipulated in                  shall be made simultaneously.
+      Article 17, Item 4, when both
+      shiai-sha step out of the shiai-jo,
+      the one who steps out first shall
+      be subject to penalization.
+   3. In the case of Article 17, Item 4,
+      when the senkoku for yuko-
+      datotsu has been revoked, the
+      infringement shall not be subject
+      to penalization.
+   4. In the case of the hansoku
+      stipulated in Article 17, Item 5,
+      when the opponent scores a yuko-
+      datotsu immediately after the
+      infringement, it will not be
+      subject to penalization.
+
+           PartⅡ: Shinpan
+      Chapter 1: General Rules
+（Composition of the Shinpan
+Group）
+Article 21: The shinpan group shall
+   consist of the shinpan-cho, shinpan-
+   shunin (appointed only when two or
+   more shiai-jo are set up), and
+   shinpan-in.
+（Shinpan-cho）
+ Article 22: The shinpan-cho has the
+
+                                        — 11 —
+             Regulations                         the Subsidiary Rules
+
+   authority to make sure that shiai
+   are conducted fairly.                  Article 18: The duties of the shinpan-
+                                            cho are as follows:
+                                            1. To ensure strict application of the
+                                               “Regulations” and “Subsidiary
+                                               Rules” to shiai.
+                                            2. To ensure the smooth progress of
+                                               shiai.
+                                            3. To render decisions on igi.
+                                            4. To decide on matters which have
+                                               not been prescribed in the
+                                               “Regulations” or “Subsidiary
+                                               Rules”, and on unexpected
+                                               happenings.
+                                          Article 19: Signalling by the shinpan-
+                                            cho for the beginning of the first
+                                            shiai shall be conducted as follows:
+                                            1. In the case wherein one shiai-jo
+                                               is set, the shinpan-cho shall stand
+                                               up and have the shushin declare
+                                               the commencement of shiai when
+                                               the first shiai-sha are standing at
+                                               the location for ritsu-rei , three
+                                               steps back from the kaishi-sen
+                                               (hereinafter the same).
+                                            2. In the case wherein two or more
+                                               shiai-jo are set, the shinpan-cho
+                                               shall stand up and signal for
+                                               commencement using a whistle
+                                               or the like when all of the first
+                                               pairs of shiai-sha are standing at
+（Shinpan-shunin）                               the location for ritsu-rei.
+ Article 23: The shinpan-shunin shall
+   assist the shinpan-cho, and has the    Article 20: The duties of the shinpan-
+   authority to oversee the shiai at        shunin are as follows:
+   their respective shiai-jo.               1. To take responsibility for the
+                                               management of shiai at their
+                                               respective shiai-jo.
+                                            2. To ensure the proper application
+
+                                     — 12 —
+                Regulations                                    the Subsidiary Rules
+
+                                                            o f t h e “ Re g u l a t i o n s ” a n d
+                                                            “Subsidiary Rules”.
+                                                         3. To properly and speedily decide
+                                                            on violations of the “Regulations”
+                                                            or “Subsidiary Rules”, and on igi
+                                                            if filed, and report to the shinpan-
+                                                            cho if necessary.
+                                                         4. To supervise the shinpan-in in
+（Shinpan-in）                                                charge of their shiai-jo.
+Article 24: 1. As a general rule, a
+      shinpan group shall consist of a               Article 21: The duties of shinpan-in
+      shushin and two fukushin, each                   are as follows:
+      having equal authority to decide                 1. To manage their respective shiai.
+      on yuko-datotsu and other matters.               2. To clearly pronounce and signal
+   2. The shushin has the authority to                    decisions.
+      administer shiai , to signal with                3. To share a common standard of
+      shinpan-ki , and to pronounce                       judgement with other shinpan-in.
+      yuko-datotsu, hansoku, etc.                      4. To acknowledge by flags the
+   3. The fukushin shall assist the                       signals made by other shinpan-in.
+      shushin in the administration of                 5. After a round of shiai, shinpan-in
+      respective shiai by signalling                      will confer to review the shiai
+      yuko-datotsu, hansoku, etc., with                   concerned, consulting the
+      their shinpan-ki. Further, in the                   shinpan-shunin and/or shinpan-
+      case of emergency, either fukushin                  cho, if necessary.
+      may signal and pronounce
+      suspension of the shiai.
+（Kakari-in Group）
+ Article 25: In order to properly
+   manage shiai, a group of kakari-in                Article 22: The composition and
+   c o n s i s t i n g o f t i m e ke e p e r s ,      duties of the kakari-in prescribed in
+   scoreboard recorders, score                         Article 25 of the “Regulations” are
+   recorders, and shiai-sha callers                    as follows:
+   should be present at each shiai-jo.                 1. There shall be, in principle, one
+   The composition and duties thereof                     head time keeper and two or more
+   are outlined in the “Subsidiary                        sub-keepers per shiai-jo who shall
+   Rules”.                                                time the shiai , and signal its
+                                                          expiration using the flag (Fig. 5).
+                                                       2. There shall be, in principle, one
+                                                          head scoreboard recorder and two
+
+                                                — 13 —
+Regulations                 the Subsidiary Rules
+
+                          or more sub-recorders per shiai-
+                          jo who shall mark the shinpan-
+                          in’s senkoku on the board, and
+                          also check the shinpan-ki.
+                       3. There shall be, in principle, one
+                          head score recorder and two or
+                          more sub-recorders per shiai-jo
+                          who shall keep a record of scores
+                          including yuko-datotsu-bui , the
+                          number and kinds of hansoku ,
+                          and the time spent for each shiai.
+                       4. There shall be, in principle, one
+                          head shiai-sha caller and two or
+                          more sub-callers per shiai-jo who
+                          s h a ll s ummon s h i a i - s h a and
+                          inspect their equipment.
+
+                   Article 23: Unless otherwise
+                     stipulated at each tournament, the
+                     uniform for shinpan-in shall be as
+                     follows:
+                     1. A plain, dark blue jacket
+                     2. A plain, grey pair of trousers
+                     3. A plain, white shirt
+                     4. A plain, deep red necktie
+                     5. A plain, dark blue pair of socks
+
+
+
+
+              — 14 —
+              Regulations                             the Subsidiary Rules
+
+          Chapter 2: Shinpan
+   Section 1: Matters Relative to
+                  Shinpan
+（Decisions on Yuko-datotsu）
+ Article 26: A datotsu shall be
+   considered as yuko and awarded one
+   point in the following cases:
+   1. When two or three shinpan-in
+      have signalled yuko-datotsu.
+   2. When one shinpan-in has
+      signalled yuko-datotsu , and the
+      others have signalled abstention.
+（Torikeshi of Yuko-datotsu）
+ Article 27: In the case where a shiai-      Article 24: The torikeshi of a yuko-
+   sha has committed an improper act,          datotsu provided for in Article 27 of
+   the decision of yuko-datotsu may be         the “Regulations” Inappropriate
+   revoked upon gogi , even after its          behavior is defined as any excessive
+   senkoku.                                    display or appeal for validity after a
+                                               strike is made.
+                                               1. When the shiai-sha who has
+                                                  scored yuko-datotsu is not alert in
+                                                  spirit and/or posture to a possible
+                                                  counterattack by the opponent.
+                                               2. When the shiai-sha who has
+                                                  s c o r e d y u k o - d a t o t s u m a ke s
+                                                  exaggerated gestures appealing
+                                                  the validity of the datotsu.
+
+（Mistakes in Decisions for Yuko-
+ datotsu and Other Judgements）
+Article 28: In cases where the               Article 25: Mistakes in decisions for
+   shinpan-in have doubts about a              yuko-datotsu and other judgements
+   decision for yuko-datotsu or                provided for in Article 28 of the
+   something else, a gogi shall be called      “Regulations” are specified as follows:
+   wherein the shinpan-in shall come           1. In the case when an erroneous
+   to a decision.                                 decision has been made concerning
+                                                  yuko-datotsu or hansoku.
+                                               2. In the case when a decision for
+                                                  yuko-datotsu has been made
+
+                                        — 15 —
+             Regulations                             the Subsidiary Rules
+
+                                                   despite a signal for the expiration
+                                                   of the shiai time.
+                                                3. In the case when a decision for
+                                                   yuko-datotsu has been made
+                                                   during the shiai in which the
+                                                   number of hansoku has been
+                                                   incorrectly calculated.
+（Procedures for Shinpan）
+Article 29: Shinpan-in shall adjudicate
+  shiai in the following manner:
+  1. In the case where a shinpan-in
+     has signalled yuko-datotsu , the
+     other shinpan-in must immediately
+     signal their judgments.
+  2. In the case where a yuko-datotsu
+     has been awarded, or the shiai has
+     been suspended, the shushin will
+     get the shiai-sha to return to the
+     kaishi-sen and then resume the
+     shiai.
+  3. In cases whereby the shinpan-in
+     have identified a hansoku , the
+     shinpan-in shall immediately
+     suspend the shiai and signal to
+     that effect with their shinpan-ki.
+     However, if the hansoku was not
+     obvious, the shinpan-in shall call
+     gogi to discuss the matter.
+  4. In the case where tsubazeriai has      Article 26: Wakare provided for in
+     come to a stalemate, the shushin         Article 29, Item 4 of the
+     shall separate the shiai-sha on the      “Regulations” shall be carried out
+     spot ( wakare ) and then resume          as follows:
+     the shiai.                               1. The shushin shall separate the
+                                                 shiai-sha by pronouncing “Wakare”
+                                                 and then resume the shiai
+                                                 immediately.
+                                              2. The spot where the shiai-sha are
+                                                 separated must be inside the shiai-
+                                                 jo.
+
+                                       — 16 —
+             Regulations                            the Subsidiary Rules
+
+   5. In the case where a shiai-sha has
+      requested stoppage, the shushin
+      shall pronounce suspension of the
+      shiai and ask the shiai-sha for the
+      reason.
+   6. When a victory must be decided
+      by hantei , all of the shinpan-in
+      shall simultaneously signal their
+      decision for the winner with their
+      shinpan-ki upon the shushin’s
+      senkoku of “Hantei”.                   Article 27: Shushin will give a clear
+                                               instruction only once in the case
+                                               where the tsuru of a shiai-sha’s
+                                               shinai is not on top.
+        Section 2: Shinpan-in
+                Procedures
+（Injury or Accident）
+Article 30: In case a shiai-sha is
+  unable to continue the shiai due to
+  injury or an accident, the shinpan-in
+  shall ascertain the cause and handle
+  the matter in the following manner:
+  1. The shinpan-in shall determine
+     whether to continue the shiai
+     after consulting with a doctor. As
+     a general rule, the shinpan-in
+     should spend no more than five
+     minutes handling an accident.
+  2. In case a shiai-sha is unable to
+     continue the shiai due to an
+     injury, if the opponent is deemed
+     to be responsible for the accident,
+     whether intentionally or not, the
+     opponent shall lose the shiai. If
+     the cause of the accident cannot
+     be ascertained, the injured shiai-
+     sha (shiai-funo-sha) shall lose the
+     shiai.
+  3. A shiai-sha who becomes
+
+                                        — 17 —
+                Regulations                               the Subsidiary Rules
+
+      incapacitated due to an injury or
+      an accident may be reinstated in
+      later shiai if a doctor and the
+      shinpan-in permit him or her to
+      do so.
+   4. A shiai-sha who loses a shiai
+      through causing an accident will
+      not be allowed to participate in
+      following shiai.
+（Kiken）
+ Article 31: A shiai-sha who has                   Article 28: Kiken as provided for in
+   defaulted during a shiai will be the              Article 31 of the “Regulations” shall
+   loser and be prohibited from                      include the following case:
+   participating in following shiai.                 1. In case a shiai-sha has arbitrarily
+（Points Gained by Shiai-funo-sha                        defaulted the shiai due to health
+or Kiken-sha）                                           or for some other reason.
+Article 32: The winner by virtue of
+   Articles 30 or 31 shall be given two
+   points. Any point scored by the
+   shiai-funo-sha shall remain valid.
+   H o w e v e r, t h e w i n n e r w i l l b e
+   awarded one point in the case of
+   encho.
+（Points or acquired Status of the
+ Offender）
+ Article 33: The points or acquired
+   status of the offender who loses a
+   shiai due to Article 30, Item 2 shall
+   be invalidated.
+
+       Section 3: Gogi or Igi
+（Gogi）
+Article 34: In case gogi is deemed
+  necessary, the shinpan-in shall
+  suspend the shiai , call gogi , and
+  discuss the matter in the centre of
+  the shiai-jo.
+
+
+
+
+                                              — 18 —
+             Regulations                           the Subsidiary Rules
+
+（Igi）
+Article 35: Nobody is allowed to
+   protest against decisions made by        Article 29: Igi as provided for in
+   shinpan-in.                               Article 36 of the “Regulations” shall
+ Article 36: In case a kantoku about         be filed in the following manner
+   the application of the “Regulations”      before sogo-no-rei at the end of the
+   holds doubts by the shinpan-in, he        concerned shiai:
+   or she may file igi with the shinpan-     1. The kantoku must signal with the
+   shunin or shinpan-cho before the             kantoku-ki (Fig. 5) when filing igi.
+   concerned shiai ends.                     2. The kantoku will state the
+                                                contents of the igi to the shinpan-
+                                                shunin or shinpan-cho.
+
+
+
+    Chapter 3: Senkoku and Use
+              of Shinpan-ki
+（Senkoku）
+ Article 37: The shinpan-in shall
+   pronounce the start, end, resumption,
+   suspension, wakare , yuko-datotsu,
+   victory, gogi , and hansoku in the
+   manner prescribed in Table 1. The
+   shinpan-in may explain the senkoku
+   if necessary.
+（Use of Shinpan-ki）
+ Article 38: The shinpan-in shall use
+   shinpan-ki to motion suspension,
+   wakare, yuko-datotsu, victory, gogi,
+   and hansoku in the manner
+   prescribed in Table 1.
+
+       Chapter 4: Supplement
+（Supplementary Matters）
+ Article 39: In case matters that have
+   not been provided for in the
+   “Regulations” occur, the shinpan-in
+   shall decide by gogi, subject to the
+   approval of the shinpan-shunin or
+   shinpan-cho.
+
+                                       — 19 —
+               Regulations                               the Subsidiary Rules
+
+Appendices:                                        By-Laws
+ 1. The rules set forth hereinabove                    These “Subsidiary Rules” shall
+    may be totally or partially                      come into effect on July 26, 2023.
+    modified according to the
+    convenience of a tournament or
+    competition due to its unusual
+    size or nature as long as the
+    purpose of the “Regulations” and
+    “ S u b s i d i a r y Ru l e s ” a re n o t
+    infringed.
+ 2. The “Regulations” shall come into
+    full effect as of March 26, 1997.
+ 3. The “Regulations” were partially
+    revised and shall come into full
+    effect as of March 23, 2000.
+ 4. The “Regulations” were partially
+    revised and shall come into full
+    effect as of December 7, 2006.
+ 5. The “Regulations” were partially
+    revised and shall come into full
+    effect as of September 2, 2017.
+ 6.These partially revised
+    “Regulations” shall come into
+    effect as of July 26, 2023.
+
+
+
+
+                                              — 20 —
+Table 1 : Senkoku by Shinpan-in and Use of Shinpan-ki
+                    Situation            Senkoku         Motion of Shinpan-ki          ※
+Beginning   Beginning of Shiai        “Hajime”      Hold flags on both sides of      Fig. 9
+                                                    the body.
+Resumption Resumption of Shiai       “Hajime”       Same as above.                   Fig. 9
+Suspension Suspension of Shiai       “Yame”         Raise flags straight up.         Fig.14
+Yuko-      Decision of Yuko-datotsu “Men-, Kote-, Raise a flag diagonally up on      Fig.10
+datotsu                               Do-, Tsuki- one side.
+                                      Ari”
+           Denial of Yuko-datotsu                   Crisscross flags downward.       Fig.11
+           Abstention from decision                 Hold flags crossed downward.     Fig.12
+           of judgment
+           Torikeshi of Yuko-datotsu “Torikeshi ”   Crisscross flags downward.       Fig.11
+           Beginning of Nihon-me     “Nihon-me”     Lower the raised flag.           Fig.10
+           Beginning of Shobu        “Shobu”        Same as above.                   Fig.10
+Decision   Decision of victory       “Shobu-ari”    Same as above.                   Fig.10
+of Victory Beginning of Encho        “Encho-        Hold flags on both sides of      Fig. 9
+                                      hajime”       the body.
+           Ippon-gachi               “Shobu-ari”    Raise a flag diagonally up on    Fig.10
+                                                    one side.
+           1. Pronouncing Hantei     1. “Hantei”    1. Same as above.                Fig.10
+           2. Victory by Hantei      2. “Shobu-ari” 2. Lower the raised flag.
+           Victory by Kiken          “Shobu-ari”    Raise a flag diagonally up on    Fig.10
+                                                    one side.
+           Hikiwake                  “Hikiwake”     Hold flags crossed above the     Fig.13
+                                                    forehead.
+           Incapacitation in Shiai   “Shobu-ari”    Raise a f lag diagonally up on   Fig.10
+                                                    one side.
+           Victory by Chusen         “Shobu-ari”    Same as above.                   Fig.10
+           Daihyosha-sen             “Hajime”       Hold flags on both sides of      Fig. 9
+                                                    the body.
+Gogi       Calling of Gogi           “Gogi”         Raise both flags straight up     Fig.16
+                                                    in the right hand.
+           Signaling of its result                  Signal by Shushin with the
+                                                    flag.
+Hansoku    Use or possession of      “Shobu-ari”    Raise a flag diagonally up on    Fig.10
+           prohibited substances                    one side.
+           Insulting or offensive    “Shobu-ari”    Same as above.                   Fig.10
+           Acts
+           Use of Fusei-yogu         “Shobu-ari”    Same as above.                   Fig.10
+
+
+
+
+                                         — 21—
+                    Situation             Senkoku          Motion of Shinpan-ki          ※
+Hansoku     Tripping or Sweeping-off “Hansoku          First, raise flags diagonally   Fig.17
+            of opponent’s leg(s)      ( ) kai”         downward on one side, and
+                                                       declare the number of
+                                                       Hansoku with finger(s)
+                                                       towards the violator.
+            Pushing the opponent        Same as        Same as above.                  Fig.17
+            out of Shiai-jo             above
+            Leaving hold of Shinai      Same as        Same as above.                  Fig.17
+                                        above
+            Request for a break         Same as        Same as above.                  Fig.17
+            without a justifiable       above
+            reason
+            Hansoku simultaneously      Same as        Raise flags diagonally
+            committed by both           above          downward on both sides.         Fig.18
+            Shiai-sha
+            Miscellaneous violations    Same as        First, raise a flag diagonally Fig.17
+            of the Regulations          above          downward on one side and
+                                                       then declare the number
+                                                       of Hansoku with finger(s)
+                                                       towards the violator.
+            Having committed            Indicating     Raise a flag diagonally up on Fig.10
+            second Hansoku              with fingers   one side.
+                                        “Hansoku-
+                                        nikai” and
+                                        “Ippon-ari”
+            Applying Sosai              “Sosai” or     Crisscross flags downward.      Fig.11
+                                        “Onajiku-
+                                        sosai” after
+                                        the second
+                                        offset
+Wakare      1. When tsubazeriai         1. “Wakare”    1. Raise both flags           Fig.15
+               reaches a stalemate                        straight forward.
+            2. To resume Shiai          2. “Hajime”    2. Lower both flags
+                                                          downward.
+Injury,     Shiai-funo due to injury,   “Shobu-ari”    Raise a flag diagonally up on Fig.10
+Accident,   accident or Kiken                          one side.
+Kiken
+※Refer to the figures given in “The Guidelines for Kendo Shiai and Shinpan .
+
+
+
+
+                                          — 22 —
+Table2 : Specifications of Shinai
+A. Itto
+                                                      Junior High     High School (15-18yrs) University and other
+                          Category
+                                                    School (12-15yrs) and the same age bracket Adults (18yrs and up)
+Length      Male & Female                           <114cm                    <117cm                      <120cm
+Weight      Male                                    >440 grams                >480 grams                  >510 grams
+            Female                                  >400 grams                >420 grams                  >440 grams
+Thickness   Male        Min. diameter or tip        >25mm                     >26mm                       >26mm
+                        Min. diameter or chikuto    >20mm                     >21mm                       >21mm
+            Female      Min. diameter of tip        >24mm                     >25mm                       >25mm
+                        Min. diameter or chikuto    >19mm                     >20mm                       >20mm
+
+B. Nito
+                          Category                  University Students and other Adults (18yrs and up)
+                                                          Daito                     Shoto
+Length      Male & Female                           <114cm                <62cm
+Weight      Male                                    >440 grams            280～300 grams
+            Female                                  >400 grams            250～280 grams
+Thickness   Male        Min. diameter or tip        >25mm                 >24mm
+                        Min. diameter or chikuto    >20mm                 >19mm
+            Female      Min. diameter of tip        >24mm                 >24mm
+                        Min. diameter or chikuto    >19mm                 >19mm
+
+
+Method for measuring the diameter of the tip of Sakigawa
+             The length of the sakigawa is ＞ 5 cm
+
+
+
+
+             sakishin      Point of measurement                           Point of measurement
+                  1.5cm from the tip                              diameter between opposite sides
+
+Method for measuring the minimum diameter of the chikuto
+
+
+
+
+                             Point of measurement                            Point of measurement
+                     8 cm from the tip                                   diameter between corners
+
+                                               — 23 —
+                                  （Standard）
+                   Fig.1 : Shiai-jo
+
+
+
+                           Outer Boundary
+                                                   1.5m
+                           Boundary Lines
+
+
+
+
+    1.5m
+
+
+
+                               30〜40cm
+
+                                            50cm              9〜11m
+
+
+                             1.4m 1.4m
+
+
+
+
+                               9〜11m
+
+
+
+
+              Fig.2 : Names of Parts of Shinai
+
+
+
+
+Kensen           Nakayui      Tsuru            Tsuba      Tsuka Tsukagashira
+
+   Sakigawa
+                                                     Tsuba-
+                                                       dome
+
+
+
+
+                Monouchi
+
+
+
+
+                             — 24 —
+                              Fig.3 : Kendo-gu and Datotsu-bui
+      Men: Men-buton should be long enough to protect               Kote: Kote-bu should protect
+      the shoulder joints.                                          more than one half of
+                                                                    the forearm
+                     Men-bu
+
+
+
+
+                                                                                           Kote-bu
+                                       Tsuki-bu
+
+                     Men-bu
+                                                                        < 2.5cm
+                                                                        Difference between
+                                                                        the longest and
+                                                                        shortest section of
+                                                                        the kote-buton
+                                       Tsuki-bu
+
+                        Do                                                Tare
+      Do-bu
+
+
+
+
+*The men-buton, fist of the kote, and kote-buton should have sufficient shock absorbing capacity.
+
+              Fig.4 : Nafuda                          Fig.5 : Specifications of Flags
+
+
+
+                                                  ・Shinpan-ki
+                                                            （red/white） ・Kantoku-ki
+                                                                                  （red）
+                                                                        ・Time Keeper Flag
+                                                                                    （yellow）
+
+     Team Name         （Letters in white）
+                                                            25cm                          25cm
+
+
+       Surname         （Letters in white）                      25cm             25cm
+                                                  35cm                       35cm
+                       （Black or dark
+                        blue cloth）
+
+
+
+
+                                              — 25 —
+      Guidelines for Shiai-sha                           Guidelines for Shinpan-in
+
+                               （Entering or Leaving）
+1. When entering the shiai-jo, shiai-        1. When entering or leaving the shiai-
+   sha will line up in the position             jo, the shinpan-in hold the shinpan-
+   where they will be seated, bow to            ki in their right hands and line up
+   the shomen when instructed by                adjacent to the shiai-jo’s centre just
+   their kantoku , and then sit down.           i n s i d e t h e b o u n d a r y, w i t h t h e
+   Likewise, prior to leaving, the shiai-       shushin positioned in the middle.
+   sha shall line up, bow, and then exit        (Figures 3 & 8).
+   the shiai-jo.
+          （Team Line-up）
+1. The teams shall face each other in
+   two lines (three steps behind the
+   kaishi-sen ) as in Figure 1, and
+   perform rei at the order of the
+   shushin. Only senpo and jiho line up
+   in full armour with shinai in hand
+   before commencement of the match.
+   In case another shiai is scheduled to
+   follow a match that is just concluded,
+   the retiring teams and the next
+   teams line up together. However, if
+   the two teams cannot stand in a row
+   as in Figure 2, the two retiring teams
+   and the two starting ones shall
+   perform rei separately.                  （Positioning of the shinpan-in prior
+                                             to the commencement of a shiai,
+                                             and handling the shinpan-ki）
+                                             1. Positioning of the shinpan-in shall
+                                                be as follows:
+                                             （1）    For the first round of kojin-shiai,
+                                                    shinpan-in shall take their starting
+                                                    positions after the shiai-sha have
+                                                    assembled. (Figures 3 & 4)
+                                             （2）    In dantai-shiai, shinpan-in take
+                                                    their starting positions after the
+                                                    teams line up in the shiai-jo and
+                                                    have performed rei at the order of
+                                                    the shushin. (Figures 3 & 4)
+                                             2. The shinpan-ki are handled as
+
+                                           — 1 —
+Guidelines for Shiai-sha             Guidelines for Shinpan-in
+
+                                   follows:
+                               （1）    Both shinpan-ki are held in the
+                                      right hand when the shinpan-in
+                                      rotate positions.
+                               （2）    After rotation, the shushin holds
+                                      the red shinpan-ki with the right
+                                      hand, and the white one with the
+                                      left. Fukushin hold the shinpan-ki
+                                      in the reverse way (white in the
+                                      right hand, and red in the left).
+                               （3）    When changing shinpan-in, both
+                                      shinpan-ki are rolled up together
+                                      with the white flag inside the red,
+                                      and are held with the right hand.
+                              （Rotation/Changing of Shinpan-in）
+                               1 . T h e ro t a t i o n o f s h i n p a n - i n i s
+                                   conducted as follows:
+                               （1）    (Rotation of Shushin and
+                                       Fukushin)
+                                      Shinpan-in shall move to their
+                                      next location without rolling up
+                                      their shinpan-ki. (Figure 5)
+                               （2）    (Substituting Shinpan-in at their
+                                      Respective Positions)
+                                      Outgoing shinpan-in shall be
+                                      substituted after rolling up their
+                                      shinpan-ki and exchanging rei with
+                                      their replacements. (Figure 6)
+                               （3）(Substituting One Shinpan-in
+                                      after Rotation)
+                                      After rotation, the shinpan-in
+                                      who has just finished as shushin
+                                      rolls up the shinpan-ki , and is
+                                      substituted by the incoming
+                                      shinpan-in after exchanging rei.
+                                      (Figure 7)
+                               （4）    (Alternation of Shinpan-in who
+                                      have Finished)
+                                      A team of shinpan-in which has
+
+                           — 2 —
+      Guidelines for Shiai-sha                            Guidelines for Shinpan-in
+
+                                                        finished shall stand in a row after
+                                                        rolling up their shinpan-ki and be
+                                                        re p l a c e d b y t h e n e x t t e a m .
+                                                        (Figure 8)
+                                     （Rei to the Shomen）
+1. Rei to the shomen shall be conducted            1. The shinpan-in shall perform rei to
+   a s f o l l o w s a t t h e o rd e r o f t h e     the shomen in the following cases:
+   shushin:                                        （1）  At the beginning of the first shiai,
+（1）   At the beginning of the first shiai,              and at the beginning and end of
+      and the beginning and end of the                  the final shiai of the tournament.
+      final shiai of the tournament.               （2）  If the tournament runs for more
+（2）   If the tournament runs for more                   than a day, rei should be conducted
+      than a day, rei should be conducted               at the beginning of the first and
+      at the beginning of the first shiai               last shiai each day, and at the
+      and at the end of the last one                    beginning and end of the final
+      each day, and at the beginning                    shiai of the tournament.
+      and end of the final shiai of the            2. The shushin shall order rei to the
+      tournament.                                     shomen in the following cases:
+（3）   Rei to the shomen is conducted at            （1）  For kojin-shiai – when the shinpan-
+      the location of the mutual ritsu-                 in have taken their positions and
+      rei.                                              the shiai-sha have arrived at their
+                                                        locations for the standing bow.
+                                                   （2）For dantai-shiai – when the
+                                                        shinpan-in and shiai-sha have lined
+                                                        up inside the shiai-jo.
+                                           （Beginning）
+1. Before the beginning of the shiai,              1. At the beginning of the first shiai,
+   the two shiai-sha shall first proceed              the shinpan-cho will do as follows:
+   to the ritsu-rei location and                   （1）  In case there is one shiai-jo, the
+   exchange rei while in the sageto                     shinpan-cho will stand when the
+   posture. Both take the taito position                first shiai-sha arrive at their
+   then take three steps forward and                    ritsu-rei positions.
+   crouch into the sonkyo position                 （2）In case there are two or more
+   while drawing the shinai. The shiai                  shiai-jo, the shinpan-cho stands
+   will commence with the shushin’s                     when the first round of shiai-sha
+   senkoku to start.                                    are standing in the ritsu-rei
+                                                        positions, and signals by whistle
+                                                        or other means.
+
+
+                                            — 3 —
+     Guidelines for Shiai-sha                     Guidelines for Shinpan-in
+
+                                           2. The shushin pronounces the start of
+                                              the first shiai upon receiving the
+                                              shinpan-cho’s signal. (Figure 9)
+                                 （Yuko-datotsu）
+1. The shiai-sha will immediately stop     1. Signalling with the shinpan-ki by
+   the shiai upon the shushin’s               shinpan-in shall be done as follows
+   senkoku of yuko-datotsu. They will         (Figures 9 to 12):
+   then return to the kaishi-sen, and      （1）After the shinpan-in approve a
+   assume chudan-no-kamae to                     datotsu as valid, they shall return
+   receive the shushin’s next senkoku.           to their original positions holding
+                                                 the shinpan-ki signalling their
+                                                 verdict, and then lower their
+                                                 shinpan-ki upon the shushin’s
+                                                 senkoku.
+                                           （2）   When the validity of a datotsu is
+                                                 not agreed upon, the shinpan-in
+                                                 must stop signalling immediately.
+                                           （3）   As soon as signals of disagreement
+                                                 are acknowledged by the other
+                                                 shinpan-in, the shinpan-in must
+                                                 cease his or her signalling.
+                                                 (Figures 11 & 9)
+                                           （4）   When a datotsu is judged as valid
+                                                 according to Article 26 of the
+                                                 “Regulations”, despite
+                                                 disagreement or kiken initially
+                                                 signalled by the shushin , yuko-
+                                                 datotsu must be then indicated by
+                                                 the shushin with the shinpan-ki.
+                                           2. For torikeshi of a yuko-datotsu after
+                                              gogi, the shushin raises the shinpan-
+                                              ki back to the position taken prior to
+                                              calling gogi, then declares
+                                              “ torikeshi ” as the shinpan-ki are
+                                              waved in the lower position
+                                              crossed. (Figures 10 & 11)
+                             （Request for a Stoppage）
+1. Shiai-sha must make a verbal request      1. Recognizing a shiai-sha’s request
+   to the shushin for stoppage while raising    for stoppage, the shushin shall
+
+                                      — 4 —
+     Guidelines for Shiai-sha                     Guidelines for Shinpan-in
+
+   a hand, and then explain the reason.         immediately suspend the shiai and
+2. In order to adjust loose equipment           ask the shiai-sha for the reason.
+   or uniform during the stoppage, the          (Refer to Article 29, Item 5 of the
+   shiai-sha must perform noto standing         “Regulations”)
+   at the kaishi-sen, retreat to a position  2. If the shushin deems the request for
+   just inside the shiai-jo’s border, and       stoppage to be unjustified, gogi
+   kneel in seiza or crouch in the sonkyo       should be called.
+   position. Meanwhile, the opponent
+   waits in either seiza or sonkyo.
+                                     （Suspension）
+1. When a shinpan-in pronounces              1. Shinpan-in shall suspend shiai in
+   “Yame”, the shiai-sha must stop the          the following cases:
+   shiai immediately, and return to the       （1）   Hansoku
+   kaishi-sen to receive a senkoku or         （2）   Injury or accident
+   instruction from the shushin.              （3）   To avoid danger
+                                              （4）   Loss of shinai control
+                                              （5）   Igi
+                                              （6）   Gogi
+
+                                             2. Shinpan-in shall suspend shiai in
+                                                the following manner:
+                                             （1）  Upon senkoku for suspension, the
+                                                  shinpan-in shall return to their
+                                                  original locations.
+                                             （2）W h e n b o t h s h i a i - s h a h a v e
+                                                  acknowledged the senkoku or
+                                                  signal for suspension by the
+                                                  shinpan-ki, the shinpan-in must
+                                                  lower their shinpan-ki. (Figures
+                                                  14 & 9)
+                                             （3）In the case of hansoku , the
+                                                  shinpan-in shall return to their
+                                                  original locations holding their
+                                                  shinpan-ki in the signal position
+                                                  until shushin’s senkoku. (Figure
+                                                  17→Figure 9)
+                                             （4）In the case where a fukushin
+                                                  pronounces suspension, the
+                                                  shushin shall immediately
+
+                                      — 5 —
+     Guidelines for Shiai-sha                     Guidelines for Shinpan-in
+
+                                                 enunciate suspension also, and
+                                                 signal with the shinpan-ki.
+                                                 (Figure 14→Figure 9)
+                                           3. In cases where a shinai has been
+                                              dropped or a shiai-sha has fallen
+                                              over, and the opponent does not
+                                              immediately strike or thrust at that
+                                              shiai-sha, the shushin must suspend
+                                              the shiai. (Figure 14→Figure 9)
+                                           4. When a hansoku has been
+                                              determined, the shushin returns to
+                                              the original position, and holding
+                                              both shinpan-ki in one hand,
+                                              indicates the number of hansoku to
+                                              the violator. (Figure 17→Figure 9)
+                                           5. If both shiai-sha have simultaneously
+                                              committed a hansoku which will
+                                              result in the awarding of a point to
+                                              one shiai-sha, the shiai-sha who will
+                                              be awarded the point is penalized
+                                              first, followed by the other. (Figure
+                                              18→Figure 9)
+                                      （Gogi）
+1. Upon the shushin’s call for gogi, the   1. Gogi should be called in the following
+   shiai-sha perform noto standing at         cases:
+   the kaishi-sen , and retreat to a       （1）    The torikeshi of yuko-datotsu
+   position just inside the shiai-jo’s     （2）    A mistake made by shinpan-in
+   border and wait in sonkyo or in         （3）    Unclear hansoku
+   seiza.                                  （4）Doubts about the execution or
+                                                 application of the “Regulations”
+                                           2. Gogi shall be conducted as follows:
+                                           （1）    The shushin has both shiai-sha
+                                                 retreat to a position just inside
+                                                 the shiai-jo’s border.
+                                           （2）    When a fukushin calls for gogi, the
+                                                 shushin immediately proclaimed
+                                                 “yame” and suspends the shiai
+                                                 following fukushin has proclaimed
+                                                 “yame”. (Figures 14 & 16)
+
+                                      — 6 —
+     Guidelines for Shiai-sha                      Guidelines for Shinpan-in
+
+                                   （Resumption）
+1. Shiai-sha shall assume chudan-no        1. The fukushin lower their shinpan-ki
+   kamae at the kaishi-sen, and resume        upon the shushin’s senkoku to
+   the shiai upon the shushin’s senkoku.      resume the shiai for nihon-me or
+                                              shobu.
+                                           2. The resumption of a shiai after
+                                              suspension is conducted in the
+                                              same manner as the beginning of
+                                              the shiai. (Figure 9)
+                                     （Wakare）
+1. Upon the shushin’s pronouncement          1. When tsubazeriai has come to a
+   of “ Wakare ”, the shiai-sha shall           stalemate, the shushin shall separate
+   immediately separate, assume                 the shiai-sha by holding both
+   chudan-no-kamae on the spot, and             shinpan-ki straight forward while
+   resume the shiai with shushin’s              pronouncing “ Wakare ”, and have
+   senkoku.                                     them resume the shiai by lowering
+                                                the shinpan-ki with the senkoku of
+                                                “ Hajime ” (Figures 15 & 9). If a
+                                                shiai-sha is close to a boundary line,
+                                                the shushin should immediately
+                                                adjust the shiai-sha positions so
+                                                they remain inside the shiai-jo.
+Filing Igi                          （Filing Igi）
+1. When a kantoku files igi, the shiai-      1. The shinpan-in should deal with igi
+   sha must wait in the same manner             in the following manner:
+   as in gogi.                                （1）  The shinpan-in shall immediately
+                                                   suspend the shiai. (Figure 14)
+                                              （2）  The shinpan-shunin or shinpan-
+                                                   cho will direct the shinpan-in to
+                                                   discuss the igi in gogi.
+                                              （3）  The shinpan-shunin or shinpan-
+                                                   cho shall inform the kantoku of
+                                                   the shinpan-in’s decision.
+                                              （4）  The shushin resumes the shiai.
+                                                   (Figure 9)
+                        （Hantei, Chusen or Shiai-funo）
+1. When deciding victory by hantei ,         1. When deciding victory by hantei ,
+   the shiai-sha stand at the kaishi-sen        the shinpan-in shall signal their
+   in chudan-no-kamae and receive the           decisions by simultaneously raising
+
+                                       — 7 —
+     Guidelines for Shiai-sha                    Guidelines for Shinpan-in
+
+  shushin’s senkoku.                          their shinpan-ki for the winner
+                                              upon the senkoku of “Hantei” by the
+                                              shushin (Figure 10). The shinpan-in
+                                              are not permitted to signal hikiwake
+                                              or abstention.
+2. When deciding victory by chusen or      2. In pronouncing victory by chusen or
+   shiai-funo, the shiai-sha act in the       shiai-funo, the shushin shall signal
+   same manner as above.                      the victor with the shinpan-ki and
+                                              senkoku, and then instantly lower
+                                              the shinpan-ki. (Figures 10 & 9)
+                                  （Fusen-gachi）
+1. In the case of fusen-gachi, the shiai-  1. In kojin-shiai, the shushin
+   sha proceeds to the kaishi-sen ,           pronounces victory for the winner
+   crouches in sonkyo, stands, receives       while signalling with the shinpan-ki.
+   the senkoku for fusen-gachi, repeats       (Figure 10)
+   sonkyo , performs noto , and leaves     2. In dantai-shiai , the shushin shall
+   the shiai-jo.                              first have the winning team line up,
+2. In the case of fusen-gachi in dantai-      and then pronounce victory while
+   shiai, the winning team shall line up      signalling with the shinpan-ki .
+   and receive the shushin’s senkoku.         (Figure 10)
+   (Figure 1)
+                                      （Ending）
+1. At the end of the shiai, the shiai-sha   1. When victory has been concluded or
+   shall first return to the kaishi-sen,       the shiai time has expired, the
+   assume chudan-no-kamae, receive             shushin will suspend the shiai, have
+   the shushin’s senkoku , crouch in           the shiai-sha return to the kaishi-
+   sonkyo , perform noto , stand, take         sen, and signal the result with the
+   the taito position, step back to the        shinpan-ki simultaneously with the
+   ritsurei location, lower the shinai to      senkoku (Figures 14→9 or 13→9).
+   sageto, and exchange ritsu-rei.             In the case of encho , the shushin
+                                               pronounces “Encho”, and resumes
+                                               the shiai. (Figure 9)
+2. Having completed a dantai-shiai ,        2. After one dantai-shiai has finished,
+   the last two shiai-sha remain in the        the shinpan-in line up, and the
+   shiai-jo in full armour with their          shushin has both teams exchange
+   shinai , wait for their respective          rei.
+   teammates to line up, exchange rei
+   at the pronouncement of the
+   shushin, and then leave the shiai-jo.
+
+                                     — 8 —
+     Guidelines for Shiai-sha                      Guidelines for Shinpan-in
+
+   (Figures 1 & 2)               （Other Guidelines）
+1. Nito shall be managed in the              1. Shinpan-in should check to make
+   following way:                               sure that the shiai-sha are wearing
+（1）   Both the daito and the shoto are          their uniforms (kendo-gi, hakama,
+      carried in the left hand in sageto.       mejirushi and nafuda) appropriately
+（2）W h e n a s s u m i n g k a m a e , t h e    prior to the beginning of the shiai.
+      shinai to be held in the left hand        Refer to Article 5 of the
+      is drawn with the right hand and          “Regulations”, and Articles 4 and 5
+      passed to the lef t. The other            of the “Subsidiary Rules”.
+      shinai to be held in the left hand
+      is then drawn with the right hand.
+（3）   To perform noto with two shinai,
+      the one in the right hand is first
+      passed to the left hand, and the
+      second one already in the left
+      hand is turned with the right
+      hand back into the left.
+（4）   Other than the three differences
+      listed above, the manners for
+      shiai-sha using nito are the same
+      as those for itto.
+2. The uniform of shiai-sha must be          2. Shinpan-in should make sure that
+   kept neat, without rips or tears.            shiai-sha are equipped with
+                                                appropriate kendo-gu and shinai
+                                                (including tsuba). Refer to Articles 3
+                                                and 4 of the “Regulations”, and
+                                                Articles 3 and 4 of the “Subsidiary
+                                                Rules”.
+3. Kendo-gu shall be tightly fastened        3. The shushin should correct any
+   so as not to become loose during             inappropriate manners of the shiai-
+   shiai. In addition, the length of the        sha.
+   men-himo should be shorter than 40
+   centimetres from the knot.
+4. Shiai-sha should only perform sogo-       4. The shinpan-in should strictly
+   no-rei, and refrain from bowing to           correct any inappropriate talk or
+   the shinpan-in, or from exchanging           acts made by shiai-sha at their
+   zarei or the like privately in the           seats, even after the shiai.
+   shiai-jo.
+5. Shaking hands or other physical acts      5. Kakari-in must carry out their
+
+                                       — 9 —
+      Guidelines for Shiai-sha                      Guidelines for Shinpan-in
+
+   of encouragement such as tapping               duties by coordinating with the
+   each other’s do should be avoided as           shinpan-shunin or shinpan-cho to
+   the previous shiai-sha is exiting and          ensure the smooth administration of
+   the next shiai-sha enters the shiai-           the shiai.
+   jo.
+6. Shiai-sha shall refrain from entering      6. Scoreboard recorders shall, prior to
+   the shiai-jo until all of the shinpan-        the beginning of the shiai, ensure
+   in have taken their positions.                that shinpan-ki are available for use.
+                                                 Six sets of shinpan-ki per shiai-jo
+                                                 are necessary.
+7. Shiai-sha shall not enter the shiai-jo
+   before both of the shiai-sha from
+   the previous shiai have exited.
+8. The kantoku or shiai-sha must not
+   bring watches into the waiting area
+   for shiai-sha, or signal or call out to
+   offer encouragement.
+9. It is preferable for teammates to sit
+   in seiza for the first and last match
+   of a dantai-shiai.
+
+
+
+
+                                         — 10 —
+                                                     Dantai-shiai Line-up
+
+
+             Fig. 1 : Line-up at the Beginning                        Fig. 2 : Line-up at the Beginning
+                      and Ending of Shiai                                      and Ending of Shiai
+
+                                                      ◎Ritsu-rei Locations
+
+              （white）                        （red）
+
+                                                                      ◎Taisho                             Taisho◎
+                                                                      ◎Fukusho                          Fukusho◎
+             ◎Taisho                             Taisho◎                       Next
+                                                                      ◎Chuken team                       Chuken◎
+             ◎Fukusho                          Fukusho◎               ◎Jiho                                  Jiho◎
+             ◎Chuken                                                  ◎Senpo                               Senpo◎
+                                                Chuken◎
+                                                                      ◎Taisho                             Taisho◎
+             ◎Jiho                                  Jiho◎             ◎Fukusho                          Fukusho◎
+             ◎Senpo                                                            Ending
+                                                  Senpo◎              ◎Chuken team                       Chuken◎
+                                                                      ◎Jiho                                  Jiho◎
+                                                                      ◎Senpo                               Senpo◎
+                                ○○
+                                ○○
+                                ○○
+
+
+
+
+                                                                                         ○○
+                                                                                         ○○
+                                                                                         ○○
+                                          Retiring                                                Retiring
+                                          New                                                     New
+
+                    Fukushin              Fukushin                           Fukushin             Fukushin
+                                Shushin                                                 Shushin
+
+
+
+                                     Rotation & Alternation of Shinpan-in
+
+
+             Fig. 3 : Shinpan-in Line-up                             Fig. 4 : Shinpan-in starting
+                                                                              Locations
+
+                               Shomen                                                   Shomen
+                          Shinpan-cho                                              Shinpan-cho
+
+
+                                                                                             approx. 1m
+                                                                      Fukushin ○                   ○ Fukushin
+
+
+
+
+                   Fukushin Shushin Fukushin
+                               ○
+                               ○
+                               ○
+
+
+
+
+                                                                                              Shushin
+                                        approx.                                           ○
+Shinpan-in                                   1m                                                   approx. 1m
+  Seats
+ ○○○
+
+
+
+
+                                                            — 11 —
+Fig. 5 : Rotation of Shinpan-in                    Fig. 6 : Alternation of Shinpan-in（A）
+
+
+              Shomen                                             Shomen
+             Shinpan-cho                                        Shinpan-cho
+                                                 Retiring                            Retiring
+
+
+
+
+                                                        ○
+                                                        ○
+
+
+
+
+                                                                                   ○
+                                                                                   ○
+Fukushin○                  ○ Fukushin        New                                           New
+
+
+
+
+                 ○                                           New ○ ○ Retiring
+               Shushin
+                                          Shinpan-in Seat
+
+
+
+
+Fig. 7 : Alternation of Shinpan-in（B）              Fig. 8 : Alternation in Group
+
+
+              Shomen                                             Shomen
+             Shinpan-cho                                        Shinpan-cho
+                               Retiring
+
+
+        ○                ○○               New
+                                                                  ○○
+                                                                  ○○
+                                                                  ○○
+
+
+
+
+                                                                          Retiring
+                 ○                                                        New
+               Shushin
+                                            ○
+                                            ○
+                                            ○
+
+
+
+
+                                           Shinpan-in Seat
+
+
+
+
+                                          — 12 —
+                                   Use of Shinpan-ki
+
+
+Fig. 9 : Beginning, Resumption, or Ending          Fig.10 : Yuko-datotsu, Hantei, or Decision
+  Hold flags on both sides of the body                      of Victory
+  (basic posture)                                    Raise a flag diagonally up on one side
+
+
+
+
+Fig.11 : Showing disagreement or Torikeshi         Fig.12 : Abstention from decision of
+         of Yuko-datotsu or Sosai                           Yuko-datotsu
+  Wave flags from side to side in the lower          Hold flags crossed downward
+  position
+
+
+
+
+Fig.13 : Hikiwake                                  Fig.14 : Suspension
+  Hold flags crossed above the forehead              Hold flags straight up
+
+
+
+
+                                          — 13 —
+Fig.15 : Wakare                                  Fig.16 : Gogi
+  Raise both flags straight forward                Raise both flags straight up in the
+                                                   right hand
+
+
+
+
+Fig.17 : Hansoku                                 Fig.18 : Simultaneous Hansoku
+  Raise a flag diagonally downward on one side     Raise flags diagonally downward on
+                                                   both sides
+
+
+
+
+                                         — 14 —
+Recording Guide
+Upon Senkoku of Shushin, recorders shall put the following marks on the
+scoreboard correctly to show the process of Shiai to Shinpan-in, Shiai-sha and
+audience.
+
+Table 1 : Recording Matters and Indications
+
+         Matters        Marks                               Indications
+
+ Yuko-datotsu                       M ＝Men     K ＝Kote       D ＝Do    T ＝Tsuki
+                       M        K
+                                    The order of placement of Yuko-datotsu marks shall
+                       D        T
+                                    be as shown in the Taisho round on Table 2.
+ Hansoku                            Hansoku shall be recorded as ▲ in red as shown
+                                    in Table 2.
+ 2nd Hansoku                        When the second Hansoku is committed, the mark
+                           H        ▲ shall be deleted and the mark H be placed on
+                                    the opponent side.
+ Sosai                              In Sosai, the mark of Hansoku shall be left in.
+                                    The number of Hansoku shall be recorded in the
+                                    recording paper separately.
+
+ Victory by Hantei         Ht       The mark Ht shall be recorded.
+
+
+ Victory by Chusen         C        The mark C shall be recorded.
+
+ Ippon-gachi                        In case Shiai ends with the score of one to zero,
+                           1
+                                    the mark      1   shall be recorded.
+ Encho                              In case of Encho, the mark       E     shall be put on in
+                           E
+                                    the low part of the center line in the frame.
+ Hikiwake                           In case of Hikiwake, the mark × shall be put on
+                           ×        the center line in the frame.
+ Fusen-gachi, Kiken                 The marks            shall be put on the winner side;
+ or Shiai-funo                      put one mark          in case of Encho.
+
+
+
+
+                                     — 15 —
+Table 2 : An Example of Scoreboad Use for Dantai-shiai
+
+
+
+                                Name of Shushin
+
+
+                 Name of Fukushin            Name of Fukushin
+
+
+
+     Order          Team name         White            Red        Team name
+
+
+     Senpo        Shiai-sha name                   1    M       Shiai-sha name
+
+
+      Jiho        Shiai-sha name                        Ht      Shiai-sha name
+                                               E
+
+    Chuken        Shiai-sha name                                Shiai-sha name
+
+
+    Fukusho       Shiai-sha name       H       ×        M       Shiai-sha name
+
+
+     Taisho       Shiai-sha name       K           T    M       Shiai-sha name
+
+                    Winners         Points             Points         Winners
+    Result
+
+                          The second point              The first point
+                                                        The third point
+
+
+Note : The locations of the red team and the white one on the scoreboard
+       shall meet with the colors of Shinpan-ki of Shushin in facing each
+       other.
+
+Remarks : As regards Kojin-shiai, an appropriate scoreboard may be used at
+          each tournament.
+
+
+
+                                    — 16 —
+                                   GLOSSARY
+
+Ai-uchi (Two yuko-datotsu made mutually and simultaneously)
+Chigiri (Metal plate in the tsuka of shinai)
+Chudan-no-kamae (One of the five basic kamae)
+Chuken (The third competitor of a five person team)
+Chusen (Drawing lots)
+Daihyosha (Team representative)
+Daihyosha-sen (Match between team representatives)
+Daito (Long sword)
+Dantai (Team)
+Dantai-shiai (Team match)
+Datotsu (Strike and thrust)
+Datotsu-bu (Striking part of shinai)
+Datotsu-bui (Striking zone)
+Do (A plastron)
+Do-bu (The right and left sides of do)
+Encho (Extension)
+Fukushin (Sub-referee)
+Fukusho (The second to last competitor of a team)
+Fusei-yogu (Prohibited equipment)
+Fusen-gachi (Unearned win)
+Gogi (Referee conference during a match)
+Hakama (Split skirt worn in kendo)
+Hansoku (Foul, viuration of rules)
+Hantei (Victory by a judgement)
+Ha-suji (Cutting line)
+Hikiwake (Draw, tie)
+Igi (Objection, protest)
+Ippon-gachi (Winning with one point)
+Ippon-shobu (One-point match)
+Itto (One shinai)
+Jin-bu (Blade)
+Jogai (Out of bonnds)
+Jiho (The second competitor in a team)
+Kachinuki (A kind of match in which the competitor continues to fight for as long as
+            he/she keeps winning)
+Kaishi-sen (Starting line)
+Kakari-in (Court staff)
+Kantoku (Manager)
+Kantoku-ki (Manager’s flag)
+
+                                      — 1 —
+Kamae (Posture, stance)
+Kendo-gi (Kendo top)
+Kendo-gu (Protective gear)
+Kiken (Abstention)
+Kiken (Retire)
+Kiken-sha (A defaulter)
+Kojin-shiai (Individual match)
+Kote (Protective gauntlets)
+Kote-bu (Right and left forearms)
+Mejirushi (The long, nawow strip of white or red cloth)
+Men (Protective helmet)
+Men-bu (The forehead, and the right and left temples)
+Men-himo (Men cords)
+Monouchi (Part of the sword blade which cuts the best)
+Nafuda (Name tag)
+Nihon-me (The second point)
+Nito (Two Shinai)
+Noto (To sheathe the sword)
+Rei (A bow)
+Ritsu-rei (A standing bow)
+Sageto (To hold the sword in the left hand wth the arm extended)
+Sakigawa (Leather shinai cap)
+Sanbon-shobu (Three point match)
+Seiza (Kneeling position)
+Senkoku (A pronouncement)
+Senpo (The first competitor in a team)
+Shiai (A match)
+Shiai-funo (Incapacitation)
+Shiai-funo-sha (An incapacitated shiai-sha)
+Shiai-jo (Match court)
+Shiai-sha (Competitor)
+Shinai (Bamboo sword)
+Shinpan (Refereeing or referee)
+Shinpan-cho (Referee director)
+Shinpan-in (Referees)
+Shinpan-ki (Referee’s flag)
+Shinpan-shunin (Presiding referee)
+Shobu (The third point after a tie score)
+Shoto (A short sword)
+
+
+
+
+                                     — 2 —
+Shushin (Chief referee)
+Sogo-no-rei (Bows exchanged mutually)
+Sonkyo (Crouching posture)
+Sosai (Cancelling each other out)
+Taisho (The last competitor in a team)
+Taito (To hold the sword in the leftarm at the waist position)
+Tare (Lower body protector)
+Torikeshi (Revocation of a point)
+Tsuba (A sword guard)
+Tsubazeriai (Tsuba-to-tsuba mutual competition)
+Tsuka (The hilt of a sword)
+Tsuki-bu (Throat)
+Tsuru (The string on the back of the shinai)
+Wakare (Separation)
+Yame (Stop)
+Yuko (Valid)
+Yuko-datotsu (A valid strike or thrust)
+Zanshin (T he state of mental and physical alertness against the opponent’s
+          counterattack)
+
+Note: Please refer to the All Japan Kendo Federation’s Kendo Japanese-English
+     Dictionary.
+
+
+
+
+                                   — 3 —
+

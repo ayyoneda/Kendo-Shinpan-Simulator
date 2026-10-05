@@ -1,0 +1,21 @@
+package_id: fik.regulations.2023-07-26
+validation_type: generated_export_validation
+validator: tools/validate_exports.py
+validation_date: '2026-07-17'
+status: passed
+result:
+  errors: 0
+  chunks: 224
+  rag_evaluation_cases: 13
+checks:
+  required_export_files: passed
+  jsonl_schema_and_hashes: passed
+  citation_map_consistency: passed
+  jsonld_chunk_consistency: passed
+  sqlite_integrity_and_chunk_consistency: passed
+  markdown_and_html_views: passed
+  rag_evaluation_source_ids: passed
+errors: []
+notes:
+- This validates generated artifact consistency; it does not run a retrieval engine or score recall.
+- Retrieval scoring is handled separately by tools/run_rag_eval.py.

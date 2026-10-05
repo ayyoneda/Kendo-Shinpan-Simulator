@@ -1,0 +1,19 @@
+segmentation_date: 2026-07-15
+source_raw: raw/existing-transcription.md
+status: reviewed
+method: mechanical_split_from_approved_raw_transcription
+outputs:
+  - text/foreword.en.md
+  - text/foreword.ja.md
+  - text/regulations.en.md
+  - text/subsidiary-rules.en.md
+  - text/guidelines.en.md
+notes:
+  - The original side-by-side tables were split into separate document streams.
+  - The PDF uses a two-column aligned layout; right-column text may inherit themes from the aligned left column.
+  - Layout-derived themes are recorded separately from explicit article titles.
+  - The two safety/name paragraphs for shinai were moved from Regulation Article 3 to Subsidiary Rule Article 2 after PDF comparison.
+  - Horizontal-rule separators that split a single article across original layout continuation rows were removed from Regulation Articles 17 and 29.
+  - Figure descriptions, recording guide, structured tables, and glossary were intentionally not placed in official text streams in this step.
+  - Broken extraction artifacts around right-arrow notation were normalized to ASCII arrows and reviewed with the text streams.
+  - All five stream files were verified against the PDF by repository owner Adrian Yoneda.

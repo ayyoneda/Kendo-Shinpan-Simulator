@@ -1,0 +1,174 @@
+package_id: fik.regulations.2023-07-26
+audit_schema_version: 0.1.0
+audit_type: deterministic_glossary_link_and_definition_provenance_audit
+generated_date: '2026-07-17'
+status: passed
+source_glossary: ontology/glossary.yaml
+summary:
+  term_count: 95
+  link_count: 523
+  accepted_link_count: 523
+  context_sensitive_link_count: 23
+  manual_review_candidate_count: 0
+  matching_label_collision_count: 0
+  terms_without_links_count: 7
+review_rules:
+- Every link term ID must exist in the reusable glossary.
+- Every matched label must be registered for that term.
+- Occurrence counts are recalculated inside the exact anchored source unit.
+- Ambiguous labels and labels of three characters or fewer are accepted only through the generator's italicized-term rule.
+- A glossary term may legitimately have no package-text links when it appears only in the source glossary inventory.
+definition_status_policy:
+  official_definition: Definition is explicitly sourced as official text.
+  editorial_summary: Definition is a non-normative editorial summary.
+  source_gloss_pending_terminology_review: Definition reproduces or lightly normalizes a source-glossary gloss; it is not
+    a complete authoritative dictionary definition.
+definition_status_counts:
+  editorial_summary: 67
+  official_definition: 4
+  source_gloss_pending_terminology_review: 24
+unknown_definition_statuses: []
+link_type_counts:
+  about_term: 65
+  defines: 4
+  mentions: 454
+source_kind_counts:
+  guideline_section: 251
+  node: 272
+matching_label_collisions: []
+manual_review_candidates: []
+representative_sample:
+- link_id: glossary-link-00031
+  term_id: kkp:term:kendo:datotsu-bu
+  primary_label: datotsu-bu
+  link_type: defines
+  source_kind: node
+  source_id: kkp:article:fik.regulations:000013
+  source_label: Article 13
+  matched_labels:
+    datotsu-bu: 1
+- link_id: glossary-link-00010
+  term_id: kkp:term:kendo:chusen
+  primary_label: chusen
+  link_type: about_term
+  source_kind: guideline_section
+  source_id: kkp:guideline-section:fik.regulations:2023-07-26:en:shiai-sha-hantei-chusen-or-shiai-funo
+  source_label: Hantei, Chusen or Shiai-funo
+  matched_labels:
+    chusen: 2
+- link_id: glossary-link-00001
+  term_id: kkp:term:kendo:ai-uchi
+  primary_label: ai-uchi
+  link_type: mentions
+  source_kind: node
+  source_id: kkp:subsidiary-rule:fik.regulations:000013
+  source_label: Article 12
+  matched_labels:
+    ai-uchi: 1
+- link_id: glossary-link-00004
+  term_id: kkp:term:kendo:chudan-no-kamae
+  primary_label: chudan-no-kamae
+  link_type: mentions
+  source_kind: guideline_section
+  source_id: kkp:guideline-section:fik.regulations:2023-07-26:en:shiai-sha-yuko-datotsu
+  source_label: Yuko-datotsu
+  matched_labels:
+    chudan-no-kamae: 1
+- link_id: glossary-link-00035
+  term_id: kkp:term:kendo:do
+  primary_label: do
+  link_type: about_term
+  source_kind: node
+  source_id: kkp:article:fik.regulations:000004
+  source_label: Article 4
+  matched_labels:
+    do: 1
+- link_id: glossary-link-00036
+  term_id: kkp:term:kendo:do
+  primary_label: do
+  link_type: mentions
+  source_kind: node
+  source_id: kkp:subsidiary-rule:fik.regulations:000005
+  source_label: Article 4
+  matched_labels:
+    do: 1
+- link_id: glossary-link-00037
+  term_id: kkp:term:kendo:do
+  primary_label: do
+  link_type: mentions
+  source_kind: node
+  source_id: kkp:subsidiary-rule:fik.regulations:000016
+  source_label: Article 15
+  matched_labels:
+    do: 1
+- link_id: glossary-link-00038
+  term_id: kkp:term:kendo:do
+  primary_label: do
+  link_type: mentions
+  source_kind: guideline_section
+  source_id: kkp:guideline-section:fik.regulations:2023-07-26:en:shiai-sha-other-guidelines
+  source_label: Other Guidelines
+  matched_labels:
+    do: 1
+- link_id: glossary-link-00089
+  term_id: kkp:term:kendo:igi
+  primary_label: igi
+  link_type: about_term
+  source_kind: node
+  source_id: kkp:article:fik.regulations:000036
+  source_label: Article 36
+  matched_labels:
+    igi: 1
+- link_id: glossary-link-00090
+  term_id: kkp:term:kendo:igi
+  primary_label: igi
+  link_type: mentions
+  source_kind: node
+  source_id: kkp:subsidiary-rule:fik.regulations:000019
+  source_label: Article 18
+  matched_labels:
+    igi: 1
+- link_id: glossary-link-00091
+  term_id: kkp:term:kendo:igi
+  primary_label: igi
+  link_type: mentions
+  source_kind: node
+  source_id: kkp:subsidiary-rule:fik.regulations:000021
+  source_label: Article 20
+  matched_labels:
+    igi: 1
+- link_id: glossary-link-00092
+  term_id: kkp:term:kendo:igi
+  primary_label: igi
+  link_type: about_term
+  source_kind: node
+  source_id: kkp:subsidiary-rule:fik.regulations:000030
+  source_label: Article 29
+  matched_labels:
+    igi: 3
+terms_without_links:
+- term_id: kkp:term:kendo:chuken
+  primary_label: chuken
+  status: valid_source_inventory_term_not_used_in_package_text
+- term_id: kkp:term:kendo:daihyosha-sen
+  primary_label: daihyosha-sen
+  status: valid_source_inventory_term_not_used_in_package_text
+- term_id: kkp:term:kendo:dantai
+  primary_label: dantai
+  status: valid_source_inventory_term_not_used_in_package_text
+- term_id: kkp:term:kendo:fukusho
+  primary_label: fukusho
+  status: valid_source_inventory_term_not_used_in_package_text
+- term_id: kkp:term:kendo:ippon-gachi
+  primary_label: ippon-gachi
+  status: valid_source_inventory_term_not_used_in_package_text
+- term_id: kkp:term:kendo:kiken-sha
+  primary_label: kiken-sha
+  status: valid_source_inventory_term_not_used_in_package_text
+- term_id: kkp:term:kendo:taisho
+  primary_label: taisho
+  status: valid_source_inventory_term_not_used_in_package_text
+notes:
+- This audit verifies link mechanics and ambiguity controls; it does not claim that draft editorial definitions are authoritative.
+- Complete terminology reconciliation remains deferred until a reliable AJKF Kendo Japanese-English Dictionary transcription
+  exists.

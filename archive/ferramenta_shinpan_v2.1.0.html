@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Simulador de Arbitragem de Kendo (Shinpan)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+    body { background-color: #1a1a1a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; touch-action: auto; }
+    .lang-jp { font-family: 'Noto Sans JP', sans-serif; }
+    canvas { display: block; outline: none; }
+    #kendoCanvas { touch-action: none; }
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 2px rgba(0,0,0,0.5); }
+    #controls-container { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; }
+    .collapsed { transform: translateX(-110%); opacity: 0; pointer-events: none; }
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='black'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.5rem center;
+      background-size: 1em;
+    }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+
+    @media (max-width: 640px) {
+      #controls-container {
+        top: auto !important;
+        bottom: 10px !important;
+        left: 10px !important;
+        right: 10px !important;
+        width: auto !important;
+        max-height: 60vh !important;
+      }
+      #controls-container.collapsed {
+        transform: translateY(120%) !important;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+	
+	#author {
+		position: fixed;
+		right: 12px;
+		bottom: 8px;
+		font-size: 12px;
+		color: rgba(255,255,255,0.65);
+		pointer-events: none;
+		}
+  </style>
+</head>
+
+<body class="h-screen w-screen relative">
+  <div id="author">Desenvolvido por: Adrian Yoneda</div>
+  <!-- Botão menu -->
+  <button id="open-menu-btn"
+          class="absolute top-3 left-3 sm:top-4 sm:left-4 z-40 bg-white p-3 rounded-full shadow-lg hover:bg-gray-100 transition-all text-gray-800"
+          onclick="toggleMenu()"
+          aria-label="Abrir painel">
+    <i class="fas fa-bars text-xl"></i>
+  </button>
+
+  <div id="controls-container"
+       class="absolute z-50 left-2 top-2 right-2 sm:right-auto sm:top-4 sm:left-4 w-auto sm:w-80 max-h-[92vh] sm:max-h-[95vh] flex flex-col glass-panel rounded-xl overflow-hidden transition-all duration-300">
+    <div class="bg-gray-800 text-white p-4 flex justify-between items-center">
+      <h1 class="text-lg font-bold flex items-center gap-2">
+        <i class="fas fa-users-cog"></i> <span id="ui-app-title">Kendo Shinpan</span>
+      </h1>
+      <button onclick="toggleMenu()" class="text-gray-400 hover:text-white transition" aria-label="Fechar painel">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="p-5 overflow-y-auto space-y-5">
+      <div class="flex items-center justify-between bg-gray-100 p-2 rounded-lg border border-gray-200">
+        <span id="ui-lang-label" class="text-xs font-bold text-gray-500 uppercase ml-1"><i class="fas fa-language"></i> Lang</span>
+        <select id="lang-select" class="bg-white border border-gray-300 text-gray-800 text-xs rounded px-6 py-1 focus:outline-none cursor-pointer">
+          <option value="pt">Português</option>
+          <option value="en">English</option>
+          <option value="jp">日本語</option>
+        </select>
+      </div>
+
+      <p id="ui-description" class="text-sm text-gray-600 leading-relaxed"></p>
+
+      <div class="space-y-3">
+        <h3 id="ui-label-viz" class="text-xs font-bold text-gray-500 uppercase tracking-wider"></h3>
+
+        <label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+          <input type="checkbox" id="toggle-triangle" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked>
+          <span id="ui-check-triangle" class="ml-3 text-gray-700 text-sm font-medium"></span>
+        </label>
+
+        <label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+		  <input type="checkbox" id="toggle-square-s" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+		  <span id="ui-check-square-s" class="ml-3 text-gray-700 text-sm font-medium"></span>
+		</label>
+
+		<label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+		  <input type="checkbox" id="toggle-square-f1" class="form-checkbox h-4 w-4 text-yellow-500 rounded">
+		  <span id="ui-check-square-f1" class="ml-3 text-gray-700 text-sm font-medium"></span>
+		</label>
+
+		<label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+		  <input type="checkbox" id="toggle-square-f2" class="form-checkbox h-4 w-4 text-green-600 rounded">
+		  <span id="ui-check-square-f2" class="ml-3 text-gray-700 text-sm font-medium"></span>
+		</label>
+
+        <label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+          <input type="checkbox" id="toggle-names" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked>
+          <span id="ui-check-labels" class="ml-3 text-gray-700 text-sm font-medium"></span>
+        </label>
+
+        <!-- Phase 5A: Directional indicators toggle -->
+        <label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+          <input type="checkbox" id="toggle-direction" class="form-checkbox h-4 w-4 text-purple-600 rounded" checked>
+          <span id="ui-check-direction" class="ml-3 text-gray-700 text-sm font-medium"></span>
+        </label>
+
+        <!-- Phase 5C: Motion trails toggle -->
+        <label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+          <input type="checkbox" id="toggle-trails" class="form-checkbox h-4 w-4 text-orange-500 rounded">
+          <span id="ui-check-trails" class="ml-3 text-gray-700 text-sm font-medium"></span>
+        </label>
+
+        <label class="flex items-center p-2 rounded hover:bg-gray-200 cursor-pointer transition">
+          <input type="checkbox" id="toggle-debug" class="form-checkbox h-4 w-4 text-red-600 rounded">
+          <span id="ui-check-debug" class="ml-3 text-gray-700 text-sm font-medium"></span>
+        </label>
+      </div>
+
+      <!-- Ajuda curta -->
+      <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-900">
+        <div class="font-semibold mb-1"><i class="fas fa-info-circle"></i> <span id="ui-tip-title"></span></div>
+        <div id="ui-tip-body"></div>
+      </div>
+
+      <div class="h-px bg-gray-200"></div>
+
+      <!-- Debug -->
+      <div id="debug-panel" class="space-y-3 text-sm hidden">
+        <h3 id="ui-label-angles" class="text-xs font-bold text-gray-500 uppercase tracking-wider"></h3>
+
+        <div class="bg-blue-50 p-3 rounded-lg space-y-2 font-mono border border-blue-200">
+          <div class="flex justify-between items-center font-bold text-blue-800">
+            <span id="ui-angle-combat" class="text-gray-700"></span>
+            <span id="combat-angle-abs" class="font-bold text-blue-800">0°</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span id="ui-flag-label" class="text-gray-700 font-semibold"></span>
+            <span id="flag-status" class="font-bold text-blue-800">1</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span id="ui-mode-label" class="text-gray-700 font-semibold"></span>
+            <span id="mode-status" class="font-bold text-blue-800">STANDARD</span>
+          </div>
+		  <div class="flex justify-between items-center">
+			<span id="ui-freeze-label" class="text-gray-700 font-semibold"></span>
+			<span id="freeze-status" class="font-bold text-blue-800"></span>
+		  </div>
+          <div class="flex justify-between items-center">
+            <span id="ui-scale-label" class="text-gray-700 font-semibold"></span>
+            <span id="scale-status" class="font-bold text-blue-800">1.00</span>
+          </div>
+        </div>
+
+        <div class="bg-gray-100 p-3 rounded-lg space-y-2 font-mono">
+          <div class="flex justify-between items-center">
+            <span id="ui-ref-s" class="text-blue-600 font-semibold"></span>
+            <span id="angle-shushin-abs" class="font-bold text-gray-800">0°</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span id="ui-ref-f1" class="text-yellow-600 font-semibold"></span>
+            <span id="angle-fukushin1-abs" class="font-bold text-gray-800">0°</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span id="ui-ref-f2" class="text-green-600 font-semibold"></span>
+            <span id="angle-fukushin2-abs" class="font-bold text-gray-800">0°</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-px bg-gray-200"></div>
+
+      <div class="space-y-3 text-sm">
+        <h3 id="ui-label-legend" class="text-xs font-bold text-gray-500 uppercase tracking-wider"></h3>
+        <div class="grid grid-cols-1 gap-2">
+          <div class="flex items-center"><span class="legend-dot bg-white border border-gray-400"></span><span id="ui-leg-white" class="text-gray-700"></span></div>
+          <div class="flex items-center"><span class="legend-dot bg-red-600"></span><span id="ui-leg-red" class="text-gray-700"></span></div>
+          <div class="flex items-center"><span class="legend-dot bg-blue-600"></span><span id="ui-leg-s" class="text-gray-700"></span></div>
+          <div class="flex items-center"><span class="legend-dot bg-yellow-400"></span><span id="ui-leg-f1" class="text-gray-700"></span></div>
+          <div class="flex items-center"><span class="legend-dot bg-green-500"></span><span id="ui-leg-f2" class="text-gray-700"></span></div>
+        </div>
+      </div>
+
+      <!-- Avançado -->
+      <details class="bg-gray-50 border border-gray-200 rounded-lg p-3">
+        <summary class="flex items-center justify-between text-xs font-bold text-gray-600 uppercase tracking-wider">
+          <span><i class="fas fa-sliders-h"></i> <span id="ui-advanced-title"></span></span>
+          <span id="ui-advanced-subtitle" class="text-gray-500 normal-case font-semibold"></span>
+        </summary>
+
+        <div class="mt-3 space-y-4 text-xs text-gray-700">
+          <!-- Movimento -->
+          <div class="space-y-3">
+            <div class="text-[11px] font-bold text-gray-500 uppercase tracking-wider" id="ui-advanced-section-motion"></div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-speed-label"></span>
+                <span id="ui-speed-val" class="font-mono">6.0</span>
+              </div>
+              <input id="speed-slider" type="range" min="4" max="12" step="0.1" value="8.0" class="w-full">
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-radius-label"></span>
+                <span id="ui-radius-val" class="font-mono">4.0</span>
+              </div>
+              <input id="radius-slider" type="range" min="2" max="8" step="0.1" value="4.0" class="w-full">
+            </div>
+
+            <!-- Phase 1A: Smoothing factor slider -->
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-smooth-label"></span>
+                <span id="ui-smooth-val" class="font-mono">5.0</span>
+              </div>
+              <input id="smooth-slider" type="range" min="1" max="15" step="0.5" value="5.0" class="w-full">
+            </div>
+          </div>
+
+          <!-- Thresholds -->
+          <div class="space-y-3 pt-2 border-t border-gray-200">
+            <div class="text-[11px] font-bold text-gray-500 uppercase tracking-wider" id="ui-advanced-section-thresholds"></div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-th-enter-vertex"></span>
+                <span id="ui-th-enter-vertex-val" class="font-mono">90</span>
+              </div>
+              <input id="th-enter-vertex" type="range" min="0" max="180" step="1" value="90" class="w-full">
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-th-exit-vertex"></span>
+                <span id="ui-th-exit-vertex-val" class="font-mono">45</span>
+              </div>
+              <input id="th-exit-vertex" type="range" min="0" max="180" step="1" value="45" class="w-full">
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-th-enter-sbase"></span>
+                <span id="ui-th-enter-sbase-val" class="font-mono">123</span>
+              </div>
+              <input id="th-enter-sbase" type="range" min="0" max="180" step="1" value="123" class="w-full">
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-th-exit-sbase"></span>
+                <span id="ui-th-exit-sbase-val" class="font-mono">90</span>
+              </div>
+              <input id="th-exit-sbase" type="range" min="0" max="180" step="1" value="90" class="w-full">
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-th-enter-flip"></span>
+                <span id="ui-th-enter-flip-val" class="font-mono">135</span>
+              </div>
+              <input id="th-enter-flip" type="range" min="0" max="180" step="1" value="168" class="w-full">
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between items-center">
+                <span id="ui-th-exit-flip"></span>
+                <span id="ui-th-exit-flip-val" class="font-mono">130</span>
+              </div>
+              <input id="th-exit-flip" type="range" min="0" max="180" step="1" value="160" class="w-full">
+            </div>
+          </div>
+		  
+		  <!-- Congelamento -->
+		  <div class="space-y-3 pt-2 border-t border-gray-200">
+  <div class="text-[11px] font-bold text-gray-500 uppercase tracking-wider" id="ui-advanced-section-freeze"></div>
+
+  <div class="space-y-1">
+    <div class="flex justify-between items-center">
+      <span id="ui-freeze-dist"></span>
+      <span id="ui-freeze-dist-val" class="font-mono">1.2</span>
+    </div>
+    <input id="freeze-dist-slider" type="range" min="0.8" max="2.0" step="0.05" value="1.2" class="w-full">
+  </div>
+
+  <div class="space-y-1">
+    <div class="flex justify-between items-center">
+      <span id="ui-freeze-window"></span>
+      <span id="ui-freeze-window-val" class="font-mono">200</span>
+    </div>
+    <input id="freeze-window-slider" type="range" min="80" max="500" step="10" value="200" class="w-full">
+  </div>
+
+  <div class="space-y-1">
+    <div class="flex justify-between items-center">
+      <span id="ui-freeze-angle"></span>
+      <span id="ui-freeze-angle-val" class="font-mono">90°</span>
+    </div>
+    <input id="freeze-angle-slider" type="range" min="30" max="180" step="5" value="90" class="w-full">
+  </div>
+
+  <div class="space-y-1">
+    <div class="flex justify-between items-center">
+      <span id="ui-freeze-time"></span>
+      <span id="ui-freeze-time-val" class="font-mono">300</span>
+    </div>
+    <input id="freeze-time-slider" type="range" min="100" max="800" step="50" value="300" class="w-full">
+  </div>
+</div>
+
+
+          <div id="ui-advanced-note" class="text-[11px] text-gray-500"></div>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="p-4 bg-gray-50 border-t border-gray-200">
+      <button id="reset-btn" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2.5 px-4 rounded-lg shadow-md transition transform active:scale-95 flex items-center justify-center gap-2">
+        <i class="fas fa-undo-alt text-sm"></i> <span id="ui-btn-reset"></span>
+      </button>
+    </div>
+  </div>
+
+  <canvas id="kendoCanvas" class="w-full h-full cursor-crosshair"></canvas>
+
+<script>
+// ----------------------------
+// i18n
+// ----------------------------
+const i18n = {
+  pt: {
+    title: "Kendo Shinpan",
+    langLabel: "Idioma",
+    description: "Simulação da movimentação do trio de arbitragem (Shinpan) baseada no posicionamento dos atletas.",
+    labelViz: "Visualização",
+    checkTriangle: "Triângulo dos Árbitros",
+    checkAxis: "Eixo/Quadrado Dinâmico",
+    checkLabels: "Mostrar Rótulos",
+    checkDebug: "Modo Debug (Lógica)",
+    checkDirection: "Indicadores de Direção",
+    checkTrails: "Trilhas de Movimento",
+    tipTitle: "Dica rápida",
+    tipBody: 'Arraste <b>W</b> e <b>R</b>. Ative "Eixo/Quadrado" para visualizar zonas. O Debug mostra ângulos e estado.',
+    labelAngles: "Ângulos ABSOLUTOS (Centro)",
+    angleCombat: "Ângulo de Combate:",
+    flagLabel: "Flag:",
+    modeLabel: "Mode:",
+    refS: "Shushin (S):",
+    refF1: "Fukushin 1 (F1):",
+    refF2: "Fukushin 2 (F2):",
+    labelLegend: "Legenda",
+    legWhite: "Branco (Esq)",
+    legRed: "Vermelho (Dir)",
+    legS: "Shushin (Principal)",
+    legF1: "Fukushin 1",
+    legF2: "Fukushin 2",
+    advancedTitle: "Avançado",
+    advancedSubtitle: "parâmetros",
+    advancedSectionMotion: "Movimento",
+    advancedSectionThresholds: "Thresholds",
+    speedLabel: "Velocidade (m/s)",
+    radiusLabel: "Raio de giro (m)",
+    smoothLabel: "Suavização (k)",
+    thEnterVertex: "Entrar VERTEX (°)",
+    thExitVertex: "Sair VERTEX → STANDARD (°)",
+    thEnterSbase: "Entrar S_BASE (°)",
+    thExitSbase: "Sair S_BASE → VERTEX (°)",
+    thEnterFlip: "Entrar FLIP (°)",
+    thExitFlip: "Sair FLIP (°)",
+    advancedNote: 'Ajusta o "feeling" do movimento e os thresholds. A suavização (k) controla a resposta: alto = ágil, baixo = fluido.',
+    btnReset: "Resetar Posições",
+	stable: "Estável",
+    frozen: "Congelado",
+	checkSquareS: "Área do Shushin",
+	checkSquareF1: "Área do Fukushin 1",
+	checkSquareF2: "Área do Fukushin 2",
+	advancedSectionFreeze: "Congelamento",
+	freezeDist: "Distância de tsubazeriai (m)",
+	freezeWindow: "Janela temporal (ms)",
+	freezeAngle: "Rotação acumulada (°)",
+	freezeTime: "Duração do congelamento (ms)",
+	scaleLabel: "Escala:",
+	author: "Desenvolvido por: Adrian Yoneda"
+  },
+  en: {
+    title: "Kendo Shinpan",
+    langLabel: "Language",
+    description: "Simulation of referee (Shinpan) movement based on competitor positioning.",
+    labelViz: "Visualization",
+    checkTriangle: "Referees Triangle",
+    checkAxis: "Combat Axis / Dynamic Square",
+    checkLabels: "Show Labels",
+    checkDebug: "Debug Mode (Logic)",
+    checkDirection: "Directional Indicators",
+    checkTrails: "Motion Trails",
+    tipTitle: "Quick tip",
+    tipBody: 'Drag <b>W</b> and <b>R</b>. Enable "Axis/Square" to visualize zones. Debug shows angles and state.',
+    labelAngles: "ABSOLUTE Angles (Center)",
+    angleCombat: "Combat Angle:",
+    flagLabel: "Flag:",
+    modeLabel: "Mode:",
+    refS: "Shushin (S):",
+    refF1: "Fukushin 1 (F1):",
+    refF2: "Fukushin 2 (F2):",
+    labelLegend: "Legend",
+    legWhite: "White (Left)",
+    legRed: "Red (Right)",
+    legS: "Shushin (Chief)",
+    legF1: "Fukushin 1",
+    legF2: "Fukushin 2",
+    advancedTitle: "Advanced",
+    advancedSubtitle: "parameters",
+    advancedSectionMotion: "Motion",
+    advancedSectionThresholds: "Thresholds",
+    speedLabel: "Speed (m/s)",
+    radiusLabel: "Turn radius (m)",
+    smoothLabel: "Smoothing (k)",
+    thEnterVertex: "Enter VERTEX (°)",
+    thExitVertex: "Exit VERTEX → STANDARD (°)",
+    thEnterSbase: "Enter S_BASE (°)",
+    thExitSbase: "Exit S_BASE → VERTEX (°)",
+    thEnterFlip: "Enter FLIP (°)",
+    thExitFlip: "Exit FLIP (°)",
+    advancedNote: "Adjusts movement feel and thresholds. Smoothing (k): high = snappy, low = fluid.",
+    btnReset: "Reset Positions",
+	stable: "Stable",
+    frozen: "Frozen",
+	checkSquareS: "Shushin Area",
+	checkSquareF1: "Fukushin 1 Area",
+	checkSquareF2: "Fukushin 2 Area",
+	advancedSectionFreeze: "Freeze",
+	freezeDist: "Tsubazeriai distance (m)",
+	freezeWindow: "Time window (ms)",
+	freezeAngle: "Accumulated rotation (°)",
+	freezeTime: "Freeze duration (ms)",
+	scaleLabel: "Scale:",
+	author: "Developed by: Adrian Yoneda (Brazil)"
+  },
+  jp: {
+    title: "剣道審判シミュレーター",
+    langLabel: "言語",
+    description: "試合者の位置に基づいた審判員（審判団）の動きのシミュレーション。",
+    labelViz: "表示設定",
+    checkTriangle: "審判の三角形",
+    checkAxis: "試合ライン／ダイナミックスクエア",
+    checkLabels: "ラベル表示",
+    checkDebug: "デバッグ（論理）",
+    checkDirection: "方向インジケーター",
+    checkTrails: "移動軌跡",
+    tipTitle: "使い方",
+    tipBody: "<b>W</b> と <b>R</b> をドラッグ。ゾーン確認は「試合ライン／ダイナミックスクエア」。デバッグで角度と状態を表示。",
+    labelAngles: "絶対角度（中心）",
+    angleCombat: "試合軸の角度:",
+    flagLabel: "フラグ:",
+    modeLabel: "モード:",
+    refS: "主審 (S):",
+    refF1: "副審1 (F1):",
+    refF2: "副審2 (F2):",
+    labelLegend: "凡例",
+    legWhite: "白（左）",
+    legRed: "赤（右）",
+    legS: "主審",
+    legF1: "副審1",
+    legF2: "副審2",
+    advancedTitle: "詳細",
+    advancedSubtitle: "パラメータ",
+    advancedSectionMotion: "動き",
+    advancedSectionThresholds: "しきい値",
+    speedLabel: "速度 (m/s)",
+    radiusLabel: "旋回半径 (m)",
+    smoothLabel: "平滑化 (k)",
+    thEnterVertex: "VERTEX 進入角 (°)",
+    thExitVertex: "VERTEX→STANDARD (°)",
+    thEnterSbase: "S_BASE 進入角 (°)",
+    thExitSbase: "S_BASE→VERTEX (°)",
+    thEnterFlip: "FLIP 進入角 (°)",
+    thExitFlip: "FLIP 解除角 (°)",
+    advancedNote: '直進・旋回の"感覚"としきい値を調整。平滑化(k)：高=機敏、低=なめらか。',
+    btnReset: "位置をリセット",
+	stable:"安定",
+    frozen:"固定",
+	checkSquareS: "主審エリア",
+	checkSquareF1: "副審1エリア",
+	checkSquareF2: "副審2エリア",
+	advancedSectionFreeze: "固定判定",
+	freezeDist: "鍔迫り合い距離 (m)",
+	freezeWindow: "時間ウィンドウ (ms)",
+	freezeAngle: "累積回転角 (°)",
+	freezeTime: "固定時間 (ms)",
+	scaleLabel: "スケール:",
+	author: "開発: 米田裕（ブラジル）"
+  }
+};
+
+function detectInitialLanguage() {
+  // 1. Explicit window variable (window.SHINPAN_DEFAULT_LANG = 'en' / 'jp' / 'pt')
+  if (window.SHINPAN_DEFAULT_LANG && i18n[window.SHINPAN_DEFAULT_LANG.toLowerCase()]) {
+    return window.SHINPAN_DEFAULT_LANG.toLowerCase();
+  }
+
+  // 2. Check URL parameter (?lang=en, ?lang=jp, ?lang=pt)
+  const urlParams = new URLSearchParams(window.location.search);
+  const langParam = urlParams.get('lang') || urlParams.get('idiom') || urlParams.get('l');
+  if (langParam && i18n[langParam.toLowerCase()]) {
+    return langParam.toLowerCase();
+  }
+
+  // 3. Check URL Hash (#en, #jp, #pt)
+  const hashParam = window.location.hash.replace('#', '').toLowerCase();
+  if (hashParam && i18n[hashParam]) {
+    return hashParam;
+  }
+
+  // 4. Check Parent Page URL / Referrer (for direct iframe embeds)
+  let parentUrl = '';
+  try {
+    if (window.parent && window.parent.location && window.parent.location.href) {
+      parentUrl = window.parent.location.href;
+    }
+  } catch (e) {
+    // Cross-origin iframe sandbox (e.g. Google Sites embed)
+  }
+  if (!parentUrl && document.referrer) {
+    parentUrl = document.referrer;
+  }
+
+  if (parentUrl) {
+    const lowerUrl = parentUrl.toLowerCase();
+    if (/(?:[\/\?&#=])(?:jp|ja|japanese)(?:[\/\?&#=]|$)/i.test(lowerUrl) || lowerUrl.endsWith('/jp') || lowerUrl.endsWith('/ja')) {
+      return 'jp';
+    }
+    if (/(?:[\/\?&#=])(?:en|english)(?:[\/\?&#=]|$)/i.test(lowerUrl) || lowerUrl.endsWith('/en')) {
+      return 'en';
+    }
+    if (/(?:[\/\?&#=])(?:pt|pt-br|portuguese)(?:[\/\?&#=]|$)/i.test(lowerUrl) || lowerUrl.endsWith('/pt') || lowerUrl.endsWith('/pt-br')) {
+      return 'pt';
+    }
+  }
+
+  // 5. Document HTML lang attribute (<html lang="en">)
+  const docLang = (document.documentElement.lang || '').toLowerCase();
+  if (docLang.startsWith('ja') || docLang.startsWith('jp')) return 'jp';
+  if (docLang.startsWith('en')) return 'en';
+  if (docLang.startsWith('pt')) return 'pt';
+
+  // 6. Browser navigator language fallback
+  const userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  if (userLang.startsWith('ja')) return 'jp';
+  if (userLang.startsWith('en')) return 'en';
+  if (userLang.startsWith('pt')) return 'pt';
+
+  return 'pt';
+}
+
+let currentLang = detectInitialLanguage();
+
+function updateUIStrings() {
+  const s = i18n[currentLang];
+  document.getElementById('ui-app-title').innerText = s.title;
+  document.getElementById('ui-lang-label').innerHTML = `<i class="fas fa-language"></i> ${s.langLabel}`;
+  document.getElementById('ui-description').innerText = s.description;
+
+  document.getElementById('ui-label-viz').innerText = s.labelViz;
+  document.getElementById('ui-check-triangle').innerText = s.checkTriangle;
+  document.getElementById('ui-check-labels').innerText = s.checkLabels;
+  document.getElementById('ui-check-debug').innerText = s.checkDebug;
+  document.getElementById('ui-check-direction').innerText = s.checkDirection;
+  document.getElementById('ui-check-trails').innerText = s.checkTrails;
+
+  document.getElementById('ui-tip-title').innerText = s.tipTitle;
+  document.getElementById('ui-tip-body').innerHTML = s.tipBody;
+
+  document.getElementById('ui-label-angles').innerText = s.labelAngles;
+  document.getElementById('ui-angle-combat').innerText = s.angleCombat;
+  document.getElementById('ui-flag-label').innerText = s.flagLabel;
+  document.getElementById('ui-mode-label').innerText = s.modeLabel;
+  document.getElementById('ui-freeze-label').innerText =
+  currentLang === 'jp' ? '状態:' :
+  currentLang === 'en' ? 'State:' :
+  'Estado:';
+  document.getElementById('ui-scale-label').innerText = s.scaleLabel;
+
+  document.getElementById('ui-ref-s').innerText = s.refS;
+  document.getElementById('ui-ref-f1').innerText = s.refF1;
+  document.getElementById('ui-ref-f2').innerText = s.refF2;
+
+  document.getElementById('ui-label-legend').innerText = s.labelLegend;
+  document.getElementById('ui-leg-white').innerText = s.legWhite;
+  document.getElementById('ui-leg-red').innerText = s.legRed;
+  document.getElementById('ui-leg-s').innerText = s.legS;
+  document.getElementById('ui-leg-f1').innerText = s.legF1;
+  document.getElementById('ui-leg-f2').innerText = s.legF2;
+
+  document.getElementById('ui-advanced-title').innerText = s.advancedTitle;
+  document.getElementById('ui-advanced-subtitle').innerText = s.advancedSubtitle;
+  document.getElementById('ui-advanced-section-motion').innerText = s.advancedSectionMotion;
+  document.getElementById('ui-advanced-section-thresholds').innerText = s.advancedSectionThresholds;
+
+  document.getElementById('ui-speed-label').innerText = s.speedLabel;
+  document.getElementById('ui-radius-label').innerText = s.radiusLabel;
+  document.getElementById('ui-smooth-label').innerText = s.smoothLabel;
+
+  document.getElementById('ui-th-enter-vertex').innerText = s.thEnterVertex;
+  document.getElementById('ui-th-exit-vertex').innerText = s.thExitVertex;
+  document.getElementById('ui-th-enter-sbase').innerText = s.thEnterSbase;
+  document.getElementById('ui-th-exit-sbase').innerText = s.thExitSbase;
+  document.getElementById('ui-th-enter-flip').innerText = s.thEnterFlip;
+  document.getElementById('ui-th-exit-flip').innerText = s.thExitFlip;
+
+  document.getElementById('ui-advanced-note').innerText = s.advancedNote;
+  document.getElementById('ui-btn-reset').innerText = s.btnReset;
+  
+  document.getElementById('ui-check-square-s').innerText  = s.checkSquareS;
+  document.getElementById('ui-check-square-f1').innerText = s.checkSquareF1;
+  document.getElementById('ui-check-square-f2').innerText = s.checkSquareF2;
+  
+  document.getElementById('ui-advanced-section-freeze').innerText = s.advancedSectionFreeze;
+  document.getElementById('ui-freeze-dist').innerText = s.freezeDist;
+  document.getElementById('ui-freeze-window').innerText = s.freezeWindow;
+  document.getElementById('ui-freeze-angle').innerText = s.freezeAngle;
+  document.getElementById('ui-freeze-time').innerText = s.freezeTime;
+
+  document.body.classList.toggle('lang-jp', currentLang === 'jp');
+  
+  const authorElem = document.getElementById('author');
+  if(authorElem) authorElem.innerText = s.author;
+}
+
+document.getElementById('lang-select').addEventListener('change', (e) => {
+  currentLang = e.target.value;
+  updateUIStrings();
+});
+
+// ----------------------------
+// Thresholds ajustáveis
+// ----------------------------
+let ENTER_VERTEX = 90;
+let EXIT_VERTEX  = 45;
+
+let ENTER_SBASE = 123;
+let EXIT_SBASE  = 90;
+
+let ENTER_FLIP_DEG = 135;
+let EXIT_FLIP_DEG  = 130;
+
+// ----------------------------
+// Phase 1A: Exponential smoothing factor
+// ----------------------------
+let SMOOTH_K = 5.0; // higher = snappier, lower = more fluid
+
+// ----------------------------
+// Canvas
+// ----------------------------
+const canvas = document.getElementById('kendoCanvas');
+const ctx = canvas.getContext('2d', { alpha: false });
+
+// ----------------------------
+// Geometria (preservada)
+// ----------------------------
+const D_REF = 4;
+const ANGLE_LOCAL_BASE = 33 * Math.PI / 180;
+const POS_X_LOCAL = D_REF * Math.sin(ANGLE_LOCAL_BASE);
+const POS_Y_LOCAL = D_REF * Math.cos(ANGLE_LOCAL_BASE);
+
+const FORMATION_STANDARD = { shushin:{x:0,y:4}, fukushin1:{x:2.6,y:-4}, fukushin2:{x:-2.6,y:-4} };
+const FORMATION_F1_VERTEX = { shushin:{x:POS_X_LOCAL,y:POS_Y_LOCAL}, fukushin1:{x:0,y:-D_REF}, fukushin2:{x:-POS_X_LOCAL,y:POS_Y_LOCAL} };
+const FORMATION_F2_VERTEX = { shushin:{x:-POS_X_LOCAL,y:POS_Y_LOCAL}, fukushin1:{x:POS_X_LOCAL,y:POS_Y_LOCAL}, fukushin2:{x:0,y:-D_REF} };
+const FORMATION_F2_VERTEX_S_BASE = { shushin:{x:POS_X_LOCAL,y:-POS_Y_LOCAL}, fukushin1:{x:-POS_X_LOCAL,y:-POS_Y_LOCAL}, fukushin2:{x:0,y:D_REF} };
+const FORMATION_F1_VERTEX_S_BASE = { shushin:{x:-POS_X_LOCAL,y:-POS_Y_LOCAL}, fukushin1:{x:0,y:D_REF}, fukushin2:{x:POS_X_LOCAL,y:-POS_Y_LOCAL} };
+
+// ----------------------------
+// Parâmetros de movimento
+// ----------------------------
+let REF_MOVE_SPEED = 8.0;
+let REF_TURN_RADIUS = 4.0;
+let REF_ANG_SPEED = REF_MOVE_SPEED / REF_TURN_RADIUS;
+
+function recalcAngularSpeed() {
+  REF_ANG_SPEED = REF_MOVE_SPEED / Math.max(0.1, REF_TURN_RADIUS);
+}
+
+// ----------------------------
+// State
+// ----------------------------
+const state = {
+  dpr: 1,
+  scale: 40, centerX: 0, centerY: 0, width: 0, height: 0,
+  showTriangle: true,
+  showSquareS: false,
+  showSquareF1: false,
+  showSquareF2: false,
+  showNames: true,
+  showDebug: false,
+  showDirection: true,   // Phase 5A
+  showTrails: false,     // Phase 5C
+
+  currentFormation: {
+    shushin:   { x: 0,   y: 4 },
+    fukushin1: { x: 2.6, y: -4 },
+    fukushin2: { x: -2.6,y: -4 }
+  },
+
+  angles: {
+    shushinAbs: 0, fukushin1Abs: 0, fukushin2Abs: 0, combatRadSmoothed: 0
+  },
+
+  white: { x: -1.4, y: 0, radius: 0.4, dragging: false, color: '#ffffff', border: '#333', label: 'W' },
+  red:   { x: 1.4,  y: 0, radius: 0.4, dragging: false, color: '#cc0000', border: '#fff', label: 'R' },
+
+  shushin:   { x: 0,   y: 4,  color: '#2563eb', label: 'S',  radius: 0.3 },
+  fukushin1: { x: 2.6, y: -4, color: '#fbbf24', label: 'F1', radius: 0.3 },
+  fukushin2: { x: -2.6,y: -4, color: '#22c55e', label: 'F2', radius: 0.3 },
+
+  formationMode: 'STANDARD',
+  arbiterState: 'STABLE',
+
+  // Phase 3A: current scale factor (for debug display)
+  formationScale: 1.0
+};
+
+const HALF_COURT = 5;
+const KAISHISEN_DIST = 1.4;
+const SAFETY_MARGIN = 1.5; // meters outside court (FIK Subsidiary Rules Art. 1)
+
+// ----------------------------
+// Phase 5C: Motion trails
+// ----------------------------
+const TRAIL_LENGTH = 30;
+const trails = {
+  white:    [],
+  red:      [],
+  shushin:  [],
+  fukushin1:[],
+  fukushin2:[]
+};
+
+function pushTrail(key, x, y) {
+  trails[key].push({ x, y });
+  if (trails[key].length > TRAIL_LENGTH) trails[key].shift();
+}
+
+function clearTrails() {
+  for (const k of Object.keys(trails)) trails[k] = [];
+}
+
+// ----------------------------
+// Utilitários
+// ----------------------------
+const radToDeg = (rad) => (rad * 180 / Math.PI);
+
+const normalizeAngle = (deg) => {
+  let angle = deg % 360;
+  if (angle > 180) angle -= 360;
+  else if (angle <= -180) angle += 360;
+  return angle;
+};
+
+function angleDiff(a, b) {
+  return Math.atan2(Math.sin(b - a), Math.cos(b - a));
+}
+
+function moveAngleTowards(curr, target, maxDeltaRad) {
+  const d = angleDiff(curr, target);
+  if (Math.abs(d) <= maxDeltaRad) return target;
+  return curr + Math.sign(d) * maxDeltaRad;
+}
+
+// Phase 1A: Exponential damping — replaces constant-speed moveTowards for referees
+// Returns true if close enough to be considered "arrived"
+function expDamp(curr, target, k, dt) {
+  const factor = 1 - Math.exp(-k * dt);
+  curr.x += (target.x - curr.x) * factor;
+  curr.y += (target.y - curr.y) * factor;
+  const dx = target.x - curr.x, dy = target.y - curr.y;
+  return (dx*dx + dy*dy) < 1e-6;
+}
+
+// Kept for FLIP animation compatibility (straight-line movement with speed cap)
+function moveTowards(curr, target, maxDelta) {
+  const dx = target.x - curr.x;
+  const dy = target.y - curr.y;
+  const d = Math.hypot(dx, dy);
+  if (d <= maxDelta || d === 0) {
+    curr.x = target.x; curr.y = target.y;
+    return true;
+  }
+  const s = maxDelta / d;
+  curr.x += dx * s;
+  curr.y += dy * s;
+  return false;
+}
+
+const tmpScreen = { x: 0, y: 0 };
+function toScreenInto(mX, mY, out) {
+  out.x = state.centerX + mX * state.scale;
+  out.y = state.centerY + mY * state.scale;
+  return out;
+}
+
+function toMeters(sX, sY) {
+  return { x: (sX - state.centerX) / state.scale, y: (sY - state.centerY) / state.scale };
+}
+
+function transformLocalToWorld(local, midX, midY, ca, sa) {
+  const rx = local.x * ca - local.y * sa;
+  const ry = local.x * sa + local.y * ca;
+  return { x: midX + rx, y: midY + ry };
+}
+
+// ----------------------------
+// Phase 4A: Soft boundary clamp
+// Returns a position that strongly prefers being within ±limit,
+// but allows up to limit+margin with exponential resistance.
+// ----------------------------
+function softClampAxis(v, limit, margin) {
+  if (v > limit) {
+    const overflow = v - limit;
+    return limit + margin * (1 - Math.exp(-overflow / margin));
+  }
+  if (v < -limit) {
+    const overflow = -v - limit;
+    return -(limit + margin * (1 - Math.exp(-overflow / margin)));
+  }
+  return v;
+}
+
+function softClampPos(pos) {
+  return {
+    x: softClampAxis(pos.x, HALF_COURT, SAFETY_MARGIN),
+    y: softClampAxis(pos.y, HALF_COURT, SAFETY_MARGIN)
+  };
+}
+
+// ----------------------------
+// Phase 4B: Collision avoidance
+// If a referee's target is within minDist of a fighter, push it outward.
+// ----------------------------
+const REFEREE_FIGHTER_MIN_DIST = 1.0; // meters
+
+function applyCollisionAvoidance(tgt, fighters) {
+  for (const f of fighters) {
+    const dx = tgt.x - f.x;
+    const dy = tgt.y - f.y;
+    const d = Math.hypot(dx, dy);
+    if (d > 0 && d < REFEREE_FIGHTER_MIN_DIST) {
+      const push = (REFEREE_FIGHTER_MIN_DIST - d) / d;
+      tgt = { x: tgt.x + dx * push, y: tgt.y + dy * push };
+    }
+  }
+  return tgt;
+}
+
+// ----------------------------
+// Phase 2B: FLIP path collision check
+// Check if straight line from (x1,y1) to (x2,y2) passes within radius of point (cx,cy).
+// Returns true if it does (i.e., needs an arc around it).
+// ----------------------------
+function segmentIntersectsCircle(x1, y1, x2, y2, cx, cy, r) {
+  const dx = x2 - x1, dy = y2 - y1;
+  const fx = x1 - cx, fy = y1 - cy;
+  const a = dx*dx + dy*dy;
+  if (a < 1e-9) return Math.hypot(fx, fy) < r;
+  const b = 2*(fx*dx + fy*dy);
+  const c = fx*fx + fy*fy - r*r;
+  let disc = b*b - 4*a*c;
+  if (disc < 0) return false;
+  disc = Math.sqrt(disc);
+  const t1 = (-b - disc) / (2*a);
+  const t2 = (-b + disc) / (2*a);
+  return (t1 >= 0 && t1 <= 1) || (t2 >= 0 && t2 <= 1) || (t1 < 0 && t2 > 1);
+}
+
+// Compute a waypoint that arcs around blockX,blockY at safe radius,
+// choosing the side that deviates least from the straight path.
+function arcWaypoint(x1, y1, x2, y2, blockX, blockY, safeR) {
+  // Perpendicular to the path direction
+  const dx = x2 - x1, dy = y2 - y1;
+  const len = Math.hypot(dx, dy);
+  if (len < 1e-6) return { x: x1, y: y1 };
+  const perpX = -dy / len, perpY = dx / len;
+  // Two candidate waypoints: one on each side
+  const w1 = { x: blockX + perpX * safeR, y: blockY + perpY * safeR };
+  const w2 = { x: blockX - perpX * safeR, y: blockY - perpY * safeR };
+  // Choose the one closer to the original straight path midpoint
+  const midX = (x1 + x2) / 2, midY = (y1 + y2) / 2;
+  const d1 = Math.hypot(w1.x - midX, w1.y - midY);
+  const d2 = Math.hypot(w2.x - midX, w2.y - midY);
+  return d1 < d2 ? w1 : w2;
+}
+
+// ----------------------------
+// Tsubazeriai constraint
+// ----------------------------
+const TSUBA_MIN_DIST = 0.8;
+
+function applyTsubazeriaiConstraint() {
+  const dx = state.red.x - state.white.x;
+  const dy = state.red.y - state.white.y;
+  const d = Math.hypot(dx, dy);
+  if (d === 0 || d >= TSUBA_MIN_DIST) return;
+
+  const mx = (state.red.x + state.white.x) / 2;
+  const my = (state.red.y + state.white.y) / 2;
+
+  const nx = dx / d;
+  const ny = dy / d;
+  const h = TSUBA_MIN_DIST / 2;
+
+  state.white.x = mx - nx * h;
+  state.white.y = my - ny * h;
+  state.red.x   = mx + nx * h;
+  state.red.y   = my + ny * h;
+}
+
+let TSUBA_ACTIVE_DIST = 1.2;
+let FREEZE_TIME_MS = 300;
+let FREEZE_WINDOW_MS = 200;
+let FREEZE_ANGLE_RAD = Math.PI * 0.5;
+
+let freezeUntilTs = 0;
+let lastCombatAngle = null;
+let arbiterFrozen = false;
+let combatAngleAccum = 0;
+let lastFreezeCheckTs = 0;
+let justUnfrozen = false;
+
+function updateArbiterFreeze(ts) {
+  const dx = state.red.x - state.white.x;
+  const dy = state.red.y - state.white.y;
+  const dist = Math.hypot(dx, dy);
+
+  if (dist > TSUBA_ACTIVE_DIST) {
+    if (arbiterFrozen) justUnfrozen = true;
+    arbiterFrozen = false;
+    state.arbiterState = 'STABLE';
+    lastCombatAngle = null;
+    combatAngleAccum = 0;
+    lastFreezeCheckTs = ts;
+    return;
+  }
+
+  const ang = Math.atan2(dy, dx);
+
+  if (arbiterFrozen) {
+    if (ts > freezeUntilTs) {
+      arbiterFrozen = false;
+      justUnfrozen = true;
+      state.arbiterState = 'STABLE';
+      combatAngleAccum = 0;
+      lastFreezeCheckTs = ts;
+    }
+    lastCombatAngle = ang;
+    return;
+  }
+
+  if (lastCombatAngle === null) {
+    lastCombatAngle = ang;
+    combatAngleAccum = 0;
+    lastFreezeCheckTs = ts;
+    return;
+  }
+
+  const da = Math.abs(angleDiff(lastCombatAngle, ang));
+  combatAngleAccum += da;
+
+  if (ts - lastFreezeCheckTs > FREEZE_WINDOW_MS) {
+    combatAngleAccum = 0;
+    lastFreezeCheckTs = ts;
+  }
+
+  if (combatAngleAccum > FREEZE_ANGLE_RAD) {
+    arbiterFrozen = true;
+    state.arbiterState = 'FROZEN';
+    freezeUntilTs = ts + FREEZE_TIME_MS;
+    cancelFlip('freeze');
+    combatAngleAccum = 0;
+    lastFreezeCheckTs = ts;
+  }
+
+  lastCombatAngle = ang;
+}
+
+// ----------------------------
+// Phase 5B: Floor cache (HiDPI-aware) — enhanced with safety margin
+// ----------------------------
+const floorCache = { canvas: document.createElement('canvas'), ctx: null, valid: false };
+floorCache.ctx = floorCache.canvas.getContext('2d', { alpha: false });
+
+function rebuildFloorCache() {
+  const fc = floorCache.canvas;
+  const fctx = floorCache.ctx;
+  const dpr = state.dpr || 1;
+
+  fc.width = Math.round(state.width * dpr);
+  fc.height = Math.round(state.height * dpr);
+  fctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  // Background
+  fctx.fillStyle = '#b5845a';
+  fctx.fillRect(0, 0, state.width, state.height);
+
+  // Wood planks — vertical lines
+  fctx.strokeStyle = 'rgba(0, 0, 0, 0.12)';
+  fctx.lineWidth = 1.5;
+
+  const plankW = 0.5 * state.scale;
+  const offset = (state.centerX % plankW) - plankW;
+
+  fctx.beginPath();
+  for (let x = offset; x < state.width; x += plankW) {
+    fctx.moveTo(x, 0);
+    fctx.lineTo(x, state.height);
+  }
+  fctx.stroke();
+
+  // Subtle horizontal grain lines (shorter, random-opacity)
+  fctx.lineWidth = 0.5;
+  const grainSpacing = plankW * 3;
+  for (let x = offset; x < state.width; x += plankW) {
+    let yPos = 0;
+    while (yPos < state.height) {
+      const grainLen = (0.4 + Math.sin(x * 3.7 + yPos * 0.3) * 0.4) * plankW;
+      const opacity = 0.03 + Math.abs(Math.sin(x * 1.3 + yPos * 0.7)) * 0.05;
+      fctx.strokeStyle = `rgba(0,0,0,${opacity.toFixed(3)})`;
+      fctx.beginPath();
+      fctx.moveTo(x, yPos);
+      fctx.lineTo(x + grainLen, yPos);
+      fctx.stroke();
+      yPos += grainSpacing * (0.6 + Math.sin(x * 2.1 + yPos) * 0.4);
+    }
+  }
+
+  // Radial vignette to draw focus to center
+  const cx = state.width / 2, cy = state.height / 2;
+  const maxR = Math.hypot(cx, cy);
+  const vignette = fctx.createRadialGradient(cx, cy, maxR * 0.3, cx, cy, maxR * 1.1);
+  vignette.addColorStop(0, 'rgba(0,0,0,0)');
+  vignette.addColorStop(1, 'rgba(0,0,0,0.45)');
+  fctx.fillStyle = vignette;
+  fctx.fillRect(0, 0, state.width, state.height);
+
+  floorCache.valid = true;
+}
+
+function drawFloor() {
+  if (!floorCache.valid) rebuildFloorCache();
+  ctx.drawImage(
+    floorCache.canvas,
+    0, 0,
+    floorCache.canvas.width,
+    floorCache.canvas.height,
+    0, 0,
+    state.width,
+    state.height
+  );
+}
+
+// ----------------------------
+// Decisão de formação (preservada; thresholds variáveis)
+// ----------------------------
+function computeTargetsForFlag(flagCandidate, dxWorld, dyWorld, prevMode = 'STANDARD') {
+  const dx = (flagCandidate % 2 === 1) ? dxWorld : -dxWorld;
+  const dy = (flagCandidate % 2 === 1) ? dyWorld : -dyWorld;
+
+  const combatRadTarget = Math.atan2(dy, dx);
+  const combatDegRaw = radToDeg(combatRadTarget);
+  const absA = Math.abs(combatDegRaw);
+
+  let mode = prevMode;
+
+  if (absA <= ENTER_FLIP_DEG) {
+    if (mode === 'S_BASE') {
+      if (absA <= EXIT_SBASE) mode = 'VERTEX';
+    } else {
+      if (absA >= ENTER_SBASE) mode = 'S_BASE';
+    }
+
+    if (mode !== 'S_BASE') {
+      if (mode === 'VERTEX') {
+        if (absA < EXIT_VERTEX) mode = 'STANDARD';
+      } else {
+        if (absA > ENTER_VERTEX) mode = 'VERTEX';
+      }
+    }
+  }
+
+  let targetFormation;
+  if (mode === 'STANDARD') targetFormation = FORMATION_STANDARD;
+  else if (mode === 'VERTEX') targetFormation = (combatDegRaw > 0) ? FORMATION_F1_VERTEX : FORMATION_F2_VERTEX;
+  else targetFormation = (combatDegRaw > 0) ? FORMATION_F2_VERTEX_S_BASE : FORMATION_F1_VERTEX_S_BASE;
+
+  return { combatRadTarget, combatDegRaw, targetFormation, mode };
+}
+
+// ----------------------------
+// Phase 3A: Formation scale factor
+// Biased strongly toward 1.0 (default distance).
+// Contracts slightly when fighters very close, never expands.
+// ----------------------------
+function computeFormationScale(fighterDist) {
+  const nominal = KAISHISEN_DIST * 2; // 2.8m
+  // rawScale: 0 when touching, 1 when at nominal distance, >1 when far
+  const rawScale = Math.min(1.0, fighterDist / nominal);
+  // Remap to [0.85, 1.0] — strong bias toward 1.0
+  return 0.85 + 0.15 * rawScale;
+}
+
+function scaleFormation(tf, scale) {
+  return {
+    shushin:   { x: tf.shushin.x   * scale, y: tf.shushin.y   * scale },
+    fukushin1: { x: tf.fukushin1.x * scale, y: tf.fukushin1.y * scale },
+    fukushin2: { x: tf.fukushin2.x * scale, y: tf.fukushin2.y * scale }
+  };
+}
+
+// ----------------------------
+// Flip state
+// ----------------------------
+let flag = 1;
+let atravessouFronteira = false;
+let lastTs = null;
+let targetAngle = 0;
+
+// Phase 2B: FLIP now supports optional waypoints
+const flipState = {
+  active: false,
+  toFlag: 2,
+  toAngle: 0,
+  toWorld: null,
+  // waypoints: if set, referees go through these intermediate points first
+  waypoints: null,
+  waypointDone: false
+};
+
+// ----------------------------
+// Phase 2A: Anti-jitter FLIP — improved with accumulator hysteresis
+// ----------------------------
+let flipHoldStartTs = null;
+let flipCooldownUntilTs = 0;
+let lastFlipRawAngle = null;
+
+// Accumulator: counts frames above threshold and frames below.
+// Only resets the hold timer if the angle is consistently below EXIT_FLIP_DEG
+// for at least FLIP_HOLD_RESET_FRAMES frames.
+let flipBelowExitFrames = 0;
+const FLIP_HOLD_RESET_FRAMES = 4; // must stay below EXIT for this many frames to reset hold
+
+const FLIP_CONFIRM_MS = 180;
+const FLIP_COOLDOWN_MS = 450;
+const FLIP_MAX_ANGVEL = 4.0;
+
+function cancelFlip(reason = '') {
+  flipState.active = false;
+  flipState.toWorld = null;
+  flipState.waypoints = null;
+  flipState.waypointDone = false;
+  flipHoldStartTs = null;
+  lastFlipRawAngle = null;
+  flipBelowExitFrames = 0;
+}
+
+// ----------------------------
+// Phase 5B: Draw court (enhanced)
+// ----------------------------
+function drawCourt() {
+  const half = HALF_COURT;
+  const safeMargin = SAFETY_MARGIN;
+
+  const p1 = toScreenInto(-half, -half, tmpScreen);
+  const x1 = p1.x, y1 = p1.y;
+  const p2 = toScreenInto(half, half, tmpScreen);
+  const size = p2.x - x1;
+
+  // Phase 5B: Safety margin zone (subtle lighter area outside court)
+  const safeP1 = toScreenInto(-(half + safeMargin), -(half + safeMargin), {x:0,y:0});
+  const safeSize = toScreenInto(half + safeMargin, half + safeMargin, {x:0,y:0}).x - safeP1.x;
+  ctx.fillStyle = 'rgba(220, 180, 130, 0.35)';
+  ctx.fillRect(safeP1.x, safeP1.y, safeSize, safeSize);
+
+  // Court surface overlay (slightly lighter than background wood)
+  ctx.save();
+  ctx.shadowColor = 'rgba(0,0,0,0.4)';
+  ctx.shadowBlur = 24;
+  ctx.fillStyle = 'rgba(200, 160, 100, 0.25)';
+  ctx.fillRect(x1, y1, size, size);
+  ctx.shadowBlur = 0;
+  ctx.restore();
+
+  // Court boundary lines
+  ctx.strokeStyle = 'rgba(255,255,255,0.92)';
+  ctx.lineWidth = Math.max(3, 0.12 * state.scale);
+  ctx.strokeRect(x1, y1, size, size);
+
+  // Center cross
+  const c = toScreenInto(0, 0, tmpScreen);
+  const xSize = 0.14 * state.scale;
+  ctx.lineWidth = 2.5;
+  ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+  ctx.beginPath();
+  ctx.moveTo(c.x - xSize, c.y - xSize); ctx.lineTo(c.x + xSize, c.y + xSize);
+  ctx.moveTo(c.x + xSize, c.y - xSize); ctx.lineTo(c.x - xSize, c.y + xSize);
+  ctx.stroke();
+
+  // Kaishi-sen — proper length: 30cm per regulations (drawn as 0.15m each side = 0.30m total)
+  const kX = KAISHISEN_DIST * state.scale;
+  const kLen = 0.15 * state.scale; // 15cm each side = 30cm total line
+  ctx.lineWidth = Math.max(3, 0.1 * state.scale);
+  ctx.strokeStyle = 'rgba(255,255,255,0.92)';
+  ctx.beginPath();
+  ctx.moveTo(c.x - kX, c.y - kLen); ctx.lineTo(c.x - kX, c.y + kLen);
+  ctx.moveTo(c.x + kX, c.y - kLen); ctx.lineTo(c.x + kX, c.y + kLen);
+  ctx.stroke();
+}
+
+function drawGuides() {
+  if (!state.showTriangle && !state.showSquareS && !state.showSquareF1 && !state.showSquareF2) return;
+
+  const midX = (state.white.x + state.red.x) / 2;
+  const midY = (state.white.y + state.red.y) / 2;
+  const hs = 4.0;
+
+  const s  = toScreenInto(state.shushin.x,   state.shushin.y,   {x:0,y:0});
+  const f1 = toScreenInto(state.fukushin1.x, state.fukushin1.y, {x:0,y:0});
+  const f2 = toScreenInto(state.fukushin2.x, state.fukushin2.y, {x:0,y:0});
+
+  if (state.showTriangle) {
+    ctx.save();
+    ctx.strokeStyle = 'rgba(37, 99, 235, 0.4)';
+    ctx.fillStyle = 'rgba(37, 99, 235, 0.05)';
+    ctx.setLineDash([8, 8]);
+    ctx.beginPath();
+    ctx.moveTo(s.x, s.y); ctx.lineTo(f1.x, f1.y); ctx.lineTo(f2.x, f2.y);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  if (state.showSquareS) {
+    ctx.fillStyle = 'rgba(37, 99, 235, 0.15)';
+    const pS1 = toScreenInto(midX - hs, midY, {x:0,y:0});
+    ctx.fillRect(pS1.x, pS1.y, (hs*2)*state.scale, hs*state.scale);
+	}
+
+  if (state.showSquareF1) {
+    ctx.fillStyle = 'rgba(251, 191, 36, 0.2)';
+    ctx.beginPath();
+    const pM1  = toScreenInto(midX + hs, midY - hs, {x:0,y:0});
+    const pF1T = toScreenInto(midX + hs, midY + hs, {x:0,y:0});
+    const pF1R = toScreenInto(midX - hs, midY - hs, {x:0,y:0});
+    ctx.moveTo(pM1.x, pM1.y); ctx.lineTo(pF1T.x, pF1T.y); ctx.lineTo(pF1R.x, pF1R.y);
+    ctx.closePath(); ctx.fill();
+	}
+
+  if (state.showSquareF2) {
+    ctx.fillStyle = 'rgba(34, 197, 94, 0.2)';
+    ctx.beginPath();
+    const pM2  = toScreenInto(midX - hs, midY - hs, {x:0,y:0});
+    const pF2T = toScreenInto(midX - hs, midY + hs, {x:0,y:0});
+    const pF2L = toScreenInto(midX + hs, midY - hs, {x:0,y:0});
+    ctx.moveTo(pM2.x, pM2.y); ctx.lineTo(pF2T.x, pF2T.y); ctx.lineTo(pF2L.x, pF2L.y);
+    ctx.closePath(); ctx.fill();
+	}
+
+  if (state.showSquareS || state.showSquareF1 || state.showSquareF2) {
+    ctx.save();
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.4)';
+    ctx.lineWidth = 2;
+
+    const qtl = toScreenInto(midX - hs, midY - hs, {x:0,y:0});
+    ctx.strokeRect(qtl.x, qtl.y, (hs*2)*state.scale, (hs*2)*state.scale);
+
+    ctx.setLineDash([5, 5]);
+    ctx.beginPath();
+
+    const pM1  = toScreenInto(midX + hs, midY - hs, {x:0,y:0});
+    const pF1T = toScreenInto(midX + hs, midY + hs, {x:0,y:0});
+    const pF1R = toScreenInto(midX - hs, midY - hs, {x:0,y:0});
+
+    const pM2  = toScreenInto(midX - hs, midY - hs, {x:0,y:0});
+    const pF2T = toScreenInto(midX - hs, midY + hs, {x:0,y:0});
+    const pF2L = toScreenInto(midX + hs, midY - hs, {x:0,y:0});
+
+    ctx.moveTo(pF2L.x, pF2L.y); ctx.lineTo(pF1R.x, pF1R.y);
+    ctx.moveTo(pM1.x, pM1.y);   ctx.lineTo(pF1T.x, pF1T.y);
+    ctx.moveTo(pM2.x, pM2.y);   ctx.lineTo(pF2T.x, pF2T.y);
+
+    ctx.stroke();
+    ctx.restore();
+  }
+}
+
+// ----------------------------
+// Phase 5C: Draw trails
+// ----------------------------
+function drawTrails() {
+  if (!state.showTrails) return;
+  const keys = ['white', 'red', 'shushin', 'fukushin1', 'fukushin2'];
+  const colors = {
+    white:    '200,200,200',
+    red:      '204,0,0',
+    shushin:  '37,99,235',
+    fukushin1:'251,191,36',
+    fukushin2:'34,197,94'
+  };
+
+  for (const key of keys) {
+    const trail = trails[key];
+    if (trail.length < 2) continue;
+    for (let i = 1; i < trail.length; i++) {
+      const alpha = (i / trail.length) * 0.45;
+      const radius = Math.max(1, (i / trail.length) * 4);
+      const sp = toScreenInto(trail[i].x, trail[i].y, {x:0,y:0});
+      ctx.beginPath();
+      ctx.arc(sp.x, sp.y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${colors[key]},${alpha.toFixed(3)})`;
+      ctx.fill();
+    }
+  }
+}
+
+// ----------------------------
+// Phase 5A: Draw entity with directional indicator
+// ----------------------------
+let hoveredEnt = null;
+
+function drawEntity(ent, isRef) {
+  const p = toScreenInto(ent.x, ent.y, {x:0,y:0});
+  const r = (ent.radius || 0.3) * state.scale;
+
+  const isCompetitor = (ent === state.white || ent === state.red);
+  const isHover = isCompetitor && (hoveredEnt === ent || ent.dragging);
+
+  if (isHover) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, r * 1.35, 0, Math.PI*2);
+    ctx.fillStyle = 'rgba(255,255,255,0.10)';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,0.25)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // Drop shadow
+  ctx.beginPath();
+  ctx.arc(p.x, p.y + r*0.22, r * 1.05, 0, Math.PI*2);
+  ctx.fillStyle = 'rgba(0,0,0,0.28)';
+  ctx.fill();
+
+  // Phase 5A: Directional indicator (wedge/nose)
+  if (state.showDirection) {
+    let facingAngle;
+    const midX = (state.white.x + state.red.x) / 2;
+    const midY = (state.white.y + state.red.y) / 2;
+
+    if (ent === state.white) {
+      // White faces Red
+      facingAngle = Math.atan2(state.red.y - ent.y, state.red.x - ent.x);
+    } else if (ent === state.red) {
+      // Red faces White
+      facingAngle = Math.atan2(state.white.y - ent.y, state.white.x - ent.x);
+    } else {
+      // Referees always face the midpoint between fighters
+      facingAngle = Math.atan2(midY - ent.y, midX - ent.x);
+    }
+
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(facingAngle);
+
+    // Wedge: points in facing direction
+    const noseLen = r * 1.55;
+    const noseWidth = r * 0.55;
+    ctx.beginPath();
+    ctx.moveTo(noseLen, 0);
+    ctx.lineTo(r * 0.7, -noseWidth * 0.5);
+    ctx.lineTo(r * 0.7,  noseWidth * 0.5);
+    ctx.closePath();
+    ctx.fillStyle = isRef ? 'rgba(255,255,255,0.75)' : (ent.color === '#ffffff' ? 'rgba(80,80,80,0.8)' : 'rgba(255,255,255,0.75)');
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // Body circle
+  ctx.beginPath();
+  ctx.arc(p.x, p.y, r, 0, Math.PI*2);
+  ctx.fillStyle = ent.color;
+  ctx.fill();
+
+  ctx.strokeStyle = ent.border || 'rgba(0,0,0,0.3)';
+  ctx.lineWidth = isRef ? 2 : 3;
+  ctx.stroke();
+
+  if (state.showNames && ent.label) {
+    ctx.fillStyle = isRef ? 'white' : (ent.color === '#ffffff' ? 'black' : 'white');
+    ctx.font = `bold ${Math.max(12, r * 0.9)}px 'Segoe UI', Arial`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(ent.label, p.x, p.y);
+  }
+}
+
+// ----------------------------
+// Debug cache + throttle
+// ----------------------------
+const ui = {
+  combatAngle: null, flag: null, mode: null,
+  s: null, f1: null, f2: null,
+  debugPanel: null, scaleStatus: null,
+
+  speedSlider: null, speedVal: null,
+  radiusSlider: null, radiusVal: null,
+  smoothSlider: null, smoothVal: null,
+
+  thEnterVertex: null, thEnterVertexVal: null,
+  thExitVertex: null, thExitVertexVal: null,
+  thEnterSbase: null, thEnterSbaseVal: null,
+  thExitSbase: null, thExitSbaseVal: null,
+  thEnterFlip: null, thEnterFlipVal: null,
+  thExitFlip: null, thExitFlipVal: null,
+  freezeDist: null, freezeDistVal: null,
+  freezeWindow: null, freezeWindowVal: null,
+  freezeAngle: null, freezeAngleVal: null,
+  freezeTime: null, freezeTimeVal: null
+};
+
+let debugAcc = 0;
+const DEBUG_PERIOD = 0.10;
+
+function updateDebugUI(force=false) {
+  if (!state.showDebug) return;
+  if (!force && debugAcc < DEBUG_PERIOD) return;
+  debugAcc = 0;
+
+  ui.combatAngle.textContent = `${Math.round(radToDeg(state.angles.combatRadSmoothed))}°`;
+  ui.flag.textContent = `${flag}`;
+  ui.mode.textContent = `${state.formationMode}`;
+  ui.s.textContent  = `${state.angles.shushinAbs.toFixed(1)}°`;
+  ui.f1.textContent = `${state.angles.fukushin1Abs.toFixed(1)}°`;
+  ui.f2.textContent = `${state.angles.fukushin2Abs.toFixed(1)}°`;
+  if (ui.scaleStatus) ui.scaleStatus.textContent = state.formationScale.toFixed(2);
+
+  const freezeLabel =
+    state.arbiterState === 'FROZEN'
+      ? i18n[currentLang].frozen
+      : i18n[currentLang].stable;
+
+  document.getElementById('freeze-status').textContent = freezeLabel;
+}
+
+// ----------------------------
+// Phase 1A+1B+2A+2B+3A+4A+4B: Updated referee logic
+// ----------------------------
+function updateReferees(dt, ts) {
+  const midX = (state.white.x + state.red.x) / 2;
+  const midY = (state.white.y + state.red.y) / 2;
+
+  const dxWorld = state.red.x - state.white.x;
+  const dyWorld = state.red.y - state.white.y;
+  const fighterDist = Math.hypot(dxWorld, dyWorld);
+
+  const maxStep = REF_MOVE_SPEED * dt;
+  const maxAng  = REF_ANG_SPEED * dt;
+
+  const fighters = [state.white, state.red];
+
+  const pre = computeTargetsForFlag(flipState.active ? flipState.toFlag : flag, dxWorld, dyWorld, state.formationMode);
+
+  if (justUnfrozen) {
+    targetAngle = pre.combatRadTarget;
+    justUnfrozen = false;
+  }
+
+  // ----------------------------
+  // FLIP active (animation in progress)
+  // ----------------------------
+  if (flipState.active) {
+    flipHoldStartTs = null;
+    lastFlipRawAngle = null;
+    flipBelowExitFrames = 0;
+
+    // Dynamically track live combat angle and scaling during flip
+    flipState.toAngle = pre.combatRadTarget;
+    const ca2 = Math.cos(flipState.toAngle);
+    const sa2 = Math.sin(flipState.toAngle);
+    const fScale = computeFormationScale(fighterDist);
+    state.formationScale = fScale;
+    const scaledTf = scaleFormation(FORMATION_STANDARD, fScale);
+
+    flipState.toWorld = {
+      shushin:   softClampPos(applyCollisionAvoidance(transformLocalToWorld(scaledTf.shushin,   midX, midY, ca2, sa2), fighters)),
+      fukushin1: softClampPos(applyCollisionAvoidance(transformLocalToWorld(scaledTf.fukushin1, midX, midY, ca2, sa2), fighters)),
+      fukushin2: softClampPos(applyCollisionAvoidance(transformLocalToWorld(scaledTf.fukushin2, midX, midY, ca2, sa2), fighters))
+    };
+
+    if (flipState.waypoints && !flipState.waypointDone) {
+      const wp = flipState.waypoints;
+      const doneS  = moveTowards(state.shushin,   wp.shushin,   maxStep);
+      const doneF1 = moveTowards(state.fukushin1, wp.fukushin1, maxStep);
+      const doneF2 = moveTowards(state.fukushin2, wp.fukushin2, maxStep);
+      if (doneS && doneF1 && doneF2) flipState.waypointDone = true;
+    } else {
+      state.angles.combatRadSmoothed = moveAngleTowards(
+        state.angles.combatRadSmoothed,
+        flipState.toAngle,
+        maxAng
+      );
+
+      const okS  = moveTowards(state.shushin,   flipState.toWorld.shushin,   maxStep);
+      const okF1 = moveTowards(state.fukushin1, flipState.toWorld.fukushin1, maxStep);
+      const okF2 = moveTowards(state.fukushin2, flipState.toWorld.fukushin2, maxStep);
+
+      const angOk = Math.abs(angleDiff(state.angles.combatRadSmoothed, flipState.toAngle)) < 1e-4;
+
+      if (okS && okF1 && okF2 && angOk) {
+        flipState.active = false;
+        flipState.waypoints = null;
+        flipState.waypointDone = false;
+        flag = flipState.toFlag;
+        state.formationMode = 'STANDARD';
+        state.currentFormation = {
+          shushin:   { ...scaledTf.shushin },
+          fukushin1: { ...scaledTf.fukushin1 },
+          fukushin2: { ...scaledTf.fukushin2 }
+        };
+        targetAngle = flipState.toAngle;
+      }
+    }
+
+    state.angles.shushinAbs   = normalizeAngle(radToDeg(Math.atan2(state.shushin.y - midY,   state.shushin.x - midX)));
+    state.angles.fukushin1Abs = normalizeAngle(radToDeg(Math.atan2(state.fukushin1.y - midY, state.fukushin1.x - midX)));
+    state.angles.fukushin2Abs = normalizeAngle(radToDeg(Math.atan2(state.fukushin2.y - midY, state.fukushin2.x - midX)));
+    return;
+  }
+
+  // ----------------------------
+  // Phase 1B: Use raw combatRadTarget for target generation
+  // combatRadSmoothed is used only for display and FLIP detection
+  // ----------------------------
+  state.formationMode = pre.mode;
+
+  // Phase 2A: FLIP gate with hysteresis accumulator
+  let axisAngVel = 0;
+  if (lastFlipRawAngle !== null && dt > 0) {
+    axisAngVel = Math.abs(angleDiff(lastFlipRawAngle, pre.combatRadTarget)) / dt;
+  }
+  lastFlipRawAngle = pre.combatRadTarget;
+
+  const absDeg = Math.abs(pre.combatDegRaw);
+
+  // Phase 2A: Only reset hold timer if angle stays below EXIT for several consecutive frames
+  if (absDeg < EXIT_FLIP_DEG) {
+    flipBelowExitFrames++;
+    if (flipBelowExitFrames >= FLIP_HOLD_RESET_FRAMES) {
+      flipHoldStartTs = null;
+    }
+  } else {
+    flipBelowExitFrames = 0;
+  }
+
+  const canConsiderFlip = (ts >= flipCooldownUntilTs);
+  const wantsFlip = (absDeg > ENTER_FLIP_DEG);
+
+  if (canConsiderFlip && wantsFlip) {
+    const axisStableEnough = (axisAngVel <= FLIP_MAX_ANGVEL);
+
+    if (!axisStableEnough) {
+      flipHoldStartTs = null;
+    } else {
+      if (flipHoldStartTs === null) flipHoldStartTs = ts;
+
+      if ((ts - flipHoldStartTs) >= FLIP_CONFIRM_MS) {
+        flipHoldStartTs = null;
+        flipCooldownUntilTs = ts + FLIP_COOLDOWN_MS;
+
+        flipState.active = true;
+        flipState.toFlag = flag + 1;
+
+        flipState.toAngle = pre.combatRadTarget + Math.PI;
+        flipState.toAngle = Math.atan2(Math.sin(flipState.toAngle), Math.cos(flipState.toAngle));
+
+        const ca2 = Math.cos(flipState.toAngle);
+        const sa2 = Math.sin(flipState.toAngle);
+
+        flipState.toWorld = {
+          shushin:   transformLocalToWorld(FORMATION_STANDARD.shushin,   midX, midY, ca2, sa2),
+          fukushin1: transformLocalToWorld(FORMATION_STANDARD.fukushin1, midX, midY, ca2, sa2),
+          fukushin2: transformLocalToWorld(FORMATION_STANDARD.fukushin2, midX, midY, ca2, sa2)
+        };
+
+        // Phase 2B: Check if straight-line paths collide with fighters
+        const AVOID_RADIUS = 1.2; // meters — zone around fighters midpoint to avoid during FLIP
+        let needsWaypoint = false;
+        const refs = ['shushin', 'fukushin1', 'fukushin2'];
+        for (const rk of refs) {
+          if (segmentIntersectsCircle(
+            state[rk].x, state[rk].y,
+            flipState.toWorld[rk].x, flipState.toWorld[rk].y,
+            midX, midY, AVOID_RADIUS
+          )) {
+            needsWaypoint = true;
+            break;
+          }
+        }
+
+        if (needsWaypoint) {
+          flipState.waypoints = {};
+          for (const rk of refs) {
+            if (segmentIntersectsCircle(
+              state[rk].x, state[rk].y,
+              flipState.toWorld[rk].x, flipState.toWorld[rk].y,
+              midX, midY, AVOID_RADIUS
+            )) {
+              flipState.waypoints[rk] = arcWaypoint(
+                state[rk].x, state[rk].y,
+                flipState.toWorld[rk].x, flipState.toWorld[rk].y,
+                midX, midY, AVOID_RADIUS + 0.3
+              );
+            } else {
+              // No collision — just use final position as "waypoint" (will immediately pass through)
+              flipState.waypoints[rk] = { ...flipState.toWorld[rk] };
+            }
+          }
+          flipState.waypointDone = false;
+        } else {
+          flipState.waypoints = null;
+          flipState.waypointDone = false;
+        }
+
+        return;
+      }
+    }
+  }
+
+  // ----------------------------
+  // Target Angle Smoother (exponential angular damping)
+  // Prevents chaotic target jumps during fast rotation
+  // ----------------------------
+  const rawAngle = pre.combatRadTarget;
+  const dAng = angleDiff(targetAngle, rawAngle);
+  targetAngle += dAng * (1 - Math.exp(-SMOOTH_K * dt));
+
+  const ca_tgt = Math.cos(targetAngle);
+  const sa_tgt = Math.sin(targetAngle);
+
+  // Phase 3A: Apply formation scale based on fighter distance
+  const fScale = computeFormationScale(fighterDist);
+  state.formationScale = fScale;
+  const scaledTf = scaleFormation(pre.targetFormation, fScale);
+
+  let tgtS  = transformLocalToWorld(scaledTf.shushin,   midX, midY, ca_tgt, sa_tgt);
+  let tgtF1 = transformLocalToWorld(scaledTf.fukushin1, midX, midY, ca_tgt, sa_tgt);
+  let tgtF2 = transformLocalToWorld(scaledTf.fukushin2, midX, midY, ca_tgt, sa_tgt);
+
+  // Phase 4B: Collision avoidance
+  tgtS  = applyCollisionAvoidance(tgtS,  fighters);
+  tgtF1 = applyCollisionAvoidance(tgtF1, fighters);
+  tgtF2 = applyCollisionAvoidance(tgtF2, fighters);
+
+  // Phase 4A: Soft court boundary
+  tgtS  = softClampPos(tgtS);
+  tgtF1 = softClampPos(tgtF1);
+  tgtF2 = softClampPos(tgtF2);
+
+  // Phase 1A: Exponential damping — smooth, organic movement
+  expDamp(state.shushin,   tgtS,  SMOOTH_K, dt);
+  expDamp(state.fukushin1, tgtF1, SMOOTH_K, dt);
+  expDamp(state.fukushin2, tgtF2, SMOOTH_K, dt);
+
+  // Update smoothed angle for display only
+  state.angles.combatRadSmoothed = moveAngleTowards(
+    state.angles.combatRadSmoothed,
+    rawAngle,
+    maxAng
+  );
+
+  state.currentFormation = {
+    shushin:   { ...scaledTf.shushin },
+    fukushin1: { ...scaledTf.fukushin1 },
+    fukushin2: { ...scaledTf.fukushin2 }
+  };
+
+  state.angles.shushinAbs   = normalizeAngle(radToDeg(Math.atan2(state.shushin.y - midY,   state.shushin.x - midX)));
+  state.angles.fukushin1Abs = normalizeAngle(radToDeg(Math.atan2(state.fukushin1.y - midY, state.fukushin1.x - midX)));
+  state.angles.fukushin2Abs = normalizeAngle(radToDeg(Math.atan2(state.fukushin2.y - midY, state.fukushin2.x - midX)));
+}
+
+// ----------------------------
+// Loop
+// ----------------------------
+function animate(ts) {
+  if (lastTs == null) lastTs = ts;
+  const dt = Math.min((ts - lastTs) / 1000, 0.05); // cap dt to avoid large jumps after tab switch
+  lastTs = ts;
+
+  debugAcc += dt;
+
+  applyTsubazeriaiConstraint();
+  updateArbiterFreeze(ts);
+
+  if (!arbiterFrozen) {
+    updateReferees(dt, ts);
+  }
+
+  // Phase 5C: Record trails every frame
+  if (state.showTrails) {
+    pushTrail('white',    state.white.x,    state.white.y);
+    pushTrail('red',      state.red.x,      state.red.y);
+    pushTrail('shushin',  state.shushin.x,  state.shushin.y);
+    pushTrail('fukushin1',state.fukushin1.x,state.fukushin1.y);
+    pushTrail('fukushin2',state.fukushin2.x,state.fukushin2.y);
+  }
+
+  drawFloor();
+  drawCourt();
+  drawGuides();
+  drawTrails();
+
+  drawEntity(state.white, false);
+  drawEntity(state.red, false);
+  drawEntity(state.shushin, true);
+  drawEntity(state.fukushin1, true);
+  drawEntity(state.fukushin2, true);
+
+  updateDebugUI(false);
+
+  requestAnimationFrame(animate);
+}
+
+// ----------------------------
+// Interação
+// ----------------------------
+function onPointerDown(e) {
+  canvas.setPointerCapture(e.pointerId);
+
+  const p = toMeters(e.clientX, e.clientY);
+  const isTouch = (e.pointerType === 'touch');
+
+  if (isHit(p, state.red, isTouch)) state.red.dragging = true;
+  else if (isHit(p, state.white, isTouch)) state.white.dragging = true;
+
+  if (state.red.dragging || state.white.dragging) e.preventDefault();
+}
+
+function onPointerMove(e) {
+  const p = toMeters(e.clientX, e.clientY);
+  const isTouch = (e.pointerType === 'touch');
+
+  const clamp = (v) => Math.min(Math.max(v, -HALF_COURT), HALF_COURT);
+
+  hoveredEnt = null;
+
+  if (state.red.dragging) {
+    state.red.x = clamp(p.x);
+    state.red.y = clamp(p.y);
+    hoveredEnt = state.red;
+  } else if (state.white.dragging) {
+    state.white.x = clamp(p.x);
+    state.white.y = clamp(p.y);
+    hoveredEnt = state.white;
+  } else {
+    if (isHit(p, state.red, isTouch)) hoveredEnt = state.red;
+    else if (isHit(p, state.white, isTouch)) hoveredEnt = state.white;
+  }
+
+  canvas.style.cursor = hoveredEnt ? 'move' : 'default';
+}
+
+function onPointerUp() {
+  state.red.dragging = false;
+  state.white.dragging = false;
+  hoveredEnt = null;
+}
+
+function isHit(pos, ent, isTouch) {
+  const base = isTouch ? 2.4 : 1.5;
+  const smallScreenBoost = (Math.min(state.width, state.height) < 500) ? 1.25 : 1.0;
+  const mult = base * smallScreenBoost;
+
+  const dx = pos.x - ent.x, dy = pos.y - ent.y;
+  return (dx*dx + dy*dy) < Math.pow(ent.radius * mult, 2);
+}
+
+// ----------------------------
+// Menu
+// ----------------------------
+function toggleMenu() {
+  const menu = document.getElementById('controls-container');
+  const btn = document.getElementById('open-menu-btn');
+  menu.classList.toggle('collapsed');
+  btn.style.display = menu.classList.contains('collapsed') ? 'block' : 'none';
+}
+
+// ----------------------------
+// Reset
+// ----------------------------
+function resetPositions() {
+  state.white.x = -KAISHISEN_DIST; state.white.y = 0;
+  state.red.x = KAISHISEN_DIST; state.red.y = 0;
+
+  state.currentFormation = {
+    shushin:   {...FORMATION_STANDARD.shushin},
+    fukushin1: {...FORMATION_STANDARD.fukushin1},
+    fukushin2: {...FORMATION_STANDARD.fukushin2}
+  };
+
+  state.shushin.x = FORMATION_STANDARD.shushin.x;
+  state.shushin.y = FORMATION_STANDARD.shushin.y;
+  state.fukushin1.x = FORMATION_STANDARD.fukushin1.x;
+  state.fukushin1.y = FORMATION_STANDARD.fukushin1.y;
+  state.fukushin2.x = FORMATION_STANDARD.fukushin2.x;
+  state.fukushin2.y = FORMATION_STANDARD.fukushin2.y;
+
+  state.angles.combatRadSmoothed = 0;
+  targetAngle = 0;
+  flag = 1;
+  atravessouFronteira = false;
+  state.formationMode = 'STANDARD';
+  state.formationScale = 1.0;
+
+  flipState.active = false;
+  flipState.toWorld = null;
+  flipState.waypoints = null;
+  flipState.waypointDone = false;
+  flipHoldStartTs = null;
+  flipBelowExitFrames = 0;
+  lastFlipRawAngle = null;
+
+  arbiterFrozen = false;
+  state.arbiterState = 'STABLE';
+  lastCombatAngle = null;
+  combatAngleAccum = 0;
+
+  clearTrails();
+}
+
+// ----------------------------
+// Resize (HiDPI + CSS pixels)
+// ----------------------------
+function resize() {
+  const dpr = Math.max(1, window.devicePixelRatio || 1);
+
+  const cssW = window.innerWidth;
+  const cssH = window.innerHeight;
+
+  canvas.style.width = cssW + "px";
+  canvas.style.height = cssH + "px";
+  canvas.width = Math.round(cssW * dpr);
+  canvas.height = Math.round(cssH * dpr);
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  state.dpr = dpr;
+  state.width = cssW;
+  state.height = cssH;
+  state.centerX = state.width / 2;
+  state.centerY = state.height / 2;
+
+  const minDim = Math.min(state.width, state.height);
+  state.scale = minDim / 13;
+
+  floorCache.valid = false;
+}
+
+// ----------------------------
+// Init
+// ----------------------------
+function init() {
+  resize();
+  window.addEventListener('resize', resize);
+
+  canvas.addEventListener('pointerdown', onPointerDown, { passive: false });
+  canvas.addEventListener('pointermove', onPointerMove, { passive: true });
+  window.addEventListener('pointerup', onPointerUp, { passive: true });
+  window.addEventListener('pointercancel', onPointerUp, { passive: true });
+
+  document.getElementById('toggle-triangle').addEventListener('change', (e) => state.showTriangle = e.target.checked);
+  document.getElementById('toggle-square-s').addEventListener('change', e => state.showSquareS = e.target.checked);
+  document.getElementById('toggle-square-f1').addEventListener('change', e => state.showSquareF1 = e.target.checked);
+  document.getElementById('toggle-square-f2').addEventListener('change', e => state.showSquareF2 = e.target.checked);
+  document.getElementById('toggle-names').addEventListener('change', (e) => state.showNames = e.target.checked);
+  document.getElementById('toggle-direction').addEventListener('change', (e) => state.showDirection = e.target.checked);
+  document.getElementById('toggle-trails').addEventListener('change', (e) => {
+    state.showTrails = e.target.checked;
+    if (!state.showTrails) clearTrails();
+  });
+
+  // Debug DOM cache
+  ui.debugPanel = document.getElementById('debug-panel');
+  ui.combatAngle = document.getElementById('combat-angle-abs');
+  ui.flag = document.getElementById('flag-status');
+  ui.mode = document.getElementById('mode-status');
+  ui.s  = document.getElementById('angle-shushin-abs');
+  ui.f1 = document.getElementById('angle-fukushin1-abs');
+  ui.f2 = document.getElementById('angle-fukushin2-abs');
+  ui.scaleStatus = document.getElementById('scale-status');
+
+  document.getElementById('toggle-debug').addEventListener('change', (e) => {
+    state.showDebug = e.target.checked;
+    ui.debugPanel.classList.toggle('hidden', !state.showDebug);
+    updateDebugUI(true);
+  });
+
+  document.getElementById('reset-btn').addEventListener('click', resetPositions);
+
+  // Sliders de movimento
+  ui.speedSlider  = document.getElementById('speed-slider');
+  ui.speedVal     = document.getElementById('ui-speed-val');
+  ui.radiusSlider = document.getElementById('radius-slider');
+  ui.radiusVal    = document.getElementById('ui-radius-val');
+  ui.smoothSlider = document.getElementById('smooth-slider');
+  ui.smoothVal    = document.getElementById('ui-smooth-val');
+
+  ui.speedSlider.value = String(REF_MOVE_SPEED);
+  ui.speedVal.textContent = REF_MOVE_SPEED.toFixed(1);
+  ui.radiusSlider.value = String(REF_TURN_RADIUS);
+  ui.radiusVal.textContent = REF_TURN_RADIUS.toFixed(1);
+  ui.smoothSlider.value = String(SMOOTH_K);
+  ui.smoothVal.textContent = SMOOTH_K.toFixed(1);
+
+  ui.speedSlider.addEventListener('input', () => {
+    REF_MOVE_SPEED = parseFloat(ui.speedSlider.value);
+    ui.speedVal.textContent = REF_MOVE_SPEED.toFixed(1);
+    recalcAngularSpeed();
+  });
+
+  ui.radiusSlider.addEventListener('input', () => {
+    REF_TURN_RADIUS = parseFloat(ui.radiusSlider.value);
+    ui.radiusVal.textContent = REF_TURN_RADIUS.toFixed(1);
+    recalcAngularSpeed();
+  });
+
+  ui.smoothSlider.addEventListener('input', () => {
+    SMOOTH_K = parseFloat(ui.smoothSlider.value);
+    ui.smoothVal.textContent = SMOOTH_K.toFixed(1);
+  });
+
+  // Sliders de thresholds
+  ui.thEnterVertex    = document.getElementById('th-enter-vertex');
+  ui.thEnterVertexVal = document.getElementById('ui-th-enter-vertex-val');
+  ui.thExitVertex     = document.getElementById('th-exit-vertex');
+  ui.thExitVertexVal  = document.getElementById('ui-th-exit-vertex-val');
+
+  ui.thEnterSbase    = document.getElementById('th-enter-sbase');
+  ui.thEnterSbaseVal = document.getElementById('ui-th-enter-sbase-val');
+  ui.thExitSbase     = document.getElementById('th-exit-sbase');
+  ui.thExitSbaseVal  = document.getElementById('ui-th-exit-sbase-val');
+
+  ui.thEnterFlip    = document.getElementById('th-enter-flip');
+  ui.thEnterFlipVal = document.getElementById('ui-th-enter-flip-val');
+  ui.thExitFlip     = document.getElementById('th-exit-flip');
+  ui.thExitFlipVal  = document.getElementById('ui-th-exit-flip-val');
+  
+  // Sliders de congelamento
+  ui.freezeDist    = document.getElementById('freeze-dist-slider');
+  ui.freezeDistVal = document.getElementById('ui-freeze-dist-val');
+
+  ui.freezeWindow    = document.getElementById('freeze-window-slider');
+  ui.freezeWindowVal = document.getElementById('ui-freeze-window-val');
+
+  ui.freezeAngle    = document.getElementById('freeze-angle-slider');
+  ui.freezeAngleVal = document.getElementById('ui-freeze-angle-val');
+
+  ui.freezeTime    = document.getElementById('freeze-time-slider');
+  ui.freezeTimeVal = document.getElementById('ui-freeze-time-val');
+
+  // inicializa valores
+  ui.thEnterVertex.value = String(ENTER_VERTEX); ui.thEnterVertexVal.textContent = `${ENTER_VERTEX}`;
+  ui.thExitVertex.value  = String(EXIT_VERTEX);  ui.thExitVertexVal.textContent  = `${EXIT_VERTEX}`;
+  ui.thEnterSbase.value  = String(ENTER_SBASE);  ui.thEnterSbaseVal.textContent  = `${ENTER_SBASE}`;
+  ui.thExitSbase.value   = String(EXIT_SBASE);   ui.thExitSbaseVal.textContent   = `${EXIT_SBASE}`;
+  ui.thEnterFlip.value   = String(ENTER_FLIP_DEG); ui.thEnterFlipVal.textContent = `${ENTER_FLIP_DEG}`;
+  ui.thExitFlip.value    = String(EXIT_FLIP_DEG);  ui.thExitFlipVal.textContent  = `${EXIT_FLIP_DEG}`;
+  ui.freezeDist.value = TSUBA_ACTIVE_DIST;
+  ui.freezeDistVal.textContent = TSUBA_ACTIVE_DIST.toFixed(2);
+  ui.freezeWindow.value = FREEZE_WINDOW_MS;
+  ui.freezeWindowVal.textContent = FREEZE_WINDOW_MS;
+  ui.freezeAngle.value = radToDeg(FREEZE_ANGLE_RAD);
+  ui.freezeAngleVal.textContent = `${radToDeg(FREEZE_ANGLE_RAD).toFixed(0)}°`;
+  ui.freezeTime.value = FREEZE_TIME_MS;
+  ui.freezeTimeVal.textContent = FREEZE_TIME_MS;
+
+  // handlers com coerência (garante ENTER >= EXIT)
+  ui.thEnterVertex.addEventListener('input', () => {
+    ENTER_VERTEX = parseInt(ui.thEnterVertex.value, 10);
+    ui.thEnterVertexVal.textContent = `${ENTER_VERTEX}`;
+    if (EXIT_VERTEX > ENTER_VERTEX) { EXIT_VERTEX = ENTER_VERTEX; ui.thExitVertex.value = String(EXIT_VERTEX); ui.thExitVertexVal.textContent = `${EXIT_VERTEX}`; }
+  });
+
+  ui.thExitVertex.addEventListener('input', () => {
+    EXIT_VERTEX = parseInt(ui.thExitVertex.value, 10);
+    ui.thExitVertexVal.textContent = `${EXIT_VERTEX}`;
+    if (EXIT_VERTEX > ENTER_VERTEX) { EXIT_VERTEX = ENTER_VERTEX; ui.thExitVertex.value = String(EXIT_VERTEX); ui.thExitVertexVal.textContent = `${EXIT_VERTEX}`; }
+  });
+
+  ui.thEnterSbase.addEventListener('input', () => {
+    ENTER_SBASE = parseInt(ui.thEnterSbase.value, 10);
+    ui.thEnterSbaseVal.textContent = `${ENTER_SBASE}`;
+    if (EXIT_SBASE > ENTER_SBASE) { EXIT_SBASE = ENTER_SBASE; ui.thExitSbase.value = String(EXIT_SBASE); ui.thExitSbaseVal.textContent = `${EXIT_SBASE}`; }
+  });
+
+  ui.thExitSbase.addEventListener('input', () => {
+    EXIT_SBASE = parseInt(ui.thExitSbase.value, 10);
+    ui.thExitSbaseVal.textContent = `${EXIT_SBASE}`;
+    if (EXIT_SBASE > ENTER_SBASE) { EXIT_SBASE = ENTER_SBASE; ui.thExitSbase.value = String(EXIT_SBASE); ui.thExitSbaseVal.textContent = `${EXIT_SBASE}`; }
+  });
+
+  ui.thEnterFlip.addEventListener('input', () => {
+    ENTER_FLIP_DEG = parseInt(ui.thEnterFlip.value, 10);
+    ui.thEnterFlipVal.textContent = `${ENTER_FLIP_DEG}`;
+    if (EXIT_FLIP_DEG > ENTER_FLIP_DEG) { EXIT_FLIP_DEG = ENTER_FLIP_DEG; ui.thExitFlip.value = String(EXIT_FLIP_DEG); ui.thExitFlipVal.textContent = `${EXIT_FLIP_DEG}`; }
+  });
+
+  ui.thExitFlip.addEventListener('input', () => {
+    EXIT_FLIP_DEG = parseInt(ui.thExitFlip.value, 10);
+    ui.thExitFlipVal.textContent = `${EXIT_FLIP_DEG}`;
+    if (EXIT_FLIP_DEG > ENTER_FLIP_DEG) { EXIT_FLIP_DEG = ENTER_FLIP_DEG; ui.thExitFlip.value = String(EXIT_FLIP_DEG); ui.thExitFlipVal.textContent = `${EXIT_FLIP_DEG}`; }
+  });
+  
+  ui.freezeDist.addEventListener('input', () => {
+    TSUBA_ACTIVE_DIST = parseFloat(ui.freezeDist.value);
+    ui.freezeDistVal.textContent = TSUBA_ACTIVE_DIST.toFixed(2);
+  });
+
+  ui.freezeWindow.addEventListener('input', () => {
+    FREEZE_WINDOW_MS = parseInt(ui.freezeWindow.value, 10);
+    ui.freezeWindowVal.textContent = FREEZE_WINDOW_MS;
+  });
+
+  ui.freezeAngle.addEventListener('input', () => {
+    FREEZE_ANGLE_RAD = parseInt(ui.freezeAngle.value, 10) * Math.PI / 180;
+    ui.freezeAngleVal.textContent = `${ui.freezeAngle.value}°`;
+  });
+
+  ui.freezeTime.addEventListener('input', () => {
+    FREEZE_TIME_MS = parseInt(ui.freezeTime.value, 10);
+    ui.freezeTimeVal.textContent = FREEZE_TIME_MS;
+  });
+
+  // i18n inicial
+  const langSelect = document.getElementById('lang-select');
+  if (langSelect) langSelect.value = currentLang;
+  updateUIStrings();
+
+  // Debug coerente
+  const dbg = document.getElementById('toggle-debug');
+  dbg.checked = state.showDebug;
+  ui.debugPanel.classList.toggle('hidden', !state.showDebug);
+
+  // Menu inicia aberto
+  document.getElementById('open-menu-btn').style.display = 'none';
+
+  requestAnimationFrame(animate);
+}
+
+init();
+</script>
+</body>
+</html>

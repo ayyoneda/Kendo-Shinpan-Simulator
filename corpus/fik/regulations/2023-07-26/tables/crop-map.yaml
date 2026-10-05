@@ -1,0 +1,55 @@
+package_id: fik.regulations.2023-07-26
+crop_map_schema_version: 0.1.0
+source_pdf: source/original.pdf
+reference_render:
+  tool: pdftoppm
+  dpi: 200
+  page_size_px: [1166, 1653]
+extraction_render:
+  tool: pdftoppm
+  dpi: 300
+status: verified_by_repository_owner
+review:
+  status: verified
+  reviewer: Adrian Yoneda
+  reviewed_date: 2026-07-17
+  scope: all five table source-image crops
+notes:
+- Crop boxes are measured on 200 DPI page renders and scaled during extraction.
+- Visual assets preserve source layout while structured YAML remains the searchable representation.
+- The two-page Senkoku table is represented as two ordered visual parts under one table ID.
+- The Shinai Specifications crop includes its measurement-method diagrams because they are part of the same source table page.
+- All five table source-image crops were reviewed and approved by Adrian Yoneda on 2026-07-17.
+tables:
+- table_id: kkp:table:fik.regulations:000001
+  output_dir: tables/assets/regulations-table-1-senkoku
+  assets:
+  - part: 1
+    filename: part-01-page-026.png
+    source_pdf_page: 26
+    crop_box_px: [110, 110, 1050, 1430]
+  - part: 2
+    filename: part-02-page-027.png
+    source_pdf_page: 27
+    crop_box_px: [110, 135, 1050, 1425]
+- table_id: kkp:table:fik.regulations:000002
+  output_dir: tables/assets/regulations-table-2-shinai-specifications
+  assets:
+  - part: 1
+    filename: source.png
+    source_pdf_page: 28
+    crop_box_px: [110, 105, 1055, 1550]
+- table_id: kkp:table:fik.recording-guide:000001
+  output_dir: tables/assets/recording-guide-table-1-recording-matters
+  assets:
+  - part: 1
+    filename: source.png
+    source_pdf_page: 46
+    crop_box_px: [115, 215, 1055, 1250]
+- table_id: kkp:table:fik.recording-guide:000002
+  output_dir: tables/assets/recording-guide-table-2-scoreboard-example
+  assets:
+  - part: 1
+    filename: source.png
+    source_pdf_page: 47
+    crop_box_px: [110, 210, 1055, 1510]

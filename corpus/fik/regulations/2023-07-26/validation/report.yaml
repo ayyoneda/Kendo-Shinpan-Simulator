@@ -1,0 +1,62 @@
+package_id: fik.regulations.2023-07-26
+validation_date: 2026-07-17
+status: passed_with_known_warnings
+summary: >
+  Structural package validation, deterministic glossary-link auditing, and generated export validation pass with zero errors.
+  Repository-owner review is complete for text streams, two-column alignment, figures, figure descriptions, and all four
+  structured tables, including all five table source-image crops. A SQLite FTS5 retrieval baseline passes 11 of 13 cases with
+  mean recall@5 of 0.8846. The package is ready for an internally restricted release candidate; public release remains blocked
+  because rights are unresolved, while the relationship index and retrieval ranking retain documented improvement work.
+automated_validation:
+  path: validation/automated-validation.yaml
+  validator: tools/validate_package.py
+  status: passed
+  errors: 0
+  warnings: 0
+glossary_link_audit:
+  path: validation/glossary-link-audit.yaml
+  validator: tools/audit_glossary_links.py
+  status: passed
+  accepted_links: 523
+  manual_review_candidates: 0
+export_validation:
+  path: validation/export-validation.yaml
+  validator: tools/validate_exports.py
+  status: passed
+  errors: 0
+  chunks: 224
+rag_evaluation:
+  path: tests/rag-eval/fik-regulations-2023.yaml
+  status: lexical_baseline_scored
+  case_count: 13
+  result: tests/rag-eval/results/fik-regulations-2023-sqlite-fts5.yaml
+  passed_cases: 11
+  mean_recall_at_5: 0.8846
+completed:
+- Five official text streams verified against the PDF by repository owner Adrian Yoneda.
+- Two-column regulation/subsidiary-rule and guideline theme alignment reviewed.
+- Twenty-three figure assets, crops, and editorial descriptions reviewed.
+- Four structured table transcriptions and applied corrections reviewed against the PDF.
+- Ninety-four source glossary terms plus one supplemental term classified and alphabetized.
+- All 523 generated glossary links passed anchored-source recount and ambiguity controls.
+- JSONL, SQLite, JSON-LD, Markdown, HTML, and citation-map exports generated and cross-validated.
+- Five ordered source-image assets extracted for the four structured tables and exposed through all export formats.
+- All five table source-image crops reviewed and approved by repository owner Adrian Yoneda on 2026-07-17.
+- Initial SQLite FTS5 retrieval baseline executed against all thirteen RAG evaluation cases.
+errors: []
+warnings:
+- code: rights_status_unknown
+  message: Rights status is unknown; publication is restricted to internal research use and the source PDF must not be redistributed.
+- code: relationship_index_draft
+  message: The 28 explicit-text relationships are structurally valid but have not yet received a dedicated semantic review.
+- code: rag_baseline_improvement_needed
+  message: The lexical baseline passes 11 of 13 cases; yuko-datotsu definition and shinpan-in filing-igi ranking need improvement.
+known_limitations:
+- code: raw_extraction_not_independently_reconciled
+  message: The independent raw extraction was retained for comparison but was not separately reconciled line by line; canonical streams were reviewed directly against the PDF.
+- code: extraction_font_warnings
+  message: Poppler reported invalid font-weight warnings during raw extraction; layout-sensitive canonical content was subsequently reviewed against the PDF.
+- code: dictionary_definitions_deferred
+  message: Editorial summaries and source glosses are explicitly non-authoritative pending a reliable AJKF dictionary transcription.
+- code: rag_generation_not_evaluated
+  message: Retrieval is scored, but no AI answer generation or answer-faithfulness evaluation has been implemented.

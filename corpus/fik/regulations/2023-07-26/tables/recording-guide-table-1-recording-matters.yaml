@@ -1,0 +1,131 @@
+package_id: fik.regulations.2023-07-26
+table_id: kkp:table:fik.recording-guide:000001
+citation_label: "Table 1"
+title: "Recording Matters and Indications"
+data_status: structured_verified
+source_text: raw/existing-transcription.md
+source_raw_line: 272
+verification_status: verified_against_pdf_by_repository_owner
+reviewed_by: Adrian Yoneda
+reviewed_date: 2026-07-17
+columns:
+  - matters
+  - marks
+  - indications
+mark_schema:
+  code: "Visible letter, numeral, or symbol inside the mark; null when the mark has no internal code."
+  enclosure: "circle, square, rectangle, or none."
+  shape: "triangle is used for Hansoku marks."
+  fill: "empty or solid."
+  color: "Mark color when specified by the source table."
+rows:
+  - row_id: recording-001
+    matters: "Yuko-datotsu"
+    marks:
+      - mark_id: men
+        code: "M"
+        enclosure: circle
+        fill: empty
+        meaning: "Men"
+      - mark_id: kote
+        code: "K"
+        enclosure: circle
+        fill: empty
+        meaning: "Kote"
+      - mark_id: do
+        code: "D"
+        enclosure: circle
+        fill: empty
+        meaning: "Do"
+      - mark_id: tsuki
+        code: "T"
+        enclosure: circle
+        fill: empty
+        meaning: "Tsuki"
+    indications: "The order of placement of Yuko-datotsu marks shall be as shown in the Taisho round on Table 2."
+  - row_id: recording-002
+    matters: "Hansoku"
+    marks:
+      - mark_id: hansoku
+        code: null
+        shape: triangle
+        color: red
+        fill: solid
+        meaning: "Hansoku"
+    indications: "Hansoku shall be recorded in red as shown in Table 2."
+  - row_id: recording-003
+    matters: "2nd Hansoku"
+    marks:
+      - mark_id: second_hansoku
+        code: "H"
+        enclosure: circle
+        fill: empty
+        meaning: "Point awarded due to second Hansoku"
+    indications: "When the second Hansoku is committed, the Hansoku mark shall be deleted and the mark H placed on the opponent side."
+  - row_id: recording-004
+    matters: "Sosai"
+    marks:
+      - mark_id: sosai
+        code: null
+        shape: triangle
+        color: red
+        fill: solid
+        meaning: "Hansoku mark remains"
+    indications: "In Sosai, the mark of Hansoku shall be left in. The number of Hansoku shall be recorded in the recording paper separately."
+  - row_id: recording-005
+    matters: "Victory by Hantei"
+    marks:
+      - mark_id: hantei
+        code: "Ht"
+        enclosure: circle
+        fill: empty
+        meaning: "Victory by Hantei"
+    indications: "The mark Ht shall be recorded."
+  - row_id: recording-006
+    matters: "Victory by Chusen"
+    marks:
+      - mark_id: chusen
+        code: "C"
+        enclosure: circle
+        fill: empty
+        meaning: "Victory by Chusen"
+    indications: "The mark C shall be recorded."
+  - row_id: recording-007
+    matters: "Ippon-gachi"
+    marks:
+      - mark_id: ippon_gachi
+        code: "1"
+        enclosure: square
+        fill: empty
+        meaning: "Ippon-gachi"
+    indications: "In case Shiai ends with the score of one to zero, the mark 1 shall be recorded."
+  - row_id: recording-008
+    matters: "Encho"
+    marks:
+      - mark_id: encho
+        code: "E"
+        enclosure: rectangle
+        fill: empty
+        meaning: "Encho"
+    indications: "In case of Encho, the mark E shall be put on in the low part of the center line in the frame."
+  - row_id: recording-009
+    matters: "Hikiwake"
+    marks:
+      - mark_id: hikiwake
+        code: "X"
+        enclosure: none
+        meaning: "Hikiwake"
+    indications: "In case of Hikiwake, the mark x shall be put on the center line in the frame."
+  - row_id: recording-010
+    matters: "Fusen-gachi, Kiken or Shiai-funo"
+    marks:
+      - mark_id: victory_by_default
+        code: null
+        enclosure: circle
+        fill: empty
+        count: 2
+        meaning: "Two empty circles on the winner side"
+    indications: "The marks shall be put on the winner side; put one mark in case of Encho."
+notes:
+  - Mark shapes were refined after repository-owner PDF review comments.
+  - Row data was structured from the current transcription and cross-checked against PDF extraction lines 1831-1864.

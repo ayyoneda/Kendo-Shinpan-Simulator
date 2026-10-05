@@ -1,0 +1,268 @@
+package_id: fik.regulations.2023-07-26
+layout_alignment_status: reviewed
+reviewed_by: Adrian Yoneda
+reviewed_date: 2026-07-15
+generated_date: 2026-07-15
+source_raw: raw/existing-transcription.md
+source_pdf: source/original.pdf
+model:
+  layout_type: two_column_parallel_text
+  rule: >
+    The PDF presents related left-column and right-column text in aligned rows.
+    Themes in parentheses may be same-column headings, shared centered headings,
+    or inherited from the aligned opposite column.
+title_policy:
+  left_column_heading: Heading appears only in the left guideline column.
+  aligned_left_column_theme: Heading appears in the aligned left column and is used as layout-derived theme context for the right column.
+  shared_centered_heading: Heading is centered across both guideline columns in the PDF.
+  right_column_heading: Heading appears only in the right column.
+  carried_forward_heading: Heading appears before multiple adjacent articles in the same structural block.
+  no_aligned_theme: No reliable aligned theme was identified in the current draft.
+regulations_and_subsidiary_rules:
+  - raw_line: 46
+    theme: Shiai-jo
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000002
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000001
+  - raw_line: 47
+    theme: Shinai
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000003
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000002
+  - raw_line: 48
+    theme: Kendo-gu
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000004
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000003
+      - kkp:subsidiary-rule:fik.regulations:000004
+  - raw_line: 49
+    theme: Uniform
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000005
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000005
+      - kkp:subsidiary-rule:fik.regulations:000006
+      - kkp:subsidiary-rule:fik.regulations:000007
+      - kkp:subsidiary-rule:fik.regulations:000008
+  - raw_line: 50
+    theme: null
+    title_source: no_aligned_theme
+    left_nodes: []
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000009
+  - raw_line: 52
+    theme: Decision of Victory
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000007
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000010
+  - raw_line: 57
+    theme: Yuko-datotsu
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000012
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000011
+      - kkp:subsidiary-rule:fik.regulations:000012
+      - kkp:subsidiary-rule:fik.regulations:000013
+  - raw_line: 59
+    theme: Datotsu-bui
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000014
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000014
+  - raw_line: 61
+    theme: Use or possession of prohibited substances
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000015
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000015
+  - raw_line: 63
+    theme: Miscellaneous Prohibitions
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000017
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000016
+  - raw_line: 64
+    theme: Miscellaneous Prohibitions
+    title_source: carried_forward_heading
+    left_nodes:
+      - kkp:article:fik.regulations:000017
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000017
+  - raw_line: 67
+    theme: Others
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000020
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000018
+  - raw_line: 69
+    theme: Shinpan-cho
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000022
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000019
+      - kkp:subsidiary-rule:fik.regulations:000020
+  - raw_line: 70
+    theme: Shinpan-shunin
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000023
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000021
+  - raw_line: 71
+    theme: Shinpan-in
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000024
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000022
+  - raw_line: 72
+    theme: Kakari-in Group
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000025
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000023
+      - kkp:subsidiary-rule:fik.regulations:000024
+  - raw_line: 75
+    theme: Torikeshi of Yuko-datotsu
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000027
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000025
+  - raw_line: 76
+    theme: Mistakes in Decisions for Yuko-datotsu and Other Judgements
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000028
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000026
+  - raw_line: 77
+    theme: Procedures for Shinpan
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000029
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000027
+      - kkp:subsidiary-rule:fik.regulations:000028
+  - raw_line: 80
+    theme: Kiken
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000031
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000029
+  - raw_line: 84
+    theme: Igi
+    title_source: aligned_left_column_theme
+    left_nodes:
+      - kkp:article:fik.regulations:000035
+      - kkp:article:fik.regulations:000036
+    right_nodes:
+      - kkp:subsidiary-rule:fik.regulations:000030
+guidelines:
+  - raw_line: 214
+    theme: Entering or Leaving
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 215
+    theme: Team Line-up
+    title_source: left_column_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: null
+    alignment_note: sequential_left_column_theme_not_related_to_right_column_theme
+  - raw_line: 215
+    theme: Positioning of the shinpan-in prior to the commencement of a shiai, and handling the shinpan-ki
+    title_source: right_column_heading
+    left_section: null
+    right_section: Guidelines for Shinpan-in
+    alignment_note: sequential_right_column_theme_not_related_to_left_column_theme
+  - raw_line: 216
+    theme: Rotation/Changing of Shinpan-in
+    title_source: right_column_heading
+    left_section: null
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 217
+    theme: Rei to the Shomen
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 218
+    theme: Beginning
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 219
+    theme: Yuko-datotsu
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 220
+    theme: Request for a Stoppage
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 221
+    theme: Suspension
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 227
+    theme: Gogi
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 228
+    theme: Resumption
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 229
+    theme: Wakare
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 230
+    theme: Filing Igi
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 231
+    theme: Hantei, Chusen or Shiai-funo
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 232
+    theme: Fusen-gachi
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 233
+    theme: Ending
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+  - raw_line: 236
+    theme: Other Guidelines
+    title_source: shared_centered_heading
+    left_section: Guidelines for Shiai-sha
+    right_section: Guidelines for Shinpan-in
+notes:
+  - This file records layout-derived context. It does not by itself create normative legal cross-references.
+  - Relationship records remain limited to explicit textual references unless a later review promotes layout alignment into a separate relationship type.

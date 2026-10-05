@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test Runner</title></head>
+<body>
+<div id="output">Testing...</div>
+<iframe id="testFrame" src="ferramenta_shinpan_v2.1.0.html" style="width:100%;height:600px;"></iframe>
+<script>
+var frame = document.getElementById('testFrame');
+frame.onload = function() {
+  try {
+    var frameWin = frame.contentWindow;
+    frameWin.onerror = function(msg, url, line, col, error) {
+      var errStr = 'ERROR: ' + msg + ' at line ' + line + ':' + col + '\n' + (error ? error.stack : '');
+      document.getElementById('output').innerText = errStr;
+      document.title = 'HAS_ERROR';
+    };
+    document.getElementById('output').innerText = 'FRAME_LOADED_OK';
+    document.title = 'FRAME_LOADED_OK';
+  } catch(e) {
+    document.getElementById('output').innerText = 'CATCH_ERROR: ' + e.message;
+    document.title = 'CATCH_ERROR';
+  }
+};
+</script>
+</body>
+</html>
