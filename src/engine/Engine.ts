@@ -1,7 +1,7 @@
 import { SimulationStore } from './State';
-import { Vector2D } from '../math/vector';
+import type { Vector2D } from '../math/vector';
 import { radToDeg, normalizeAngle, angleDiff, moveAngleTowards, expDamp, moveTowards } from '../math/utils';
-import { FormationMode } from './types';
+import type { FormationMode } from './types';
 
 const D_REF = 4;
 const ANGLE_LOCAL_BASE = 33 * Math.PI / 180;
@@ -314,7 +314,7 @@ export class Engine {
   }
 
   private processFlipState(
-    dt: number, ts: number, pre: any,
+    _dt: number, _ts: number, pre: any,
     midX: number, midY: number, fighterDist: number,
     maxStep: number, maxAng: number, fighters: Vector2D[]
   ) {

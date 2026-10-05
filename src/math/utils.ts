@@ -1,4 +1,4 @@
-import { Vector2D } from './vector';
+import type { Vector2D } from './vector';
 
 export const radToDeg = (rad: number): number => (rad * 180 / Math.PI);
 

@@ -2,7 +2,7 @@ import './style.css';
 import { SimulationStore } from './engine/State';
 import { Engine } from './engine/Engine';
 import { CanvasRenderer } from './renderer/CanvasRenderer';
-import { Vector2D } from './math/vector';
+import type { Vector2D } from './math/vector';
 
 // State and Engine
 const store = new SimulationStore();

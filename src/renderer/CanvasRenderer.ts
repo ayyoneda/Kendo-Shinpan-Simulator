@@ -1,5 +1,5 @@
-import { EngineState, Fighter, Referee } from '../engine/types';
-import { Vector2D } from '../math/vector';
+import type { EngineState, Fighter, Referee } from '../engine/types';
+import type { Vector2D } from '../math/vector';
 
 export class CanvasRenderer {
   private canvas: HTMLCanvasElement;

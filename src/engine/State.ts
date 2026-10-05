@@ -1,5 +1,4 @@
-import { EngineState, FormationMode, ArbiterState, Fighter, Referee, SimulationConfig } from './types';
-import { Vector2D } from '../math/vector';
+import type { EngineState, SimulationConfig } from './types';
 
 export const defaultConfig: SimulationConfig = {
   speed: 8.0,

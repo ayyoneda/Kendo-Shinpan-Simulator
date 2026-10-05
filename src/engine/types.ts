@@ -1,4 +1,4 @@
-import { Vector2D } from '../math/vector';
+import type { Vector2D } from '../math/vector';
 
 export type FormationMode = 'STANDARD' | 'VERTEX' | 'S_BASE';
 export type ArbiterState = 'STABLE' | 'FROZEN';
