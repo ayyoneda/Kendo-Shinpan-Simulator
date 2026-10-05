@@ -1,13 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>temp-vite-app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Kendo Shinpan Simulator</title>
+    <style>
+      /* Base styles in case Tailwind doesn't load early enough */
+      body { margin: 0; padding: 0; overflow: hidden; background: #1a1a1a; touch-action: none; }
+      #app { width: 100vw; height: 100vh; position: relative; }
+    </style>
+    <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <div id="app">
+      <canvas id="kendoCanvas" class="absolute top-0 left-0 w-full h-full cursor-crosshair touch-none"></canvas>
+
+      <!-- Glass Panel Controls -->
+      <div id="controls-container" class="absolute top-4 left-4 w-[320px] max-h-[90vh] overflow-y-auto glass-panel rounded-xl shadow-2xl flex flex-col z-10 transition-transform duration-300">
+        
+        <!-- Header -->
+        <div class="p-4 border-b border-white/20 flex justify-between items-center bg-black/5 rounded-t-xl">
+          <h1 id="ui-app-title" class="text-lg font-bold text-gray-800 m-0">Kendo Shinpan</h1>
+          <button id="toggle-panel-btn" class="text-gray-500 hover:text-gray-800 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7"></path></svg>
+          </button>
+        </div>
+
+        <div class="p-4 flex-1 space-y-4">
+          <!-- Description -->
+          <p id="ui-description" class="text-sm text-gray-600 mb-2">Simulação de arbitragem</p>
+
+          <!-- Viz Toggles -->
+          <div class="space-y-2">
+            <h3 id="ui-label-viz" class="text-xs uppercase font-bold text-gray-400">Visualização</h3>
+            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
+              <input type="checkbox" id="show-triangle" checked class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <span id="ui-check-triangle">Triângulo dos Árbitros</span>
+            </label>
+            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
+              <input type="checkbox" id="show-direction" checked class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <span id="ui-check-direction">Indicadores de Direção</span>
+            </label>
+            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
+              <input type="checkbox" id="show-trails" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <span id="ui-check-trails">Trilhas de Movimento</span>
+            </label>
+            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
+              <input type="checkbox" id="show-debug" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <span id="ui-check-debug">Modo Debug</span>
+            </label>
+          </div>
+
+          <!-- Debug Panel -->
+          <div id="debug-panel" class="hidden bg-gray-100 p-3 rounded-lg text-xs font-mono space-y-1">
+            <div class="flex justify-between"><span>Angle:</span><span id="debug-angle">0°</span></div>
+            <div class="flex justify-between"><span>Mode:</span><span id="debug-mode">STANDARD</span></div>
+            <div class="flex justify-between"><span>Flag:</span><span id="debug-flag">1</span></div>
+            <div class="flex justify-between"><span>Freeze:</span><span id="debug-freeze">STABLE</span></div>
+          </div>
+        </div>
+
+        <!-- Footer / Reset -->
+        <div class="p-4 bg-gray-50/80 border-t border-white/20 rounded-b-xl">
+          <button id="reset-btn" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 px-4 rounded-lg shadow transition active:scale-95">
+            Reset
+          </button>
+        </div>
+      </div>
+      
+      <!-- Open Panel Button -->
+      <button id="open-panel-btn" class="absolute top-4 left-4 p-3 bg-white/90 backdrop-blur-md rounded-lg shadow-lg border border-gray-200 hidden hover:bg-gray-100 transition">
+        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
+      </button>
+
+      <div id="author" class="fixed right-3 bottom-2 text-xs text-white/50 pointer-events-none">
+        Developed by Adrian Yoneda
+      </div>
+    </div>
   </body>
 </html>
