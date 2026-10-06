@@ -188,10 +188,6 @@ export class Engine {
       return;
     }
 
-    if (!isSpinLocked && !isFlipConfirming) {
-      state.formationMode = pre.mode;
-    }
-
     let axisAngVel = 0;
     if (this.lastFlipRawAngle !== null && dt > 0) {
       axisAngVel = Math.abs(angleDiff(this.lastFlipRawAngle, pre.combatRadTarget)) / dt;
@@ -223,8 +219,17 @@ export class Engine {
       this.flipHoldStartTs = null;
     } else if (canConsiderFlip && wantsFlip) {
       if (this.flipHoldStartTs === null) this.flipHoldStartTs = ts;
+    }
 
-      if ((ts - this.flipHoldStartTs) >= FLIP_CONFIRM_MS) {
+    const isFlipConfirming = this.flipHoldStartTs !== null;
+
+    if (!isSpinLocked && !isFlipConfirming) {
+      state.formationMode = pre.mode;
+    }
+
+    if (!isSpinLocked && canConsiderFlip && wantsFlip) {
+
+      if (this.flipHoldStartTs !== null && (ts - this.flipHoldStartTs) >= FLIP_CONFIRM_MS) {
         this.flipHoldStartTs = null;
         this.flipCooldownUntilTs = ts + FLIP_COOLDOWN_MS;
 
@@ -284,9 +289,6 @@ export class Engine {
       }
 
     const rawAngle = pre.combatRadTarget;
-    
-    const isFlipConfirming = this.flipHoldStartTs !== null;
-
     if (!isSpinLocked && !isFlipConfirming) {
       const dAng = angleDiff(this.targetAngle, rawAngle);
       this.targetAngle += dAng * (1 - Math.exp(-state.config.smoothK * dt));
@@ -299,9 +301,14 @@ export class Engine {
     state.formationScale = fScale;
     let activeFormation = pre.targetFormation;
     if (isSpinLocked || isFlipConfirming) {
-      if (state.formationMode === 'STANDARD') activeFormation = FORMATION_STANDARD;
-      else if (state.formationMode === 'VERTEX') activeFormation = FORMATION_VERTEX;
-      else activeFormation = FORMATION_S_BASE;
+      const combatDegRaw = pre.combatDegRaw;
+      if (state.formationMode === 'STANDARD') {
+        activeFormation = FORMATION_STANDARD;
+      } else if (state.formationMode === 'VERTEX') {
+        activeFormation = (combatDegRaw > 0) ? FORMATION_F1_VERTEX : FORMATION_F2_VERTEX;
+      } else {
+        activeFormation = (combatDegRaw > 0) ? FORMATION_F2_VERTEX_S_BASE : FORMATION_F1_VERTEX_S_BASE;
+      }
     }
     const scaledTf = this.scaleFormation(activeFormation, fScale);
 
