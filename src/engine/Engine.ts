@@ -33,7 +33,6 @@ export class Engine {
   private arbiterFrozen = false;
   private combatAngleAccum = 0;
   private lastFreezeCheckTs = 0;
-  private justUnfrozen = false;
   
   private targetAngle = 0;
   private lastTs: number | null = null;
@@ -97,7 +96,6 @@ export class Engine {
     const dist = Math.hypot(dx, dy);
 
     if (dist > state.config.tsubaActiveDist) {
-      if (this.arbiterFrozen) this.justUnfrozen = true;
       this.arbiterFrozen = false;
       state.arbiterState = 'STABLE';
       this.lastCombatAngle = null;
@@ -111,7 +109,6 @@ export class Engine {
     if (this.arbiterFrozen) {
       if (ts > this.freezeUntilTs) {
         this.arbiterFrozen = false;
-        this.justUnfrozen = true;
         state.arbiterState = 'STABLE';
         this.combatAngleAccum = 0;
         this.lastFreezeCheckTs = ts;
@@ -177,11 +174,6 @@ export class Engine {
       this.flipState.active ? this.flipState.toFlag : state.flag,
       dxWorld, dyWorld, state.formationMode
     );
-
-    if (this.justUnfrozen) {
-      this.targetAngle = pre.combatRadTarget;
-      this.justUnfrozen = false;
-    }
 
     if (this.flipState.active) {
       this.processFlipState(dt, ts, pre, midX, midY, fighterDist, maxStep, maxAng, fighters);
