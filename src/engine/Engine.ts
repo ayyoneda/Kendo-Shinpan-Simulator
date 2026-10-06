@@ -196,8 +196,8 @@ export class Engine {
     }
     this.lastFlipRawAngle = pre.combatRadTarget;
 
-    const SPIN_LOCK_ANGVEL = 1.8; // ~100 deg/s
-    const SPIN_LOCK_LINGER_MS = 250;
+    const SPIN_LOCK_ANGVEL = 2.5; // ~140 deg/s
+    const SPIN_LOCK_LINGER_MS = 200;
     if (axisAngVel > SPIN_LOCK_ANGVEL) {
       this.spinLockUntilTs = ts + SPIN_LOCK_LINGER_MS;
     }
@@ -283,7 +283,9 @@ export class Engine {
 
     const rawAngle = pre.combatRadTarget;
     
-    if (!isSpinLocked) {
+    const isFlipConfirming = this.flipHoldStartTs !== null;
+
+    if (!isSpinLocked && !isFlipConfirming) {
       const dAng = angleDiff(this.targetAngle, rawAngle);
       this.targetAngle += dAng * (1 - Math.exp(-state.config.smoothK * dt));
     }

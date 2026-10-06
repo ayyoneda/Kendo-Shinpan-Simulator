@@ -3,7 +3,7 @@ import type { EngineState, SimulationConfig } from './types';
 export const defaultConfig: SimulationConfig = {
   speed: 8.0,
   turnRadius: 4.0,
-  smoothK: 5.0,
+  smoothK: 8.0,
   enterVertex: 90,
   exitVertex: 45,
   enterSBase: 123,
