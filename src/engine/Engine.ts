@@ -22,7 +22,6 @@ const TSUBA_MIN_DIST = 0.8;
 
 const FLIP_CONFIRM_MS = 180;
 const FLIP_COOLDOWN_MS = 450;
-const FLIP_MAX_ANGVEL = 4.0;
 const FLIP_HOLD_RESET_FRAMES = 4;
 
 export class Engine {
@@ -281,7 +280,6 @@ export class Engine {
           return;
         }
       }
-    }
 
     const rawAngle = pre.combatRadTarget;
     
