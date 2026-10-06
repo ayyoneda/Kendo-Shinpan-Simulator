@@ -9,6 +9,10 @@ import { i18n } from './i18n';
 const store = new SimulationStore();
 const engine = new Engine(store);
 
+// Scenarios
+import { ScenarioRunner, scenarios } from './engine/Scenarios';
+const scenarioRunner = new ScenarioRunner();
+
 // Canvas Renderer
 const canvas = document.getElementById('kendoCanvas') as HTMLCanvasElement;
 const renderer = new CanvasRenderer(canvas);
@@ -207,9 +211,25 @@ checkDebug.addEventListener('change', e => {
 });
 
 resetBtn.addEventListener('click', () => {
+  scenarioRunner.stop();
   store.resetPositions();
   renderer.clearTrails();
 });
+
+// Scenario Buttons Setup
+const scenarioContainer = document.getElementById('scenario-buttons');
+if (scenarioContainer) {
+  for (const scenarioId of Object.keys(scenarios)) {
+    const btn = document.createElement('button');
+    btn.className = "w-full text-left px-3 py-1.5 bg-white hover:bg-indigo-50 border border-indigo-100 rounded text-indigo-700 font-medium transition text-xs shadow-sm active:bg-indigo-200";
+    btn.textContent = scenarioId;
+    btn.onclick = () => {
+      renderer.clearTrails();
+      scenarioRunner.start(scenarioId, performance.now() / 1000);
+    };
+    scenarioContainer.appendChild(btn);
+  }
+}
 
 // Pointer Interaction
 const HALF_COURT = 5;
@@ -219,6 +239,7 @@ function isHit(p: Vector2D, ent: Vector2D, r: number, isTouch: boolean): boolean
 }
 
 canvas.addEventListener('pointerdown', (e) => {
+  scenarioRunner.stop();
   canvas.setPointerCapture(e.pointerId);
   const p = renderer.toMeters(e.clientX, e.clientY);
   const isTouch = (e.pointerType === 'touch');
@@ -269,6 +290,7 @@ function animate(ts: DOMHighResTimeStamp) {
   lastTs = ts;
   debugAcc += dt;
 
+  scenarioRunner.update(store, ts / 1000);
   engine.update(ts);
   renderer.pushTrails(store.state);
   renderer.render(store.state);
