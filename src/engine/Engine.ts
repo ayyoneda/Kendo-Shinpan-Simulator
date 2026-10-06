@@ -188,7 +188,9 @@ export class Engine {
       return;
     }
 
-    state.formationMode = pre.mode;
+    if (!isSpinLocked && !isFlipConfirming) {
+      state.formationMode = pre.mode;
+    }
 
     let axisAngVel = 0;
     if (this.lastFlipRawAngle !== null && dt > 0) {
@@ -295,7 +297,13 @@ export class Engine {
 
     const fScale = this.computeFormationScale(fighterDist);
     state.formationScale = fScale;
-    const scaledTf = this.scaleFormation(pre.targetFormation, fScale);
+    let activeFormation = pre.targetFormation;
+    if (isSpinLocked || isFlipConfirming) {
+      if (state.formationMode === 'STANDARD') activeFormation = FORMATION_STANDARD;
+      else if (state.formationMode === 'VERTEX') activeFormation = FORMATION_VERTEX;
+      else activeFormation = FORMATION_S_BASE;
+    }
+    const scaledTf = this.scaleFormation(activeFormation, fScale);
 
     let tgtS = this.transformLocalToWorld(scaledTf.shushin, midX, midY, ca_tgt, sa_tgt);
     let tgtF1 = this.transformLocalToWorld(scaledTf.fukushin1, midX, midY, ca_tgt, sa_tgt);
