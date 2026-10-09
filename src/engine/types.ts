@@ -18,6 +18,7 @@ export interface Referee extends Vector2D {
 }
 
 export interface SimulationConfig {
+  courtSize: number;
   speed: number;
   turnRadius: number;
   smoothK: number;

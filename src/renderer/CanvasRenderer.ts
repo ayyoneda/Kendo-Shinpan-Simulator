@@ -111,7 +111,7 @@ export class CanvasRenderer {
 
   public render(state: EngineState) {
     this.drawFloor();
-    this.drawCourt();
+    this.drawCourt(state.config.courtSize);
     this.drawGuides(state);
     this.drawTrails();
 
@@ -207,8 +207,8 @@ export class CanvasRenderer {
     );
   }
 
-  private drawCourt() {
-    const HALF_COURT = 5;
+  private drawCourt(courtSize: number) {
+    const HALF_COURT = courtSize / 2;
     const SAFETY_MARGIN = 1.5;
     const KAISHISEN_DIST = 1.4;
 

@@ -1,6 +1,7 @@
 import type { EngineState, SimulationConfig } from './types';
 
 export const defaultConfig: SimulationConfig = {
+  courtSize: 10,
   speed: 8.0,
   turnRadius: 4.0,
   smoothK: 8.0,

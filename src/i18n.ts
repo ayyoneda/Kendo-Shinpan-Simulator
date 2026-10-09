@@ -2,6 +2,7 @@ export const i18n: Record<string, Record<string, string>> = {
   pt: {
     title: "Kendo Shinpan",
     langLabel: "Idioma",
+    courtSize: "Dimensão da Quadra",
     description: "Simulação da movimentação do trio de arbitragem (Shinpan) baseada no posicionamento dos atletas.",
     labelViz: "Visualização",
     checkTriangle: "Triângulo dos Árbitros",
@@ -51,11 +52,23 @@ export const i18n: Record<string, Record<string, string>> = {
     freezeAngle: "Rotação acumulada (°)",
     freezeTime: "Duração do congelamento (ms)",
     scaleLabel: "Escala:",
-    author: "Desenvolvido por: Adrian Yoneda"
+    author: "Desenvolvido por: Adrian Yoneda",
+    scenariosTitle: "Cenários de Movimentação",
+    scen1A: "1A: Giro Lento 360º",
+    scen1B: "1B: Teste Vertex",
+    scen1C: "1C: Teste S_BASE",
+    scen1D: "1D: Giro Reverso 360º",
+    scen2: "2: Taiatari Swap",
+    scen3: "3: Tsubazeriai Pião",
+    scen4: "4: Inversão perto de 90º",
+    scen5: "5: Inversão perto de 135º",
+    modeTech: "Modo Técnico",
+    modeRpg: "Modo Renderizado"
   },
   en: {
     title: "Kendo Shinpan",
     langLabel: "Language",
+    courtSize: "Court Size",
     description: "Simulation of referee (Shinpan) movement based on competitor positioning.",
     labelViz: "Visualization",
     checkTriangle: "Referees Triangle",
@@ -105,11 +118,23 @@ export const i18n: Record<string, Record<string, string>> = {
     freezeAngle: "Accumulated rotation (°)",
     freezeTime: "Freeze duration (ms)",
     scaleLabel: "Scale:",
-    author: "Developed by: Adrian Yoneda (Brazil)"
+    author: "Developed by: Adrian Yoneda (Brazil)",
+    scenariosTitle: "Movement Scenarios",
+    scen1A: "1A: Slow 360º Turn",
+    scen1B: "1B: Vertex Test",
+    scen1C: "1C: S_BASE Test",
+    scen1D: "1D: Reverse 360º Turn",
+    scen2: "2: Taiatari Swap",
+    scen3: "3: Tsubazeriai Spin",
+    scen4: "4: Inversion near 90º",
+    scen5: "5: Inversion near 135º",
+    modeTech: "Technical Mode",
+    modeRpg: "Rendered Mode"
   },
   jp: {
     title: "剣道審判シミュレーター",
     langLabel: "言語",
+    courtSize: "試合場の広さ",
     description: "試合者の位置に基づいた審判員（審判団）の動きのシミュレーション。",
     labelViz: "表示設定",
     checkTriangle: "審判の三角形",
@@ -159,6 +184,17 @@ export const i18n: Record<string, Record<string, string>> = {
     freezeAngle: "累積回転角 (°)",
     freezeTime: "固定時間 (ms)",
     scaleLabel: "スケール:",
-    author: "開発: 米田裕（ブラジル）"
+    author: "開発: 米田裕（ブラジル）",
+    scenariosTitle: "移動シナリオ",
+    scen1A: "1A: ゆっくり360度回転",
+    scen1B: "1B: VERTEX テスト",
+    scen1C: "1C: S_BASE テスト",
+    scen1D: "1D: 逆360度回転",
+    scen2: "2: 体当たり入れ替わり",
+    scen3: "3: 鍔迫り合いスピン",
+    scen4: "4: 90度付近での入れ替わり",
+    scen5: "5: 135度付近での入れ替わり",
+    modeTech: "テクニカルモード",
+    modeRpg: "レンダリングモード"
   }
 };

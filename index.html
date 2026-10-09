@@ -25,7 +25,7 @@
       <!-- Main Mode Toggle -->
       <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full p-1 flex items-center shadow-2xl">
         <button id="btn-mode-tech" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-white bg-[#bc002d] shadow-lg transition">Modo Técnico</button>
-        <button id="btn-mode-rpg" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition">Modo RPG</button>
+        <button id="btn-mode-rpg" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition">Modo Renderizado</button>
       </div>
 
       <!-- Glass Panel Controls -->
@@ -45,6 +45,14 @@
               <option value="pt">Português</option>
               <option value="en">English</option>
               <option value="jp">日本語</option>
+            </select>
+          </div>
+          <div class="flex justify-between items-center text-sm text-gray-400 mt-2">
+            <span id="ui-court-label" class="font-medium"><i class="fas fa-ruler-combined"></i> Dimensão da Quadra</span>
+            <select id="court-select" class="p-1 rounded border border-white/20 bg-black/50 text-white focus:outline-none">
+              <option value="9">9 x 9 m</option>
+              <option value="10" selected>10 x 10 m</option>
+              <option value="11">11 x 11 m</option>
             </select>
           </div>
         </div>
@@ -152,7 +160,7 @@
           <!-- Scenario Runner (Debug) -->
           <details class="bg-white/5 rounded-lg border border-white/10 overflow-hidden text-sm">
             <summary class="p-3 font-semibold text-white bg-white/5 hover:bg-white/10 transition select-none flex items-center justify-between cursor-pointer">
-              <div><i class="fas fa-robot mr-2"></i> Cenários de Movimentação</div>
+              <div><i class="fas fa-robot mr-2"></i> <span id="ui-scenarios-title">Cenários de Movimentação</span></div>
               <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
             </summary>
             <div class="p-3 border-t border-white/10">

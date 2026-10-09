@@ -3,13 +3,18 @@ import type { Vector2D } from '../math/vector';
 import { radToDeg, normalizeAngle, angleDiff, moveAngleTowards, expDamp, moveTowards } from '../math/utils';
 import type { FormationMode } from './types';
 
-export const FORMATION_STANDARD = { shushin:{x:0,y:4}, fukushin1:{x:2.0,y:-4}, fukushin2:{x:-2.0,y:-4} };
-export const FORMATION_F1_VERTEX = { shushin:{x:2.0,y:4}, fukushin1:{x:0,y:-4}, fukushin2:{x:-2.0,y:4} };
-export const FORMATION_F2_VERTEX = { shushin:{x:-2.0,y:4}, fukushin1:{x:2.0,y:4}, fukushin2:{x:0,y:-4} };
-export const FORMATION_F2_VERTEX_S_BASE = { shushin:{x:2.0,y:-4}, fukushin1:{x:-2.0,y:-4}, fukushin2:{x:0,y:4} };
-export const FORMATION_F1_VERTEX_S_BASE = { shushin:{x:-2.0,y:-4}, fukushin1:{x:0,y:4}, fukushin2:{x:2.0,y:-4} };
-
-const HALF_COURT = 5;
+export function getFormations(courtSize: number) {
+  const y = courtSize / 2 - 1; // e.g. 4 for 10x10
+  const x = y * 0.5;           // e.g. 2 for 10x10
+  
+  return {
+    STANDARD: { shushin:{x:0,y:y}, fukushin1:{x:x,y:-y}, fukushin2:{x:-x,y:-y} },
+    F1_VERTEX: { shushin:{x:x,y:y}, fukushin1:{x:0,y:-y}, fukushin2:{x:-x,y:y} },
+    F2_VERTEX: { shushin:{x:-x,y:y}, fukushin1:{x:x,y:y}, fukushin2:{x:0,y:-y} },
+    F2_VERTEX_S_BASE: { shushin:{x:x,y:-y}, fukushin1:{x:-x,y:-y}, fukushin2:{x:0,y:y} },
+    F1_VERTEX_S_BASE: { shushin:{x:-x,y:-y}, fukushin1:{x:0,y:y}, fukushin2:{x:x,y:-y} }
+  };
+}
 const KAISHISEN_DIST = 1.4;
 const SAFETY_MARGIN = 1.5;
 const REFEREE_FIGHTER_MIN_DIST = 1.0;
@@ -244,10 +249,11 @@ export class Engine {
           const ca2 = Math.cos(this.flipState.toAngle);
           const sa2 = Math.sin(this.flipState.toAngle);
 
+          const stdFormation = getFormations(state.config.courtSize).STANDARD;
           this.flipState.toWorld = {
-            shushin: this.transformLocalToWorld(FORMATION_STANDARD.shushin, midX, midY, ca2, sa2),
-            fukushin1: this.transformLocalToWorld(FORMATION_STANDARD.fukushin1, midX, midY, ca2, sa2),
-            fukushin2: this.transformLocalToWorld(FORMATION_STANDARD.fukushin2, midX, midY, ca2, sa2)
+            shushin: this.transformLocalToWorld(stdFormation.shushin, midX, midY, ca2, sa2),
+            fukushin1: this.transformLocalToWorld(stdFormation.fukushin1, midX, midY, ca2, sa2),
+            fukushin2: this.transformLocalToWorld(stdFormation.fukushin2, midX, midY, ca2, sa2)
           };
 
           const AVOID_RADIUS = 1.2;
@@ -343,7 +349,8 @@ export class Engine {
     const sa2 = Math.sin(this.flipState.toAngle);
     const fScale = this.computeFormationScale(fighterDist);
     state.formationScale = fScale;
-    const scaledTf = this.scaleFormation(FORMATION_STANDARD, fScale);
+    const formations = getFormations(state.config.courtSize);
+    const scaledTf = this.scaleFormation(formations.STANDARD, fScale);
 
     this.flipState.toWorld = {
       shushin: this.softClampPos(this.applyCollisionAvoidance(this.transformLocalToWorld(scaledTf.shushin, midX, midY, ca2, sa2), fighters)),
@@ -419,10 +426,11 @@ export class Engine {
       }
     }
 
+    const formations = getFormations(config.courtSize);
     let activeFormation;
-    if (mode === 'STANDARD') activeFormation = FORMATION_STANDARD;
-    else if (mode === 'VERTEX') activeFormation = (tgtDeg > 0) ? FORMATION_F1_VERTEX : FORMATION_F2_VERTEX;
-    else activeFormation = (tgtDeg > 0) ? FORMATION_F2_VERTEX_S_BASE : FORMATION_F1_VERTEX_S_BASE;
+    if (mode === 'STANDARD') activeFormation = formations.STANDARD;
+    else if (mode === 'VERTEX') activeFormation = (tgtDeg > 0) ? formations.F1_VERTEX : formations.F2_VERTEX;
+    else activeFormation = (tgtDeg > 0) ? formations.F2_VERTEX_S_BASE : formations.F1_VERTEX_S_BASE;
 
     return { activeFormation, mode };
   }
@@ -473,9 +481,10 @@ export class Engine {
   }
 
   private softClampPos(pos: Vector2D) {
+    const halfCourt = this.store.state.config.courtSize / 2;
     return {
-      x: this.softClampAxis(pos.x, HALF_COURT, SAFETY_MARGIN),
-      y: this.softClampAxis(pos.y, HALF_COURT, SAFETY_MARGIN)
+      x: this.softClampAxis(pos.x, halfCourt, SAFETY_MARGIN),
+      y: this.softClampAxis(pos.y, halfCourt, SAFETY_MARGIN)
     };
   }
 

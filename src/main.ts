@@ -86,15 +86,28 @@ bindSlider('slide-freeze-time', 'val-freeze-time', '', v => store.state.config.f
 // i18n
 let currentLang = 'pt';
 const langSelect = document.getElementById('lang-select') as HTMLSelectElement;
+const courtSelect = document.getElementById('court-select') as HTMLSelectElement;
 
 function detectLanguage() {
   const urlParams = new URLSearchParams(window.location.search);
   const langParam = urlParams.get('lang');
-  if (langParam && i18n[langParam.toLowerCase()]) return langParam.toLowerCase();
-  const navLang = (navigator.language || '').toLowerCase();
-  if (navLang.startsWith('ja')) return 'jp';
-  if (navLang.startsWith('en')) return 'en';
-  return 'pt';
+  
+  const parseLang = (l: string) => {
+    l = l.toLowerCase();
+    if (l.startsWith('ja') || l.startsWith('jp')) return 'jp';
+    if (l.startsWith('en')) return 'en';
+    if (l.startsWith('pt')) return 'pt';
+    return null;
+  };
+
+  if (langParam) {
+    const matched = parseLang(langParam);
+    if (matched) return matched;
+  }
+  
+  const navLang = navigator.language || '';
+  const matchedNav = parseLang(navLang);
+  return matchedNav || 'pt';
 }
 
 currentLang = detectLanguage();
@@ -108,7 +121,12 @@ function updateUIStrings() {
 
   setText('ui-app-title', s.title);
   setHtml('ui-lang-label', `<i class="fas fa-language"></i> ${s.langLabel}`);
+  setHtml('ui-court-label', `<i class="fas fa-ruler-combined"></i> ${s.courtSize}`);
   setText('ui-description', s.description);
+  
+  setText('btn-mode-tech', s.modeTech);
+  setText('btn-mode-rpg', s.modeRpg);
+
   setText('ui-label-viz', s.labelViz);
   setText('ui-check-triangle', s.checkTriangle);
   setText('ui-check-axis', s.checkAxis);
@@ -164,6 +182,20 @@ function updateUIStrings() {
   
   setText('ui-btn-reset', s.btnReset);
   setText('ui-author', s.author);
+
+  setText('ui-scenarios-title', s.scenariosTitle);
+  const scenarioBtns = document.querySelectorAll('#scenario-buttons button');
+  scenarioBtns.forEach(btn => {
+    const id = btn.getAttribute('data-scenario');
+    if (id === '1A: Giro Lento 360º') btn.textContent = s.scen1A;
+    else if (id === '1B: Teste Vertex') btn.textContent = s.scen1B;
+    else if (id === '1C: Teste S_BASE') btn.textContent = s.scen1C;
+    else if (id === '1D: Giro Reverso 360º') btn.textContent = s.scen1D;
+    else if (id === '2: Taiatari Swap') btn.textContent = s.scen2;
+    else if (id === '3: Tsubazeriai Pião') btn.textContent = s.scen3;
+    else if (id === '4: Inversão perto de 90º') btn.textContent = s.scen4;
+    else if (id === '5: Inversão perto de 135º') btn.textContent = s.scen5;
+  });
 }
 
 updateUIStrings();
@@ -179,6 +211,11 @@ langSelect.addEventListener('change', (e) => {
 });
 
 if (currentLang === 'jp') document.body.classList.add('lang-jp');
+
+courtSelect.addEventListener('change', (e) => {
+  const size = parseFloat((e.target as HTMLSelectElement).value);
+  store.state.config.courtSize = size;
+});
 
 // Events
 togglePanelBtn.addEventListener('click', () => {
@@ -254,7 +291,20 @@ if (scenarioContainer) {
   for (const scenarioId of Object.keys(scenarios)) {
     const btn = document.createElement('button');
     btn.className = "w-full text-left px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded text-gray-200 hover:text-white font-medium transition text-xs shadow-sm active:bg-white/20";
-    btn.textContent = scenarioId;
+    btn.setAttribute('data-scenario', scenarioId);
+    
+    // Configura o texto de acordo com a língua atual
+    const s = i18n[currentLang];
+    if (scenarioId === '1A: Giro Lento 360º') btn.textContent = s.scen1A;
+    else if (scenarioId === '1B: Teste Vertex') btn.textContent = s.scen1B;
+    else if (scenarioId === '1C: Teste S_BASE') btn.textContent = s.scen1C;
+    else if (scenarioId === '1D: Giro Reverso 360º') btn.textContent = s.scen1D;
+    else if (scenarioId === '2: Taiatari Swap') btn.textContent = s.scen2;
+    else if (scenarioId === '3: Tsubazeriai Pião') btn.textContent = s.scen3;
+    else if (scenarioId === '4: Inversão perto de 90º') btn.textContent = s.scen4;
+    else if (scenarioId === '5: Inversão perto de 135º') btn.textContent = s.scen5;
+    else btn.textContent = scenarioId;
+
     btn.onclick = () => {
       renderer.clearTrails();
       scenarioRunner.start(scenarioId, performance.now() / 1000);
@@ -264,7 +314,6 @@ if (scenarioContainer) {
 }
 
 // Pointer Interaction
-const HALF_COURT = 5;
 function isHit(p: Vector2D, ent: Vector2D, r: number, isTouch: boolean): boolean {
   const hitDist = isTouch ? r * 2.5 : r * 1.5;
   return Math.hypot(p.x - ent.x, p.y - ent.y) <= hitDist;
@@ -288,7 +337,8 @@ canvas.addEventListener('pointerdown', (e) => {
 canvas.addEventListener('pointermove', (e) => {
   const p = renderer.toMeters(e.clientX, e.clientY);
   const isTouch = (e.pointerType === 'touch');
-  const clamp = (v: number) => Math.min(Math.max(v, -HALF_COURT), HALF_COURT);
+  const half = store.state.config.courtSize / 2;
+  const clamp = (v: number) => Math.min(Math.max(v, -half), half);
   renderer.hoveredEnt = null;
 
   if (store.state.red.dragging) {
