@@ -3,16 +3,11 @@ import type { Vector2D } from '../math/vector';
 import { radToDeg, normalizeAngle, angleDiff, moveAngleTowards, expDamp, moveTowards } from '../math/utils';
 import type { FormationMode } from './types';
 
-const D_REF = 4;
-const ANGLE_LOCAL_BASE = 33 * Math.PI / 180;
-const POS_X_LOCAL = D_REF * Math.sin(ANGLE_LOCAL_BASE);
-const POS_Y_LOCAL = D_REF * Math.cos(ANGLE_LOCAL_BASE);
-
-export const FORMATION_STANDARD = { shushin:{x:0,y:4}, fukushin1:{x:2.6,y:-4}, fukushin2:{x:-2.6,y:-4} };
-export const FORMATION_F1_VERTEX = { shushin:{x:POS_X_LOCAL,y:POS_Y_LOCAL}, fukushin1:{x:0,y:-D_REF}, fukushin2:{x:-POS_X_LOCAL,y:POS_Y_LOCAL} };
-export const FORMATION_F2_VERTEX = { shushin:{x:-POS_X_LOCAL,y:POS_Y_LOCAL}, fukushin1:{x:POS_X_LOCAL,y:POS_Y_LOCAL}, fukushin2:{x:0,y:-D_REF} };
-export const FORMATION_F2_VERTEX_S_BASE = { shushin:{x:POS_X_LOCAL,y:-POS_Y_LOCAL}, fukushin1:{x:-POS_X_LOCAL,y:-POS_Y_LOCAL}, fukushin2:{x:0,y:D_REF} };
-export const FORMATION_F1_VERTEX_S_BASE = { shushin:{x:-POS_X_LOCAL,y:-POS_Y_LOCAL}, fukushin1:{x:0,y:D_REF}, fukushin2:{x:POS_X_LOCAL,y:-POS_Y_LOCAL} };
+export const FORMATION_STANDARD = { shushin:{x:0,y:4}, fukushin1:{x:2.0,y:-4}, fukushin2:{x:-2.0,y:-4} };
+export const FORMATION_F1_VERTEX = { shushin:{x:2.0,y:4}, fukushin1:{x:0,y:-4}, fukushin2:{x:-2.0,y:4} };
+export const FORMATION_F2_VERTEX = { shushin:{x:-2.0,y:4}, fukushin1:{x:2.0,y:4}, fukushin2:{x:0,y:-4} };
+export const FORMATION_F2_VERTEX_S_BASE = { shushin:{x:2.0,y:-4}, fukushin1:{x:-2.0,y:-4}, fukushin2:{x:0,y:4} };
+export const FORMATION_F1_VERTEX_S_BASE = { shushin:{x:-2.0,y:-4}, fukushin1:{x:0,y:4}, fukushin2:{x:2.0,y:-4} };
 
 const HALF_COURT = 5;
 const KAISHISEN_DIST = 1.4;
