@@ -15,6 +15,13 @@ export class CanvasRenderer {
   private floorCacheCtx: CanvasRenderingContext2D | null = null;
   private floorCacheValid = false;
   
+  public isRPGMode = false;
+  private imgKenshi: HTMLImageElement | null = null;
+  private imgShinpanS: HTMLImageElement | null = null;
+  private imgShinpanF1: HTMLImageElement | null = null;
+  private imgShinpanF2: HTMLImageElement | null = null;
+  private imgFloor: HTMLImageElement | null = null;
+
   // Visual config
   public showTriangle = true;
   public showSquareS = false;
@@ -38,6 +45,13 @@ export class CanvasRenderer {
 
     this.floorCacheCanvas = document.createElement('canvas');
     this.floorCacheCtx = this.floorCacheCanvas.getContext('2d', { alpha: false });
+
+    const base = import.meta.env.BASE_URL || '/';
+    this.imgKenshi = new Image(); this.imgKenshi.src = base + 'assets/kenshi_3.png';
+    this.imgShinpanS = new Image(); this.imgShinpanS.src = base + 'assets/shinpan_3.png';
+    this.imgShinpanF1 = new Image(); this.imgShinpanF1.src = base + 'assets/shinpan_4.png';
+    this.imgShinpanF2 = new Image(); this.imgShinpanF2.src = base + 'assets/shinpan_5.png';
+    this.imgFloor = new Image(); this.imgFloor.src = base + 'assets/floor.jpg';
   }
 
   public resize(width: number, height: number, dpr: number) {
@@ -162,6 +176,25 @@ export class CanvasRenderer {
   }
 
   private drawFloor() {
+    if (this.imgFloor && this.imgFloor.complete) {
+      const pattern = this.ctx.createPattern(this.imgFloor, 'repeat');
+      if (pattern) {
+        this.ctx.save();
+        // A quadra tem 10x10. A textura representa 8 metros reais conforme solicitado.
+        const imgPhysicalSizeMeters = 8.0; 
+        const patternScale = (imgPhysicalSizeMeters * this.scale) / this.imgFloor.width;
+        
+        const matrix = new DOMMatrix().scale(patternScale, patternScale);
+        pattern.setTransform(matrix);
+        
+        this.ctx.fillStyle = pattern;
+        this.ctx.fillRect(0, 0, this.width, this.height);
+        this.ctx.restore();
+      } else {
+        this.ctx.drawImage(this.imgFloor, 0, 0, this.width, this.height);
+      }
+      return;
+    }
     if (!this.floorCacheValid) this.rebuildFloorCache();
     this.ctx.drawImage(
       this.floorCacheCanvas,
@@ -329,6 +362,75 @@ export class CanvasRenderer {
 
     const isCompetitor = (ent === state.white || ent === state.red);
     const isHover = isCompetitor && (this.hoveredEnt === ent || (ent as Fighter).dragging);
+
+    if (this.isRPGMode) {
+      let img: HTMLImageElement | null = null;
+      if (isCompetitor) {
+        img = this.imgKenshi;
+      } else if (ent === state.shushin) {
+        img = this.imgShinpanS;
+      } else if (ent === state.fukushin1) {
+        img = this.imgShinpanF1;
+      } else if (ent === state.fukushin2) {
+        img = this.imgShinpanF2;
+      }
+
+      if (img && img.complete) {
+        let facingAngle = 0;
+        const midX = (state.white.x + state.red.x) / 2;
+        const midY = (state.white.y + state.red.y) / 2;
+
+        if (ent === state.white) {
+          facingAngle = Math.atan2(state.red.y - ent.y, state.red.x - ent.x);
+        } else if (ent === state.red) {
+          facingAngle = Math.atan2(state.white.y - ent.y, state.white.x - ent.x);
+        } else {
+          facingAngle = Math.atan2(midY - ent.y, midX - ent.x);
+        }
+
+        this.ctx.save();
+        this.ctx.translate(p.x, p.y);
+        // Sprite default is pointing UP (Math.PI/2 relative to right).
+        this.ctx.rotate(facingAngle + Math.PI / 2);
+
+        // Mirror Fukushin flags (swap red and white)
+        const isFukushin = ent === state.fukushin1 || ent === state.fukushin2;
+        if (isFukushin) {
+          this.ctx.scale(-1, 1);
+        }
+
+        // Mantém a proporção real da imagem top-down
+        // O usuário pediu: aumentar a dimensão em 50% (de 0.5 para 0.75 metros visuais)
+        const physicalWidth = 0.75 * this.scale;
+        let pivotYRatio = 0.5;
+
+        if (isCompetitor) {
+          // kenshi_3 tem os ombros em ~68.8%
+          pivotYRatio = 0.69;
+        } else if (ent === state.shushin) {
+          // shinpan_3 girado tem ombros em ~45.6%
+          pivotYRatio = 0.46;
+        } else if (ent === state.fukushin1) {
+          // shinpan_4 girado tem ombros em ~41.0%
+          pivotYRatio = 0.41;
+        } else if (ent === state.fukushin2) {
+          // shinpan_5 girado tem ombros em ~40.5%
+          pivotYRatio = 0.40;
+        }
+
+        const physicalHeight = physicalWidth * (img.height / img.width);
+
+        this.ctx.drawImage(
+          img,
+          -physicalWidth / 2,
+          -physicalHeight * pivotYRatio,
+          physicalWidth,
+          physicalHeight
+        );
+        this.ctx.restore();
+        return;
+      }
+    }
 
     if (isHover) {
       this.ctx.save();

@@ -33,6 +33,11 @@ const togglePanelBtn = document.getElementById('toggle-panel-btn') as HTMLButton
 const openPanelBtn = document.getElementById('open-panel-btn') as HTMLButtonElement;
 const resetBtn = document.getElementById('reset-btn') as HTMLButtonElement;
 
+// Mode Toggles
+const btnModeTech = document.getElementById('btn-mode-tech') as HTMLButtonElement;
+const btnModeRpg = document.getElementById('btn-mode-rpg') as HTMLButtonElement;
+const techTogglesSection = document.getElementById('tech-toggles-section') as HTMLElement;
+
 // Toggles
 const checkTriangle = document.getElementById('show-triangle') as HTMLInputElement;
 const checkAxis = document.getElementById('show-axis') as HTMLInputElement;
@@ -185,6 +190,33 @@ openPanelBtn.addEventListener('click', () => {
   controlsContainer.classList.remove('collapsed');
 });
 
+// Mode Toggle Event Listeners
+btnModeTech.addEventListener('click', () => {
+  renderer.isRPGMode = false;
+  btnModeTech.classList.replace('text-gray-400', 'text-white');
+  btnModeTech.classList.add('bg-[#bc002d]', 'shadow-lg');
+  btnModeTech.classList.remove('hover:text-white');
+  
+  btnModeRpg.classList.replace('text-white', 'text-gray-400');
+  btnModeRpg.classList.remove('bg-[#bc002d]', 'shadow-lg');
+  btnModeRpg.classList.add('hover:text-white');
+  
+  techTogglesSection.style.display = 'block';
+});
+
+btnModeRpg.addEventListener('click', () => {
+  renderer.isRPGMode = true;
+  btnModeRpg.classList.replace('text-gray-400', 'text-white');
+  btnModeRpg.classList.add('bg-[#bc002d]', 'shadow-lg');
+  btnModeRpg.classList.remove('hover:text-white');
+  
+  btnModeTech.classList.replace('text-white', 'text-gray-400');
+  btnModeTech.classList.remove('bg-[#bc002d]', 'shadow-lg');
+  btnModeTech.classList.add('hover:text-white');
+  
+  techTogglesSection.style.display = 'none';
+});
+
 // Bind UI Toggles
 checkTriangle.addEventListener('change', e => renderer.showTriangle = (e.target as HTMLInputElement).checked);
 checkSquareS.addEventListener('change', e => renderer.showSquareS = (e.target as HTMLInputElement).checked);
@@ -221,7 +253,7 @@ const scenarioContainer = document.getElementById('scenario-buttons');
 if (scenarioContainer) {
   for (const scenarioId of Object.keys(scenarios)) {
     const btn = document.createElement('button');
-    btn.className = "w-full text-left px-3 py-1.5 bg-white hover:bg-indigo-50 border border-indigo-100 rounded text-indigo-700 font-medium transition text-xs shadow-sm active:bg-indigo-200";
+    btn.className = "w-full text-left px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded text-gray-200 hover:text-white font-medium transition text-xs shadow-sm active:bg-white/20";
     btn.textContent = scenarioId;
     btn.onclick = () => {
       renderer.clearTrails();

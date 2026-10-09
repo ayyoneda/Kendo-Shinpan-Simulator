@@ -52,6 +52,26 @@ export const scenarios: Record<string, ScenarioPhase> = {
       return Math.PI * 2;
     },
     getDistance: () => 0.8,
+  },
+  '4: Inversão perto de 90º': {
+    durationSec: 1.5,
+    getAngle: (t) => {
+      const base = 85 * (Math.PI / 180);
+      if (t < 0.2) return base;
+      if (t < 1.2) return base + ((t - 0.2) / 1.0) * Math.PI;
+      return base + Math.PI;
+    },
+    getDistance: () => 0.8,
+  },
+  '5: Inversão perto de 135º': {
+    durationSec: 1.5,
+    getAngle: (t) => {
+      const base = 130 * (Math.PI / 180);
+      if (t < 0.2) return base;
+      if (t < 1.2) return base + ((t - 0.2) / 1.0) * Math.PI;
+      return base + Math.PI;
+    },
+    getDistance: () => 0.8,
   }
 };
 

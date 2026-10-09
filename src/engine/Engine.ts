@@ -170,9 +170,9 @@ export class Engine {
     const maxAng = REF_ANG_SPEED * dt;
     const fighters = [state.white, state.red];
 
-    const pre = this.computeTargetsForFlag(
+    const pre = this.computeCombatAngles(
       this.flipState.active ? this.flipState.toFlag : state.flag,
-      dxWorld, dyWorld, state.formationMode
+      dxWorld, dyWorld
     );
 
     if (this.flipState.active) {
@@ -193,9 +193,21 @@ export class Engine {
     }
     const isSpinLocked = ts < this.spinLockUntilTs;
 
+    const rawAngle = pre.combatRadTarget;
     const absDeg = Math.abs(pre.combatDegRaw);
+    
+    // Frontal sweep distance (linear distance without wrapping around the back)
+    let tgtDeg = radToDeg(this.targetAngle) % 360;
+    if (tgtDeg > 180) tgtDeg -= 360;
+    if (tgtDeg < -180) tgtDeg += 360;
+    
+    const dAngToTargetDeg = radToDeg(angleDiff(this.targetAngle, rawAngle));
+    const crossedBack = Math.abs(tgtDeg + dAngToTargetDeg) > 180;
 
-    if (absDeg < state.config.exitFlip) {
+    const wantsFlip = (absDeg > state.config.enterFlip) || crossedBack;
+    const canExitFlip = (absDeg < state.config.exitFlip) && !crossedBack;
+
+    if (canExitFlip) {
       this.flipBelowExitFrames++;
       if (this.flipBelowExitFrames >= FLIP_HOLD_RESET_FRAMES) {
         this.flipHoldStartTs = null;
@@ -205,18 +217,22 @@ export class Engine {
     }
 
     const canConsiderFlip = (ts >= this.flipCooldownUntilTs);
-    const wantsFlip = (absDeg > state.config.enterFlip);
 
-    if (isSpinLocked) {
-      this.flipHoldStartTs = null;
-    } else if (canConsiderFlip && wantsFlip) {
+    if (!isSpinLocked && canConsiderFlip && wantsFlip) {
       if (this.flipHoldStartTs === null) this.flipHoldStartTs = ts;
     }
 
     const isFlipConfirming = this.flipHoldStartTs !== null;
 
     if (!isSpinLocked && !isFlipConfirming) {
-      state.formationMode = pre.mode;
+      const dAng = angleDiff(this.targetAngle, rawAngle);
+      this.targetAngle += dAng * (1 - Math.exp(-state.config.smoothK * dt));
+    }
+
+    const { activeFormation, mode } = this.computeRefereeFormation(this.targetAngle, state.formationMode);
+
+    if (!isSpinLocked && !isFlipConfirming) {
+      state.formationMode = mode;
     }
 
     if (!isSpinLocked && canConsiderFlip && wantsFlip) {
@@ -280,28 +296,14 @@ export class Engine {
         }
       }
 
-    const rawAngle = pre.combatRadTarget;
-    if (!isSpinLocked && !isFlipConfirming) {
-      const dAng = angleDiff(this.targetAngle, rawAngle);
-      this.targetAngle += dAng * (1 - Math.exp(-state.config.smoothK * dt));
-    }
+
 
     const ca_tgt = Math.cos(this.targetAngle);
     const sa_tgt = Math.sin(this.targetAngle);
 
     const fScale = this.computeFormationScale(fighterDist);
     state.formationScale = fScale;
-    let activeFormation = pre.targetFormation;
-    if (isSpinLocked || isFlipConfirming) {
-      const combatDegRaw = pre.combatDegRaw;
-      if (state.formationMode === 'STANDARD') {
-        activeFormation = FORMATION_STANDARD;
-      } else if (state.formationMode === 'VERTEX') {
-        activeFormation = (combatDegRaw > 0) ? FORMATION_F1_VERTEX : FORMATION_F2_VERTEX;
-      } else {
-        activeFormation = (combatDegRaw > 0) ? FORMATION_F2_VERTEX_S_BASE : FORMATION_F1_VERTEX_S_BASE;
-      }
-    }
+    
     const scaledTf = this.scaleFormation(activeFormation, fScale);
 
     let tgtS = this.transformLocalToWorld(scaledTf.shushin, midX, midY, ca_tgt, sa_tgt);
@@ -392,12 +394,17 @@ export class Engine {
     state.angles.fukushin2Abs = normalizeAngle(radToDeg(Math.atan2(state.fukushin2.y - midY, state.fukushin2.x - midX)));
   }
 
-  private computeTargetsForFlag(flagCandidate: number, dxWorld: number, dyWorld: number, prevMode: FormationMode) {
+  private computeCombatAngles(flagCandidate: number, dxWorld: number, dyWorld: number) {
     const dx = (flagCandidate % 2 === 1) ? dxWorld : -dxWorld;
     const dy = (flagCandidate % 2 === 1) ? dyWorld : -dyWorld;
     const combatRadTarget = Math.atan2(dy, dx);
     const combatDegRaw = radToDeg(combatRadTarget);
-    const absA = Math.abs(combatDegRaw);
+    return { combatRadTarget, combatDegRaw };
+  }
+
+  private computeRefereeFormation(targetAngleRad: number, prevMode: FormationMode) {
+    const tgtDeg = radToDeg(targetAngleRad);
+    const absA = Math.abs(tgtDeg);
     let mode = prevMode;
     const { config } = this.store.state;
 
@@ -417,12 +424,12 @@ export class Engine {
       }
     }
 
-    let targetFormation;
-    if (mode === 'STANDARD') targetFormation = FORMATION_STANDARD;
-    else if (mode === 'VERTEX') targetFormation = (combatDegRaw > 0) ? FORMATION_F1_VERTEX : FORMATION_F2_VERTEX;
-    else targetFormation = (combatDegRaw > 0) ? FORMATION_F2_VERTEX_S_BASE : FORMATION_F1_VERTEX_S_BASE;
+    let activeFormation;
+    if (mode === 'STANDARD') activeFormation = FORMATION_STANDARD;
+    else if (mode === 'VERTEX') activeFormation = (tgtDeg > 0) ? FORMATION_F1_VERTEX : FORMATION_F2_VERTEX;
+    else activeFormation = (tgtDeg > 0) ? FORMATION_F2_VERTEX_S_BASE : FORMATION_F1_VERTEX_S_BASE;
 
-    return { combatRadTarget, combatDegRaw, targetFormation, mode };
+    return { activeFormation, mode };
   }
 
   private computeFormationScale(fighterDist: number) {

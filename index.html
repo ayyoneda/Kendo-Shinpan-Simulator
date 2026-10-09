@@ -4,10 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Kendo Shinpan Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-      body { margin: 0; padding: 0; overflow: hidden; background: #1a1a1a; touch-action: none; }
+      body { margin: 0; padding: 0; overflow: hidden; background: #1a1a1a; touch-action: none; font-family: 'Inter', sans-serif; }
       #app { width: 100vw; height: 100vh; position: relative; }
+      /* Custom Slider */
+      input[type="range"] { -webkit-appearance: none; background: rgba(255,255,255,0.1); height: 4px; border-radius: 2px; }
+      input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #bc002d; cursor: pointer; transition: transform 0.1s; }
+      input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+      /* Custom Checkbox */
+      .form-checkbox { accent-color: #bc002d; }
     </style>
     <script type="module" src="/src/main.ts"></script>
   </head>
@@ -15,20 +22,26 @@
     <div id="app">
       <canvas id="kendoCanvas" class="absolute top-0 left-0 w-full h-full cursor-crosshair touch-none"></canvas>
 
+      <!-- Main Mode Toggle -->
+      <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full p-1 flex items-center shadow-2xl">
+        <button id="btn-mode-tech" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-white bg-[#bc002d] shadow-lg transition">Modo Técnico</button>
+        <button id="btn-mode-rpg" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition">Modo RPG</button>
+      </div>
+
       <!-- Glass Panel Controls -->
-      <div id="controls-container" class="absolute top-4 left-4 w-[340px] max-h-[90vh] overflow-y-auto glass-panel rounded-xl shadow-2xl flex flex-col z-10 transition-transform duration-300">
+      <div id="controls-container" class="absolute top-4 left-4 w-[340px] max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl flex flex-col z-10 transition-transform duration-300 bg-black/50 backdrop-blur-2xl border border-white/10 text-gray-300">
         
         <!-- Header -->
-        <div class="p-4 border-b border-gray-200 flex flex-col gap-2 bg-black/5 rounded-t-xl">
+        <div class="p-4 border-b border-white/10 flex flex-col gap-2 bg-white/5 rounded-t-xl">
           <div class="flex justify-between items-center">
-            <h1 id="ui-app-title" class="text-lg font-bold text-gray-800 m-0 leading-none">Kendo Shinpan</h1>
-            <button id="toggle-panel-btn" class="text-gray-500 hover:text-gray-800 transition">
+            <h1 id="ui-app-title" class="text-lg font-bold text-white m-0 leading-none">Kendo Shinpan</h1>
+            <button id="toggle-panel-btn" class="text-gray-400 hover:text-white transition">
               <i class="fas fa-chevron-left"></i>
             </button>
           </div>
-          <div class="flex justify-between items-center text-sm text-gray-600 mt-2">
+          <div class="flex justify-between items-center text-sm text-gray-400 mt-2">
             <span id="ui-lang-label" class="font-medium"><i class="fas fa-language"></i> Idioma</span>
-            <select id="lang-select" class="p-1 rounded border border-gray-300 bg-white text-gray-800 focus:outline-none">
+            <select id="lang-select" class="p-1 rounded border border-white/20 bg-black/50 text-white focus:outline-none">
               <option value="pt">Português</option>
               <option value="en">English</option>
               <option value="jp">日本語</option>
@@ -36,133 +49,94 @@
           </div>
         </div>
 
-        <div class="p-4 flex-1 space-y-5 text-gray-700">
+        <div class="p-4 flex-1 space-y-5">
           <!-- Description -->
-          <p id="ui-description" class="text-[13px] leading-tight mb-2"></p>
+          <p id="ui-description" class="text-[13px] leading-tight mb-2 text-gray-400"></p>
 
-          <!-- Viz Toggles -->
-          <div class="space-y-2">
-            <h3 id="ui-label-viz" class="text-[11px] uppercase tracking-wider font-bold text-gray-400 mb-2"></h3>
+          <!-- Viz Toggles (Hidden in RPG Mode) -->
+          <div id="tech-toggles-section" class="space-y-2">
+            <h3 id="ui-label-viz" class="text-[11px] uppercase tracking-wider font-bold text-gray-500 mb-2"></h3>
             <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
-              <input type="checkbox" id="show-triangle" checked class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <input type="checkbox" id="show-triangle" checked class="form-checkbox h-4 w-4">
               <span id="ui-check-triangle"></span>
             </label>
             <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
-              <input type="checkbox" id="show-axis" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <input type="checkbox" id="show-axis" class="form-checkbox h-4 w-4">
               <span id="ui-check-axis"></span>
             </label>
             <label class="flex items-center space-x-2 text-sm cursor-pointer select-none ml-5">
-              <input type="checkbox" id="show-square-s" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <input type="checkbox" id="show-square-s" class="form-checkbox h-4 w-4">
               <span id="ui-check-square-s"></span>
             </label>
             <label class="flex items-center space-x-2 text-sm cursor-pointer select-none ml-5">
-              <input type="checkbox" id="show-square-f1" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <input type="checkbox" id="show-square-f1" class="form-checkbox h-4 w-4">
               <span id="ui-check-square-f1"></span>
             </label>
             <label class="flex items-center space-x-2 text-sm cursor-pointer select-none ml-5">
-              <input type="checkbox" id="show-square-f2" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <input type="checkbox" id="show-square-f2" class="form-checkbox h-4 w-4">
               <span id="ui-check-square-f2"></span>
             </label>
             <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
-              <input type="checkbox" id="show-labels" checked class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <input type="checkbox" id="show-labels" checked class="form-checkbox h-4 w-4">
               <span id="ui-check-labels"></span>
             </label>
             <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
-              <input type="checkbox" id="show-direction" checked class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <input type="checkbox" id="show-direction" checked class="form-checkbox h-4 w-4">
               <span id="ui-check-direction"></span>
             </label>
             <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
-              <input type="checkbox" id="show-trails" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <input type="checkbox" id="show-trails" class="form-checkbox h-4 w-4">
               <span id="ui-check-trails"></span>
             </label>
             <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
-              <input type="checkbox" id="show-debug" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+              <input type="checkbox" id="show-debug" class="form-checkbox h-4 w-4">
               <span id="ui-check-debug"></span>
             </label>
           </div>
 
           <!-- Legend -->
-          <div class="bg-gray-100 p-3 rounded-lg text-[13px] border border-gray-200">
+          <div class="bg-white/5 p-3 rounded-lg text-[13px] border border-white/10">
             <div id="ui-label-legend" class="font-bold mb-2 uppercase text-[11px] text-gray-500 tracking-wider"></div>
             <div class="grid grid-cols-2 gap-2">
-              <div class="flex items-center"><span class="legend-dot bg-white border border-gray-800"></span><span id="ui-leg-white"></span></div>
-              <div class="flex items-center"><span class="legend-dot bg-[#cc0000]"></span><span id="ui-leg-red"></span></div>
-              <div class="flex items-center"><span class="legend-dot bg-[#2563eb]"></span><span id="ui-leg-s"></span></div>
-              <div class="flex items-center"><span class="legend-dot bg-[#fbbf24]"></span><span id="ui-leg-f1"></span></div>
-              <div class="flex items-center col-span-2"><span class="legend-dot bg-[#22c55e]"></span><span id="ui-leg-f2"></span></div>
+              <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-white border border-gray-800"></span><span id="ui-leg-white"></span></div>
+              <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-[#bc002d]"></span><span id="ui-leg-red"></span></div>
+              <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-[#2563eb]"></span><span id="ui-leg-s"></span></div>
+              <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-[#fbbf24]"></span><span id="ui-leg-f1"></span></div>
+              <div class="flex items-center col-span-2"><span class="w-3 h-3 rounded-full mr-2 bg-[#22c55e]"></span><span id="ui-leg-f2"></span></div>
             </div>
           </div>
 
           <!-- Advanced -->
-          <details class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden text-sm">
-            <summary class="p-3 font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 transition select-none flex items-center justify-between">
+          <details class="bg-white/5 rounded-lg border border-white/10 overflow-hidden text-sm">
+            <summary class="p-3 font-semibold text-white bg-white/5 hover:bg-white/10 transition select-none flex items-center justify-between cursor-pointer">
               <div><i class="fas fa-sliders-h mr-2"></i> <span id="ui-advanced-title"></span></div>
-              <i class="fas fa-chevron-down text-gray-400 text-xs"></i>
+              <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
             </summary>
-            <div class="p-3 space-y-4 border-t border-gray-200">
+            <div class="p-3 space-y-4 border-t border-white/10">
               
               <div>
                 <div id="ui-advanced-section-motion" class="font-bold text-xs uppercase text-gray-500 mb-2"></div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-speed-label"></span><span id="val-speed" class="font-mono">8.0</span></div>
-                  <input id="slide-speed" type="range" min="2" max="15" step="0.5" value="8.0" class="w-full">
-                </div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-radius-label"></span><span id="val-radius" class="font-mono">4.0</span></div>
-                  <input id="slide-radius" type="range" min="1" max="10" step="0.5" value="4.0" class="w-full">
-                </div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-smooth-label"></span><span id="val-smooth" class="font-mono">5.0</span></div>
-                  <input id="slide-smooth" type="range" min="1" max="15" step="0.5" value="5.0" class="w-full">
-                </div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-speed-label"></span><span id="val-speed" class="font-mono text-white">8.0</span></div><input id="slide-speed" type="range" min="2" max="15" step="0.5" value="8.0" class="w-full"></div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-radius-label"></span><span id="val-radius" class="font-mono text-white">4.0</span></div><input id="slide-radius" type="range" min="1" max="10" step="0.5" value="4.0" class="w-full"></div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-smooth-label"></span><span id="val-smooth" class="font-mono text-white">5.0</span></div><input id="slide-smooth" type="range" min="1" max="15" step="0.5" value="5.0" class="w-full"></div>
               </div>
 
               <div>
                 <div id="ui-advanced-section-thresholds" class="font-bold text-xs uppercase text-gray-500 mb-2"></div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-th-enter-vertex"></span><span id="val-enter-vertex" class="font-mono">90</span></div>
-                  <input id="slide-enter-vertex" type="range" min="40" max="110" step="1" value="90" class="w-full">
-                </div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-th-exit-vertex"></span><span id="val-exit-vertex" class="font-mono">45</span></div>
-                  <input id="slide-exit-vertex" type="range" min="10" max="80" step="1" value="45" class="w-full">
-                </div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-th-enter-sbase"></span><span id="val-enter-sbase" class="font-mono">123</span></div>
-                  <input id="slide-enter-sbase" type="range" min="100" max="150" step="1" value="123" class="w-full">
-                </div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-th-exit-sbase"></span><span id="val-exit-sbase" class="font-mono">90</span></div>
-                  <input id="slide-exit-sbase" type="range" min="70" max="130" step="1" value="90" class="w-full">
-                </div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-th-enter-flip"></span><span id="val-enter-flip" class="font-mono">135</span></div>
-                  <input id="slide-enter-flip" type="range" min="110" max="170" step="1" value="135" class="w-full">
-                </div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-th-exit-flip"></span><span id="val-exit-flip" class="font-mono">130</span></div>
-                  <input id="slide-exit-flip" type="range" min="90" max="160" step="1" value="130" class="w-full">
-                </div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-th-enter-vertex"></span><span id="val-enter-vertex" class="font-mono text-white">90</span></div><input id="slide-enter-vertex" type="range" min="40" max="110" step="1" value="90" class="w-full"></div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-th-exit-vertex"></span><span id="val-exit-vertex" class="font-mono text-white">45</span></div><input id="slide-exit-vertex" type="range" min="10" max="80" step="1" value="45" class="w-full"></div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-th-enter-sbase"></span><span id="val-enter-sbase" class="font-mono text-white">123</span></div><input id="slide-enter-sbase" type="range" min="100" max="150" step="1" value="123" class="w-full"></div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-th-exit-sbase"></span><span id="val-exit-sbase" class="font-mono text-white">90</span></div><input id="slide-exit-sbase" type="range" min="70" max="130" step="1" value="90" class="w-full"></div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-th-enter-flip"></span><span id="val-enter-flip" class="font-mono text-white">135</span></div><input id="slide-enter-flip" type="range" min="110" max="170" step="1" value="135" class="w-full"></div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-th-exit-flip"></span><span id="val-exit-flip" class="font-mono text-white">130</span></div><input id="slide-exit-flip" type="range" min="90" max="160" step="1" value="130" class="w-full"></div>
               </div>
 
               <div>
                 <div id="ui-advanced-section-freeze" class="font-bold text-xs uppercase text-gray-500 mb-2"></div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-freeze-dist"></span><span id="val-freeze-dist" class="font-mono">1.2</span></div>
-                  <input id="slide-freeze-dist" type="range" min="0.8" max="2.0" step="0.05" value="1.2" class="w-full">
-                </div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-freeze-window"></span><span id="val-freeze-window" class="font-mono">200</span></div>
-                  <input id="slide-freeze-window" type="range" min="80" max="500" step="10" value="200" class="w-full">
-                </div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-freeze-angle"></span><span id="val-freeze-angle" class="font-mono">90°</span></div>
-                  <input id="slide-freeze-angle" type="range" min="30" max="180" step="5" value="90" class="w-full">
-                </div>
-                <div class="space-y-1">
-                  <div class="flex justify-between"><span id="ui-freeze-time"></span><span id="val-freeze-time" class="font-mono">300</span></div>
-                  <input id="slide-freeze-time" type="range" min="100" max="800" step="50" value="300" class="w-full">
-                </div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-freeze-dist"></span><span id="val-freeze-dist" class="font-mono text-white">1.2</span></div><input id="slide-freeze-dist" type="range" min="0.8" max="2.0" step="0.05" value="1.2" class="w-full"></div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-freeze-window"></span><span id="val-freeze-window" class="font-mono text-white">200</span></div><input id="slide-freeze-window" type="range" min="80" max="500" step="10" value="200" class="w-full"></div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-freeze-angle"></span><span id="val-freeze-angle" class="font-mono text-white">90°</span></div><input id="slide-freeze-angle" type="range" min="30" max="180" step="5" value="90" class="w-full"></div>
+                <div class="space-y-1"><div class="flex justify-between"><span id="ui-freeze-time"></span><span id="val-freeze-time" class="font-mono text-white">300</span></div><input id="slide-freeze-time" type="range" min="100" max="800" step="50" value="300" class="w-full"></div>
               </div>
 
               <div id="ui-advanced-note" class="text-[11px] text-gray-500 leading-tight"></div>
@@ -170,32 +144,32 @@
           </details>
 
           <!-- Tip -->
-          <div class="bg-blue-50 text-blue-900 p-3 rounded-lg text-sm border border-blue-100">
-            <strong><i class="fas fa-lightbulb text-blue-500 mr-1"></i> <span id="ui-tip-title"></span>:</strong>
-            <span id="ui-tip-body" class="block mt-1"></span>
+          <div class="bg-[#bc002d]/10 text-white p-3 rounded-lg text-sm border border-[#bc002d]/20">
+            <strong><i class="fas fa-lightbulb text-[#bc002d] mr-1"></i> <span id="ui-tip-title"></span>:</strong>
+            <span id="ui-tip-body" class="block mt-1 text-gray-300"></span>
           </div>
 
           <!-- Scenario Runner (Debug) -->
-          <details class="bg-indigo-50 rounded-lg border border-indigo-200 overflow-hidden text-sm">
-            <summary class="p-3 font-semibold text-indigo-800 bg-indigo-100 hover:bg-indigo-200 transition select-none flex items-center justify-between">
+          <details class="bg-white/5 rounded-lg border border-white/10 overflow-hidden text-sm">
+            <summary class="p-3 font-semibold text-white bg-white/5 hover:bg-white/10 transition select-none flex items-center justify-between cursor-pointer">
               <div><i class="fas fa-robot mr-2"></i> Cenários de Movimentação</div>
-              <i class="fas fa-chevron-down text-indigo-400 text-xs"></i>
+              <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
             </summary>
-            <div class="p-3 border-t border-indigo-200">
+            <div class="p-3 border-t border-white/10">
               <div class="grid grid-cols-1 gap-2" id="scenario-buttons">
                 <!-- Buttons injected via main.ts -->
               </div>
             </div>
           </details>
 
-          <!-- Debug Panel (Absolute Angles) -->
-          <div id="debug-panel" class="hidden bg-gray-800 text-green-400 p-3 rounded-lg text-xs font-mono space-y-1 shadow-inner">
-            <div class="text-gray-400 mb-2 font-bold uppercase text-[10px]" id="ui-label-angles"></div>
+          <!-- Debug Panel -->
+          <div id="debug-panel" class="hidden bg-black/80 text-green-400 p-3 rounded-lg text-xs font-mono space-y-1 shadow-inner border border-white/10">
+            <div class="text-gray-500 mb-2 font-bold uppercase text-[10px]" id="ui-label-angles"></div>
             <div class="flex justify-between"><span id="ui-angle-combat"></span><span id="debug-angle" class="text-white">0°</span></div>
             <div class="flex justify-between"><span id="ui-mode-label"></span><span id="debug-mode" class="text-white">STANDARD</span></div>
             <div class="flex justify-between"><span id="ui-flag-label"></span><span id="debug-flag" class="text-white">1</span></div>
             <div class="flex justify-between"><span id="ui-freeze-label"></span><span id="debug-freeze" class="text-white">STABLE</span></div>
-            <div class="mt-2 border-t border-gray-600 pt-2 space-y-1">
+            <div class="mt-2 border-t border-white/20 pt-2 space-y-1">
               <div class="flex justify-between"><span id="ui-ref-s"></span><span id="debug-s" class="text-white">0°</span></div>
               <div class="flex justify-between"><span id="ui-ref-f1"></span><span id="debug-f1" class="text-white">0°</span></div>
               <div class="flex justify-between"><span id="ui-ref-f2"></span><span id="debug-f2" class="text-white">0°</span></div>
@@ -204,16 +178,16 @@
         </div>
 
         <!-- Footer / Reset -->
-        <div class="p-4 bg-gray-50/80 border-t border-gray-200 rounded-b-xl">
-          <button id="reset-btn" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2.5 px-4 rounded-lg shadow-md transition transform active:scale-95 flex items-center justify-center gap-2">
+        <div class="p-4 bg-black/40 border-t border-white/10 rounded-b-xl">
+          <button id="reset-btn" class="w-full bg-[#bc002d] hover:bg-red-800 text-white font-semibold py-2.5 px-4 rounded-lg shadow-md transition transform active:scale-95 flex items-center justify-center gap-2">
             <i class="fas fa-undo-alt"></i> <span id="ui-btn-reset"></span>
           </button>
         </div>
       </div>
       
       <!-- Open Panel Button -->
-      <button id="open-panel-btn" class="absolute top-4 left-4 p-3 bg-white/90 backdrop-blur-md rounded-lg shadow-lg border border-gray-200 hidden hover:bg-gray-100 transition z-20">
-        <i class="fas fa-cog text-gray-700"></i>
+      <button id="open-panel-btn" class="absolute top-4 left-4 p-3 bg-black/50 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hidden hover:bg-black/70 transition z-20">
+        <i class="fas fa-cog text-white"></i>
       </button>
 
       <div id="ui-author" class="fixed right-3 bottom-2 text-[11px] text-white/50 pointer-events-none z-0"></div>
