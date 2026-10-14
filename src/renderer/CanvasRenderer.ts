@@ -17,6 +17,8 @@ export class CanvasRenderer {
   
   public isRPGMode = false;
   private imgKenshi: HTMLImageElement | null = null;
+  private imgKenshiShiro: HTMLImageElement | null = null;
+  private imgKenshiAka: HTMLImageElement | null = null;
   private imgShinpanS: HTMLImageElement | null = null;
   private imgShinpanF1: HTMLImageElement | null = null;
   private imgShinpanF2: HTMLImageElement | null = null;
@@ -48,6 +50,8 @@ export class CanvasRenderer {
 
     const base = import.meta.env.BASE_URL || '/';
     this.imgKenshi = new Image(); this.imgKenshi.src = base + 'assets/kenshi_3.png';
+    this.imgKenshiShiro = new Image(); this.imgKenshiShiro.src = base + 'assets/kenshi_shiro.png';
+    this.imgKenshiAka = new Image(); this.imgKenshiAka.src = base + 'assets/kenshi_aka.png';
     this.imgShinpanS = new Image(); this.imgShinpanS.src = base + 'assets/shinpan_3.png';
     this.imgShinpanF1 = new Image(); this.imgShinpanF1.src = base + 'assets/shinpan_4.png';
     this.imgShinpanF2 = new Image(); this.imgShinpanF2.src = base + 'assets/shinpan_5.png';
@@ -257,7 +261,7 @@ export class CanvasRenderer {
 
     const midX = (state.white.x + state.red.x) / 2;
     const midY = (state.white.y + state.red.y) / 2;
-    const hs = 4.0;
+    const hs = (state.config.courtSize / 2) - 1;
 
     const s  = this.toScreenInto(state.shushin.x,   state.shushin.y,   {x:0,y:0});
     const f1 = this.toScreenInto(state.fukushin1.x, state.fukushin1.y, {x:0,y:0});
@@ -365,8 +369,10 @@ export class CanvasRenderer {
 
     if (this.isRPGMode) {
       let img: HTMLImageElement | null = null;
-      if (isCompetitor) {
-        img = this.imgKenshi;
+      if (ent === state.white) {
+        img = this.imgKenshiShiro || this.imgKenshi;
+      } else if (ent === state.red) {
+        img = this.imgKenshiAka || this.imgKenshi;
       } else if (ent === state.shushin) {
         img = this.imgShinpanS;
       } else if (ent === state.fukushin1) {

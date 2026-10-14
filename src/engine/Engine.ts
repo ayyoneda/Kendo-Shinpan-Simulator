@@ -204,8 +204,9 @@ export class Engine {
     const dAngToTargetDeg = radToDeg(angleDiff(this.targetAngle, rawAngle));
     const crossedBack = Math.abs(tgtDeg + dAngToTargetDeg) > 180;
 
+    const exitFlipThreshold = state.config.exitFlip || (state.config.enterFlip - 5);
     const wantsFlip = (absDeg > state.config.enterFlip) || crossedBack;
-    const canExitFlip = (absDeg < state.config.exitFlip) && !crossedBack;
+    const canExitFlip = (absDeg < exitFlipThreshold) && !crossedBack;
 
     if (canExitFlip) {
       this.flipBelowExitFrames++;

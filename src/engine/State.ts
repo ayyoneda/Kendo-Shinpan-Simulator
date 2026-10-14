@@ -4,7 +4,7 @@ export const defaultConfig: SimulationConfig = {
   courtSize: 10,
   speed: 8.0,
   turnRadius: 4.0,
-  smoothK: 8.0,
+  smoothK: 5.0,
   enterVertex: 90,
   exitVertex: 45,
   enterSBase: 123,
@@ -24,14 +24,16 @@ export class SimulationStore {
     this.state = this.getInitialState();
   }
 
-  public getInitialState(): EngineState {
+  public getInitialState(courtSize: number = defaultConfig.courtSize): EngineState {
+    const y = courtSize / 2 - 1;
+    const x = y * 0.5;
     return {
-      config: { ...defaultConfig },
+      config: { ...defaultConfig, courtSize },
       white: { x: -1.4, y: 0, radius: 0.4, color: '#ffffff', border: '#333', label: 'W', dragging: false },
       red:   { x: 1.4,  y: 0, radius: 0.4, color: '#cc0000', border: '#fff', label: 'R', dragging: false },
-      shushin:   { x: 0,   y: 4,  color: '#2563eb', label: 'S',  radius: 0.3 },
-      fukushin1: { x: 2.0, y: -4, color: '#fbbf24', label: 'F1', radius: 0.3 },
-      fukushin2: { x: -2.0,y: -4, color: '#22c55e', label: 'F2', radius: 0.3 },
+      shushin:   { x: 0,  y: y,  color: '#2563eb', label: 'S',  radius: 0.3 },
+      fukushin1: { x: x,  y: -y, color: '#fbbf24', label: 'F1', radius: 0.3 },
+      fukushin2: { x: -x, y: -y, color: '#22c55e', label: 'F2', radius: 0.3 },
       formationMode: 'STANDARD',
       arbiterState: 'STABLE',
       flag: 1,
@@ -46,7 +48,8 @@ export class SimulationStore {
   }
 
   public resetPositions() {
-    const init = this.getInitialState();
+    const currentCourtSize = this.state ? this.state.config.courtSize : defaultConfig.courtSize;
+    const init = this.getInitialState(currentCourtSize);
     this.state.white = init.white;
     this.state.red = init.red;
     this.state.shushin = init.shushin;

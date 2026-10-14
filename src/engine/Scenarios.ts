@@ -112,4 +112,8 @@ export class ScenarioRunner {
   isActive() {
     return this.activeId !== null;
   }
+
+  getActiveId(): string | null {
+    return this.activeId;
+  }
 }

@@ -15,6 +15,11 @@
       input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
       /* Custom Checkbox */
       .form-checkbox { accent-color: #bc002d; }
+      /* Custom Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); border-radius: 3px; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 3px; }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(188, 0, 45, 0.8); }
     </style>
     <script type="module" src="/src/main.ts"></script>
   </head>
@@ -24,24 +29,35 @@
 
       <!-- Main Mode Toggle -->
       <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full p-1 flex items-center shadow-2xl">
-        <button id="btn-mode-tech" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-white bg-[#bc002d] shadow-lg transition">Modo Técnico</button>
-        <button id="btn-mode-rpg" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition">Modo Renderizado</button>
+        <button id="btn-mode-tech" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-white bg-[#bc002d] shadow-lg transition cursor-pointer">Modo Técnico</button>
+        <button id="btn-mode-rpg" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition cursor-pointer">Modo Renderizado</button>
       </div>
 
+      <!-- Top-Right Floating Help Button -->
+      <button id="help-btn" class="absolute top-4 right-4 p-2.5 px-3.5 bg-black/60 backdrop-blur-md rounded-full shadow-2xl border border-white/10 text-gray-300 hover:text-white hover:bg-black/80 transition flex items-center gap-2 z-20 text-xs font-semibold cursor-pointer" title="Ajuda & Diretrizes">
+        <i class="fas fa-question-circle text-sm text-[#bc002d]"></i>
+        <span class="hidden sm:inline" id="ui-help-btn-label">Ajuda</span>
+      </button>
+
       <!-- Glass Panel Controls -->
-      <div id="controls-container" class="absolute top-4 left-4 w-[340px] max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl flex flex-col z-10 transition-transform duration-300 bg-black/50 backdrop-blur-2xl border border-white/10 text-gray-300">
+      <div id="controls-container" class="absolute top-4 left-4 w-[340px] max-h-[90vh] rounded-xl shadow-2xl flex flex-col z-10 transition-transform duration-300 bg-black/50 backdrop-blur-2xl border border-white/10 text-gray-300 overflow-hidden">
         
-        <!-- Header -->
-        <div class="p-4 border-b border-white/10 flex flex-col gap-2 bg-white/5 rounded-t-xl">
+        <!-- FROZEN / STICKY HEADER -->
+        <div class="flex-shrink-0 p-4 border-b border-white/10 flex flex-col gap-2 bg-white/5 rounded-t-xl">
           <div class="flex justify-between items-center">
             <h1 id="ui-app-title" class="text-lg font-bold text-white m-0 leading-none">Kendo Shinpan</h1>
-            <button id="toggle-panel-btn" class="text-gray-400 hover:text-white transition">
-              <i class="fas fa-chevron-left"></i>
-            </button>
+            <div class="flex items-center gap-2">
+              <button id="panel-help-btn" class="text-gray-400 hover:text-white transition p-1 text-sm cursor-pointer" title="Ajuda">
+                <i class="fas fa-question-circle"></i>
+              </button>
+              <button id="toggle-panel-btn" class="text-gray-400 hover:text-white transition p-1 cursor-pointer">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
           </div>
           <div class="flex justify-between items-center text-sm text-gray-400 mt-2">
             <span id="ui-lang-label" class="font-medium"><i class="fas fa-language"></i> Idioma</span>
-            <select id="lang-select" class="p-1 rounded border border-white/20 bg-black/50 text-white focus:outline-none">
+            <select id="lang-select" class="p-1 rounded border border-white/20 bg-black/50 text-white focus:outline-none cursor-pointer">
               <option value="pt">Português</option>
               <option value="en">English</option>
               <option value="jp">日本語</option>
@@ -49,7 +65,7 @@
           </div>
           <div class="flex justify-between items-center text-sm text-gray-400 mt-2">
             <span id="ui-court-label" class="font-medium"><i class="fas fa-ruler-combined"></i> Dimensão da Quadra</span>
-            <select id="court-select" class="p-1 rounded border border-white/20 bg-black/50 text-white focus:outline-none">
+            <select id="court-select" class="p-1 rounded border border-white/20 bg-black/50 text-white focus:outline-none cursor-pointer">
               <option value="9">9 x 9 m</option>
               <option value="10" selected>10 x 10 m</option>
               <option value="11">11 x 11 m</option>
@@ -57,99 +73,108 @@
           </div>
         </div>
 
-        <div class="p-4 flex-1 space-y-5">
+        <!-- SCROLLABLE BODY -->
+        <div class="p-4 flex-1 overflow-y-auto space-y-4 custom-scrollbar">
           <!-- Description -->
-          <p id="ui-description" class="text-[13px] leading-tight mb-2 text-gray-400"></p>
+          <p id="ui-description" class="text-[13px] leading-tight text-gray-400"></p>
 
-          <!-- Viz Toggles (Hidden in RPG Mode) -->
-          <div id="tech-toggles-section" class="space-y-2">
-            <h3 id="ui-label-viz" class="text-[11px] uppercase tracking-wider font-bold text-gray-500 mb-2"></h3>
-            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
-              <input type="checkbox" id="show-triangle" checked class="form-checkbox h-4 w-4">
-              <span id="ui-check-triangle"></span>
-            </label>
-            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
-              <input type="checkbox" id="show-axis" class="form-checkbox h-4 w-4">
-              <span id="ui-check-axis"></span>
-            </label>
-            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none ml-5">
-              <input type="checkbox" id="show-square-s" class="form-checkbox h-4 w-4">
-              <span id="ui-check-square-s"></span>
-            </label>
-            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none ml-5">
-              <input type="checkbox" id="show-square-f1" class="form-checkbox h-4 w-4">
-              <span id="ui-check-square-f1"></span>
-            </label>
-            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none ml-5">
-              <input type="checkbox" id="show-square-f2" class="form-checkbox h-4 w-4">
-              <span id="ui-check-square-f2"></span>
-            </label>
-            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
-              <input type="checkbox" id="show-labels" checked class="form-checkbox h-4 w-4">
-              <span id="ui-check-labels"></span>
-            </label>
-            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
-              <input type="checkbox" id="show-direction" checked class="form-checkbox h-4 w-4">
-              <span id="ui-check-direction"></span>
-            </label>
-            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
-              <input type="checkbox" id="show-trails" class="form-checkbox h-4 w-4">
-              <span id="ui-check-trails"></span>
-            </label>
-            <label class="flex items-center space-x-2 text-sm cursor-pointer select-none">
-              <input type="checkbox" id="show-debug" class="form-checkbox h-4 w-4">
-              <span id="ui-check-debug"></span>
-            </label>
-          </div>
-
-          <!-- Legend -->
-          <div class="bg-white/5 p-3 rounded-lg text-[13px] border border-white/10">
+          <!-- Adaptive Legend -->
+          <div id="legend-container" class="bg-white/5 p-3 rounded-lg text-[13px] border border-white/10">
             <div id="ui-label-legend" class="font-bold mb-2 uppercase text-[11px] text-gray-500 tracking-wider"></div>
-            <div class="grid grid-cols-2 gap-2">
+            
+            <!-- Technical Legend -->
+            <div id="tech-legend" class="grid grid-cols-2 gap-2">
               <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-white border border-gray-800"></span><span id="ui-leg-white"></span></div>
               <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-[#bc002d]"></span><span id="ui-leg-red"></span></div>
               <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-[#2563eb]"></span><span id="ui-leg-s"></span></div>
               <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-[#fbbf24]"></span><span id="ui-leg-f1"></span></div>
               <div class="flex items-center col-span-2"><span class="w-3 h-3 rounded-full mr-2 bg-[#22c55e]"></span><span id="ui-leg-f2"></span></div>
             </div>
+
+            <!-- Rendered Legend (Adaptive) -->
+            <div id="rendered-legend" class="hidden space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-white border border-gray-500"></span>
+                <span id="ui-leg-kenshi-shiro" class="text-xs text-gray-300"></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#bc002d]"></span>
+                <span id="ui-leg-kenshi-aka" class="text-xs text-gray-300"></span>
+              </div>
+              <div class="flex items-center gap-2 pt-1 border-t border-white/10">
+                <i class="fas fa-flag text-xs text-gray-400"></i>
+                <span id="ui-leg-shinpan-trio" class="text-xs text-gray-300"></span>
+              </div>
+            </div>
           </div>
 
-          <!-- Advanced -->
-          <details class="bg-white/5 rounded-lg border border-white/10 overflow-hidden text-sm">
-            <summary class="p-3 font-semibold text-white bg-white/5 hover:bg-white/10 transition select-none flex items-center justify-between cursor-pointer">
-              <div><i class="fas fa-sliders-h mr-2"></i> <span id="ui-advanced-title"></span></div>
-              <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
-            </summary>
-            <div class="p-3 space-y-4 border-t border-white/10">
-              
-              <div>
-                <div id="ui-advanced-section-motion" class="font-bold text-xs uppercase text-gray-500 mb-2"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-speed-label"></span><span id="val-speed" class="font-mono text-white">8.0</span></div><input id="slide-speed" type="range" min="2" max="15" step="0.5" value="8.0" class="w-full"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-radius-label"></span><span id="val-radius" class="font-mono text-white">4.0</span></div><input id="slide-radius" type="range" min="1" max="10" step="0.5" value="4.0" class="w-full"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-smooth-label"></span><span id="val-smooth" class="font-mono text-white">5.0</span></div><input id="slide-smooth" type="range" min="1" max="15" step="0.5" value="5.0" class="w-full"></div>
-              </div>
-
-              <div>
-                <div id="ui-advanced-section-thresholds" class="font-bold text-xs uppercase text-gray-500 mb-2"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-th-enter-vertex"></span><span id="val-enter-vertex" class="font-mono text-white">90</span></div><input id="slide-enter-vertex" type="range" min="40" max="110" step="1" value="90" class="w-full"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-th-exit-vertex"></span><span id="val-exit-vertex" class="font-mono text-white">45</span></div><input id="slide-exit-vertex" type="range" min="10" max="80" step="1" value="45" class="w-full"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-th-enter-sbase"></span><span id="val-enter-sbase" class="font-mono text-white">123</span></div><input id="slide-enter-sbase" type="range" min="100" max="150" step="1" value="123" class="w-full"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-th-exit-sbase"></span><span id="val-exit-sbase" class="font-mono text-white">90</span></div><input id="slide-exit-sbase" type="range" min="70" max="130" step="1" value="90" class="w-full"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-th-enter-flip"></span><span id="val-enter-flip" class="font-mono text-white">135</span></div><input id="slide-enter-flip" type="range" min="110" max="170" step="1" value="135" class="w-full"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-th-exit-flip"></span><span id="val-exit-flip" class="font-mono text-white">130</span></div><input id="slide-exit-flip" type="range" min="90" max="160" step="1" value="130" class="w-full"></div>
-              </div>
-
-              <div>
-                <div id="ui-advanced-section-freeze" class="font-bold text-xs uppercase text-gray-500 mb-2"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-freeze-dist"></span><span id="val-freeze-dist" class="font-mono text-white">1.2</span></div><input id="slide-freeze-dist" type="range" min="0.8" max="2.0" step="0.05" value="1.2" class="w-full"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-freeze-window"></span><span id="val-freeze-window" class="font-mono text-white">200</span></div><input id="slide-freeze-window" type="range" min="80" max="500" step="10" value="200" class="w-full"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-freeze-angle"></span><span id="val-freeze-angle" class="font-mono text-white">90°</span></div><input id="slide-freeze-angle" type="range" min="30" max="180" step="5" value="90" class="w-full"></div>
-                <div class="space-y-1"><div class="flex justify-between"><span id="ui-freeze-time"></span><span id="val-freeze-time" class="font-mono text-white">300</span></div><input id="slide-freeze-time" type="range" min="100" max="800" step="50" value="300" class="w-full"></div>
-              </div>
-
-              <div id="ui-advanced-note" class="text-[11px] text-gray-500 leading-tight"></div>
+          <!-- Advanced Parameters (Directly open in Technical Mode, Hidden in Rendered Mode) -->
+          <div id="tech-advanced-section" class="bg-white/5 p-3 rounded-lg border border-white/10 text-sm space-y-3.5">
+            <div class="flex items-center justify-between border-b border-white/10 pb-1.5">
+              <span class="font-bold text-xs uppercase tracking-wider text-white">
+                <i class="fas fa-sliders-h mr-1.5 text-[#bc002d]"></i> <span id="ui-advanced-title">Parâmetros</span>
+              </span>
             </div>
-          </details>
+
+            <!-- Movimento: Suavização (k) -->
+            <div>
+              <div id="ui-advanced-section-motion" class="font-bold text-[11px] uppercase text-gray-500 mb-1"></div>
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs">
+                  <span id="ui-smooth-label"></span>
+                  <span id="val-smooth" class="font-mono text-white font-semibold">5.0</span>
+                </div>
+                <input id="slide-smooth" type="range" min="1" max="15" step="0.5" value="5.0" class="w-full">
+              </div>
+            </div>
+
+            <!-- Thresholds de Transição: 5 sliders -->
+            <div class="space-y-2.5">
+              <div id="ui-advanced-section-thresholds" class="font-bold text-[11px] uppercase text-gray-500 mb-1"></div>
+              
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs">
+                  <span id="ui-th-enter-vertex"></span>
+                  <span id="val-enter-vertex" class="font-mono text-white font-semibold">90°</span>
+                </div>
+                <input id="slide-enter-vertex" type="range" min="40" max="110" step="1" value="90" class="w-full">
+              </div>
+
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs">
+                  <span id="ui-th-exit-vertex"></span>
+                  <span id="val-exit-vertex" class="font-mono text-white font-semibold">45°</span>
+                </div>
+                <input id="slide-exit-vertex" type="range" min="10" max="80" step="1" value="45" class="w-full">
+              </div>
+
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs">
+                  <span id="ui-th-enter-sbase"></span>
+                  <span id="val-enter-sbase" class="font-mono text-white font-semibold">123°</span>
+                </div>
+                <input id="slide-enter-sbase" type="range" min="100" max="150" step="1" value="123" class="w-full">
+              </div>
+
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs">
+                  <span id="ui-th-exit-sbase"></span>
+                  <span id="val-exit-sbase" class="font-mono text-white font-semibold">90°</span>
+                </div>
+                <input id="slide-exit-sbase" type="range" min="70" max="130" step="1" value="90" class="w-full">
+              </div>
+
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs">
+                  <span id="ui-th-enter-flip"></span>
+                  <span id="val-enter-flip" class="font-mono text-white font-semibold">135°</span>
+                </div>
+                <input id="slide-enter-flip" type="range" min="110" max="170" step="1" value="135" class="w-full">
+              </div>
+            </div>
+
+            <div id="ui-advanced-note" class="text-[11px] text-gray-500 leading-tight"></div>
+          </div>
 
           <!-- Tip -->
           <div class="bg-[#bc002d]/10 text-white p-3 rounded-lg text-sm border border-[#bc002d]/20">
@@ -157,21 +182,8 @@
             <span id="ui-tip-body" class="block mt-1 text-gray-300"></span>
           </div>
 
-          <!-- Scenario Runner (Debug) -->
-          <details class="bg-white/5 rounded-lg border border-white/10 overflow-hidden text-sm">
-            <summary class="p-3 font-semibold text-white bg-white/5 hover:bg-white/10 transition select-none flex items-center justify-between cursor-pointer">
-              <div><i class="fas fa-robot mr-2"></i> <span id="ui-scenarios-title">Cenários de Movimentação</span></div>
-              <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
-            </summary>
-            <div class="p-3 border-t border-white/10">
-              <div class="grid grid-cols-1 gap-2" id="scenario-buttons">
-                <!-- Buttons injected via main.ts -->
-              </div>
-            </div>
-          </details>
-
-          <!-- Debug Panel -->
-          <div id="debug-panel" class="hidden bg-black/80 text-green-400 p-3 rounded-lg text-xs font-mono space-y-1 shadow-inner border border-white/10">
+          <!-- Debug Panel (Only in Technical Mode) -->
+          <div id="debug-panel" class="bg-black/80 text-green-400 p-3 rounded-lg text-xs font-mono space-y-1 shadow-inner border border-white/10">
             <div class="text-gray-500 mb-2 font-bold uppercase text-[10px]" id="ui-label-angles"></div>
             <div class="flex justify-between"><span id="ui-angle-combat"></span><span id="debug-angle" class="text-white">0°</span></div>
             <div class="flex justify-between"><span id="ui-mode-label"></span><span id="debug-mode" class="text-white">STANDARD</span></div>
@@ -185,18 +197,105 @@
           </div>
         </div>
 
-        <!-- Footer / Reset -->
-        <div class="p-4 bg-black/40 border-t border-white/10 rounded-b-xl">
-          <button id="reset-btn" class="w-full bg-[#bc002d] hover:bg-red-800 text-white font-semibold py-2.5 px-4 rounded-lg shadow-md transition transform active:scale-95 flex items-center justify-center gap-2">
+        <!-- FROZEN / STICKY FOOTER / RESET -->
+        <div class="flex-shrink-0 p-3 bg-black/60 border-t border-white/10 rounded-b-xl">
+          <button id="reset-btn" class="w-full bg-[#bc002d] hover:bg-red-800 text-white font-semibold py-2.5 px-4 rounded-lg shadow-md transition transform active:scale-95 flex items-center justify-center gap-2 cursor-pointer">
             <i class="fas fa-undo-alt"></i> <span id="ui-btn-reset"></span>
           </button>
         </div>
       </div>
       
       <!-- Open Panel Button -->
-      <button id="open-panel-btn" class="absolute top-4 left-4 p-3 bg-black/50 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hidden hover:bg-black/70 transition z-20">
+      <button id="open-panel-btn" class="absolute top-4 left-4 p-3 bg-black/50 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hidden hover:bg-black/70 transition z-20 cursor-pointer" title="Abrir Configurações">
         <i class="fas fa-cog text-white"></i>
       </button>
+
+      <!-- Floating Reset Button (Visible when panel is collapsed) -->
+      <button id="floating-reset-btn" class="absolute top-16 left-4 p-3 bg-black/50 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hidden hover:bg-black/70 text-gray-300 hover:text-white transition z-20 cursor-pointer" title="Resetar Posições">
+        <i class="fas fa-undo-alt text-[#bc002d]"></i>
+      </button>
+
+      <!-- HELP MODAL OVERLAY -->
+      <div id="help-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="bg-[#18181b]/95 border border-white/20 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col text-gray-200 overflow-hidden">
+          
+          <!-- Modal Header -->
+          <div class="p-4 px-6 border-b border-white/10 flex justify-between items-center bg-white/5">
+            <div class="flex items-center gap-2.5">
+              <i class="fas fa-book-open text-[#bc002d] text-lg"></i>
+              <h2 id="help-modal-title" class="text-base font-bold text-white m-0">Guia do Simulador & Fundamentos</h2>
+            </div>
+            <button id="help-modal-close" class="text-gray-400 hover:text-white p-1 transition text-lg cursor-pointer">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+
+          <!-- Tabs Navigation -->
+          <div class="flex overflow-x-auto gap-1 p-2 px-4 border-b border-white/10 bg-black/40 text-xs font-semibold custom-scrollbar">
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg bg-[#bc002d] text-white transition whitespace-nowrap cursor-pointer" data-tab="usage" id="tab-btn-usage">Como Usar</button>
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer" data-tab="modes" id="tab-btn-modes">Modos de Visão</button>
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer" data-tab="viz" id="tab-btn-viz">Zonas & Geometria</button>
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer" data-tab="advanced" id="tab-btn-advanced">Parâmetros</button>
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer" data-tab="scenarios" id="tab-btn-scenarios">Cenários</button>
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer" data-tab="concept" id="tab-btn-concept">Conceito Marcial</button>
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer" data-tab="disclaimer" id="tab-btn-disclaimer">Disclaimer & Regras</button>
+          </div>
+
+          <!-- Modal Body Content -->
+          <div id="help-tab-content" class="flex-1 overflow-y-auto p-6 text-sm leading-relaxed text-gray-300 custom-scrollbar">
+            <!-- Content injected dynamically via main.ts -->
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="p-3 px-6 bg-black/40 border-t border-white/10 flex justify-end">
+            <button id="help-modal-bottom-close" class="px-5 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium text-xs transition cursor-pointer">
+              Fechar Guia
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOATING SCENARIOS WIDGET (Option A) -->
+      <div id="scenarios-widget" class="fixed bottom-7 right-4 z-20 flex flex-col items-end select-none">
+        
+        <!-- Expanded Card (Initially Hidden) -->
+        <div id="scenarios-expanded" class="hidden mb-2 bg-[#18181b]/95 backdrop-blur-md border border-white/15 rounded-xl shadow-2xl p-3 w-72 text-gray-200 transition-all">
+          <div class="flex items-center justify-between pb-2 border-b border-white/10 mb-2">
+            <span class="font-bold text-xs uppercase tracking-wider text-white flex items-center gap-1.5">
+              <i class="fas fa-play-circle text-[#bc002d]"></i> <span id="ui-scenarios-expanded-title">Cenários de Teste</span>
+            </span>
+            <div class="flex items-center gap-1">
+              <button id="scenario-stop-btn-expanded" class="p-1 px-2 text-[11px] bg-red-950/70 hover:bg-red-900 border border-red-700/50 text-red-300 rounded cursor-pointer transition flex items-center gap-1" title="Parar Cenário">
+                <i class="fas fa-stop text-[10px]"></i> <span id="ui-stop-label-expanded">Parar</span>
+              </button>
+              <button id="scenarios-collapse-btn" class="text-gray-400 hover:text-white p-1 text-xs cursor-pointer transition" title="Recolher">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+          <!-- Full Scenario Buttons List -->
+          <div id="scenario-expanded-list" class="space-y-1 max-h-60 overflow-y-auto custom-scrollbar pr-0.5">
+            <!-- Buttons injected dynamically -->
+          </div>
+        </div>
+
+        <!-- Compact Pill Bar -->
+        <div id="scenarios-compact" class="flex items-center gap-1.5 bg-black/60 backdrop-blur-md border border-white/15 rounded-full px-2.5 py-1.5 shadow-xl transition-all">
+          <span class="text-[11px] font-semibold text-gray-400 pl-1 flex items-center gap-1">
+            <i class="fas fa-play text-[#bc002d] text-[10px]"></i> <span id="ui-scenarios-compact-title" class="hidden sm:inline">Cenários:</span>
+          </span>
+          <div id="scenario-chips" class="flex items-center gap-1">
+            <!-- Chips injected dynamically (1A, 1B, 1C, 1D, 2, 3, 4, 5) -->
+          </div>
+          <button id="scenario-stop-btn-compact" class="w-6 h-6 rounded-full bg-red-950/70 hover:bg-red-900 border border-red-700/50 text-red-300 flex items-center justify-center text-[10px] cursor-pointer transition ml-0.5" title="Parar Cenário">
+            <i class="fas fa-stop"></i>
+          </button>
+          <button id="scenarios-expand-btn" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white flex items-center justify-center text-[10px] cursor-pointer transition" title="Ver Lista Completa">
+            <i class="fas fa-chevron-up"></i>
+          </button>
+        </div>
+
+      </div>
 
       <div id="ui-author" class="fixed right-3 bottom-2 text-[11px] text-white/50 pointer-events-none z-0"></div>
     </div>
