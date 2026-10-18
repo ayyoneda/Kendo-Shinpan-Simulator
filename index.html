@@ -307,18 +307,21 @@
 
       </div>
 
-      <!-- FLOATING PROCEDURE STEPPER WIDGET -->
-      <div id="procedure-widget" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-20 w-[94vw] max-w-xl bg-[#18181b]/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl p-4 text-gray-200 flex flex-col gap-3 select-none transition-all">
+      <!-- DOCKED PROCEDURE PANEL (RIGHT SIDEBAR) -->
+      <div id="procedure-widget" class="hidden fixed top-16 right-4 z-20 w-[350px] max-h-[85vh] bg-[#18181b]/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl p-4 text-gray-200 flex flex-col gap-3 select-none transition-all overflow-hidden">
         
         <!-- Header & Chapter Selector -->
-        <div class="flex items-center justify-between pb-2.5 border-b border-white/10">
+        <div class="flex items-center justify-between pb-2.5 border-b border-white/10 flex-shrink-0">
           <div class="flex items-center gap-2">
             <i class="fas fa-scroll text-[#bc002d]"></i>
             <span class="font-bold text-xs uppercase tracking-wider text-white" id="ui-proc-header">Procedimentos FIK</span>
           </div>
-          <div class="flex items-center gap-1">
+          <div class="flex items-center gap-1.5">
             <button id="proc-speed-btn" class="px-2 py-1 bg-white/10 hover:bg-white/20 border border-white/10 rounded-md text-[11px] font-mono text-gray-300 hover:text-white transition cursor-pointer" title="Velocidade">
               <span id="proc-speed-val">1.0x</span>
+            </button>
+            <button id="proc-minimize-btn" class="text-gray-400 hover:text-white p-1 text-xs transition cursor-pointer" title="Minimizar">
+              <i class="fas fa-minus"></i>
             </button>
             <button id="proc-close-btn" class="text-gray-400 hover:text-white p-1 text-sm transition cursor-pointer" title="Voltar ao Combate">
               <i class="fas fa-times"></i>
@@ -326,52 +329,71 @@
           </div>
         </div>
 
-        <!-- Chapter Tabs (Pill Buttons) -->
-        <div class="flex gap-1.5 overflow-x-auto pb-0.5 custom-scrollbar" id="proc-chapter-tabs">
-          <button class="proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer" data-chapter="entry" id="tab-chap-entry">1. Entrada & Formação</button>
-          <button class="proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer" data-chapter="rotation" id="tab-chap-rotation">2. Rotação & Troca</button>
-          <button class="proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer" data-chapter="exit" id="tab-chap-exit">3. Saída</button>
+        <!-- Chapter Tabs (Vertical List) -->
+        <div class="flex flex-col gap-1 flex-shrink-0" id="proc-chapter-tabs">
+          <button class="proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer" data-chapter="entry" id="tab-chap-entry">1. Entrada & Formação</button>
+          <button class="proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer" data-chapter="rotation" id="tab-chap-rotation">2. Rotação & Troca</button>
+          <button class="proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer" data-chapter="exit" id="tab-chap-exit">3. Saída</button>
         </div>
 
         <!-- Step Info Card -->
-        <div class="bg-black/40 border border-white/10 rounded-xl p-3 flex flex-col gap-2">
+        <div class="bg-black/40 border border-white/10 rounded-xl p-3 flex flex-col gap-2 overflow-y-auto custom-scrollbar flex-1">
           <div class="flex items-center justify-between">
             <span id="proc-step-counter" class="text-[11px] font-bold uppercase tracking-wider text-blue-400">Passo 1 de 6</span>
             <span id="proc-command-badge" class="hidden px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-blue-600/30 text-blue-300 border border-blue-500/40">Mae!</span>
           </div>
-          <p id="proc-step-desc" class="text-xs text-gray-300 leading-relaxed m-0 min-h-[38px]"></p>
+          <p id="proc-step-desc" class="text-xs text-gray-300 leading-relaxed m-0 min-h-[40px]"></p>
           
           <!-- Progress Bar -->
-          <div class="w-full bg-white/10 rounded-full h-1.5 overflow-hidden mt-1">
+          <div class="w-full bg-white/10 rounded-full h-1.5 overflow-hidden mt-1 flex-shrink-0">
             <div id="proc-progress-fill" class="bg-[#bc002d] h-full transition-all duration-100" style="width: 0%"></div>
           </div>
         </div>
 
         <!-- Media & Navigation Controls -->
-        <div class="flex items-center justify-between gap-2 pt-1">
-          <div class="flex items-center gap-1.5">
+        <div class="flex flex-col gap-2 pt-1 flex-shrink-0 border-t border-white/10">
+          <div class="flex items-center justify-between">
             <label class="flex items-center gap-1.5 text-xs text-gray-300 cursor-pointer select-none">
               <input type="checkbox" id="proc-pause-step-chk" checked class="form-checkbox rounded">
               <span id="ui-proc-pause-step" class="text-[11px] text-gray-400">Pausar a cada etapa</span>
             </label>
+            <button id="proc-reset-btn" class="p-1 px-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white flex items-center gap-1 text-[11px] transition cursor-pointer" title="Reiniciar Capítulo">
+              <i class="fas fa-undo text-[10px]"></i> <span>Reiniciar</span>
+            </button>
           </div>
 
-          <div class="flex items-center gap-1">
-            <button id="proc-reset-btn" class="p-2 w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white flex items-center justify-center text-xs transition cursor-pointer" title="Reiniciar Capítulo">
-              <i class="fas fa-undo"></i>
+          <div class="grid grid-cols-3 gap-1.5">
+            <button id="proc-prev-btn" class="py-2 px-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 text-white font-semibold text-xs flex items-center justify-center gap-1 transition cursor-pointer" title="Etapa Anterior">
+              <i class="fas fa-step-backward"></i> <span id="ui-proc-prev">Anterior</span>
             </button>
-            <button id="proc-prev-btn" class="p-2 px-3 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 text-white font-semibold text-xs flex items-center gap-1 transition cursor-pointer" title="Etapa Anterior">
-              <i class="fas fa-step-backward"></i> <span id="ui-proc-prev" class="hidden sm:inline">Anterior</span>
-            </button>
-            <button id="proc-play-btn" class="p-2 px-4 rounded-lg bg-[#bc002d] hover:bg-red-800 text-white font-bold text-xs flex items-center gap-1.5 shadow-lg transition transform active:scale-95 cursor-pointer">
+            <button id="proc-play-btn" class="py-2 px-2 rounded-lg bg-[#bc002d] hover:bg-red-800 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg transition transform active:scale-95 cursor-pointer">
               <i class="fas fa-play" id="proc-play-icon"></i> <span id="ui-proc-play">Reproduzir</span>
             </button>
-            <button id="proc-next-btn" class="p-2 px-3 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 text-white font-semibold text-xs flex items-center gap-1 transition cursor-pointer" title="Próxima Etapa">
-              <span id="ui-proc-next" class="hidden sm:inline">Próximo</span> <i class="fas fa-step-forward"></i>
+            <button id="proc-next-btn" class="py-2 px-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 text-white font-semibold text-xs flex items-center justify-center gap-1 transition cursor-pointer" title="Próxima Etapa">
+              <span id="ui-proc-next">Próximo</span> <i class="fas fa-step-forward"></i>
             </button>
           </div>
         </div>
 
+      </div>
+
+      <!-- COMPACT MINIMIZED PROCEDURE PILL -->
+      <div id="proc-minimized-pill" class="hidden fixed top-16 right-4 z-20 flex items-center gap-1.5 bg-black/70 backdrop-blur-md border border-white/15 rounded-full px-3 py-1.5 shadow-2xl transition-all select-none">
+        <i class="fas fa-scroll text-[#bc002d] text-xs mr-0.5"></i>
+        <span id="proc-mini-counter" class="text-[11px] font-bold text-blue-400 mr-1.5">1/6</span>
+        <button id="proc-mini-prev-btn" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-xs transition cursor-pointer" title="Anterior">
+          <i class="fas fa-step-backward text-[9px]"></i>
+        </button>
+        <button id="proc-mini-play-btn" class="w-6 h-6 rounded-full bg-[#bc002d] hover:bg-red-800 text-white flex items-center justify-center text-xs transition cursor-pointer shadow-md" title="Reproduzir / Pausar">
+          <i class="fas fa-play text-[9px]" id="proc-mini-play-icon"></i>
+        </button>
+        <button id="proc-mini-next-btn" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-xs transition cursor-pointer" title="Próximo">
+          <i class="fas fa-step-forward text-[9px]"></i>
+        </button>
+        <div class="h-4 w-px bg-white/20 mx-0.5"></div>
+        <button id="proc-expand-btn" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white flex items-center justify-center text-xs transition cursor-pointer" title="Expandir Painel">
+          <i class="fas fa-chevron-left text-[9px]"></i>
+        </button>
       </div>
 
       <div id="ui-author" class="fixed right-3 bottom-2 text-[11px] text-white/50 pointer-events-none z-0"></div>

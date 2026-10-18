@@ -76,6 +76,14 @@ const procedureWidget = document.getElementById('procedure-widget') as HTMLEleme
 const procSpeedBtn = document.getElementById('proc-speed-btn') as HTMLButtonElement;
 const procSpeedVal = document.getElementById('proc-speed-val') as HTMLElement;
 const procCloseBtn = document.getElementById('proc-close-btn') as HTMLButtonElement;
+const procMinimizeBtn = document.getElementById('proc-minimize-btn') as HTMLButtonElement;
+const procMinimizedPill = document.getElementById('proc-minimized-pill') as HTMLElement;
+const procMiniCounter = document.getElementById('proc-mini-counter') as HTMLElement;
+const procMiniPrevBtn = document.getElementById('proc-mini-prev-btn') as HTMLButtonElement;
+const procMiniPlayBtn = document.getElementById('proc-mini-play-btn') as HTMLButtonElement;
+const procMiniPlayIcon = document.getElementById('proc-mini-play-icon') as HTMLElement;
+const procMiniNextBtn = document.getElementById('proc-mini-next-btn') as HTMLButtonElement;
+const procExpandBtn = document.getElementById('proc-expand-btn') as HTMLButtonElement;
 const tabChapEntry = document.getElementById('tab-chap-entry') as HTMLButtonElement;
 const tabChapRotation = document.getElementById('tab-chap-rotation') as HTMLButtonElement;
 const tabChapExit = document.getElementById('tab-chap-exit') as HTMLButtonElement;
@@ -372,23 +380,27 @@ function updateProcedureUI() {
 
   if (tabChapEntry) {
     tabChapEntry.className = chapter.id === 'entry'
-      ? "proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer"
-      : "proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer";
+      ? "proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer"
+      : "proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer";
   }
   if (tabChapRotation) {
     tabChapRotation.className = chapter.id === 'rotation'
-      ? "proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer"
-      : "proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer";
+      ? "proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer"
+      : "proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer";
   }
   if (tabChapExit) {
     tabChapExit.className = chapter.id === 'exit'
-      ? "proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer"
-      : "proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer";
+      ? "proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer"
+      : "proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer";
   }
 
   if (procStepCounter) {
     const stepLabel = s.stepLabel || (currentLang === 'jp' ? '段階' : (currentLang === 'en' ? 'Step' : 'Passo'));
     procStepCounter.textContent = `${stepLabel} ${stepIdx + 1} / ${chapter.steps.length}`;
+  }
+
+  if (procMiniCounter) {
+    procMiniCounter.textContent = `${stepIdx + 1}/${chapter.steps.length}`;
   }
 
   if (procCommandBadge) {
@@ -407,6 +419,9 @@ function updateProcedureUI() {
   const isPlaying = procedureManager.isPlaying();
   if (procPlayIcon) {
     procPlayIcon.className = isPlaying ? "fas fa-pause" : "fas fa-play";
+  }
+  if (procMiniPlayIcon) {
+    procMiniPlayIcon.className = isPlaying ? "fas fa-pause text-[9px]" : "fas fa-play text-[9px]";
   }
   const uiProcPlay = document.getElementById('ui-proc-play');
   if (uiProcPlay) {
@@ -435,7 +450,13 @@ function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
       btnSimProcedure.className = "px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-white transition cursor-pointer flex items-center gap-1.5";
     }
 
+    // Restore left combat panel
+    controlsContainer.classList.remove('collapsed');
+    openPanelBtn.classList.add('hidden');
+    floatingResetBtn.classList.add('hidden');
+
     if (procedureWidget) procedureWidget.classList.add('hidden');
+    if (procMinimizedPill) procMinimizedPill.classList.add('hidden');
     if (scenariosWidget) scenariosWidget.classList.remove('hidden');
 
     store.resetPositions();
@@ -452,7 +473,13 @@ function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
       btnSimCombat.className = "px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-white transition cursor-pointer flex items-center gap-1.5";
     }
 
+    // Auto-collapse left combat settings panel to give full canvas breadth
+    controlsContainer.classList.add('collapsed');
+    openPanelBtn.classList.remove('hidden');
+    floatingResetBtn.classList.add('hidden');
+
     if (procedureWidget) procedureWidget.classList.remove('hidden');
+    if (procMinimizedPill) procMinimizedPill.classList.add('hidden');
     if (scenariosWidget) scenariosWidget.classList.add('hidden');
 
     procedureManager.reset();
@@ -463,6 +490,20 @@ function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
 if (btnSimCombat) btnSimCombat.addEventListener('click', () => setSimulationMode('COMBAT'));
 if (btnSimProcedure) btnSimProcedure.addEventListener('click', () => setSimulationMode('PROCEDURE'));
 if (procCloseBtn) procCloseBtn.addEventListener('click', () => setSimulationMode('COMBAT'));
+
+if (procMinimizeBtn) {
+  procMinimizeBtn.addEventListener('click', () => {
+    if (procedureWidget) procedureWidget.classList.add('hidden');
+    if (procMinimizedPill) procMinimizedPill.classList.remove('hidden');
+  });
+}
+
+if (procExpandBtn) {
+  procExpandBtn.addEventListener('click', () => {
+    if (procMinimizedPill) procMinimizedPill.classList.add('hidden');
+    if (procedureWidget) procedureWidget.classList.remove('hidden');
+  });
+}
 
 if (tabChapEntry) {
   tabChapEntry.addEventListener('click', () => {
@@ -492,6 +533,12 @@ if (procPlayBtn) {
     updateProcedureUI();
   });
 }
+if (procMiniPlayBtn) {
+  procMiniPlayBtn.addEventListener('click', () => {
+    procedureManager.togglePlay();
+    updateProcedureUI();
+  });
+}
 
 if (procPrevBtn) {
   procPrevBtn.addEventListener('click', () => {
@@ -500,9 +547,23 @@ if (procPrevBtn) {
     updateProcedureUI();
   });
 }
+if (procMiniPrevBtn) {
+  procMiniPrevBtn.addEventListener('click', () => {
+    renderer.clearTrails();
+    procedureManager.prevStep();
+    updateProcedureUI();
+  });
+}
 
 if (procNextBtn) {
   procNextBtn.addEventListener('click', () => {
+    renderer.clearTrails();
+    procedureManager.nextStep();
+    updateProcedureUI();
+  });
+}
+if (procMiniNextBtn) {
+  procMiniNextBtn.addEventListener('click', () => {
     renderer.clearTrails();
     procedureManager.nextStep();
     updateProcedureUI();
