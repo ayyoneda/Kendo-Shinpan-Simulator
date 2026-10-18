@@ -2,6 +2,7 @@ import type { Vector2D } from '../math/vector';
 
 export type FormationMode = 'STANDARD' | 'VERTEX' | 'S_BASE';
 export type ArbiterState = 'STABLE' | 'FROZEN';
+export type SimulationMode = 'COMBAT' | 'PROCEDURE';
 
 export interface Fighter extends Vector2D {
   radius: number;
@@ -15,6 +16,9 @@ export interface Referee extends Vector2D {
   radius: number;
   color: string;
   label: string;
+  heading?: number;
+  flagsRolled?: boolean;
+  flagsInRightHand?: boolean;
 }
 
 export interface SimulationConfig {
@@ -51,4 +55,6 @@ export interface EngineState {
     fukushin2Abs: number;
     combatRadSmoothed: number;
   };
+  simulationMode?: SimulationMode;
+  competitorsVisible?: boolean;
 }
