@@ -23,6 +23,9 @@ export class CanvasRenderer {
   private imgShinpanS: HTMLImageElement | null = null;
   private imgShinpanF1: HTMLImageElement | null = null;
   private imgShinpanF2: HTMLImageElement | null = null;
+  private imgShinpanEntradaS: HTMLImageElement | null = null;
+  private imgShinpanEntradaF1: HTMLImageElement | null = null;
+  private imgShinpanEntradaF2: HTMLImageElement | null = null;
   private imgFloor: HTMLImageElement | null = null;
 
   // Visual config
@@ -36,6 +39,7 @@ export class CanvasRenderer {
   public procedureActiveStep: ProcedureStep | null = null;
   public procedureSubstituteReferee: Referee | null = null;
   public showProcedureGuides = true;
+  public procedureSeatsSide: 'LEFT' | 'RIGHT' = 'LEFT';
 
   private trails: Record<string, Vector2D[]> = {
     white: [], red: [], shushin: [], fukushin1: [], fukushin2: []
@@ -59,6 +63,9 @@ export class CanvasRenderer {
     this.imgShinpanS = new Image(); this.imgShinpanS.src = base + 'assets/shinpan_3.png';
     this.imgShinpanF1 = new Image(); this.imgShinpanF1.src = base + 'assets/shinpan_4.png';
     this.imgShinpanF2 = new Image(); this.imgShinpanF2.src = base + 'assets/shinpan_5.png';
+    this.imgShinpanEntradaS = new Image(); this.imgShinpanEntradaS.src = base + 'assets/shinpan_entrada/shinpan_3.png';
+    this.imgShinpanEntradaF1 = new Image(); this.imgShinpanEntradaF1.src = base + 'assets/shinpan_entrada/shinpan_4.png';
+    this.imgShinpanEntradaF2 = new Image(); this.imgShinpanEntradaF2.src = base + 'assets/shinpan_entrada/shinpan_5.png';
     this.imgFloor = new Image(); this.imgFloor.src = base + 'assets/floor.jpg';
   }
 
@@ -97,8 +104,13 @@ export class CanvasRenderer {
 
   public pushTrails(state: EngineState) {
     if (!this.showTrails) return;
-    this.pushTrail('white', state.white);
-    this.pushTrail('red', state.red);
+    if (state.competitorsVisible === false) {
+      this.trails.white = [];
+      this.trails.red = [];
+    } else {
+      this.pushTrail('white', state.white);
+      this.pushTrail('red', state.red);
+    }
     this.pushTrail('shushin', state.shushin);
     this.pushTrail('fukushin1', state.fukushin1);
     this.pushTrail('fukushin2', state.fukushin2);
@@ -120,9 +132,15 @@ export class CanvasRenderer {
   public render(state: EngineState) {
     this.drawFloor();
     this.drawCourt(state.config.courtSize);
-    this.drawGuides(state);
-    this.drawProcedureGuides(state);
-    this.drawTrails();
+
+    if (state.simulationMode === 'PROCEDURE') {
+      this.drawShinpanSeats(state.config.courtSize, this.procedureSeatsSide);
+      this.drawProcedureGuides(state);
+    } else {
+      this.drawGuides(state);
+    }
+
+    this.drawTrails(state);
 
     if (state.competitorsVisible !== false) {
       this.drawEntity(state.white, false, state);
@@ -345,9 +363,12 @@ export class CanvasRenderer {
     }
   }
 
-  private drawTrails() {
+  private drawTrails(state?: EngineState) {
     if (!this.showTrails) return;
-    const keys = ['white', 'red', 'shushin', 'fukushin1', 'fukushin2'];
+    const hideCompetitors = state?.competitorsVisible === false;
+    const keys = hideCompetitors
+      ? ['shushin', 'fukushin1', 'fukushin2']
+      : ['white', 'red', 'shushin', 'fukushin1', 'fukushin2'];
     const colors: Record<string, string> = {
       white:    '200,200,200',
       red:      '204,0,0',
@@ -358,7 +379,7 @@ export class CanvasRenderer {
 
     for (const key of keys) {
       const trail = this.trails[key];
-      if (trail.length < 2) continue;
+      if (!trail || trail.length < 2) continue;
       for (let i = 1; i < trail.length; i++) {
         const alpha = (i / trail.length) * 0.45;
         const radius = Math.max(1, (i / trail.length) * 4);
@@ -380,16 +401,21 @@ export class CanvasRenderer {
 
     if (this.isRPGMode) {
       let img: HTMLImageElement | null = null;
+      const ref = ent as Referee;
+      const useEntradaSprite = isRef && (ref.flagsRolled === true || ref.flagsInRightHand === true);
+
       if (ent === state.white) {
         img = this.imgKenshiShiro || this.imgKenshi;
       } else if (ent === state.red) {
         img = this.imgKenshiAka || this.imgKenshi;
       } else if (ent === state.shushin) {
-        img = this.imgShinpanS;
+        img = useEntradaSprite ? (this.imgShinpanEntradaS || this.imgShinpanS) : this.imgShinpanS;
       } else if (ent === state.fukushin1) {
-        img = this.imgShinpanF1;
+        img = useEntradaSprite ? (this.imgShinpanEntradaF1 || this.imgShinpanF1) : this.imgShinpanF1;
       } else if (ent === state.fukushin2) {
-        img = this.imgShinpanF2;
+        img = useEntradaSprite ? (this.imgShinpanEntradaF2 || this.imgShinpanF2) : this.imgShinpanF2;
+      } else if (ent === this.procedureSubstituteReferee) {
+        img = this.imgShinpanEntradaS || this.imgShinpanS;
       }
 
       if (img && img.complete) {
@@ -412,9 +438,9 @@ export class CanvasRenderer {
         // Sprite default is pointing UP (Math.PI/2 relative to right).
         this.ctx.rotate(facingAngle + Math.PI / 2);
 
-        // Mirror Fukushin flags (swap red and white)
+        // Mirror Fukushin flags only in combat mode (not when using shinpan_entrada where flags are already on right hip)
         const isFukushin = ent === state.fukushin1 || ent === state.fukushin2;
-        if (isFukushin) {
+        if (isFukushin && !useEntradaSprite) {
           this.ctx.scale(-1, 1);
         }
 
@@ -426,7 +452,7 @@ export class CanvasRenderer {
         if (isCompetitor) {
           // kenshi_3 tem os ombros em ~68.8%
           pivotYRatio = 0.69;
-        } else if (ent === state.shushin) {
+        } else if (ent === state.shushin || ent === this.procedureSubstituteReferee) {
           // shinpan_3 girado tem ombros em ~45.6%
           pivotYRatio = 0.46;
         } else if (ent === state.fukushin1) {
@@ -520,43 +546,138 @@ export class CanvasRenderer {
     }
   }
 
+  private drawShinpanSeats(courtSize: number, side: 'LEFT' | 'RIGHT') {
+    const isLeft = side === 'LEFT';
+    const sign = isLeft ? -1 : 1;
+    const ySeat = courtSize / 2 + 1.0;
+    const centerX = sign * (courtSize / 2 + 0.6);
+    const chairOffsets = [-0.55, 0, 0.55];
+
+    this.ctx.save();
+    for (let i = 0; i < 3; i++) {
+      const cx = centerX + chairOffsets[i];
+      const sp = this.toScreenInto(cx, ySeat, {x:0, y:0});
+      const chairW = 0.40 * this.scale;
+      const chairH = 0.38 * this.scale;
+
+      // Chair shadow
+      this.ctx.fillStyle = 'rgba(0, 0, 0, 0.35)';
+      this.ctx.fillRect(sp.x - chairW / 2 + 2, sp.y - chairH / 2 + 3, chairW, chairH);
+
+      // Chair cushion
+      this.ctx.fillStyle = '#1e293b';
+      this.ctx.strokeStyle = '#94a3b8';
+      this.ctx.lineWidth = 1.5;
+      this.ctx.beginPath();
+      this.ctx.roundRect(sp.x - chairW / 2, sp.y - chairH / 2, chairW, chairH, 3);
+      this.ctx.fill();
+      this.ctx.stroke();
+
+      // Backrest
+      const backrestH = 0.08 * this.scale;
+      this.ctx.fillStyle = '#0f172a';
+      this.ctx.beginPath();
+      this.ctx.roundRect(sp.x - chairW / 2, sp.y + chairH / 2 - backrestH, chairW, backrestH, 2);
+      this.ctx.fill();
+      this.ctx.stroke();
+
+      // Small chair index
+      this.ctx.font = '600 9px system-ui, sans-serif';
+      this.ctx.fillStyle = '#94a3b8';
+      this.ctx.textAlign = 'center';
+      this.ctx.textBaseline = 'middle';
+      this.ctx.fillText(`${i + 1}`, sp.x, sp.y - 2);
+    }
+
+    // Label
+    const midSp = this.toScreenInto(centerX, ySeat + 0.32, {x:0, y:0});
+    this.ctx.font = '600 10px system-ui, sans-serif';
+    this.ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'middle';
+    this.ctx.fillText('Shinpan-in Seats', midSp.x, midSp.y);
+
+    this.ctx.restore();
+  }
+
   private drawProcedureGuides(state: EngineState) {
-    if (state.simulationMode !== 'PROCEDURE' || !this.showProcedureGuides) return;
+    if (state.simulationMode !== 'PROCEDURE' || !this.showProcedureGuides || !this.procedureActiveStep) return;
 
     const yVertex = state.config.courtSize / 2 - 1.0;
     const yBase = -yVertex;
     const xBase = yVertex * 0.5;
 
-    // Draw subtle guides for the trapezoid in Chapter 1
-    if (this.procedureActiveStep && this.procedureActiveStep.id.startsWith('entry')) {
+    // Draw Isosceles Trapezoid if requested by didactic step
+    if (this.procedureActiveStep.showTrapezoid) {
       const topF1 = this.toScreenInto(0.65, yVertex, {x:0, y:0});
       const topF2 = this.toScreenInto(-0.65, yVertex, {x:0, y:0});
       const baseF1 = this.toScreenInto(xBase, yBase, {x:0, y:0});
       const baseF2 = this.toScreenInto(-xBase, yBase, {x:0, y:0});
 
       this.ctx.save();
-      this.ctx.strokeStyle = 'rgba(234, 179, 8, 0.4)';
+      this.ctx.strokeStyle = 'rgba(234, 179, 8, 0.70)';
+      this.ctx.fillStyle = 'rgba(234, 179, 8, 0.06)';
       this.ctx.setLineDash([6, 6]);
-      this.ctx.lineWidth = 1.5;
+      this.ctx.lineWidth = 1.75;
 
-      // Shorter base
+      // Full polygon fill & stroke
       this.ctx.beginPath();
       this.ctx.moveTo(topF2.x, topF2.y);
       this.ctx.lineTo(topF1.x, topF1.y);
-      this.ctx.stroke();
-
-      // Legs of the trapezoid (Fukushin walk paths)
-      this.ctx.beginPath();
-      this.ctx.moveTo(topF1.x, topF1.y);
       this.ctx.lineTo(baseF1.x, baseF1.y);
-      this.ctx.moveTo(topF2.x, topF2.y);
       this.ctx.lineTo(baseF2.x, baseF2.y);
+      this.ctx.closePath();
+      this.ctx.fill();
       this.ctx.stroke();
 
-      // Larger base
+      // Dimension badges
+      this.ctx.setLineDash([]);
+      this.ctx.font = 'bold 11px system-ui, -apple-system, sans-serif';
+      this.ctx.textAlign = 'center';
+      this.ctx.textBaseline = 'middle';
+
+      // Shorter base badge: 1.30 m
+      const topMidX = (topF1.x + topF2.x) / 2;
+      const topMidY = topF1.y - 14;
+      this.ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+      this.ctx.fillRect(topMidX - 26, topMidY - 9, 52, 18);
+      this.ctx.strokeStyle = 'rgba(234, 179, 8, 0.9)';
+      this.ctx.lineWidth = 1;
+      this.ctx.strokeRect(topMidX - 26, topMidY - 9, 52, 18);
+      this.ctx.fillStyle = '#fef08a';
+      this.ctx.fillText('1.30 m', topMidX, topMidY);
+
+      // Larger base badge: ~4.0 m
+      const baseMidX = (baseF1.x + baseF2.x) / 2;
+      const baseMidY = baseF1.y + 14;
+      this.ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+      this.ctx.fillRect(baseMidX - 26, baseMidY - 9, 52, 18);
+      this.ctx.strokeStyle = 'rgba(234, 179, 8, 0.9)';
+      this.ctx.strokeRect(baseMidX - 26, baseMidY - 9, 52, 18);
+      this.ctx.fillStyle = '#fef08a';
+      this.ctx.fillText('~4.0 m', baseMidX, baseMidY);
+
+      this.ctx.restore();
+    }
+
+    // Draw Isosceles Triangle if requested by didactic step
+    if (this.procedureActiveStep.showTriangle) {
+      const vS = this.toScreenInto(0, yVertex, {x:0, y:0});
+      const bF1 = this.toScreenInto(xBase, yBase, {x:0, y:0});
+      const bF2 = this.toScreenInto(-xBase, yBase, {x:0, y:0});
+
+      this.ctx.save();
+      this.ctx.strokeStyle = 'rgba(59, 130, 246, 0.70)';
+      this.ctx.fillStyle = 'rgba(59, 130, 246, 0.05)';
+      this.ctx.setLineDash([8, 8]);
+      this.ctx.lineWidth = 1.75;
+
       this.ctx.beginPath();
-      this.ctx.moveTo(baseF2.x, baseF2.y);
-      this.ctx.lineTo(baseF1.x, baseF1.y);
+      this.ctx.moveTo(vS.x, vS.y);
+      this.ctx.lineTo(bF1.x, bF1.y);
+      this.ctx.lineTo(bF2.x, bF2.y);
+      this.ctx.closePath();
+      this.ctx.fill();
       this.ctx.stroke();
 
       this.ctx.restore();
