@@ -43,7 +43,9 @@ export class SimulationStore {
         fukushin1Abs: 0,
         fukushin2Abs: 0,
         combatRadSmoothed: 0
-      }
+      },
+      simulationMode: 'COMBAT',
+      competitorsVisible: true
     };
   }
 
@@ -60,5 +62,7 @@ export class SimulationStore {
     this.state.flag = init.flag;
     this.state.formationScale = init.formationScale;
     this.state.angles = init.angles;
+    this.state.simulationMode = init.simulationMode;
+    this.state.competitorsVisible = init.competitorsVisible;
   }
 }
