@@ -10,6 +10,7 @@ export interface RefereeVisualState {
   x: number;
   y: number;
   heading?: number;
+  headingDelta?: number;
   flagsRolled?: boolean;
   flagsInRightHand?: boolean;
 }
