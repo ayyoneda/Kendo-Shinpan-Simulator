@@ -5,11 +5,13 @@ import { CanvasRenderer } from './renderer/CanvasRenderer';
 import type { Vector2D } from './math/vector';
 import { i18n } from './i18n';
 import { ScenarioRunner, scenarios } from './engine/Scenarios';
+import { ProcedureManager } from './engine/procedures/ProcedureManager';
 
 // State and Engine
 const store = new SimulationStore();
 const engine = new Engine(store);
 const scenarioRunner = new ScenarioRunner();
+const procedureManager = new ProcedureManager(store);
 
 // Canvas Renderer
 const canvas = document.getElementById('kendoCanvas') as HTMLCanvasElement;
@@ -58,6 +60,7 @@ const debugF1 = document.getElementById('debug-f1') as HTMLElement;
 const debugF2 = document.getElementById('debug-f2') as HTMLElement;
 
 // Floating Scenarios Widget Elements
+const scenariosWidget = document.getElementById('scenarios-widget') as HTMLElement;
 const scenariosExpanded = document.getElementById('scenarios-expanded') as HTMLElement;
 const scenariosExpandBtn = document.getElementById('scenarios-expand-btn') as HTMLButtonElement;
 const scenariosCollapseBtn = document.getElementById('scenarios-collapse-btn') as HTMLButtonElement;
@@ -65,6 +68,27 @@ const scenarioStopBtnCompact = document.getElementById('scenario-stop-btn-compac
 const scenarioStopBtnExpanded = document.getElementById('scenario-stop-btn-expanded') as HTMLButtonElement;
 const scenarioChipsContainer = document.getElementById('scenario-chips') as HTMLElement;
 const scenarioExpandedList = document.getElementById('scenario-expanded-list') as HTMLElement;
+
+// Simulation / Procedure Mode Switcher & Stepper Widget Elements
+const btnSimCombat = document.getElementById('btn-sim-combat') as HTMLButtonElement;
+const btnSimProcedure = document.getElementById('btn-sim-procedure') as HTMLButtonElement;
+const procedureWidget = document.getElementById('procedure-widget') as HTMLElement;
+const procSpeedBtn = document.getElementById('proc-speed-btn') as HTMLButtonElement;
+const procSpeedVal = document.getElementById('proc-speed-val') as HTMLElement;
+const procCloseBtn = document.getElementById('proc-close-btn') as HTMLButtonElement;
+const tabChapEntry = document.getElementById('tab-chap-entry') as HTMLButtonElement;
+const tabChapRotation = document.getElementById('tab-chap-rotation') as HTMLButtonElement;
+const tabChapExit = document.getElementById('tab-chap-exit') as HTMLButtonElement;
+const procStepCounter = document.getElementById('proc-step-counter') as HTMLElement;
+const procCommandBadge = document.getElementById('proc-command-badge') as HTMLElement;
+const procStepDesc = document.getElementById('proc-step-desc') as HTMLElement;
+const procProgressFill = document.getElementById('proc-progress-fill') as HTMLElement;
+const procPauseStepChk = document.getElementById('proc-pause-step-chk') as HTMLInputElement;
+const procResetBtn = document.getElementById('proc-reset-btn') as HTMLButtonElement;
+const procPrevBtn = document.getElementById('proc-prev-btn') as HTMLButtonElement;
+const procPlayBtn = document.getElementById('proc-play-btn') as HTMLButtonElement;
+const procPlayIcon = document.getElementById('proc-play-icon') as HTMLElement;
+const procNextBtn = document.getElementById('proc-next-btn') as HTMLButtonElement;
 
 // Sliders: Exactly 6 sliders maintained
 const bindSlider = (id: string, valId: string, suffix: string, setter: (v: number) => void) => {
@@ -339,6 +363,176 @@ const stopScenario = () => {
 if (scenarioStopBtnCompact) scenarioStopBtnCompact.addEventListener('click', stopScenario);
 if (scenarioStopBtnExpanded) scenarioStopBtnExpanded.addEventListener('click', stopScenario);
 
+// Procedure Mode and Widget Logic
+function updateProcedureUI() {
+  const chapter = procedureManager.getCurrentChapter();
+  const step = procedureManager.getCurrentStep();
+  const stepIdx = procedureManager.getCurrentStepIndex();
+  const s = i18n[currentLang];
+
+  if (tabChapEntry) {
+    tabChapEntry.className = chapter.id === 'entry'
+      ? "proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer"
+      : "proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer";
+  }
+  if (tabChapRotation) {
+    tabChapRotation.className = chapter.id === 'rotation'
+      ? "proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer"
+      : "proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer";
+  }
+  if (tabChapExit) {
+    tabChapExit.className = chapter.id === 'exit'
+      ? "proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer"
+      : "proc-chapter-btn flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer";
+  }
+
+  if (procStepCounter) {
+    const stepLabel = s.stepLabel || (currentLang === 'jp' ? '段階' : (currentLang === 'en' ? 'Step' : 'Passo'));
+    procStepCounter.textContent = `${stepLabel} ${stepIdx + 1} / ${chapter.steps.length}`;
+  }
+
+  if (procCommandBadge) {
+    if (step.commandCall) {
+      procCommandBadge.textContent = `🗣️ "${step.commandCall}"`;
+      procCommandBadge.classList.remove('hidden');
+    } else {
+      procCommandBadge.classList.add('hidden');
+    }
+  }
+
+  if (procStepDesc) {
+    procStepDesc.textContent = step.description;
+  }
+
+  const isPlaying = procedureManager.isPlaying();
+  if (procPlayIcon) {
+    procPlayIcon.className = isPlaying ? "fas fa-pause" : "fas fa-play";
+  }
+  const uiProcPlay = document.getElementById('ui-proc-play');
+  if (uiProcPlay) {
+    uiProcPlay.textContent = isPlaying ? (s.btnPause || 'Pausar') : (s.btnPlay || 'Reproduzir');
+  }
+
+  if (procSpeedVal) {
+    procSpeedVal.textContent = `${procedureManager.getPlaybackSpeed().toFixed(1)}x`;
+  }
+}
+
+function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
+  store.state.simulationMode = mode;
+  renderer.clearTrails();
+
+  if (mode === 'COMBAT') {
+    store.state.competitorsVisible = true;
+    renderer.procedureActiveStep = null;
+    renderer.procedureSubstituteReferee = null;
+    procedureManager.pause();
+
+    if (btnSimCombat) {
+      btnSimCombat.className = "px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#2563eb] shadow-md transition cursor-pointer flex items-center gap-1.5";
+    }
+    if (btnSimProcedure) {
+      btnSimProcedure.className = "px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-white transition cursor-pointer flex items-center gap-1.5";
+    }
+
+    if (procedureWidget) procedureWidget.classList.add('hidden');
+    if (scenariosWidget) scenariosWidget.classList.remove('hidden');
+
+    store.resetPositions();
+  } else {
+    scenarioRunner.stop();
+    updateScenarioActiveUI();
+
+    store.state.competitorsVisible = false;
+
+    if (btnSimProcedure) {
+      btnSimProcedure.className = "px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#bc002d] shadow-md transition cursor-pointer flex items-center gap-1.5";
+    }
+    if (btnSimCombat) {
+      btnSimCombat.className = "px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-white transition cursor-pointer flex items-center gap-1.5";
+    }
+
+    if (procedureWidget) procedureWidget.classList.remove('hidden');
+    if (scenariosWidget) scenariosWidget.classList.add('hidden');
+
+    procedureManager.reset();
+    updateProcedureUI();
+  }
+}
+
+if (btnSimCombat) btnSimCombat.addEventListener('click', () => setSimulationMode('COMBAT'));
+if (btnSimProcedure) btnSimProcedure.addEventListener('click', () => setSimulationMode('PROCEDURE'));
+if (procCloseBtn) procCloseBtn.addEventListener('click', () => setSimulationMode('COMBAT'));
+
+if (tabChapEntry) {
+  tabChapEntry.addEventListener('click', () => {
+    renderer.clearTrails();
+    procedureManager.setChapter('entry');
+    updateProcedureUI();
+  });
+}
+if (tabChapRotation) {
+  tabChapRotation.addEventListener('click', () => {
+    renderer.clearTrails();
+    procedureManager.setChapter('rotation');
+    updateProcedureUI();
+  });
+}
+if (tabChapExit) {
+  tabChapExit.addEventListener('click', () => {
+    renderer.clearTrails();
+    procedureManager.setChapter('exit');
+    updateProcedureUI();
+  });
+}
+
+if (procPlayBtn) {
+  procPlayBtn.addEventListener('click', () => {
+    procedureManager.togglePlay();
+    updateProcedureUI();
+  });
+}
+
+if (procPrevBtn) {
+  procPrevBtn.addEventListener('click', () => {
+    renderer.clearTrails();
+    procedureManager.prevStep();
+    updateProcedureUI();
+  });
+}
+
+if (procNextBtn) {
+  procNextBtn.addEventListener('click', () => {
+    renderer.clearTrails();
+    procedureManager.nextStep();
+    updateProcedureUI();
+  });
+}
+
+if (procResetBtn) {
+  procResetBtn.addEventListener('click', () => {
+    renderer.clearTrails();
+    procedureManager.reset();
+    updateProcedureUI();
+  });
+}
+
+if (procPauseStepChk) {
+  procPauseStepChk.addEventListener('change', (e) => {
+    procedureManager.setPauseOnStepComplete((e.target as HTMLInputElement).checked);
+  });
+}
+
+const playbackSpeeds = [0.5, 1.0, 1.5, 2.0];
+if (procSpeedBtn) {
+  procSpeedBtn.addEventListener('click', () => {
+    const currentSpeed = procedureManager.getPlaybackSpeed();
+    const nextIdx = (playbackSpeeds.indexOf(currentSpeed) + 1) % playbackSpeeds.length;
+    procedureManager.setPlaybackSpeed(playbackSpeeds[nextIdx]);
+    updateProcedureUI();
+  });
+}
+
 // Update UI Strings for Translations
 function updateUIStrings() {
   const s = i18n[currentLang];
@@ -432,6 +626,19 @@ function updateUIStrings() {
   setText('tab-btn-concept', s.helpTabConcept);
   setText('tab-btn-disclaimer', s.helpTabDisclaimer);
   renderHelpTabContent();
+
+  // Procedure Mode and Stepper Strings
+  setText('ui-sim-combat', s.modeCombat || 'Combate Reativo');
+  setText('ui-sim-procedure', s.modeProcedures || 'Procedimentos FIK');
+  setText('ui-proc-header', s.modeProcedures || 'Procedimentos FIK');
+  setText('tab-chap-entry', s.chapter_entry || '1. Entrada & Formação');
+  setText('tab-chap-rotation', s.chapter_rotation || '2. Rotação & Troca');
+  setText('tab-chap-exit', s.chapter_exit || '3. Saída da Quadra');
+  setText('ui-proc-pause-step', s.pauseOnStepLabel || 'Pausar a cada etapa');
+  setText('ui-proc-prev', s.btnPrev || 'Anterior');
+  setText('ui-proc-play', procedureManager.isPlaying() ? (s.btnPause || 'Pausar') : (s.btnPlay || 'Reproduzir'));
+  setText('ui-proc-next', s.btnNext || 'Próximo');
+  updateProcedureUI();
 }
 
 initScenariosWidget();
@@ -456,7 +663,12 @@ if (courtSelect) {
   courtSelect.addEventListener('change', (e) => {
     const size = parseFloat((e.target as HTMLSelectElement).value);
     store.state.config.courtSize = size;
-    store.resetPositions();
+    if (store.state.simulationMode === 'PROCEDURE') {
+      procedureManager.reset();
+      updateProcedureUI();
+    } else {
+      store.resetPositions();
+    }
     renderer.clearTrails();
   });
 }
@@ -508,6 +720,7 @@ function isHit(p: Vector2D, ent: Vector2D, r: number, isTouch: boolean): boolean
 }
 
 canvas.addEventListener('pointerdown', (e) => {
+  if (store.state.simulationMode === 'PROCEDURE') return;
   scenarioRunner.stop();
   updateScenarioActiveUI();
   canvas.setPointerCapture(e.pointerId);
@@ -524,6 +737,10 @@ canvas.addEventListener('pointerdown', (e) => {
 });
 
 canvas.addEventListener('pointermove', (e) => {
+  if (store.state.simulationMode === 'PROCEDURE') {
+    canvas.style.cursor = 'default';
+    return;
+  }
   const p = renderer.toMeters(e.clientX, e.clientY);
   const isTouch = (e.pointerType === 'touch');
   const half = store.state.config.courtSize / 2;
@@ -561,12 +778,31 @@ function animate(ts: DOMHighResTimeStamp) {
   lastTs = ts;
   debugAcc += dt;
 
-  scenarioRunner.update(store, ts / 1000);
-  if (!scenarioRunner.isActive() && activeScenarioId !== null) {
-    updateScenarioActiveUI();
-  }
+  if (store.state.simulationMode === 'PROCEDURE') {
+    const wasPlaying = procedureManager.isPlaying();
+    procedureManager.update(dt);
+    renderer.procedureActiveStep = procedureManager.getCurrentStep();
+    renderer.procedureSubstituteReferee = procedureManager.substituteReferee;
 
-  engine.update(ts);
+    if (procProgressFill) {
+      const progress = procedureManager.getProgress() * 100;
+      procProgressFill.style.width = `${progress}%`;
+    }
+
+    if (wasPlaying !== procedureManager.isPlaying()) {
+      updateProcedureUI();
+    }
+  } else {
+    renderer.procedureActiveStep = null;
+    renderer.procedureSubstituteReferee = null;
+
+    scenarioRunner.update(store, ts / 1000);
+    if (!scenarioRunner.isActive() && activeScenarioId !== null) {
+      updateScenarioActiveUI();
+    }
+
+    engine.update(ts);
+  }
   renderer.pushTrails(store.state);
   renderer.render(store.state);
 

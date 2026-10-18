@@ -72,6 +72,14 @@ export class ProcedureManager {
   }
 
   public play() {
+    if (this.getProgress() >= 1.0) {
+      const chapter = this.getCurrentChapter();
+      if (this.currentStepIndex < chapter.steps.length - 1) {
+        this.nextStep();
+      } else {
+        this.reset();
+      }
+    }
     this.isPlayingActive = true;
   }
 
@@ -97,6 +105,9 @@ export class ProcedureManager {
 
   public nextStep() {
     const chapter = this.getCurrentChapter();
+    if (this.getProgress() < 1.0) {
+      this.applyStepSnapshot(this.currentChapterIndex, this.currentStepIndex, true);
+    }
     if (this.currentStepIndex < chapter.steps.length - 1) {
       this.captureFromSnapshot();
       this.currentStepIndex++;
