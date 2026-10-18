@@ -438,8 +438,9 @@ function updateProcedureUI() {
   }
 
   if (procCommandBadge) {
-    if (step.commandCall) {
-      procCommandBadge.textContent = `🗣️ "${step.commandCall}"`;
+    const call = typeof step.commandCall === 'function' ? step.commandCall(procedureManager.getConfig()) : step.commandCall;
+    if (call) {
+      procCommandBadge.textContent = `🗣️ "${call}"`;
       procCommandBadge.classList.remove('hidden');
     } else {
       procCommandBadge.classList.add('hidden');

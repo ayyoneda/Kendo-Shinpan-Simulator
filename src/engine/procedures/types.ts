@@ -19,7 +19,7 @@ export interface ProcedureStep {
   id: string;
   stepNumber: number;
   totalSteps: number;
-  commandCall?: string;
+  commandCall?: string | ((config?: ProcedureConfig) => string);
   description: string;
   durationSec: number;
   holdSec?: number;

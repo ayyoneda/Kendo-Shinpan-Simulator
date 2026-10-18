@@ -81,42 +81,117 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(targets.fukushin2.y).toBeCloseTo(yVertex);
   });
 
-  it('verifies Chapter 2B Shinpan Koutai involves substitute referee and rolled flags', () => {
+  it('verifies Chapter 2B Shinpan Koutai has 5 steps, substitute referee, and initial rotation walk', () => {
     const koutai = procedureChapters.find(c => c.id === 'rotation_koutai')!;
     const courtSize = 10;
-    const step1 = koutai.steps.find(s => s.id === 'koutai_walk_to_border')!;
-    const targets1 = step1.getTargets(courtSize);
+    expect(koutai.steps).toHaveLength(5);
 
+    // Step 1: flags in right hand
+    const step1 = koutai.steps.find(s => s.id === 'koutai_flags_right')!;
+    const targets1 = step1.getTargets(courtSize);
     expect(targets1.substitute).toBeDefined();
-    expect(targets1.shushin.flagsRolled).toBe(true);
-    expect(targets1.shushin.heading).toBeCloseTo(0); // facing border
+    expect(targets1.shushin.flagsInRightHand).toBe(true);
+    expect(step1.showTriangle).toBe(true);
+
+    // Step 2: initial rotation walk with Shushin facing incoming substitute directly
+    const step2 = koutai.steps.find(s => s.id === 'koutai_rotate_walk')!;
+    const targets2 = step2.getTargets(courtSize);
+    expect(targets2.shushin.heading).toBeCloseTo(0); // facing incoming sub at border
+    expect(targets2.shushin.flagsRolled).toBe(true);
+    expect(step2.showTriangle).toBe(true);
+
+    // All steps in Chapter 2B have showTriangle: true
+    for (const s of koutai.steps) {
+      expect(s.showTriangle).toBe(true);
+    }
   });
 
-  it('verifies Chapter 3 Exit brings Fukushin back to 1.30m base and enforces strict inward turns', () => {
+  it('verifies Chapter 2A Regular Rotation plots triangle on all steps', () => {
+    const rot = procedureChapters.find(c => c.id === 'rotation')!;
+    expect(rot.steps).toHaveLength(3);
+    for (const s of rot.steps) {
+      expect(s.showTriangle).toBe(true);
+    }
+  });
+
+  it('verifies Chapter 1 Entry maintains F2-S-F1 order, constant speed, and feet aligned behind line', () => {
+    const entry = procedureChapters.find(c => c.id === 'entry')!;
+    const courtSize = 10;
+    const yBound = courtSize / 2;
+
+    const lineupStep = entry.steps.find(s => s.id === 'entry_lineup')!;
+    const maeStep = entry.steps.find(s => s.id === 'entry_mae')!;
+    const turnCourtStep = entry.steps.find(s => s.id === 'entry_turn_court')!;
+
+    const tLineup = lineupStep.getTargets(courtSize, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
+    const tMae = maeStep.getTargets(courtSize, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
+    const tTurn = turnCourtStep.getTargets(courtSize);
+
+    // Order from left to right along X is Fukushin 2 < Shushin < Fukushin 1
+    expect(tLineup.fukushin2.x).toBeLessThan(tLineup.shushin.x);
+    expect(tLineup.shushin.x).toBeLessThan(tLineup.fukushin1.x);
+
+    expect(tMae.fukushin2.x).toBeLessThan(tMae.shushin.x);
+    expect(tMae.shushin.x).toBeLessThan(tMae.fukushin1.x);
+
+    // Velocity / Distance traveled is identical for all 3 (no order swapping)
+    const dxS = tMae.shushin.x - tLineup.shushin.x;
+    const dxF1 = tMae.fukushin1.x - tLineup.fukushin1.x;
+    const dxF2 = tMae.fukushin2.x - tLineup.fukushin2.x;
+    expect(dxS).toBeCloseTo(dxF1, 2);
+    expect(dxS).toBeCloseTo(dxF2, 2);
+
+    // In turn_court, they stay aligned behind the boundary line (y > yBound)
+    expect(tTurn.shushin.y).toBeGreaterThan(yBound);
+    expect(tTurn.fukushin1.y).toBeCloseTo(tTurn.shushin.y, 2);
+    expect(tTurn.fukushin2.y).toBeCloseTo(tTurn.shushin.y, 2);
+  });
+
+  it('verifies Chapter 3 Exit brings Fukushin back, plots trapezoid, bows in place, turns sideways, and marches straight', () => {
     const exit = procedureChapters.find(c => c.id === 'exit')!;
     const courtSize = 10;
     const yVertex = courtSize / 2 - 1; // 4
+    expect(exit.steps).toHaveLength(7);
 
+    // Step 2: returns along trapezoid legs with showTrapezoid: true
     const returnStep = exit.steps.find(s => s.id === 'exit_trapezoid_return')!;
+    expect(returnStep.showTrapezoid).toBe(true);
     const targetsReturn = returnStep.getTargets(courtSize);
-
-    // Shushin is anchored at vertex line
     expect(targetsReturn.shushin.x).toBeCloseTo(0);
     expect(targetsReturn.shushin.y).toBeCloseTo(yVertex);
-
-    // Fukushin returned beside Shushin
     expect(targetsReturn.fukushin1.x).toBeCloseTo(0.65);
     expect(targetsReturn.fukushin1.y).toBeCloseTo(yVertex);
     expect(targetsReturn.fukushin2.x).toBeCloseTo(-0.65);
     expect(targetsReturn.fukushin2.y).toBeCloseTo(yVertex);
 
-    // Inward turn step
+    // Step 3: inward turn alignment
     const inwardStep = exit.steps.find(s => s.id === 'exit_turn_inward_align')!;
     const targetsInward = inwardStep.getTargets(courtSize);
-
-    // F1 turns clockwise (positive headingDelta), F2 turns counter-clockwise (negative headingDelta)
     expect(targetsInward.fukushin1.headingDelta).toBeGreaterThan(0);
     expect(targetsInward.fukushin2.headingDelta).toBeLessThan(0);
+    expect(targetsInward.shushin.y).toBeCloseTo(yVertex);
+    expect(targetsInward.fukushin1.y).toBeCloseTo(yVertex);
+    expect(targetsInward.fukushin2.y).toBeCloseTo(yVertex);
+
+    // Step 4: Rei in place at yVertex (no stepback)
+    const reiStep = exit.steps.find(s => s.id === 'exit_rei')!;
+    const targetsRei = reiStep.getTargets(courtSize);
+    expect(targetsRei.shushin.y).toBeCloseTo(yVertex);
+    expect(targetsRei.fukushin1.y).toBeCloseTo(yVertex);
+    expect(targetsRei.fukushin2.y).toBeCloseTo(yVertex);
+
+    // Step 5: turn sideways in place at yVertex
+    const turnStep = exit.steps.find(s => s.id === 'exit_turn_sideways')!;
+    const targetsTurnLeft = turnStep.getTargets(courtSize, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
+    expect(targetsTurnLeft.shushin.heading).toBeCloseTo(Math.PI);
+    expect(targetsTurnLeft.shushin.y).toBeCloseTo(yVertex);
+
+    // Step 6: march straight along yVertex (1m from border)
+    const marchStep = exit.steps.find(s => s.id === 'exit_march_straight')!;
+    const targetsMarchLeft = marchStep.getTargets(courtSize, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
+    expect(targetsMarchLeft.shushin.y).toBeCloseTo(yVertex);
+    expect(targetsMarchLeft.fukushin1.y).toBeCloseTo(yVertex);
+    expect(targetsMarchLeft.fukushin2.y).toBeCloseTo(yVertex);
   });
 
   it('verifies Chapter 3 Sogo-ni-rei forms an equilateral triangle outside near seats', () => {

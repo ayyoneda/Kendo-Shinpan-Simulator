@@ -452,6 +452,15 @@ export class CanvasRenderer {
         if (isCompetitor) {
           // kenshi_3 tem os ombros em ~68.8%
           pivotYRatio = 0.69;
+        } else if (useEntradaSprite) {
+          // Sprites de entrada: pés alinhados com precisão milimétrica na linha de base
+          if (ent === state.fukushin1) {
+            pivotYRatio = 0.41;
+          } else if (ent === state.fukushin2) {
+            pivotYRatio = 0.44;
+          } else {
+            pivotYRatio = 0.44; // Shushin e Substituto
+          }
         } else if (ent === state.shushin || ent === this.procedureSubstituteReferee) {
           // shinpan_3 girado tem ombros em ~45.6%
           pivotYRatio = 0.46;
@@ -580,13 +589,6 @@ export class CanvasRenderer {
       this.ctx.roundRect(sp.x - chairW / 2, sp.y + chairH / 2 - backrestH, chairW, backrestH, 2);
       this.ctx.fill();
       this.ctx.stroke();
-
-      // Small chair index
-      this.ctx.font = '600 9px system-ui, sans-serif';
-      this.ctx.fillStyle = '#94a3b8';
-      this.ctx.textAlign = 'center';
-      this.ctx.textBaseline = 'middle';
-      this.ctx.fillText(`${i + 1}`, sp.x, sp.y - 2);
     }
 
     // Label
@@ -686,7 +688,10 @@ export class CanvasRenderer {
 
   private drawProcedureCallouts(state: EngineState) {
     if (state.simulationMode !== 'PROCEDURE' || !this.procedureActiveStep) return;
-    const call = this.procedureActiveStep.commandCall;
+    const step = this.procedureActiveStep;
+    const call = typeof step.commandCall === 'function'
+      ? step.commandCall({ seatsSide: this.procedureSeatsSide, rotationVariant: 'REGULAR' })
+      : step.commandCall;
     if (!call) return;
 
     const sp = this.toScreenInto(state.shushin.x, state.shushin.y, {x:0, y:0});
