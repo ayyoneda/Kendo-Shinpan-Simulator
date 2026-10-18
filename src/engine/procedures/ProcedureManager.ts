@@ -1,5 +1,5 @@
 import { procedureChapters } from './definitions';
-import type { ProcedureChapter, ProcedureStep, RefereeVisualState } from './types';
+import type { ProcedureChapter, ProcedureConfig, ProcedureStep, RefereeVisualState, RotationVariant, ShinpanSeatsSide } from './types';
 import type { SimulationStore } from '../State';
 import type { Referee } from '../types';
 import { angleDiff } from '../../math/utils';
@@ -25,6 +25,10 @@ interface StepSnapshot {
 
 export class ProcedureManager {
   private store: SimulationStore;
+  private config: ProcedureConfig = {
+    seatsSide: 'LEFT',
+    rotationVariant: 'REGULAR'
+  };
   private currentChapterIndex = 0;
   private currentStepIndex = 0;
   private stepElapsed = 0;
@@ -92,8 +96,42 @@ export class ProcedureManager {
     else this.play();
   }
 
+  public getSeatsSide(): ShinpanSeatsSide {
+    return this.config.seatsSide;
+  }
+
+  public setSeatsSide(side: ShinpanSeatsSide) {
+    this.config.seatsSide = side;
+    this.applyStepSnapshot(this.currentChapterIndex, this.currentStepIndex, true);
+  }
+
+  public getRotationVariant(): RotationVariant {
+    return this.config.rotationVariant;
+  }
+
+  public setRotationVariant(v: RotationVariant) {
+    this.config.rotationVariant = v;
+    const curId = this.getCurrentChapter().id;
+    if (curId === 'rotation' || curId === 'rotation_koutai') {
+      this.setChapter(v === 'KOUTAI' ? 'rotation_koutai' : 'rotation');
+    } else {
+      this.applyStepSnapshot(this.currentChapterIndex, this.currentStepIndex, true);
+    }
+  }
+
+  public getConfig(): ProcedureConfig {
+    return { ...this.config };
+  }
+
   public setChapter(chapterId: string) {
-    const idx = procedureChapters.findIndex(c => c.id === chapterId);
+    let targetId = chapterId;
+    if (chapterId === 'rotation' && this.config.rotationVariant === 'KOUTAI') {
+      targetId = 'rotation_koutai';
+    } else if (chapterId === 'rotation_koutai' && this.config.rotationVariant === 'REGULAR') {
+      targetId = 'rotation';
+    }
+
+    const idx = procedureChapters.findIndex(c => c.id === targetId);
     if (idx !== -1) {
       this.currentChapterIndex = idx;
       this.currentStepIndex = 0;
@@ -112,11 +150,21 @@ export class ProcedureManager {
       this.captureFromSnapshot();
       this.currentStepIndex++;
       this.stepElapsed = 0;
-    } else if (this.currentChapterIndex < procedureChapters.length - 1) {
-      this.currentChapterIndex++;
-      this.currentStepIndex = 0;
-      this.stepElapsed = 0;
-      this.applyStepSnapshot(this.currentChapterIndex, 0, true);
+    } else {
+      // Transition to next chapter
+      let nextIdx = -1;
+      if (chapter.id === 'entry') {
+        nextIdx = procedureChapters.findIndex(c => c.id === (this.config.rotationVariant === 'KOUTAI' ? 'rotation_koutai' : 'rotation'));
+      } else if (chapter.id === 'rotation' || chapter.id === 'rotation_koutai') {
+        nextIdx = procedureChapters.findIndex(c => c.id === 'exit');
+      }
+
+      if (nextIdx !== -1) {
+        this.currentChapterIndex = nextIdx;
+        this.currentStepIndex = 0;
+        this.stepElapsed = 0;
+        this.applyStepSnapshot(this.currentChapterIndex, 0, true);
+      }
     }
   }
 
@@ -125,11 +173,21 @@ export class ProcedureManager {
       this.currentStepIndex--;
       this.stepElapsed = 0;
       this.applyStepSnapshot(this.currentChapterIndex, this.currentStepIndex, true);
-    } else if (this.currentChapterIndex > 0) {
-      this.currentChapterIndex--;
-      this.currentStepIndex = this.getCurrentChapter().steps.length - 1;
-      this.stepElapsed = 0;
-      this.applyStepSnapshot(this.currentChapterIndex, this.currentStepIndex, true);
+    } else {
+      const curId = this.getCurrentChapter().id;
+      let prevIdx = -1;
+      if (curId === 'exit') {
+        prevIdx = procedureChapters.findIndex(c => c.id === (this.config.rotationVariant === 'KOUTAI' ? 'rotation_koutai' : 'rotation'));
+      } else if (curId === 'rotation' || curId === 'rotation_koutai') {
+        prevIdx = procedureChapters.findIndex(c => c.id === 'entry');
+      }
+
+      if (prevIdx !== -1) {
+        this.currentChapterIndex = prevIdx;
+        this.currentStepIndex = procedureChapters[prevIdx].steps.length - 1;
+        this.stepElapsed = 0;
+        this.applyStepSnapshot(this.currentChapterIndex, this.currentStepIndex, true);
+      }
     }
   }
 
@@ -186,7 +244,7 @@ export class ProcedureManager {
     const chapter = procedureChapters[chapterIdx];
     const step = chapter.steps[stepIdx];
     const courtSize = this.store.state.config.courtSize;
-    const targets = step.getTargets(courtSize);
+    const targets = step.getTargets(courtSize, this.config);
 
     if (instant) {
       this.store.state.shushin.x = targets.shushin.x;
@@ -230,7 +288,7 @@ export class ProcedureManager {
 
     const step = this.getCurrentStep();
     const courtSize = this.store.state.config.courtSize;
-    const targets = step.getTargets(courtSize);
+    const targets = step.getTargets(courtSize, this.config);
 
     if (!this.fromSnapshot) {
       this.captureFromSnapshot();
@@ -287,7 +345,9 @@ export class ProcedureManager {
     current.x = from.x + (to.x - from.x) * easedT;
     current.y = from.y + (to.y - from.y) * easedT;
 
-    if (from.heading !== undefined && to.heading !== undefined) {
+    if (to.headingDelta !== undefined && from.heading !== undefined) {
+      current.heading = from.heading + to.headingDelta * easedT;
+    } else if (from.heading !== undefined && to.heading !== undefined) {
       const diff = angleDiff(from.heading, to.heading);
       current.heading = from.heading + diff * easedT;
     } else if (to.heading !== undefined) {
