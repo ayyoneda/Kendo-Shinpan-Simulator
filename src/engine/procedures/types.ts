@@ -1,3 +1,11 @@
+export type ShinpanSeatsSide = 'LEFT' | 'RIGHT';
+export type RotationVariant = 'REGULAR' | 'KOUTAI';
+
+export interface ProcedureConfig {
+  seatsSide: ShinpanSeatsSide;
+  rotationVariant: RotationVariant;
+}
+
 export interface RefereeVisualState {
   x: number;
   y: number;
@@ -15,7 +23,9 @@ export interface ProcedureStep {
   durationSec: number;
   holdSec?: number;
   inwardTurn?: boolean;
-  getTargets: (courtSize: number) => {
+  showTrapezoid?: boolean;
+  showTriangle?: boolean;
+  getTargets: (courtSize: number, config?: ProcedureConfig) => {
     shushin: RefereeVisualState;
     fukushin1: RefereeVisualState;
     fukushin2: RefereeVisualState;

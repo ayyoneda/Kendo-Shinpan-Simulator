@@ -1,16 +1,24 @@
 import { describe, it, expect } from 'vitest';
-import type { ProcedureStep, ProcedureChapter, RefereeVisualState } from './types';
+import type { ProcedureStep, ProcedureChapter, RefereeVisualState, ProcedureConfig } from './types';
 import type { EngineState, SimulationMode } from '../types';
 
 describe('Procedure Types Contract', () => {
-  it('validates a minimal ProcedureStep structure', () => {
+  it('validates a minimal ProcedureStep structure with ProcedureConfig and didactic flags', () => {
+    const config: ProcedureConfig = {
+      seatsSide: 'LEFT',
+      rotationVariant: 'KOUTAI'
+    };
+    expect(config.seatsSide).toBe('LEFT');
+    expect(config.rotationVariant).toBe('KOUTAI');
+
     const refereeState: RefereeVisualState = {
       x: 0,
       y: 4,
       heading: 0,
-      flagsRolled: true
+      flagsRolled: true,
+      flagsInRightHand: true
     };
-    expect(refereeState.x).toBe(0);
+    expect(refereeState.flagsInRightHand).toBe(true);
 
     const step: ProcedureStep = {
       id: 'test_step',
@@ -19,15 +27,27 @@ describe('Procedure Types Contract', () => {
       commandCall: 'Mae!',
       description: 'Test march',
       durationSec: 2.0,
-      getTargets: (courtSize: number) => ({
-        shushin: { x: 0, y: courtSize / 2 - 1, heading: 0, flagsRolled: true },
-        fukushin1: { x: 0.65, y: courtSize / 2 - 1, heading: 0, flagsRolled: true },
-        fukushin2: { x: -0.65, y: courtSize / 2 - 1, heading: 0, flagsRolled: true }
-      })
+      showTrapezoid: true,
+      showTriangle: true,
+      getTargets: (courtSize: number, cfg?: ProcedureConfig) => {
+        const side = cfg?.seatsSide ?? 'LEFT';
+        const startX = side === 'LEFT' ? -5 : 5;
+        return {
+          shushin: { x: startX, y: courtSize / 2, heading: 0, flagsRolled: true },
+          fukushin1: { x: startX + 0.65, y: courtSize / 2, heading: 0, flagsRolled: true },
+          fukushin2: { x: startX - 0.65, y: courtSize / 2, heading: 0, flagsRolled: true }
+        };
+      }
     };
     expect(step.commandCall).toBe('Mae!');
-    const targets = step.getTargets(10);
-    expect(targets.shushin.y).toBe(4);
+    expect(step.showTrapezoid).toBe(true);
+    expect(step.showTriangle).toBe(true);
+
+    const leftTargets = step.getTargets(10, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
+    expect(leftTargets.shushin.x).toBe(-5);
+
+    const rightTargets = step.getTargets(10, { seatsSide: 'RIGHT', rotationVariant: 'REGULAR' });
+    expect(rightTargets.shushin.x).toBe(5);
 
     const chapter: ProcedureChapter = {
       id: 'test_chap',
