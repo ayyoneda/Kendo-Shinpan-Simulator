@@ -384,14 +384,48 @@ function updateProcedureUI() {
       : "proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer";
   }
   if (tabChapRotation) {
-    tabChapRotation.className = chapter.id === 'rotation'
+    const isRot = chapter.id === 'rotation' || chapter.id === 'rotation_koutai';
+    tabChapRotation.className = isRot
       ? "proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer"
       : "proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer";
+    const rotVariant = procedureManager.getRotationVariant();
+    tabChapRotation.textContent = rotVariant === 'KOUTAI'
+      ? (s.chapter_rotation_koutai || '2B. Rotação com Troca (Shinpan Koutai)')
+      : (s.chapter_rotation || '2. Rotação Regular (Sem Troca)');
   }
   if (tabChapExit) {
     tabChapExit.className = chapter.id === 'exit'
       ? "proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer"
       : "proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer";
+  }
+
+  // Seats side buttons UI
+  const seatsSide = procedureManager.getSeatsSide();
+  renderer.procedureSeatsSide = seatsSide;
+  const procSeatLeftBtn = document.getElementById('proc-seat-left-btn');
+  const procSeatRightBtn = document.getElementById('proc-seat-right-btn');
+  if (procSeatLeftBtn && procSeatRightBtn) {
+    if (seatsSide === 'LEFT') {
+      procSeatLeftBtn.className = "py-1 px-1.5 rounded text-center font-bold bg-[#bc002d] text-white transition cursor-pointer text-[10px]";
+      procSeatRightBtn.className = "py-1 px-1.5 rounded text-center font-medium text-gray-400 hover:text-white transition cursor-pointer text-[10px]";
+    } else {
+      procSeatLeftBtn.className = "py-1 px-1.5 rounded text-center font-medium text-gray-400 hover:text-white transition cursor-pointer text-[10px]";
+      procSeatRightBtn.className = "py-1 px-1.5 rounded text-center font-bold bg-[#bc002d] text-white transition cursor-pointer text-[10px]";
+    }
+  }
+
+  // Rotation variant buttons UI
+  const rotVariant = procedureManager.getRotationVariant();
+  const procRotRegBtn = document.getElementById('proc-rot-reg-btn');
+  const procRotKoutaiBtn = document.getElementById('proc-rot-koutai-btn');
+  if (procRotRegBtn && procRotKoutaiBtn) {
+    if (rotVariant === 'REGULAR') {
+      procRotRegBtn.className = "py-1 px-1.5 rounded text-center font-bold bg-[#bc002d] text-white transition cursor-pointer text-[10px]";
+      procRotKoutaiBtn.className = "py-1 px-1.5 rounded text-center font-medium text-gray-400 hover:text-white transition cursor-pointer text-[10px]";
+    } else {
+      procRotRegBtn.className = "py-1 px-1.5 rounded text-center font-medium text-gray-400 hover:text-white transition cursor-pointer text-[10px]";
+      procRotKoutaiBtn.className = "py-1 px-1.5 rounded text-center font-bold bg-[#bc002d] text-white transition cursor-pointer text-[10px]";
+    }
   }
 
   if (procStepCounter) {
@@ -443,6 +477,8 @@ function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
     renderer.procedureSubstituteReferee = null;
     procedureManager.pause();
 
+    btnModeTech.classList.remove('opacity-40', 'pointer-events-none');
+
     if (btnSimCombat) {
       btnSimCombat.className = "px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#2563eb] shadow-md transition cursor-pointer flex items-center gap-1.5";
     }
@@ -466,6 +502,11 @@ function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
 
     store.state.competitorsVisible = false;
 
+    // PROCEDURES MUST BE EXCLUSIVELY IN RENDERED MODE
+    renderer.isRPGMode = true;
+    applyModeVisuals();
+    btnModeTech.classList.add('opacity-40', 'pointer-events-none');
+
     if (btnSimProcedure) {
       btnSimProcedure.className = "px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#bc002d] shadow-md transition cursor-pointer flex items-center gap-1.5";
     }
@@ -482,6 +523,7 @@ function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
     if (procMinimizedPill) procMinimizedPill.classList.add('hidden');
     if (scenariosWidget) scenariosWidget.classList.add('hidden');
 
+    renderer.procedureSeatsSide = procedureManager.getSeatsSide();
     procedureManager.reset();
     updateProcedureUI();
   }
@@ -594,6 +636,42 @@ if (procSpeedBtn) {
   });
 }
 
+const procSeatLeftBtn = document.getElementById('proc-seat-left-btn');
+const procSeatRightBtn = document.getElementById('proc-seat-right-btn');
+const procRotRegBtn = document.getElementById('proc-rot-reg-btn');
+const procRotKoutaiBtn = document.getElementById('proc-rot-koutai-btn');
+
+if (procSeatLeftBtn) {
+  procSeatLeftBtn.addEventListener('click', () => {
+    renderer.clearTrails();
+    procedureManager.setSeatsSide('LEFT');
+    renderer.procedureSeatsSide = 'LEFT';
+    updateProcedureUI();
+  });
+}
+if (procSeatRightBtn) {
+  procSeatRightBtn.addEventListener('click', () => {
+    renderer.clearTrails();
+    procedureManager.setSeatsSide('RIGHT');
+    renderer.procedureSeatsSide = 'RIGHT';
+    updateProcedureUI();
+  });
+}
+if (procRotRegBtn) {
+  procRotRegBtn.addEventListener('click', () => {
+    renderer.clearTrails();
+    procedureManager.setRotationVariant('REGULAR');
+    updateProcedureUI();
+  });
+}
+if (procRotKoutaiBtn) {
+  procRotKoutaiBtn.addEventListener('click', () => {
+    renderer.clearTrails();
+    procedureManager.setRotationVariant('KOUTAI');
+    updateProcedureUI();
+  });
+}
+
 // Update UI Strings for Translations
 function updateUIStrings() {
   const s = i18n[currentLang];
@@ -694,7 +772,13 @@ function updateUIStrings() {
   setText('ui-proc-header', s.modeProcedures || 'Procedimentos FIK');
   setText('tab-chap-entry', s.chapter_entry || '1. Entrada & Formação');
   setText('tab-chap-rotation', s.chapter_rotation || '2. Rotação & Troca');
-  setText('tab-chap-exit', s.chapter_exit || '3. Saída da Quadra');
+  setText('tab-chap-exit', s.chapter_exit || '3. Encerramento & Saída');
+  setText('ui-proc-seats-label', s.procSeatsLabel || 'Assentos (Mesa):');
+  setText('proc-seat-left-btn', s.procSeatsLeft || 'Esquerda');
+  setText('proc-seat-right-btn', s.procSeatsRight || 'Direita');
+  setText('ui-proc-rot-label', s.procRotLabel || 'Modo Rotação:');
+  setText('proc-rot-reg-btn', s.procRotRegular || 'Regular');
+  setText('proc-rot-koutai-btn', s.procRotKoutai || 'Troca');
   setText('ui-proc-pause-step', s.pauseOnStepLabel || 'Pausar a cada etapa');
   setText('ui-proc-prev', s.btnPrev || 'Anterior');
   setText('ui-proc-play', procedureManager.isPlaying() ? (s.btnPause || 'Pausar') : (s.btnPlay || 'Reproduzir'));

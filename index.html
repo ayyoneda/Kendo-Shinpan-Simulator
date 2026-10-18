@@ -332,8 +332,28 @@
         <!-- Chapter Tabs (Vertical List) -->
         <div class="flex flex-col gap-1 flex-shrink-0" id="proc-chapter-tabs">
           <button class="proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-[#bc002d] text-white transition cursor-pointer" data-chapter="entry" id="tab-chap-entry">1. Entrada & Formação</button>
-          <button class="proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer" data-chapter="rotation" id="tab-chap-rotation">2. Rotação & Troca</button>
-          <button class="proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer" data-chapter="exit" id="tab-chap-exit">3. Saída</button>
+          <button class="proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer" data-chapter="rotation" id="tab-chap-rotation">2. Rotação Regular (Sem Troca)</button>
+          <button class="proc-chapter-btn text-left py-1.5 px-3 rounded-lg text-xs font-semibold whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition cursor-pointer" data-chapter="exit" id="tab-chap-exit">3. Encerramento & Saída</button>
+        </div>
+
+        <!-- Canonical Procedure Options (Seats Side & Rotation Variant) -->
+        <div class="grid grid-cols-2 gap-2 p-2 bg-white/5 border border-white/10 rounded-xl flex-shrink-0 text-[11px]">
+          <!-- Seats Side Toggle -->
+          <div class="flex flex-col gap-1">
+            <span class="text-[10px] text-gray-400 font-semibold" id="ui-proc-seats-label">Assentos (Mesa):</span>
+            <div class="grid grid-cols-2 gap-1 bg-black/40 p-0.5 rounded-lg border border-white/5">
+              <button id="proc-seat-left-btn" class="py-1 px-1.5 rounded text-center font-bold bg-[#bc002d] text-white transition cursor-pointer text-[10px]">Esquerda</button>
+              <button id="proc-seat-right-btn" class="py-1 px-1.5 rounded text-center font-medium text-gray-400 hover:text-white transition cursor-pointer text-[10px]">Direita</button>
+            </div>
+          </div>
+          <!-- Rotation Variant Toggle -->
+          <div class="flex flex-col gap-1">
+            <span class="text-[10px] text-gray-400 font-semibold" id="ui-proc-rot-label">Modo Rotação:</span>
+            <div class="grid grid-cols-2 gap-1 bg-black/40 p-0.5 rounded-lg border border-white/5">
+              <button id="proc-rot-reg-btn" class="py-1 px-1.5 rounded text-center font-bold bg-[#bc002d] text-white transition cursor-pointer text-[10px]">Regular</button>
+              <button id="proc-rot-koutai-btn" class="py-1 px-1.5 rounded text-center font-medium text-gray-400 hover:text-white transition cursor-pointer text-[10px]">Troca</button>
+            </div>
+          </div>
         </div>
 
         <!-- Step Info Card -->
