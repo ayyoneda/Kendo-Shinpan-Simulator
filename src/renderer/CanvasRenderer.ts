@@ -1,5 +1,6 @@
 import type { EngineState, Fighter, Referee } from '../engine/types';
 import type { Vector2D } from '../math/vector';
+import type { ProcedureStep } from '../engine/procedures/types';
 
 export class CanvasRenderer {
   private canvas: HTMLCanvasElement;
@@ -32,6 +33,9 @@ export class CanvasRenderer {
   public showNames = true;
   public showDirection = true;
   public showTrails = false;
+  public procedureActiveStep: ProcedureStep | null = null;
+  public procedureSubstituteReferee: Referee | null = null;
+  public showProcedureGuides = true;
 
   private trails: Record<string, Vector2D[]> = {
     white: [], red: [], shushin: [], fukushin1: [], fukushin2: []
@@ -117,13 +121,20 @@ export class CanvasRenderer {
     this.drawFloor();
     this.drawCourt(state.config.courtSize);
     this.drawGuides(state);
+    this.drawProcedureGuides(state);
     this.drawTrails();
 
-    this.drawEntity(state.white, false, state);
-    this.drawEntity(state.red, false, state);
+    if (state.competitorsVisible !== false) {
+      this.drawEntity(state.white, false, state);
+      this.drawEntity(state.red, false, state);
+    }
     this.drawEntity(state.shushin, true, state);
     this.drawEntity(state.fukushin1, true, state);
     this.drawEntity(state.fukushin2, true, state);
+    if (this.procedureSubstituteReferee) {
+      this.drawEntity(this.procedureSubstituteReferee, true, state);
+    }
+    this.drawProcedureCallouts(state);
   }
 
   private rebuildFloorCache() {
@@ -390,6 +401,8 @@ export class CanvasRenderer {
           facingAngle = Math.atan2(state.red.y - ent.y, state.red.x - ent.x);
         } else if (ent === state.red) {
           facingAngle = Math.atan2(state.white.y - ent.y, state.white.x - ent.x);
+        } else if ((ent as Referee).heading !== undefined) {
+          facingAngle = (ent as Referee).heading!;
         } else {
           facingAngle = Math.atan2(midY - ent.y, midX - ent.x);
         }
@@ -464,6 +477,8 @@ export class CanvasRenderer {
         facingAngle = Math.atan2(state.red.y - ent.y, state.red.x - ent.x);
       } else if (ent === state.red) {
         facingAngle = Math.atan2(state.white.y - ent.y, state.white.x - ent.x);
+      } else if ((ent as Referee).heading !== undefined) {
+        facingAngle = (ent as Referee).heading!;
       } else {
         facingAngle = Math.atan2(midY - ent.y, midX - ent.x);
       }
@@ -503,5 +518,85 @@ export class CanvasRenderer {
       this.ctx.textBaseline = 'middle';
       this.ctx.fillText(ent.label, p.x, p.y);
     }
+  }
+
+  private drawProcedureGuides(state: EngineState) {
+    if (state.simulationMode !== 'PROCEDURE' || !this.showProcedureGuides) return;
+
+    const yVertex = state.config.courtSize / 2 - 1.0;
+    const yBase = -yVertex;
+    const xBase = yVertex * 0.5;
+
+    // Draw subtle guides for the trapezoid in Chapter 1
+    if (this.procedureActiveStep && this.procedureActiveStep.id.startsWith('entry')) {
+      const topF1 = this.toScreenInto(0.65, yVertex, {x:0, y:0});
+      const topF2 = this.toScreenInto(-0.65, yVertex, {x:0, y:0});
+      const baseF1 = this.toScreenInto(xBase, yBase, {x:0, y:0});
+      const baseF2 = this.toScreenInto(-xBase, yBase, {x:0, y:0});
+
+      this.ctx.save();
+      this.ctx.strokeStyle = 'rgba(234, 179, 8, 0.4)';
+      this.ctx.setLineDash([6, 6]);
+      this.ctx.lineWidth = 1.5;
+
+      // Shorter base
+      this.ctx.beginPath();
+      this.ctx.moveTo(topF2.x, topF2.y);
+      this.ctx.lineTo(topF1.x, topF1.y);
+      this.ctx.stroke();
+
+      // Legs of the trapezoid (Fukushin walk paths)
+      this.ctx.beginPath();
+      this.ctx.moveTo(topF1.x, topF1.y);
+      this.ctx.lineTo(baseF1.x, baseF1.y);
+      this.ctx.moveTo(topF2.x, topF2.y);
+      this.ctx.lineTo(baseF2.x, baseF2.y);
+      this.ctx.stroke();
+
+      // Larger base
+      this.ctx.beginPath();
+      this.ctx.moveTo(baseF2.x, baseF2.y);
+      this.ctx.lineTo(baseF1.x, baseF1.y);
+      this.ctx.stroke();
+
+      this.ctx.restore();
+    }
+  }
+
+  private drawProcedureCallouts(state: EngineState) {
+    if (state.simulationMode !== 'PROCEDURE' || !this.procedureActiveStep) return;
+    const call = this.procedureActiveStep.commandCall;
+    if (!call) return;
+
+    const sp = this.toScreenInto(state.shushin.x, state.shushin.y, {x:0, y:0});
+    const bubbleY = sp.y - 48;
+
+    this.ctx.save();
+    this.ctx.font = 'bold 13px system-ui, -apple-system, sans-serif';
+    const text = `🗣️ "${call}"`;
+    const metrics = this.ctx.measureText(text);
+    const padX = 14;
+    const h = 28;
+    const w = metrics.width + padX * 2;
+    const x = sp.x - w / 2;
+    const y = bubbleY - h / 2;
+
+    this.ctx.shadowColor = 'rgba(0,0,0,0.5)';
+    this.ctx.shadowBlur = 12;
+    this.ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
+    this.ctx.strokeStyle = 'rgba(59, 130, 246, 0.7)';
+    this.ctx.lineWidth = 1.5;
+
+    this.ctx.beginPath();
+    this.ctx.roundRect(x, y, w, h, 8);
+    this.ctx.fill();
+    this.ctx.stroke();
+
+    this.ctx.shadowBlur = 0;
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'middle';
+    this.ctx.fillText(text, sp.x, bubbleY);
+    this.ctx.restore();
   }
 }
