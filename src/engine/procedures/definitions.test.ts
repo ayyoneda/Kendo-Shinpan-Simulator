@@ -81,70 +81,143 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(targets.fukushin2.y).toBeCloseTo(yVertex);
   });
 
-  it('verifies Chapter 2B Shinpan Koutai has 5 steps, substitute referee, and initial rotation walk', () => {
-    const koutai = procedureChapters.find(c => c.id === 'rotation_koutai')!;
+  it('verifies Chapter 1 Entry has 8 steps: step 7 turns inward and step 8 separates flags', () => {
+    const entry = procedureChapters.find(c => c.id === 'entry')!;
     const courtSize = 10;
-    expect(koutai.steps).toHaveLength(5);
+    expect(entry.steps).toHaveLength(8);
 
-    // Step 1: flags in right hand
-    const step1 = koutai.steps.find(s => s.id === 'koutai_flags_right')!;
-    const targets1 = step1.getTargets(courtSize);
-    expect(targets1.substitute).toBeDefined();
-    expect(targets1.shushin.flagsInRightHand).toBe(true);
-    expect(step1.showTriangle).toBe(true);
+    const step7 = entry.steps[6];
+    expect(step7.id).toBe('entry_turn_inward');
+    const t7 = step7.getTargets(courtSize);
+    // In step 7, they turned to center, but flags are STILL in right hand / rolled
+    expect(t7.shushin.flagsInRightHand).toBe(true);
+    expect(t7.fukushin1.flagsInRightHand).toBe(true);
+    expect(t7.fukushin2.flagsInRightHand).toBe(true);
 
-    // Step 2: initial rotation walk with Shushin facing incoming substitute directly
-    const step2 = koutai.steps.find(s => s.id === 'koutai_rotate_walk')!;
-    const targets2 = step2.getTargets(courtSize);
-    expect(targets2.shushin.heading).toBeCloseTo(0); // facing incoming sub at border
-    expect(targets2.shushin.flagsRolled).toBe(true);
-    expect(step2.showTriangle).toBe(true);
-
-    // All steps in Chapter 2B have showTriangle: true
-    for (const s of koutai.steps) {
-      expect(s.showTriangle).toBe(true);
-    }
+    const step8 = entry.steps[7];
+    expect(step8.id).toBe('entry_separate_flags');
+    const t8 = step8.getTargets(courtSize);
+    // In step 8, flags are separated into both hands
+    expect(t8.shushin.flagsInRightHand).toBe(false);
+    expect(t8.shushin.flagsRolled).toBe(false);
+    expect(t8.fukushin1.flagsInRightHand).toBe(false);
+    expect(t8.fukushin1.flagsRolled).toBe(false);
+    expect(t8.fukushin2.flagsInRightHand).toBe(false);
+    expect(t8.fukushin2.flagsRolled).toBe(false);
   });
 
-  it('verifies Chapter 2A Regular Rotation plots triangle on all steps', () => {
+  it('verifies Chapter 2A Regular Rotation has 5 steps: flags right, turn dest, walk, turn center, separate flags', () => {
     const rot = procedureChapters.find(c => c.id === 'rotation')!;
-    expect(rot.steps).toHaveLength(3);
+    const courtSize = 10;
+    const yVertex = courtSize / 2 - 1; // 4
+    const xBase = yVertex * 0.5; // 2
+    const yBase = -yVertex; // -4
+    expect(rot.steps).toHaveLength(5);
+
+    // Step 1: flags to right hand (in place)
+    const step1 = rot.steps[0];
+    expect(step1.id).toBe('rot_flags_right');
+    const t1 = step1.getTargets(courtSize);
+    expect(t1.shushin.flagsInRightHand).toBe(true);
+
+    // Step 2: turn to destination in place (no translation yet)
+    const step2 = rot.steps[1];
+    expect(step2.id).toBe('rot_turn_dest');
+    const t2 = step2.getTargets(courtSize);
+    expect(t2.shushin.x).toBeCloseTo(0);
+    expect(t2.shushin.y).toBeCloseTo(yVertex);
+    expect(t2.shushin.heading).toBeCloseTo(Math.atan2(yBase - yVertex, xBase - 0));
+    expect(t2.fukushin1.x).toBeCloseTo(xBase);
+    expect(t2.fukushin1.y).toBeCloseTo(yBase);
+    expect(t2.fukushin1.heading).toBeCloseTo(Math.PI);
+
+    // Step 3: translation along triangle sides
+    const step3 = rot.steps[2];
+    expect(step3.id).toBe('rot_walk');
+    const t3 = step3.getTargets(courtSize);
+    expect(t3.shushin.x).toBeCloseTo(xBase);
+    expect(t3.shushin.y).toBeCloseTo(yBase);
+    expect(t3.fukushin1.x).toBeCloseTo(-xBase);
+    expect(t3.fukushin1.y).toBeCloseTo(yBase);
+    expect(t3.fukushin2.x).toBeCloseTo(0);
+    expect(t3.fukushin2.y).toBeCloseTo(yVertex);
+
+    // Step 4: turn to center in place (flags still in right hand)
+    const step4 = rot.steps[3];
+    expect(step4.id).toBe('rot_turn_center');
+    const t4 = step4.getTargets(courtSize);
+    expect(t4.shushin.flagsInRightHand).toBe(true);
+    expect(t4.shushin.heading).toBeCloseTo(Math.atan2(-yBase, -xBase));
+
+    // Step 5: separate flags in both hands
+    const step5 = rot.steps[4];
+    expect(step5.id).toBe('rot_separate_flags');
+    const t5 = step5.getTargets(courtSize);
+    expect(t5.shushin.flagsInRightHand).toBe(false);
+    expect(t5.fukushin1.flagsInRightHand).toBe(false);
+    expect(t5.fukushin2.flagsInRightHand).toBe(false);
+
     for (const s of rot.steps) {
       expect(s.showTriangle).toBe(true);
     }
   });
 
-  it('verifies Chapter 1 Entry maintains F2-S-F1 order, constant speed, and feet aligned behind line', () => {
-    const entry = procedureChapters.find(c => c.id === 'entry')!;
+  it('verifies Chapter 2B Shinpan Koutai has 6 steps with synchronized entry, backward exit to top border, and final rei', () => {
+    const koutai = procedureChapters.find(c => c.id === 'rotation_koutai')!;
     const courtSize = 10;
-    const yBound = courtSize / 2;
+    const yVertex = courtSize / 2 - 1; // 4
+    const xBase = yVertex * 0.5; // 2
+    const yBase = -yVertex; // -4
+    expect(koutai.steps).toHaveLength(6);
 
-    const lineupStep = entry.steps.find(s => s.id === 'entry_lineup')!;
-    const maeStep = entry.steps.find(s => s.id === 'entry_mae')!;
-    const turnCourtStep = entry.steps.find(s => s.id === 'entry_turn_court')!;
+    // Step 1: flags in right hand, substitute waits outside
+    const step1 = koutai.steps[0];
+    expect(step1.id).toBe('koutai_flags_right');
+    const t1 = step1.getTargets(courtSize);
+    expect(t1.substitute).toBeDefined();
+    expect(t1.substitute!.x).toBeGreaterThan(courtSize / 2);
 
-    const tLineup = lineupStep.getTargets(courtSize, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
-    const tMae = maeStep.getTargets(courtSize, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
-    const tTurn = turnCourtStep.getTargets(courtSize);
+    // Step 2: turn in place to destination
+    const step2 = koutai.steps[1];
+    expect(step2.id).toBe('koutai_turn_dest');
+    const t2 = step2.getTargets(courtSize);
+    expect(t2.shushin.x).toBeCloseTo(0);
+    expect(t2.substitute!.x).toBeGreaterThan(courtSize / 2);
 
-    // Order from left to right along X is Fukushin 2 < Shushin < Fukushin 1
-    expect(tLineup.fukushin2.x).toBeLessThan(tLineup.shushin.x);
-    expect(tLineup.shushin.x).toBeLessThan(tLineup.fukushin1.x);
+    // Step 3: walk and synchronized entry
+    const step3 = koutai.steps[2];
+    expect(step3.id).toBe('koutai_rotate_walk');
+    const t3 = step3.getTargets(courtSize);
+    expect(t3.shushin.x).toBeCloseTo(xBase);
+    expect(t3.shushin.y).toBeCloseTo(yBase);
+    expect(t3.shushin.heading).toBeCloseTo(0); // facing incoming substitute
+    expect(t3.substitute!.x).toBeCloseTo(xBase + 1.2); // halted 1.2m in front
 
-    expect(tMae.fukushin2.x).toBeLessThan(tMae.shushin.x);
-    expect(tMae.shushin.x).toBeLessThan(tMae.fukushin1.x);
+    // Step 4: mutual Rei
+    const step4 = koutai.steps[3];
+    expect(step4.id).toBe('koutai_mutual_rei');
+    expect(step4.commandCall).toBe('Rei!');
 
-    // Velocity / Distance traveled is identical for all 3 (no order swapping)
-    const dxS = tMae.shushin.x - tLineup.shushin.x;
-    const dxF1 = tMae.fukushin1.x - tLineup.fukushin1.x;
-    const dxF2 = tMae.fukushin2.x - tLineup.fukushin2.x;
-    expect(dxS).toBeCloseTo(dxF1, 2);
-    expect(dxS).toBeCloseTo(dxF2, 2);
+    // Step 5: sainte exits backward to top border (y <= -5.0) and entrante takes position
+    const step5 = koutai.steps[4];
+    expect(step5.id).toBe('koutai_exit_backwards_swap');
+    const t5 = step5.getTargets(courtSize);
+    expect(t5.shushin.y).toBeLessThanOrEqual(-courtSize / 2); // top/back border
+    expect(t5.shushin.heading).toBeCloseTo(Math.PI / 2); // facing down towards court
+    expect(t5.substitute!.x).toBeCloseTo(xBase);
+    expect(t5.substitute!.y).toBeCloseTo(yBase);
 
-    // In turn_court, they stay aligned behind the boundary line (y > yBound)
-    expect(tTurn.shushin.y).toBeGreaterThan(yBound);
-    expect(tTurn.fukushin1.y).toBeCloseTo(tTurn.shushin.y, 2);
-    expect(tTurn.fukushin2.y).toBeCloseTo(tTurn.shushin.y, 2);
+    // Step 6: sainte bows to court, 3 referees separate flags
+    const step6 = koutai.steps[5];
+    expect(step6.id).toBe('koutai_final_rei_separate');
+    const t6 = step6.getTargets(courtSize);
+    expect(t6.fukushin1.flagsInRightHand).toBe(false);
+    expect(t6.fukushin2.flagsInRightHand).toBe(false);
+    expect(t6.substitute!.flagsInRightHand).toBe(false);
+
+    for (const s of koutai.steps) {
+      expect(s.showTriangle).toBe(true);
+    }
   });
 
   it('verifies Chapter 3 Exit brings Fukushin back, plots trapezoid, bows in place, turns sideways, and marches straight', () => {
@@ -194,20 +267,20 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(targetsMarchLeft.fukushin2.y).toBeCloseTo(yVertex);
   });
 
-  it('verifies Chapter 3 Sogo-ni-rei forms an equilateral triangle outside near seats', () => {
+  it('verifies Chapter 3 Sogo-ni-rei forms an equilateral triangle right at the exit line', () => {
     const exit = procedureChapters.find(c => c.id === 'exit')!;
     const courtSize = 10;
 
     const sogoStep = exit.steps.find(s => s.id === 'exit_sogo_ni_rei')!;
-    const targets = sogoStep.getTargets(courtSize, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
+    const targetsLeft = sogoStep.getTargets(courtSize, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
 
     // Center is outside the court boundary (courtSize/2 = 5.0)
-    expect(targets.shushin.y).toBeGreaterThan(5.0);
+    expect(Math.abs(targetsLeft.shushin.x)).toBeGreaterThan(courtSize / 2);
 
     // Distances between all 3 referees form an equilateral triangle
-    const dS_F1 = Math.hypot(targets.shushin.x - targets.fukushin1.x, targets.shushin.y - targets.fukushin1.y);
-    const dS_F2 = Math.hypot(targets.shushin.x - targets.fukushin2.x, targets.shushin.y - targets.fukushin2.y);
-    const dF1_F2 = Math.hypot(targets.fukushin1.x - targets.fukushin2.x, targets.fukushin1.y - targets.fukushin2.y);
+    const dS_F1 = Math.hypot(targetsLeft.shushin.x - targetsLeft.fukushin1.x, targetsLeft.shushin.y - targetsLeft.fukushin1.y);
+    const dS_F2 = Math.hypot(targetsLeft.shushin.x - targetsLeft.fukushin2.x, targetsLeft.shushin.y - targetsLeft.fukushin2.y);
+    const dF1_F2 = Math.hypot(targetsLeft.fukushin1.x - targetsLeft.fukushin2.x, targetsLeft.fukushin1.y - targetsLeft.fukushin2.y);
 
     expect(dS_F1).toBeCloseTo(dS_F2, 2);
     expect(dS_F1).toBeCloseTo(dF1_F2, 2);

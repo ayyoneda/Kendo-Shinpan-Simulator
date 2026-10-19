@@ -12,7 +12,7 @@ export const procedureChapters: ProcedureChapter[] = [
       {
         id: 'entry_lineup',
         stepNumber: 1,
-        totalSteps: 7,
+        totalSteps: 8,
         commandCall: '',
         description: 'Alinhamento inicial dos 3 árbitros no exterior da quadra, perfilados lado a lado junto aos assentos de arbitragem (Shinpan-in seats) na ordem Fukushin 2 - Shushin - Fukushin 1. Bandeiras enroladas na mão direita.',
         durationSec: 1.0,
@@ -34,7 +34,7 @@ export const procedureChapters: ProcedureChapter[] = [
       {
         id: 'entry_mae',
         stepNumber: 2,
-        totalSteps: 7,
+        totalSteps: 8,
         commandCall: 'Mae!',
         description: 'Ao comando "Mae!", os 3 árbitros marcham na mesma velocidade, sem trocar de ordem (Fukushin 2 - Shushin - Fukushin 1), tangenciando a borda externa da quadra até o centro.',
         durationSec: 2.4,
@@ -54,7 +54,7 @@ export const procedureChapters: ProcedureChapter[] = [
       {
         id: 'entry_turn_court',
         stepNumber: 3,
-        totalSteps: 7,
+        totalSteps: 8,
         commandCall: '',
         description: 'No centro da quadra, o trio gira para dentro virado para a quadra, mantendo os pés rigorosamente alinhados e logo atrás da linha externa.',
         durationSec: 1.2,
@@ -73,7 +73,7 @@ export const procedureChapters: ProcedureChapter[] = [
       {
         id: 'entry_ippomae',
         stepNumber: 4,
-        totalSteps: 7,
+        totalSteps: 8,
         commandCall: 'Ippomae!',
         description: 'Ao comando "Ippomae!", os 3 árbitros alinhados lado a lado dão um passo à frente com direita, esquerda, direita (~1m), parando dentro da quadra. O Shushin já ancora e fixa o vértice definitivo do triângulo isósceles!',
         durationSec: 1.5,
@@ -90,7 +90,7 @@ export const procedureChapters: ProcedureChapter[] = [
       {
         id: 'entry_rei',
         stepNumber: 5,
-        totalSteps: 7,
+        totalSteps: 8,
         commandCall: 'Rei!',
         description: 'Ao comando "Rei!", todos os árbitros inclinam o tronco (15º) em saudação conjunta em direção ao Shomen / interior da quadra.',
         durationSec: 1.2,
@@ -107,7 +107,7 @@ export const procedureChapters: ProcedureChapter[] = [
       {
         id: 'entry_trapezoid_walk',
         stepNumber: 6,
-        totalSteps: 7,
+        totalSteps: 8,
         commandCall: '',
         description: 'O Shushin permanece fixo no vértice. Os dois Fukushin caminham virados para a direção do movimento pelas "pernas" do trapézio isósceles (por dentro dos kaishisen) até a base maior do triângulo (~4m).',
         durationSec: 3.0,
@@ -130,13 +130,33 @@ export const procedureChapters: ProcedureChapter[] = [
       {
         id: 'entry_turn_inward',
         stepNumber: 7,
-        totalSteps: 7,
+        totalSteps: 8,
         commandCall: '',
-        description: 'Os Fukushin giram estritamente para dentro (Always turn inward) em direção ao centro da quadra e separam as bandeiras em sincronia (vermelha na direita, branca na esquerda). Formação padrão estabelecida!',
+        description: 'Os Fukushin giram estritamente para dentro (Always turn inward) em direção ao centro da quadra, estabelecendo a formação Standard do triângulo. As bandeiras permanecem na mão direita ao lado do corpo.',
         durationSec: 1.5,
-        holdSec: 1.0,
+        holdSec: 0.8,
         inwardTurn: true,
         showTrapezoid: true,
+        showTriangle: true,
+        getTargets: (courtSize: number) => {
+          const yVertex = courtSize / 2 - 1.0;
+          const yBase = -yVertex;
+          const xBase = yVertex * 0.5;
+          return {
+            shushin: { x: 0, y: yVertex, heading: -Math.PI / 2, flagsRolled: true, flagsInRightHand: true },
+            fukushin1: { x: xBase, y: yBase, heading: Math.atan2(-yBase, -xBase), flagsRolled: true, flagsInRightHand: true },
+            fukushin2: { x: -xBase, y: yBase, heading: Math.atan2(-yBase, xBase), flagsRolled: true, flagsInRightHand: true }
+          };
+        }
+      },
+      {
+        id: 'entry_separate_flags',
+        stepNumber: 8,
+        totalSteps: 8,
+        commandCall: '',
+        description: 'Na posição Standard, os 3 árbitros separam as bandeiras simultaneamente nas duas mãos (vermelha na direita, branca na esquerda). Formação inicial de combate concluída!',
+        durationSec: 1.2,
+        holdSec: 1.0,
         showTriangle: true,
         getTargets: (courtSize: number) => {
           const yVertex = courtSize / 2 - 1.0;
@@ -163,12 +183,22 @@ export const procedureChapters: ProcedureChapter[] = [
       {
         id: 'rot_flags_right',
         stepNumber: 1,
-        totalSteps: 3,
+        totalSteps: 5,
         commandCall: '',
         description: 'Ao final do tempo ou combate, todos os árbitros juntam ambas as bandeiras na mão direita sincronizadamente para iniciar a rotação triangular.',
         durationSec: 1.0,
         holdSec: 0.5,
         showTriangle: true,
+        getInitialTargets: (courtSize: number) => {
+          const yVertex = courtSize / 2 - 1.0;
+          const yBase = -yVertex;
+          const xBase = yVertex * 0.5;
+          return {
+            shushin: { x: 0, y: yVertex, heading: -Math.PI / 2, flagsRolled: false, flagsInRightHand: false },
+            fukushin1: { x: xBase, y: yBase, heading: Math.atan2(-yBase, -xBase), flagsRolled: false, flagsInRightHand: false },
+            fukushin2: { x: -xBase, y: yBase, heading: Math.atan2(-yBase, xBase), flagsRolled: false, flagsInRightHand: false }
+          };
+        },
         getTargets: (courtSize: number) => {
           const yVertex = courtSize / 2 - 1.0;
           const yBase = -yVertex;
@@ -181,11 +211,31 @@ export const procedureChapters: ProcedureChapter[] = [
         }
       },
       {
-        id: 'rot_walk',
+        id: 'rot_turn_dest',
         stepNumber: 2,
-        totalSteps: 3,
+        totalSteps: 5,
         commandCall: '',
-        description: 'Marcha simultânea em linha reta pelos lados internos do triângulo no sentido horário (virados para a direção do movimento): Shushin vai para F1, F1 para F2, e F2 assume o posto de Shushin.',
+        description: 'Antes de se deslocarem, os 3 árbitros giram no próprio lugar voltando-se rigorosamente para a direção do destino da rotação (sentido horário).',
+        durationSec: 1.0,
+        holdSec: 0.5,
+        showTriangle: true,
+        getTargets: (courtSize: number) => {
+          const yVertex = courtSize / 2 - 1.0;
+          const yBase = -yVertex;
+          const xBase = yVertex * 0.5;
+          return {
+            shushin: { x: 0, y: yVertex, heading: Math.atan2(yBase - yVertex, xBase - 0), flagsRolled: false, flagsInRightHand: true },
+            fukushin1: { x: xBase, y: yBase, heading: Math.PI, flagsRolled: false, flagsInRightHand: true },
+            fukushin2: { x: -xBase, y: yBase, heading: Math.atan2(yVertex - yBase, 0 - (-xBase)), flagsRolled: false, flagsInRightHand: true }
+          };
+        }
+      },
+      {
+        id: 'rot_walk',
+        stepNumber: 3,
+        totalSteps: 5,
+        commandCall: '',
+        description: 'Marcha simultânea em linha reta pelos lados internos do triângulo no sentido horário até os novos postos: Shushin vai para F1, F1 para F2, e F2 assume o posto de Shushin.',
         durationSec: 2.8,
         holdSec: 0.5,
         showTriangle: true,
@@ -201,14 +251,34 @@ export const procedureChapters: ProcedureChapter[] = [
         }
       },
       {
-        id: 'rot_settle',
-        stepNumber: 3,
-        totalSteps: 3,
+        id: 'rot_turn_center',
+        stepNumber: 4,
+        totalSteps: 5,
         commandCall: '',
-        description: 'Todos giram para dentro em direção ao centro e separam as bandeiras em sincronia. A rotação padrão está concluída sem necessidade de troca.',
-        durationSec: 1.5,
-        holdSec: 1.0,
+        description: 'Nos novos postos, todos giram para dentro em direção ao centro da quadra, mantendo as duas bandeiras ainda na mão direita.',
+        durationSec: 1.2,
+        holdSec: 0.8,
         inwardTurn: true,
+        showTriangle: true,
+        getTargets: (courtSize: number) => {
+          const yVertex = courtSize / 2 - 1.0;
+          const yBase = -yVertex;
+          const xBase = yVertex * 0.5;
+          return {
+            shushin: { x: xBase, y: yBase, heading: Math.atan2(-yBase, -xBase), flagsRolled: false, flagsInRightHand: true },
+            fukushin1: { x: -xBase, y: yBase, heading: Math.atan2(-yBase, xBase), flagsRolled: false, flagsInRightHand: true },
+            fukushin2: { x: 0, y: yVertex, heading: -Math.PI / 2, flagsRolled: false, flagsInRightHand: true }
+          };
+        }
+      },
+      {
+        id: 'rot_separate_flags',
+        stepNumber: 5,
+        totalSteps: 5,
+        commandCall: '',
+        description: 'Voltados para o centro, os 3 árbitros separam simultaneamente as bandeiras nas duas mãos. A rotação padrão está concluída!',
+        durationSec: 1.2,
+        holdSec: 1.0,
         showTriangle: true,
         getTargets: (courtSize: number) => {
           const yVertex = courtSize / 2 - 1.0;
@@ -235,12 +305,23 @@ export const procedureChapters: ProcedureChapter[] = [
       {
         id: 'koutai_flags_right',
         stepNumber: 1,
-        totalSteps: 5,
+        totalSteps: 6,
         commandCall: '',
-        description: 'Ao final do tempo ou combate, todos os árbitros juntam ambas as bandeiras na mão direita sincronizadamente para iniciar a rotação com substituição. O árbitro entrante aguarda junto à borda lateral.',
+        description: 'Ao final do tempo ou combate, os árbitros juntam as duas bandeiras na mão direita sincronizadamente. O árbitro entrante aguarda do lado de fora da quadra.',
         durationSec: 1.0,
         holdSec: 0.5,
         showTriangle: true,
+        getInitialTargets: (courtSize: number) => {
+          const yVertex = courtSize / 2 - 1.0;
+          const yBase = -yVertex;
+          const xBase = yVertex * 0.5;
+          return {
+            shushin: { x: 0, y: yVertex, heading: -Math.PI / 2, flagsRolled: false, flagsInRightHand: false },
+            fukushin1: { x: xBase, y: yBase, heading: Math.atan2(-yBase, -xBase), flagsRolled: false, flagsInRightHand: false },
+            fukushin2: { x: -xBase, y: yBase, heading: Math.atan2(-yBase, xBase), flagsRolled: false, flagsInRightHand: false },
+            substitute: { x: courtSize / 2 + 1.2, y: yBase, heading: Math.PI, flagsRolled: true, flagsInRightHand: true }
+          };
+        },
         getTargets: (courtSize: number) => {
           const yVertex = courtSize / 2 - 1.0;
           const yBase = -yVertex;
@@ -254,12 +335,12 @@ export const procedureChapters: ProcedureChapter[] = [
         }
       },
       {
-        id: 'koutai_rotate_walk',
+        id: 'koutai_turn_dest',
         stepNumber: 2,
-        totalSteps: 5,
+        totalSteps: 6,
         commandCall: '',
-        description: 'Fase inicial de rotação: F2 assume o posto de Shushin, F1 vai para o posto de F2. O Shushin que sai caminha até o posto de F1 e vira-se diretamente para o árbitro entrante, enrolando as bandeiras.',
-        durationSec: 2.8,
+        description: 'Antes de se deslocarem, os árbitros na quadra giram no lugar em direção ao destino. O árbitro entrante continua aguardando do lado de fora.',
+        durationSec: 1.0,
         holdSec: 0.5,
         showTriangle: true,
         getTargets: (courtSize: number) => {
@@ -267,20 +348,20 @@ export const procedureChapters: ProcedureChapter[] = [
           const yBase = -yVertex;
           const xBase = yVertex * 0.5;
           return {
-            shushin: { x: xBase, y: yBase, heading: 0, flagsRolled: true, flagsInRightHand: true },
-            fukushin1: { x: -xBase, y: yBase, heading: Math.PI, flagsRolled: false, flagsInRightHand: true },
-            fukushin2: { x: 0, y: yVertex, heading: Math.atan2(yVertex - yBase, 0 - (-xBase)), flagsRolled: false, flagsInRightHand: true },
-            substitute: { x: xBase + 1.6, y: yBase, heading: Math.PI, flagsRolled: true, flagsInRightHand: true }
+            shushin: { x: 0, y: yVertex, heading: Math.atan2(yBase - yVertex, xBase - 0), flagsRolled: false, flagsInRightHand: true },
+            fukushin1: { x: xBase, y: yBase, heading: Math.PI, flagsRolled: false, flagsInRightHand: true },
+            fukushin2: { x: -xBase, y: yBase, heading: Math.atan2(yVertex - yBase, 0 - (-xBase)), flagsRolled: false, flagsInRightHand: true },
+            substitute: { x: courtSize / 2 + 1.2, y: yBase, heading: Math.PI, flagsRolled: true, flagsInRightHand: true }
           };
         }
       },
       {
-        id: 'koutai_sync_arrival',
+        id: 'koutai_rotate_walk',
         stepNumber: 3,
-        totalSteps: 5,
+        totalSteps: 6,
         commandCall: '',
-        description: 'O árbitro entrante atinge a posição de saudação a 1,2m do sainte. O sainte conclui o enrolamento das bandeiras junto à coxa direita sem que nenhum fique esperando à toa. Os demais árbitros posicionam-se no triângulo.',
-        durationSec: 1.5,
+        description: 'Marcha de rotação triangular: F2 assume o posto de Shushin, F1 vai para o posto de F2. O Shushin que sai caminha até o posto de F1, vira-se diretamente para a borda e enrola as bandeiras. Sincronizadamente, o árbitro entrante entra na quadra e para à frente do sainte.',
+        durationSec: 2.8,
         holdSec: 0.8,
         showTriangle: true,
         getTargets: (courtSize: number) => {
@@ -289,8 +370,8 @@ export const procedureChapters: ProcedureChapter[] = [
           const xBase = yVertex * 0.5;
           return {
             shushin: { x: xBase, y: yBase, heading: 0, flagsRolled: true, flagsInRightHand: true },
-            fukushin1: { x: -xBase, y: yBase, heading: Math.atan2(-yBase, xBase), flagsRolled: false, flagsInRightHand: false },
-            fukushin2: { x: 0, y: yVertex, heading: -Math.PI / 2, flagsRolled: false, flagsInRightHand: false },
+            fukushin1: { x: -xBase, y: yBase, heading: Math.atan2(-yBase, xBase), flagsRolled: false, flagsInRightHand: true },
+            fukushin2: { x: 0, y: yVertex, heading: -Math.PI / 2, flagsRolled: false, flagsInRightHand: true },
             substitute: { x: xBase + 1.2, y: yBase, heading: Math.PI, flagsRolled: true, flagsInRightHand: true }
           };
         }
@@ -298,9 +379,9 @@ export const procedureChapters: ProcedureChapter[] = [
       {
         id: 'koutai_mutual_rei',
         stepNumber: 4,
-        totalSteps: 5,
+        totalSteps: 6,
         commandCall: 'Rei!',
-        description: 'Os dois árbitros (sainte e entrante) realizam a saudação mútua (Rei) em sincronia, com bandeiras posicionadas na mão direita.',
+        description: 'O árbitro sainte e o entrante realizam a saudação mútua (Rei) em sincronia, com as bandeiras posicionadas na mão direita.',
         durationSec: 1.2,
         holdSec: 1.0,
         showTriangle: true,
@@ -310,27 +391,48 @@ export const procedureChapters: ProcedureChapter[] = [
           const xBase = yVertex * 0.5;
           return {
             shushin: { x: xBase, y: yBase, heading: 0, flagsRolled: true, flagsInRightHand: true },
-            fukushin1: { x: -xBase, y: yBase, heading: Math.atan2(-yBase, xBase), flagsRolled: false, flagsInRightHand: false },
-            fukushin2: { x: 0, y: yVertex, heading: -Math.PI / 2, flagsRolled: false, flagsInRightHand: false },
+            fukushin1: { x: -xBase, y: yBase, heading: Math.atan2(-yBase, xBase), flagsRolled: false, flagsInRightHand: true },
+            fukushin2: { x: 0, y: yVertex, heading: -Math.PI / 2, flagsRolled: false, flagsInRightHand: true },
             substitute: { x: xBase + 1.2, y: yBase, heading: Math.PI, flagsRolled: true, flagsInRightHand: true }
           };
         }
       },
       {
-        id: 'koutai_finish_swap',
+        id: 'koutai_exit_backwards_swap',
         stepNumber: 5,
-        totalSteps: 5,
+        totalSteps: 6,
         commandCall: '',
-        description: 'O árbitro que sai recua de costas até a borda e se retira. O árbitro entrante assume a posição de Fukushin, desenrola as bandeiras e todos separam as bandeiras em sincronia.',
-        durationSec: 2.8,
-        holdSec: 1.0,
+        description: 'Após o rei, o sainte gira 90 graus no sentido horário e sai de costas em direção à borda do fundo (lado de cima na imagem), enquanto o entrante avança e toma a posição que o sainte ocupava.',
+        durationSec: 2.5,
+        holdSec: 0.8,
         showTriangle: true,
         getTargets: (courtSize: number) => {
           const yVertex = courtSize / 2 - 1.0;
           const yBase = -yVertex;
           const xBase = yVertex * 0.5;
           return {
-            shushin: { x: courtSize / 2 + 1.5, y: yBase, heading: 0, flagsRolled: true, flagsInRightHand: true },
+            shushin: { x: xBase, y: -courtSize / 2 - 0.5, heading: Math.PI / 2, flagsRolled: true, flagsInRightHand: true },
+            fukushin1: { x: -xBase, y: yBase, heading: Math.atan2(-yBase, xBase), flagsRolled: false, flagsInRightHand: true },
+            fukushin2: { x: 0, y: yVertex, heading: -Math.PI / 2, flagsRolled: false, flagsInRightHand: true },
+            substitute: { x: xBase, y: yBase, heading: Math.atan2(-yBase, -xBase), flagsRolled: true, flagsInRightHand: true }
+          };
+        }
+      },
+      {
+        id: 'koutai_final_rei_separate',
+        stepNumber: 6,
+        totalSteps: 6,
+        commandCall: 'Rei!',
+        description: 'O sainte, na borda externa, realiza a saudação (Rei) voltado para a quadra antes de se retirar. Simultaneamente, os 3 árbitros na quadra separam as bandeiras nas duas mãos de forma sincronizada.',
+        durationSec: 1.5,
+        holdSec: 1.2,
+        showTriangle: true,
+        getTargets: (courtSize: number) => {
+          const yVertex = courtSize / 2 - 1.0;
+          const yBase = -yVertex;
+          const xBase = yVertex * 0.5;
+          return {
+            shushin: { x: xBase, y: -courtSize / 2 - 0.5, heading: Math.PI / 2, flagsRolled: true, flagsInRightHand: true },
             fukushin1: { x: -xBase, y: yBase, heading: Math.atan2(-yBase, xBase), flagsRolled: false, flagsInRightHand: false },
             fukushin2: { x: 0, y: yVertex, heading: -Math.PI / 2, flagsRolled: false, flagsInRightHand: false },
             substitute: { x: xBase, y: yBase, heading: Math.atan2(-yBase, -xBase), flagsRolled: false, flagsInRightHand: false }
@@ -356,6 +458,16 @@ export const procedureChapters: ProcedureChapter[] = [
         description: 'Ao término do combate e saudações dos competidores, todos os árbitros enrolam as bandeiras simultaneamente (branca por dentro, vermelha por fora) e as mantêm na mão direita ao lado do corpo.',
         durationSec: 1.2,
         holdSec: 0.5,
+        getInitialTargets: (courtSize: number) => {
+          const yVertex = courtSize / 2 - 1.0;
+          const yBase = -yVertex;
+          const xBase = yVertex * 0.5;
+          return {
+            shushin: { x: 0, y: yVertex, heading: -Math.PI / 2, flagsRolled: false, flagsInRightHand: false },
+            fukushin1: { x: xBase, y: yBase, heading: Math.atan2(-yBase, -xBase), flagsRolled: false, flagsInRightHand: false },
+            fukushin2: { x: -xBase, y: yBase, heading: Math.atan2(-yBase, xBase), flagsRolled: false, flagsInRightHand: false }
+          };
+        },
         getTargets: (courtSize: number) => {
           const yVertex = courtSize / 2 - 1.0;
           const yBase = -yVertex;
@@ -466,7 +578,7 @@ export const procedureChapters: ProcedureChapter[] = [
         stepNumber: 6,
         totalSteps: 7,
         commandCall: 'Mae!',
-        description: 'Ao comando "Mae!", o trio caminha em linha reta (a 1m da linha da quadra) até a área exterior próxima aos assentos de arbitragem.',
+        description: 'Ao comando "Mae!", o trio caminha em linha reta (a 1m da linha da quadra) até a linha de limite da quadra.',
         durationSec: 2.6,
         holdSec: 0.8,
         getTargets: (courtSize: number, cfg?: ProcedureConfig) => {
@@ -474,7 +586,7 @@ export const procedureChapters: ProcedureChapter[] = [
           const yVertex = courtSize / 2 - 1.0;
           const heading = isLeft ? Math.PI : 0;
           const sign = isLeft ? -1 : 1;
-          const exitX = sign * (courtSize / 2 + 0.6);
+          const exitX = sign * (courtSize / 2 + 0.3);
           return {
             shushin: { x: exitX, y: yVertex, heading, flagsRolled: true, flagsInRightHand: true },
             fukushin1: { x: exitX + 0.65, y: yVertex, heading, flagsRolled: true, flagsInRightHand: true },
@@ -487,35 +599,52 @@ export const procedureChapters: ProcedureChapter[] = [
         stepNumber: 7,
         totalSteps: 7,
         commandCall: 'Sogo-ni-rei!',
-        description: 'Do lado de fora junto aos assentos, os 3 árbitros formam um triângulo equilátero, cada um voltado para o centro do triângulo, e realizam a saudação mútua (Sogo-ni-rei), concluindo o protocolo.',
+        description: 'Assim que saem dos limites da quadra, o trio abre a formação de triângulo equilátero (primeiro abre 60º à direita, segundo 60º à esquerda e terceiro segue reto), viram-se entre si e realizam o Sogo-ni-rei.',
         durationSec: 1.5,
         holdSec: 1.5,
         getTargets: (courtSize: number, cfg?: ProcedureConfig) => {
           const isLeft = (cfg?.seatsSide ?? 'LEFT') === 'LEFT';
           const sign = isLeft ? -1 : 1;
-          const cx = sign * (courtSize / 2 + 1.0);
-          const cy = courtSize / 2 + 1.2;
+          const cx = sign * (courtSize / 2 + 0.9);
+          const cy = courtSize / 2 - 1.0; // na mesma linha yVertex
           const R = 0.55;
+          const sin60 = Math.sin(Math.PI / 3);
 
-          // Vértices do triângulo equilátero:
-          // Shushin no topo voltado para baixo: (cx, cy - R), heading = Math.PI / 2
-          // F1 no canto inferior direito: (cx + R * cos30, cy + R * sin30), heading para centro
-          // F2 no canto inferior esquerdo: (cx - R * cos30, cy + R * sin30), heading para centro
-          const cos30 = Math.cos(Math.PI / 6);
-          const sin30 = Math.sin(Math.PI / 6);
+          if (isLeft) {
+            // Saindo pela esquerda (marcha para -x):
+            // 1º (F2) abre 60º à sua direita (para -y)
+            // 2º (Shushin) abre 60º à sua esquerda (para +y)
+            // 3º (F1) segue reto (-x, mais próximo da linha)
+            const f2X = cx - 0.5 * R;
+            const f2Y = cy - R * sin60;
+            const sX = cx - 0.5 * R;
+            const sY = cy + R * sin60;
+            const f1X = cx + R;
+            const f1Y = cy;
 
-          const sX = cx;
-          const sY = cy - R;
-          const f1X = cx + R * cos30;
-          const f1Y = cy + R * sin30;
-          const f2X = cx - R * cos30;
-          const f2Y = cy + R * sin30;
+            return {
+              shushin: { x: sX, y: sY, heading: Math.atan2(cy - sY, cx - sX), flagsRolled: true, flagsInRightHand: true },
+              fukushin1: { x: f1X, y: f1Y, heading: Math.PI, flagsRolled: true, flagsInRightHand: true },
+              fukushin2: { x: f2X, y: f2Y, heading: Math.atan2(cy - f2Y, cx - f2X), flagsRolled: true, flagsInRightHand: true }
+            };
+          } else {
+            // Saindo pela direita (marcha para +x):
+            // 1º (F1) abre 60º à sua direita (para +y)
+            // 2º (Shushin) abre 60º à sua esquerda (para -y)
+            // 3º (F2) segue reto (+x, mais próximo da linha)
+            const f1X = cx + 0.5 * R;
+            const f1Y = cy + R * sin60;
+            const sX = cx + 0.5 * R;
+            const sY = cy - R * sin60;
+            const f2X = cx - R;
+            const f2Y = cy;
 
-          return {
-            shushin: { x: sX, y: sY, heading: Math.PI / 2, flagsRolled: true, flagsInRightHand: true },
-            fukushin1: { x: f1X, y: f1Y, heading: Math.atan2(cy - f1Y, cx - f1X), flagsRolled: true, flagsInRightHand: true },
-            fukushin2: { x: f2X, y: f2Y, heading: Math.atan2(cy - f2Y, cx - f2X), flagsRolled: true, flagsInRightHand: true }
-          };
+            return {
+              shushin: { x: sX, y: sY, heading: Math.atan2(cy - sY, cx - sX), flagsRolled: true, flagsInRightHand: true },
+              fukushin1: { x: f1X, y: f1Y, heading: Math.atan2(cy - f1Y, cx - f1X), flagsRolled: true, flagsInRightHand: true },
+              fukushin2: { x: f2X, y: f2Y, heading: 0, flagsRolled: true, flagsInRightHand: true }
+            };
+          }
         }
       }
     ]

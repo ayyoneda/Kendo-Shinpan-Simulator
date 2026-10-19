@@ -26,6 +26,12 @@ export interface ProcedureStep {
   inwardTurn?: boolean;
   showTrapezoid?: boolean;
   showTriangle?: boolean;
+  getInitialTargets?: (courtSize: number, config?: ProcedureConfig) => {
+    shushin: RefereeVisualState;
+    fukushin1: RefereeVisualState;
+    fukushin2: RefereeVisualState;
+    substitute?: RefereeVisualState;
+  };
   getTargets: (courtSize: number, config?: ProcedureConfig) => {
     shushin: RefereeVisualState;
     fukushin1: RefereeVisualState;

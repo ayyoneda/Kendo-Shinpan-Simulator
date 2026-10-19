@@ -244,37 +244,39 @@ export class ProcedureManager {
     const chapter = procedureChapters[chapterIdx];
     const step = chapter.steps[stepIdx];
     const courtSize = this.store.state.config.courtSize;
-    const targets = step.getTargets(courtSize, this.config);
+    const initialTargets = (instant && stepIdx === 0 && step.getInitialTargets)
+      ? step.getInitialTargets(courtSize, this.config)
+      : step.getTargets(courtSize, this.config);
 
     if (instant) {
-      this.store.state.shushin.x = targets.shushin.x;
-      this.store.state.shushin.y = targets.shushin.y;
-      this.store.state.shushin.heading = targets.shushin.heading;
-      this.store.state.shushin.flagsRolled = targets.shushin.flagsRolled;
-      this.store.state.shushin.flagsInRightHand = targets.shushin.flagsInRightHand;
+      this.store.state.shushin.x = initialTargets.shushin.x;
+      this.store.state.shushin.y = initialTargets.shushin.y;
+      this.store.state.shushin.heading = initialTargets.shushin.heading;
+      this.store.state.shushin.flagsRolled = initialTargets.shushin.flagsRolled;
+      this.store.state.shushin.flagsInRightHand = initialTargets.shushin.flagsInRightHand;
 
-      this.store.state.fukushin1.x = targets.fukushin1.x;
-      this.store.state.fukushin1.y = targets.fukushin1.y;
-      this.store.state.fukushin1.heading = targets.fukushin1.heading;
-      this.store.state.fukushin1.flagsRolled = targets.fukushin1.flagsRolled;
-      this.store.state.fukushin1.flagsInRightHand = targets.fukushin1.flagsInRightHand;
+      this.store.state.fukushin1.x = initialTargets.fukushin1.x;
+      this.store.state.fukushin1.y = initialTargets.fukushin1.y;
+      this.store.state.fukushin1.heading = initialTargets.fukushin1.heading;
+      this.store.state.fukushin1.flagsRolled = initialTargets.fukushin1.flagsRolled;
+      this.store.state.fukushin1.flagsInRightHand = initialTargets.fukushin1.flagsInRightHand;
 
-      this.store.state.fukushin2.x = targets.fukushin2.x;
-      this.store.state.fukushin2.y = targets.fukushin2.y;
-      this.store.state.fukushin2.heading = targets.fukushin2.heading;
-      this.store.state.fukushin2.flagsRolled = targets.fukushin2.flagsRolled;
-      this.store.state.fukushin2.flagsInRightHand = targets.fukushin2.flagsInRightHand;
+      this.store.state.fukushin2.x = initialTargets.fukushin2.x;
+      this.store.state.fukushin2.y = initialTargets.fukushin2.y;
+      this.store.state.fukushin2.heading = initialTargets.fukushin2.heading;
+      this.store.state.fukushin2.flagsRolled = initialTargets.fukushin2.flagsRolled;
+      this.store.state.fukushin2.flagsInRightHand = initialTargets.fukushin2.flagsInRightHand;
 
-      if (targets.substitute) {
+      if (initialTargets.substitute) {
         this.substituteReferee = {
-          x: targets.substitute.x,
-          y: targets.substitute.y,
+          x: initialTargets.substitute.x,
+          y: initialTargets.substitute.y,
           color: '#eab308',
           label: 'Sub',
           radius: 0.3,
-          heading: targets.substitute.heading,
-          flagsRolled: targets.substitute.flagsRolled,
-          flagsInRightHand: targets.substitute.flagsInRightHand
+          heading: initialTargets.substitute.heading,
+          flagsRolled: initialTargets.substitute.flagsRolled,
+          flagsInRightHand: initialTargets.substitute.flagsInRightHand
         };
       } else {
         this.substituteReferee = null;
