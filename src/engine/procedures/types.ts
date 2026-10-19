@@ -15,11 +15,15 @@ export interface RefereeVisualState {
   flagsInRightHand?: boolean;
 }
 
+export type VocalizationType = 'VOICE_LOUD' | 'VOICE_LOW' | 'SILENT_ACTION';
+
 export interface ProcedureStep {
   id: string;
   stepNumber: number;
   totalSteps: number;
   commandCall?: string | ((config?: ProcedureConfig) => string);
+  vocalizationType?: VocalizationType;
+  actionNote?: string;
   description: string;
   durationSec: number;
   holdSec?: number;

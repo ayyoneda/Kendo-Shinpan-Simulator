@@ -601,7 +601,7 @@ export class CanvasRenderer {
 
     const yVertex = state.config.courtSize / 2 - 1.0;
     const yBase = -yVertex;
-    const xBase = yVertex * 0.5;
+    const xBase = 2.0; // Distância fixa canônica de 4.0m entre Fukushin
 
     // Draw Isosceles Trapezoid if requested by didactic step
     if (this.procedureActiveStep.showTrapezoid) {
@@ -643,7 +643,7 @@ export class CanvasRenderer {
       this.ctx.fillStyle = '#fef08a';
       this.ctx.fillText('1.30 m', topMidX, topMidY);
 
-      // Larger base badge: ~4.0 m
+      // Larger base badge: 4.0 m
       const baseMidX = (baseF1.x + baseF2.x) / 2;
       const baseMidY = baseF1.y + 14;
       this.ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
@@ -651,7 +651,7 @@ export class CanvasRenderer {
       this.ctx.strokeStyle = 'rgba(234, 179, 8, 0.9)';
       this.ctx.strokeRect(baseMidX - 26, baseMidY - 9, 52, 18);
       this.ctx.fillStyle = '#fef08a';
-      this.ctx.fillText('~4.0 m', baseMidX, baseMidY);
+      this.ctx.fillText('4.0 m', baseMidX, baseMidY);
 
       this.ctx.restore();
     }
@@ -686,14 +686,40 @@ export class CanvasRenderer {
     const call = typeof step.commandCall === 'function'
       ? step.commandCall({ seatsSide: this.procedureSeatsSide, rotationVariant: 'REGULAR' })
       : step.commandCall;
-    if (!call) return;
 
-    const sp = this.toScreenInto(state.shushin.x, state.shushin.y, {x:0, y:0});
+    const vocalType = step.vocalizationType || (call ? 'VOICE_LOUD' : undefined);
+
+    let text = '';
+    let bgColor = 'rgba(15, 23, 42, 0.9)';
+    let strokeColor = 'rgba(59, 130, 246, 0.7)';
+    let anchorX = state.shushin.x;
+    let anchorY = state.shushin.y;
+
+    if (vocalType === 'VOICE_LOUD' && call) {
+      text = `🗣️ "${call}"`;
+      bgColor = 'rgba(15, 23, 42, 0.9)';
+      strokeColor = 'rgba(59, 130, 246, 0.75)';
+    } else if (vocalType === 'VOICE_LOW' && call) {
+      text = `🤫 "${call}" (voz baixa)`;
+      bgColor = 'rgba(30, 41, 59, 0.9)';
+      strokeColor = 'rgba(234, 179, 8, 0.75)';
+    } else if (vocalType === 'SILENT_ACTION' && step.actionNote) {
+      text = `🤫 ${step.actionNote}`;
+      bgColor = 'rgba(6, 78, 59, 0.9)';
+      strokeColor = 'rgba(16, 185, 129, 0.75)';
+      if (this.procedureSubstituteReferee) {
+        anchorX = (state.shushin.x + this.procedureSubstituteReferee.x) / 2;
+        anchorY = (state.shushin.y + this.procedureSubstituteReferee.y) / 2;
+      }
+    } else {
+      return;
+    }
+
+    const sp = this.toScreenInto(anchorX, anchorY, {x:0, y:0});
     const bubbleY = sp.y - 48;
 
     this.ctx.save();
-    this.ctx.font = 'bold 13px system-ui, -apple-system, sans-serif';
-    const text = `🗣️ "${call}"`;
+    this.ctx.font = 'bold 12px system-ui, -apple-system, sans-serif';
     const metrics = this.ctx.measureText(text);
     const padX = 14;
     const h = 28;
@@ -703,8 +729,8 @@ export class CanvasRenderer {
 
     this.ctx.shadowColor = 'rgba(0,0,0,0.5)';
     this.ctx.shadowBlur = 12;
-    this.ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
-    this.ctx.strokeStyle = 'rgba(59, 130, 246, 0.7)';
+    this.ctx.fillStyle = bgColor;
+    this.ctx.strokeStyle = strokeColor;
     this.ctx.lineWidth = 1.5;
 
     this.ctx.beginPath();

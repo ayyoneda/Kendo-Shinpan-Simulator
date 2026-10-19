@@ -11,7 +11,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 ## Sumário
 - [Capítulo 1: Entrada em Quadra (Etapas 1.1 a 1.8)](#capítulo-1-entrada-em-quadra)
 - [Capítulo 2A: Rotação Regular — Sem Troca (Etapas 2A.1 a 2A.5)](#capítulo-2a-rotação-regular--sem-troca)
-- [Capítulo 2B: Rotação com Substituição — Shinpan Koutai (Etapas 2B.1 a 2B.7)](#capítulo-2b-rotação-com-substituição--shinpan-koutai)
+- [Capítulo 2B: Rotação com Substituição — Shinpan Koutai (Etapas 2B.1 a 2B.8)](#capítulo-2b-rotação-com-substituição--shinpan-koutai)
 - [Capítulo 3: Término do Combate e Saída da Quadra (Etapas 3.1 a 3.7)](#capítulo-3-término-do-combate-e-saída-da-quadra)
 
 ---
@@ -25,9 +25,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Os 3 árbitros levantam-se dos assentos de arbitragem (*Shinpan-in seats*) e perfilam-se lado a lado do lado de fora da quadra, na ordem Fukushin 2 - Shushin - Fukushin 1, com as bandeiras enroladas na mão direita (vermelha cobrindo a branca) ao lado do corpo.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Os 3 árbitros levantam-se dos assentos de arbitragem (*Shinpan-in seats*) e perfilam-se lado a lado do lado de fora da quadra, na ordem Fukushin - Shushin - Fukushin, com as bandeiras enroladas na mão direita (vermelha cobrindo a branca) ao lado do corpo.
 
 ---
 
@@ -64,9 +62,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Ao comando "Ippomae!", os 3 árbitros dão um passo à frente entrando juntos na quadra (a 1m da linha de limite), perfilados na base menor do trapézio (1.30m entre Fukushin). O Shushin já atinge aqui a posição final de vértice do triângulo.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Ao comando "Ippomae!" do Shushin, os 3 árbitros avançam para dentro da quadra (a aproximadamente 1m da linha), entrando com a passada direita-esquerda-direita.
 
 ---
 
@@ -77,9 +73,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Ao comando "Rei!", todos os árbitros inclinam o tronco (15º) em saudação conjunta em direção ao Shomen / interior da quadra.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Ao comando "Rei!" do Shushin, todos os árbitros inclinam o tronco (15º) em saudação conjunta em direção ao Shomen / interior da quadra.
 
 ---
 
@@ -90,9 +84,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > O Shushin permanece fixo no vértice. Os dois Fukushin caminham virados para a direção do movimento pelas "pernas" do trapézio isósceles (por dentro dos kaishisen) até a base maior do triângulo (~4m).
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > O Shushin permanece fixo no vértice. Os dois Fukushin caminham virados para a direção do movimento pelas "pernas" do trapézio isósceles (por dentro dos kaishisen), em linha reta, até atingir sua posição final (a aproximadamente 1m da linha). Nesta posição, há uma distância de aproximadamente 4m entre os dois Fukushin (relação geométrica).
 
 ---
 
@@ -103,9 +95,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Os Fukushin giram estritamente para dentro (Always turn inward) em direção ao centro da quadra, estabelecendo a formação Standard do triângulo. As bandeiras permanecem na mão direita ao lado do corpo.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Os Fukushin giram estritamente para dentro em direção ao centro da quadra, estabelecendo a formação Padrão do triângulo.
 
 ---
 
@@ -116,9 +106,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Na posição Standard, os 3 árbitros separam as bandeiras simultaneamente nas duas mãos (vermelha na direita, branca na esquerda). Formação inicial de combate concluída!
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Na posição Padrão, os 3 árbitros separam as bandeiras simultaneamente nas duas mãos (Shushin com a vermelha na direita e a branca na esquerda, e os Fukushin com a branca na direita e a vermelha na esquerda).
 
 ---
 
@@ -131,9 +119,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Todos os árbitros juntam e enrolam as bandeiras simultaneamente na mão direita ao lado do corpo, preparando-se para a rotação de posições.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Os árbitros juntam as bandeiras na mão direita ao lado do corpo, preparando-se para a rotação de posições.
 
 ---
 
@@ -144,9 +130,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Os árbitros giram no próprio eixo em direção ao próximo vértice do triângulo no sentido horário (Shushin -> F1, F1 -> F2, F2 -> Shushin), antes de iniciar a caminhada.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Os árbitros giram no próprio eixo em direção ao próximo vértice do triângulo no sentido horário.
 
 ---
 
@@ -170,9 +154,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Ao atingirem as novas posições, todos os árbitros giram no próprio eixo voltando-se para o centro da quadra, mantendo as bandeiras na mão direita.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Ao atingirem as novas posições, todos os árbitros giram no próprio eixo para dentro (sentido anti-horário) voltando-se para o centro da quadra.
 
 ---
 
@@ -183,9 +165,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Voltados para o centro na nova formação, os 3 árbitros separam simultaneamente as bandeiras nas duas mãos (vermelha na direita, branca na esquerda). Rotação concluída!
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Os 3 árbitros separam simultaneamente as bandeiras nas duas mãos (Shushin com a vermelha na direita e a branca na esquerda, e os Fukushin com a branca na direita e a vermelha na esquerda)
 
 ---
 
@@ -194,91 +174,96 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 ### Etapa 2B.1
 - **ID:** `koutai_flags_right`
 - **Comando Vocal (*Command Call*):** `""` *(Nenhum)*
+- **Natureza:** Ação silenciosa
 - **Título Atual:** Recolhimento das Bandeiras
 - **Descrição Atual:**
-  > Os árbitros na quadra recolhem e enrolam as bandeiras na mão direita ao lado do corpo. O árbitro substituto aguarda do lado de fora da quadra.
+  > Os árbitros juntam as bandeiras na mão direita ao lado do corpo, preparando-se para a rotação de posições. O árbitro substituto aguarda do lado de fora da quadra.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Os árbitros juntam as bandeiras na mão direita ao lado do corpo, preparando-se para a rotação de posições. O árbitro substituto aguarda do lado de fora da quadra.
 
 ---
 
 ### Etapa 2B.2
 - **ID:** `koutai_turn_dest`
 - **Comando Vocal (*Command Call*):** `""` *(Nenhum)*
+- **Natureza:** Ação silenciosa
 - **Título Atual:** Giro para a Direção do Destino
 - **Descrição Atual:**
-  > Os árbitros giram no próprio eixo em direção às posições da rotação no sentido horário. O árbitro substituto aguarda do lado de fora da quadra.
+  > Os árbitros giram no próprio eixo em direção ao próximo vértice do triângulo no sentido horário.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Os árbitros giram no próprio eixo em direção ao próximo vértice do triângulo no sentido horário.
 
 ---
 
 ### Etapa 2B.3
-- **ID:** `koutai_rotate_walk`
+- **ID:** `koutai_walk_dest`
 - **Comando Vocal (*Command Call*):** `""` *(Nenhum)*
-- **Título Atual:** Marcha dos Árbitros e Posicionamento do Sainte
+- **Natureza:** Ação silenciosa
+- **Título Atual:** Marcha pelos Lados do Triângulo
 - **Descrição Atual:**
-  > Os árbitros caminham para seus novos vértices. O árbitro que sai (sainte) chega à posição de rotação e vira-se diretamente para a borda externa onde o substituto aguarda. O substituto permanece aguardando do lado de fora da quadra.
+  > Os 3 árbitros caminham em linha reta ao longo dos lados do triângulo isósceles em direção aos novos vértices, mantendo o olhar na direção da marcha. O substituto aguarda do lado de fora.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Os 3 árbitros caminham em linha reta ao longo dos lados do triângulo isósceles em direção aos novos vértices, mantendo o olhar na direção da marcha.
 
 ---
 
 ### Etapa 2B.4
-- **ID:** `koutai_sub_enter`
-- **Comando Vocal (*Command Call*):** `"Koutai!"`
-- **Título Atual:** Entrada Sincronizada do Substituto
+- **ID:** `koutai_reorient`
+- **Comando Vocal (*Command Call*):** `""` *(Nenhum)*
+- **Natureza:** Ação silenciosa
+- **Título Atual:** Reorientação nos Novos Postos
 - **Descrição Atual:**
-  > O árbitro substituto ingressa na quadra em marcha reta em direção ao sainte, sincronizando sua parada com o término do enrolar da bandeira pelo sainte. Ambos param frente a frente a 1.2m de distância.
+  > Ao atingirem as novas posições, os árbitros que se mantêm viram-se para o centro da quadra, enquanto o árbitro que sairá (sainte) vira-se para o entrante do lado de fora e conclui o enrolar das bandeiras.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Ao atingirem as novas posições, os árbitros que se mantêm viram-se para o centro da quadra, enquanto o árbitro que sairá (sainte) vira-se para o entrante do lado de fora e conclui o enrolar das bandeiras.
 
 ---
 
 ### Etapa 2B.5
-- **ID:** `koutai_mutual_rei`
-- **Comando Vocal (*Command Call*):** `"Rei!"`
-- **Título Atual:** Saudação Mútua (Sogo-ni-rei entre Sainte e Entrante)
+- **ID:** `koutai_sub_enter`
+- **Comando Vocal (*Command Call*):** `""` *(Nenhum - SEM SENKOKU)*
+- **Natureza:** Ação Silenciosa (*Entrada sem vocalização*)
+- **Título Atual:** Entrada Sincronizada do Substituto
 - **Descrição Atual:**
-  > Sainte e substituto inclinam o tronco (15º) executando a saudação mútua (Rei) a 1.2m de distância.
+  > O árbitro substituto ingressa na quadra em marcha reta em direção ao sainte, sincronizando sua parada com o término do enrolar da bandeira pelo sainte.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > O árbitro substituto ingressa na quadra em marcha reta em direção ao sainte, sincronizando sua parada com o término do enrolar da bandeira pelo sainte.
 
 ---
 
 ### Etapa 2B.6
-- **ID:** `koutai_exit_backwards_swap`
-- **Comando Vocal (*Command Call*):** `""` *(Nenhum)*
-- **Título Atual:** Saída de Costas pelo Fundo e Substituição
+- **ID:** `koutai_mutual_rei`
+- **Comando Vocal (*Command Call*):** `""` *(Nenhum - SEM SENKOKU)*
+- **Natureza:** Ação Silenciosa (*Mokurei - Saudação mútua em silêncio*)
+- **Título Atual:** Saudação Mútua (Rei Silencioso)
 - **Descrição Atual:**
-  > O sainte gira 90º no sentido horário e recua de costas (voltado para o interior da quadra) até a borda externa do fundo (y = -5.5m), enquanto o substituto avança e assume a posição no triângulo.
+  > Ambos os árbitros inclinam o tronco (15º) executando a saudação mútua (Rei).
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Ambos os árbitros inclinam o tronco (15º) executando a saudação mútua (Rei).
 
 ---
 
 ### Etapa 2B.7
-- **ID:** `koutai_final_rei_separate`
-- **Comando Vocal (*Command Call*):** `"Rei!"`
-- **Título Atual:** Rei do Sainte e Preparação das Shinpanki
+- **ID:** `koutai_exit_backwards_swap`
+- **Comando Vocal (*Command Call*):** `""` *(Nenhum)*
+- **Natureza:** Ação silenciosa
+- **Título Atual:** Saída de Costas pelo Fundo e Substituição
 - **Descrição Atual:**
-  > O sainte, na borda externa do fundo, realiza a saudação (Rei) voltado para a quadra antes de se retirar. Simultaneamente, os 3 árbitros na quadra separam as bandeiras nas duas mãos de forma sincronizada voltados para o centro.
+  > O árbitro que está se retirando gira 90º no sentido horário e recua de costas (voltado para o interior da quadra) para fora da quadra, enquanto o substituto avança e assume a posição no triângulo.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > O árbitro que está se retirando gira 90º no sentido horário e recua de costas (voltado para o interior da quadra) para fora da quadra, enquanto o substituto avança e assume a posição no triângulo.
+
+---
+
+### Etapa 2B.8
+- **ID:** `koutai_final_rei_separate`
+- **Comando Vocal (*Command Call*):** `""` *(Nenhum - SEM SENKOKU)*
+- **Natureza:** Ação Silenciosa (*Rei à quadra em silêncio e separação das bandeiras*)
+- **Título Atual:** Rei do Sainte à Quadra e Separação das Shinpanki
+- **Descrição Atual:**
+  > O árbitro que está se retirando realiza a saudação (Rei) voltado para a quadra. Simultaneamente, os 3 árbitros na quadra separam as bandeiras nas duas mãos (Shushin com a vermelha na direita e a branca na esquerda, e os Fukushin com a branca na direita e a vermelha na esquerda).
+- **[SUA REVISÃO / AJUSTES AQUI]:**
+  > O árbitro que está se retirando realiza a saudação (Rei) voltado para a quadra. Simultaneamente, os 3 árbitros na quadra separam as bandeiras nas duas mãos (Shushin com a vermelha na direita e a branca na esquerda, e os Fukushin com a branca na direita e a vermelha na esquerda).
 
 ---
 
@@ -291,9 +276,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Ao término do combate e saudações dos competidores, todos os árbitros enrolam as bandeiras simultaneamente (branca por dentro, vermelha por fora) e as mantêm na mão direita ao lado do corpo. O próximo grupo de arbitragem aguarda sentado nos assentos.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Ao término do combate e saudações dos competidores, todos os árbitros enrolam as bandeiras simultaneamente (branca por dentro, vermelha por fora) e as mantêm na mão direita ao lado do corpo.
 
 ---
 
@@ -304,9 +287,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > O Shushin permanece fixo no vértice. Os dois Fukushin caminham virados para a marcha pelas "pernas" do trapézio até o Shushin. Simultaneamente, o novo grupo de árbitros levanta-se dos assentos e perfila-se na borda de entrada da quadra.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > O Shushin permanece fixo no vértice. Os dois Fukushin caminham virados para a marcha pelas "pernas" do trapézio até o Shushin. O novo grupo de árbitros levanta-se dos assentos e perfila-se na borda de entrada da quadra.
 
 ---
 
@@ -317,9 +298,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Ao chegarem ao lado do Shushin, ambos os Fukushin giram estritamente para dentro (Always turn inward) para ficarem voltados para a quadra, rigorosamente alinhados com o Shushin a 1m da linha. O novo grupo aguarda perfilado na borda.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Ao chegarem ao lado do Shushin, ambos os Fukushin giram estritamente para dentro para ficarem voltados para a quadra, rigorosamente alinhados com o Shushin a aproximadamente 1m da linha.
 
 ---
 
@@ -330,9 +309,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Ao comando "Rei!", o trio que está saindo inclina o tronco em saudação final ao Shomen / interior da quadra exatamente onde estão posicionados.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Ao comando "Rei!", o trio que está saindo inclina o tronco em saudação final ao Shomen / interior da quadra.
 
 ---
 
@@ -343,9 +320,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Ao comando "Hidari-muke!" (se os assentos estiverem à esquerda) ou "Migi-muke!" (se à direita), os 3 árbitros giram 90º no próprio eixo, perfilados na ordem Fukushin 2 - Shushin - Fukushin 1, prontos para marchar em direção à saída.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Ao comando "Hidari-muke!" (se os assentos estiverem à esquerda) ou "Migi-muke!" (se à direita), os 3 árbitros giram 90º no próprio eixo, prontos para marchar em direção à saída.
 
 ---
 
@@ -356,9 +331,7 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Ao comando "Mae!", o trio que encerra caminha em linha reta (a 1m da linha) em direção à borda de saída da quadra. Simultaneamente, o novo grupo de árbitros avança pela lateral tangenciando a quadra até o centro de entrada.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Ao comando "Mae!", o trio que encerra caminha em linha reta em direção à borda de saída da quadra. Simultaneamente, o novo grupo de árbitros avança pela lateral tangenciando a quadra até o centro de entrada.
 
 ---
 
@@ -369,6 +342,4 @@ Este documento reúne **todos os textos** (títulos, comandos vocais, descriçõ
 - **Descrição Atual:**
   > Assim que cruzam os limites da quadra, o trio abre a formação de triângulo equilátero (primeiro abre 60º à direita, segundo 60º à esquerda e terceiro segue reto), viram-se entre si e realizam o Sogo-ni-rei, enquanto o novo trio está pronto no centro para iniciar.
 - **[SUA REVISÃO / AJUSTES AQUI]:**
-  ```text
-  
-  ```
+  > Assim que cruzam os limites da quadra, o trio abre a formação de triângulo equilátero, viram-se entre si e realizam o Sogo-ni-rei, enquanto o novo trio está pronto no centro para iniciar.

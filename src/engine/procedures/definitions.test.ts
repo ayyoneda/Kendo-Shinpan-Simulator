@@ -43,7 +43,7 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(rightTargets.shushin.heading).toBeCloseTo(Math.PI);
   });
 
-  it('verifies Fukushin walk legs form trapezoid expanding from 1.30m to ~4.0m', () => {
+  it('verifies Fukushin walk legs form trapezoid expanding from 1.30m to fixed 4.0m', () => {
     const entry = procedureChapters.find(c => c.id === 'entry')!;
     const courtSize = 10;
     const step4 = entry.steps.find(s => s.id === 'entry_ippomae')!;
@@ -62,7 +62,7 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     const rot = procedureChapters.find(c => c.id === 'rotation')!;
     const courtSize = 10;
     const yVertex = courtSize / 2 - 1; // 4
-    const xBase = yVertex * 0.5; // 2
+    const xBase = 2.0; // Fixed 4.0m
     const yBase = -yVertex; // -4
 
     const rotWalk = rot.steps.find(s => s.id === 'rot_walk')!;
@@ -110,7 +110,7 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     const rot = procedureChapters.find(c => c.id === 'rotation')!;
     const courtSize = 10;
     const yVertex = courtSize / 2 - 1; // 4
-    const xBase = yVertex * 0.5; // 2
+    const xBase = 2.0; // Fixed 4.0m
     const yBase = -yVertex; // -4
     expect(rot.steps).toHaveLength(5);
 
@@ -162,13 +162,13 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     }
   });
 
-  it('verifies Chapter 2B Shinpan Koutai has 7 steps with separated entrance, mutual rei, backward exit to top border, and final rei', () => {
+  it('verifies Chapter 2B Shinpan Koutai has 8 steps with decoupled walk & reorient, silent entrance, silent mutual rei, and silent final rei', () => {
     const koutai = procedureChapters.find(c => c.id === 'rotation_koutai')!;
     const courtSize = 10;
     const yVertex = courtSize / 2 - 1; // 4
-    const xBase = yVertex * 0.5; // 2
+    const xBase = 2.0; // Fixed 4.0m
     const yBase = -yVertex; // -4
-    expect(koutai.steps).toHaveLength(7);
+    expect(koutai.steps).toHaveLength(8);
 
     // Step 1: flags in right hand, substitute waits outside
     const step1 = koutai.steps[0];
@@ -184,43 +184,55 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(t2.shushin.x).toBeCloseTo(0);
     expect(t2.substitute!.x).toBeGreaterThan(courtSize / 2);
 
-    // Step 3: walk and sainte turns to border; substitute still waits outside
+    // Step 3: walk along triangle sides; sainte and fukushin walk facing march direction; substitute waits outside
     const step3 = koutai.steps[2];
-    expect(step3.id).toBe('koutai_rotate_walk');
+    expect(step3.id).toBe('koutai_walk_dest');
     const t3 = step3.getTargets(courtSize);
     expect(t3.shushin.x).toBeCloseTo(xBase);
     expect(t3.shushin.y).toBeCloseTo(yBase);
-    expect(t3.shushin.heading).toBeCloseTo(0); // facing border
+    expect(t3.shushin.heading).toBeCloseTo(Math.atan2(yBase - yVertex, xBase - 0));
     expect(t3.substitute!.x).toBeGreaterThan(courtSize / 2); // still waiting outside!
 
-    // Step 4: substitute enters and halts 1.2m in front
+    // Step 4: reorient in place upon arrival: sainte turns to outside (+x), remaining refs face center
     const step4 = koutai.steps[3];
-    expect(step4.id).toBe('koutai_sub_enter');
-    expect(step4.commandCall).toBe('Koutai!');
+    expect(step4.id).toBe('koutai_reorient');
     const t4 = step4.getTargets(courtSize);
-    expect(t4.substitute!.x).toBeCloseTo(xBase + 1.2);
+    expect(t4.shushin.heading).toBeCloseTo(0); // facing border towards sub
+    expect(t4.fukushin1.heading).toBeCloseTo(Math.atan2(-yBase, xBase)); // facing center
+    expect(t4.fukushin2.heading).toBeCloseTo(-Math.PI / 2); // facing center
+    expect(t4.substitute!.x).toBeGreaterThan(courtSize / 2); // still waiting outside!
 
-    // Step 5: mutual Rei
+    // Step 5: substitute enters silently and halts 1.2m in front (NO vocalization)
     const step5 = koutai.steps[4];
-    expect(step5.id).toBe('koutai_mutual_rei');
-    expect(step5.commandCall).toBe('Rei!');
+    expect(step5.id).toBe('koutai_sub_enter');
+    expect(step5.vocalizationType).toBe('SILENT_ACTION');
+    expect(step5.commandCall).toBe('');
+    const t5 = step5.getTargets(courtSize);
+    expect(t5.substitute!.x).toBeCloseTo(xBase + 1.2);
 
-    // Step 6: sainte exits backward to top border (y <= -5.0) and entrante takes position
+    // Step 6: silent mutual Rei (NO vocalization)
     const step6 = koutai.steps[5];
-    expect(step6.id).toBe('koutai_exit_backwards_swap');
-    const t6 = step6.getTargets(courtSize);
-    expect(t6.shushin.y).toBeLessThanOrEqual(-courtSize / 2); // top/back border
-    expect(t6.shushin.heading).toBeCloseTo(Math.PI / 2); // facing down towards court
-    expect(t6.substitute!.x).toBeCloseTo(xBase);
-    expect(t6.substitute!.y).toBeCloseTo(yBase);
+    expect(step6.id).toBe('koutai_mutual_rei');
+    expect(step6.vocalizationType).toBe('SILENT_ACTION');
+    expect(step6.commandCall).toBe('');
 
-    // Step 7: sainte bows to court, 3 referees separate flags
+    // Step 7: sainte exits backward to top border (y <= -5.0) and entrante takes position
     const step7 = koutai.steps[6];
-    expect(step7.id).toBe('koutai_final_rei_separate');
+    expect(step7.id).toBe('koutai_exit_backwards_swap');
     const t7 = step7.getTargets(courtSize);
-    expect(t7.fukushin1.flagsInRightHand).toBe(false);
-    expect(t7.fukushin2.flagsInRightHand).toBe(false);
-    expect(t7.substitute!.flagsInRightHand).toBe(false);
+    expect(t7.shushin.y).toBeLessThanOrEqual(-courtSize / 2); // top/back border
+    expect(t7.shushin.heading).toBeCloseTo(Math.PI / 2); // facing down towards court
+    expect(t7.substitute!.x).toBeCloseTo(xBase);
+    expect(t7.substitute!.y).toBeCloseTo(yBase);
+
+    // Step 8: sainte bows to court silently, 3 referees separate flags
+    const step8 = koutai.steps[7];
+    expect(step8.id).toBe('koutai_final_rei_separate');
+    expect(step8.vocalizationType).toBe('SILENT_ACTION');
+    const t8 = step8.getTargets(courtSize);
+    expect(t8.fukushin1.flagsInRightHand).toBe(false);
+    expect(t8.fukushin2.flagsInRightHand).toBe(false);
+    expect(t8.substitute!.flagsInRightHand).toBe(false);
 
     for (const s of koutai.steps) {
       expect(s.showTriangle).toBe(true);
@@ -272,6 +284,8 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(targetsMarchLeft.shushin.y).toBeCloseTo(yVertex);
     expect(targetsMarchLeft.fukushin1.y).toBeCloseTo(yVertex);
     expect(targetsMarchLeft.fukushin2.y).toBeCloseTo(yVertex);
+    // Crucial: nextGroup maintains straight march heading (0) without spinning 180 degrees
+    expect(targetsMarchLeft.nextGroup!.shushin.heading).toBeCloseTo(0);
   });
 
   it('verifies Chapter 3 Sogo-ni-rei forms an equilateral triangle right at the exit line', () => {
@@ -293,21 +307,23 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(dS_F1).toBeCloseTo(dF1_F2, 2);
   });
 
-  it('scales correctly for different court sizes (9m and 11m)', () => {
+  it('maintains fixed 4.0m distance between Fukushins across court sizes (9m, 10m, 11m)', () => {
     const entry = procedureChapters.find(c => c.id === 'entry')!;
     const step6 = entry.steps.find(s => s.id === 'entry_trapezoid_walk')!;
 
     // 9m court
     const t9 = step6.getTargets(9);
     expect(t9.shushin.y).toBeCloseTo(3.5);
-    expect(t9.fukushin1.x).toBeCloseTo(1.75);
+    expect(t9.fukushin1.x).toBeCloseTo(2.0); // Fixed 4.0m distance (x = 2.0, -2.0)
     expect(t9.fukushin1.y).toBeCloseTo(-3.5);
+    expect(Math.abs(t9.fukushin1.x - t9.fukushin2.x)).toBeCloseTo(4.0);
 
     // 11m court
     const t11 = step6.getTargets(11);
     expect(t11.shushin.y).toBeCloseTo(4.5);
-    expect(t11.fukushin1.x).toBeCloseTo(2.25);
+    expect(t11.fukushin1.x).toBeCloseTo(2.0); // Fixed 4.0m distance (x = 2.0, -2.0)
     expect(t11.fukushin1.y).toBeCloseTo(-4.5);
+    expect(Math.abs(t11.fukushin1.x - t11.fukushin2.x)).toBeCloseTo(4.0);
   });
 
   it('verifies Step 1.1 starts seated at the Shinpan-in seats and moves to initial lineup', () => {
@@ -359,4 +375,3 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(t7.nextGroup!.shushin.heading).toBeCloseTo(-Math.PI / 2);
   });
 });
-

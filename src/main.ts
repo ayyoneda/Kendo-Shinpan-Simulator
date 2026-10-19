@@ -439,8 +439,23 @@ function updateProcedureUI() {
 
   if (procCommandBadge) {
     const call = typeof step.commandCall === 'function' ? step.commandCall(procedureManager.getConfig()) : step.commandCall;
-    if (call) {
+    const vocType = step.vocalizationType || (call ? 'VOICE_LOUD' : undefined);
+
+    if (vocType === 'VOICE_LOUD' && call) {
       procCommandBadge.textContent = `🗣️ "${call}"`;
+      procCommandBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-blue-600/30 text-blue-300 border border-blue-500/40";
+      procCommandBadge.classList.remove('hidden');
+    } else if (vocType === 'VOICE_LOW' && call) {
+      procCommandBadge.textContent = `🤫 "${call}" (Voz Baixa)`;
+      procCommandBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/25 text-amber-300 border border-amber-500/40";
+      procCommandBadge.classList.remove('hidden');
+    } else if (vocType === 'SILENT_ACTION') {
+      procCommandBadge.textContent = step.actionNote ? `🤫 ${step.actionNote}` : `🤫 Ação Silenciosa`;
+      procCommandBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/25 text-emerald-300 border border-emerald-500/40";
+      procCommandBadge.classList.remove('hidden');
+    } else if (call) {
+      procCommandBadge.textContent = `🗣️ "${call}"`;
+      procCommandBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-blue-600/30 text-blue-300 border border-blue-500/40";
       procCommandBadge.classList.remove('hidden');
     } else {
       procCommandBadge.classList.add('hidden');
