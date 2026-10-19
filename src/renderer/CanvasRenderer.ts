@@ -38,6 +38,7 @@ export class CanvasRenderer {
   public showTrails = false;
   public procedureActiveStep: ProcedureStep | null = null;
   public procedureSubstituteReferee: Referee | null = null;
+  public procedureNextGroupReferees: { shushin: Referee; fukushin1: Referee; fukushin2: Referee } | null = null;
   public showProcedureGuides = true;
   public procedureSeatsSide: 'LEFT' | 'RIGHT' = 'LEFT';
 
@@ -151,6 +152,11 @@ export class CanvasRenderer {
     this.drawEntity(state.fukushin2, true, state);
     if (this.procedureSubstituteReferee) {
       this.drawEntity(this.procedureSubstituteReferee, true, state);
+    }
+    if (this.procedureNextGroupReferees) {
+      this.drawEntity(this.procedureNextGroupReferees.shushin, true, state);
+      this.drawEntity(this.procedureNextGroupReferees.fukushin1, true, state);
+      this.drawEntity(this.procedureNextGroupReferees.fukushin2, true, state);
     }
     this.drawProcedureCallouts(state);
   }
@@ -401,21 +407,27 @@ export class CanvasRenderer {
 
     if (this.isRPGMode) {
       let img: HTMLImageElement | null = null;
+      const isRef = ent === state.shushin || ent === state.fukushin1 || ent === state.fukushin2 || ent === this.procedureSubstituteReferee ||
+        (this.procedureNextGroupReferees && (ent === this.procedureNextGroupReferees.shushin || ent === this.procedureNextGroupReferees.fukushin1 || ent === this.procedureNextGroupReferees.fukushin2));
       const ref = ent as Referee;
       const useEntradaSprite = isRef && (ref.flagsRolled === true || ref.flagsInRightHand === true);
+
+      const isNextGroupS = this.procedureNextGroupReferees && ent === this.procedureNextGroupReferees.shushin;
+      const isNextGroupF1 = this.procedureNextGroupReferees && ent === this.procedureNextGroupReferees.fukushin1;
+      const isNextGroupF2 = this.procedureNextGroupReferees && ent === this.procedureNextGroupReferees.fukushin2;
 
       if (ent === state.white) {
         img = this.imgKenshiShiro || this.imgKenshi;
       } else if (ent === state.red) {
         img = this.imgKenshiAka || this.imgKenshi;
-      } else if (ent === state.shushin) {
+      } else if (ent === state.shushin || isNextGroupS) {
         img = useEntradaSprite ? (this.imgShinpanEntradaS || this.imgShinpanS) : this.imgShinpanS;
-      } else if (ent === state.fukushin1) {
+      } else if (ent === state.fukushin1 || isNextGroupF1) {
         img = useEntradaSprite ? (this.imgShinpanEntradaF1 || this.imgShinpanF1) : this.imgShinpanF1;
-      } else if (ent === state.fukushin2) {
+      } else if (ent === state.fukushin2 || isNextGroupF2) {
         img = useEntradaSprite ? (this.imgShinpanEntradaF2 || this.imgShinpanF2) : this.imgShinpanF2;
       } else if (ent === this.procedureSubstituteReferee) {
-        img = this.imgShinpanEntradaS || this.imgShinpanS;
+        img = useEntradaSprite ? (this.imgShinpanEntradaS || this.imgShinpanS) : this.imgShinpanS;
       }
 
       if (img && img.complete) {
@@ -438,38 +450,20 @@ export class CanvasRenderer {
         // Sprite default is pointing UP (Math.PI/2 relative to right).
         this.ctx.rotate(facingAngle + Math.PI / 2);
 
-        // Mirror Fukushin flags only in combat mode (not when using shinpan_entrada where flags are already on right hip)
-        const isFukushin = ent === state.fukushin1 || ent === state.fukushin2;
-        if (isFukushin && !useEntradaSprite) {
-          this.ctx.scale(-1, 1);
-        }
-
         // Mantém a proporção real da imagem top-down
-        // O usuário pediu: aumentar a dimensão em 50% (de 0.5 para 0.75 metros visuais)
+        // Dimensão calibrada em 0.75 metros visuais
         const physicalWidth = 0.75 * this.scale;
         let pivotYRatio = 0.5;
 
         if (isCompetitor) {
           // kenshi_3 tem os ombros em ~68.8%
           pivotYRatio = 0.69;
-        } else if (useEntradaSprite) {
-          // Sprites de entrada: pés alinhados com precisão milimétrica na linha de base
-          if (ent === state.fukushin1) {
-            pivotYRatio = 0.41;
-          } else if (ent === state.fukushin2) {
-            pivotYRatio = 0.44;
-          } else {
-            pivotYRatio = 0.44; // Shushin e Substituto
-          }
-        } else if (ent === state.shushin || ent === this.procedureSubstituteReferee) {
-          // shinpan_3 girado tem ombros em ~45.6%
-          pivotYRatio = 0.46;
-        } else if (ent === state.fukushin1) {
-          // shinpan_4 girado tem ombros em ~41.0%
+        } else if (ent === state.shushin || ent === this.procedureSubstituteReferee || isNextGroupS) {
+          pivotYRatio = 0.44;
+        } else if (ent === state.fukushin1 || isNextGroupF1) {
           pivotYRatio = 0.41;
-        } else if (ent === state.fukushin2) {
-          // shinpan_5 girado tem ombros em ~40.5%
-          pivotYRatio = 0.40;
+        } else if (ent === state.fukushin2 || isNextGroupF2) {
+          pivotYRatio = 0.42;
         }
 
         const physicalHeight = physicalWidth * (img.height / img.width);

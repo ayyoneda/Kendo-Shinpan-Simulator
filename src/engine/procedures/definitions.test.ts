@@ -162,13 +162,13 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     }
   });
 
-  it('verifies Chapter 2B Shinpan Koutai has 6 steps with synchronized entry, backward exit to top border, and final rei', () => {
+  it('verifies Chapter 2B Shinpan Koutai has 7 steps with separated entrance, mutual rei, backward exit to top border, and final rei', () => {
     const koutai = procedureChapters.find(c => c.id === 'rotation_koutai')!;
     const courtSize = 10;
     const yVertex = courtSize / 2 - 1; // 4
     const xBase = yVertex * 0.5; // 2
     const yBase = -yVertex; // -4
-    expect(koutai.steps).toHaveLength(6);
+    expect(koutai.steps).toHaveLength(7);
 
     // Step 1: flags in right hand, substitute waits outside
     const step1 = koutai.steps[0];
@@ -184,36 +184,43 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(t2.shushin.x).toBeCloseTo(0);
     expect(t2.substitute!.x).toBeGreaterThan(courtSize / 2);
 
-    // Step 3: walk and synchronized entry
+    // Step 3: walk and sainte turns to border; substitute still waits outside
     const step3 = koutai.steps[2];
     expect(step3.id).toBe('koutai_rotate_walk');
     const t3 = step3.getTargets(courtSize);
     expect(t3.shushin.x).toBeCloseTo(xBase);
     expect(t3.shushin.y).toBeCloseTo(yBase);
-    expect(t3.shushin.heading).toBeCloseTo(0); // facing incoming substitute
-    expect(t3.substitute!.x).toBeCloseTo(xBase + 1.2); // halted 1.2m in front
+    expect(t3.shushin.heading).toBeCloseTo(0); // facing border
+    expect(t3.substitute!.x).toBeGreaterThan(courtSize / 2); // still waiting outside!
 
-    // Step 4: mutual Rei
+    // Step 4: substitute enters and halts 1.2m in front
     const step4 = koutai.steps[3];
-    expect(step4.id).toBe('koutai_mutual_rei');
-    expect(step4.commandCall).toBe('Rei!');
+    expect(step4.id).toBe('koutai_sub_enter');
+    expect(step4.commandCall).toBe('Koutai!');
+    const t4 = step4.getTargets(courtSize);
+    expect(t4.substitute!.x).toBeCloseTo(xBase + 1.2);
 
-    // Step 5: sainte exits backward to top border (y <= -5.0) and entrante takes position
+    // Step 5: mutual Rei
     const step5 = koutai.steps[4];
-    expect(step5.id).toBe('koutai_exit_backwards_swap');
-    const t5 = step5.getTargets(courtSize);
-    expect(t5.shushin.y).toBeLessThanOrEqual(-courtSize / 2); // top/back border
-    expect(t5.shushin.heading).toBeCloseTo(Math.PI / 2); // facing down towards court
-    expect(t5.substitute!.x).toBeCloseTo(xBase);
-    expect(t5.substitute!.y).toBeCloseTo(yBase);
+    expect(step5.id).toBe('koutai_mutual_rei');
+    expect(step5.commandCall).toBe('Rei!');
 
-    // Step 6: sainte bows to court, 3 referees separate flags
+    // Step 6: sainte exits backward to top border (y <= -5.0) and entrante takes position
     const step6 = koutai.steps[5];
-    expect(step6.id).toBe('koutai_final_rei_separate');
+    expect(step6.id).toBe('koutai_exit_backwards_swap');
     const t6 = step6.getTargets(courtSize);
-    expect(t6.fukushin1.flagsInRightHand).toBe(false);
-    expect(t6.fukushin2.flagsInRightHand).toBe(false);
-    expect(t6.substitute!.flagsInRightHand).toBe(false);
+    expect(t6.shushin.y).toBeLessThanOrEqual(-courtSize / 2); // top/back border
+    expect(t6.shushin.heading).toBeCloseTo(Math.PI / 2); // facing down towards court
+    expect(t6.substitute!.x).toBeCloseTo(xBase);
+    expect(t6.substitute!.y).toBeCloseTo(yBase);
+
+    // Step 7: sainte bows to court, 3 referees separate flags
+    const step7 = koutai.steps[6];
+    expect(step7.id).toBe('koutai_final_rei_separate');
+    const t7 = step7.getTargets(courtSize);
+    expect(t7.fukushin1.flagsInRightHand).toBe(false);
+    expect(t7.fukushin2.flagsInRightHand).toBe(false);
+    expect(t7.substitute!.flagsInRightHand).toBe(false);
 
     for (const s of koutai.steps) {
       expect(s.showTriangle).toBe(true);
@@ -301,6 +308,55 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(t11.shushin.y).toBeCloseTo(4.5);
     expect(t11.fukushin1.x).toBeCloseTo(2.25);
     expect(t11.fukushin1.y).toBeCloseTo(-4.5);
+  });
+
+  it('verifies Step 1.1 starts seated at the Shinpan-in seats and moves to initial lineup', () => {
+    const entry = procedureChapters.find(c => c.id === 'entry')!;
+    const step1 = entry.steps[0];
+    const courtSize = 10;
+    expect(step1.getInitialTargets).toBeDefined();
+
+    const initial = step1.getInitialTargets!(courtSize, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
+    const targets = step1.getTargets(courtSize, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
+
+    // Starts at the chairs (y = courtSize/2 + 1.0 = 6.0)
+    expect(initial.shushin.y).toBeCloseTo(6.0);
+    expect(initial.shushin.heading).toBeCloseTo(-Math.PI / 2);
+
+    // Moves to the border lineup (y = courtSize/2 + 0.45 = 5.45)
+    expect(targets.shushin.y).toBeCloseTo(5.45);
+    expect(targets.shushin.heading).toBeCloseTo(0);
+  });
+
+  it('verifies Chapter 3 coordinates the incoming referee group from seats to court entrance', () => {
+    const exit = procedureChapters.find(c => c.id === 'exit')!;
+    const courtSize = 10;
+    const cfg = { seatsSide: 'LEFT' as const, rotationVariant: 'REGULAR' as const };
+
+    // Step 1: nextGroup is seated at chairs
+    const step1 = exit.steps[0];
+    const t1 = step1.getTargets(courtSize, cfg);
+    expect(t1.nextGroup).toBeDefined();
+    expect(t1.nextGroup!.shushin.y).toBeCloseTo(6.0);
+
+    // Step 2: nextGroup stands up and lines up at the side border
+    const step2 = exit.steps[1];
+    const t2 = step2.getTargets(courtSize, cfg);
+    expect(t2.nextGroup).toBeDefined();
+    expect(t2.nextGroup!.shushin.y).toBeCloseTo(5.45);
+
+    // Step 6: nextGroup marches along side border to the center (x = 0)
+    const step6 = exit.steps[5];
+    const t6 = step6.getTargets(courtSize, cfg);
+    expect(t6.nextGroup).toBeDefined();
+    expect(t6.nextGroup!.shushin.x).toBeCloseTo(0);
+    expect(t6.nextGroup!.shushin.y).toBeCloseTo(5.45);
+
+    // Step 7: nextGroup faces the court at center (heading = -PI/2)
+    const step7 = exit.steps[6];
+    const t7 = step7.getTargets(courtSize, cfg);
+    expect(t7.nextGroup).toBeDefined();
+    expect(t7.nextGroup!.shushin.heading).toBeCloseTo(-Math.PI / 2);
   });
 });
 

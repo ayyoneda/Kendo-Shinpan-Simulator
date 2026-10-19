@@ -476,6 +476,7 @@ function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
     store.state.competitorsVisible = true;
     renderer.procedureActiveStep = null;
     renderer.procedureSubstituteReferee = null;
+    renderer.procedureNextGroupReferees = null;
     procedureManager.pause();
 
     btnModeTech.classList.remove('opacity-40', 'pointer-events-none');
@@ -929,6 +930,7 @@ function animate(ts: DOMHighResTimeStamp) {
     procedureManager.update(dt);
     renderer.procedureActiveStep = procedureManager.getCurrentStep();
     renderer.procedureSubstituteReferee = procedureManager.substituteReferee;
+    renderer.procedureNextGroupReferees = procedureManager.nextGroupReferees;
 
     if (procProgressFill) {
       const progress = procedureManager.getProgress() * 100;
@@ -941,6 +943,7 @@ function animate(ts: DOMHighResTimeStamp) {
   } else {
     renderer.procedureActiveStep = null;
     renderer.procedureSubstituteReferee = null;
+    renderer.procedureNextGroupReferees = null;
 
     scenarioRunner.update(store, ts / 1000);
     if (!scenarioRunner.isActive() && activeScenarioId !== null) {

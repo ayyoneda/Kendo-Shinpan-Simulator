@@ -31,12 +31,22 @@ export interface ProcedureStep {
     fukushin1: RefereeVisualState;
     fukushin2: RefereeVisualState;
     substitute?: RefereeVisualState;
+    nextGroup?: {
+      shushin: RefereeVisualState;
+      fukushin1: RefereeVisualState;
+      fukushin2: RefereeVisualState;
+    };
   };
   getTargets: (courtSize: number, config?: ProcedureConfig) => {
     shushin: RefereeVisualState;
     fukushin1: RefereeVisualState;
     fukushin2: RefereeVisualState;
     substitute?: RefereeVisualState;
+    nextGroup?: {
+      shushin: RefereeVisualState;
+      fukushin1: RefereeVisualState;
+      fukushin2: RefereeVisualState;
+    };
   };
 }
 

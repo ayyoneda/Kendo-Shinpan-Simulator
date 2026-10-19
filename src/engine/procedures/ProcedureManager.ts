@@ -21,6 +21,11 @@ interface StepSnapshot {
   fukushin1: RefereeSnapshot;
   fukushin2: RefereeSnapshot;
   substitute?: RefereeSnapshot;
+  nextGroup?: {
+    shushin: RefereeSnapshot;
+    fukushin1: RefereeSnapshot;
+    fukushin2: RefereeSnapshot;
+  };
 }
 
 export class ProcedureManager {
@@ -37,6 +42,7 @@ export class ProcedureManager {
   private pauseOnStep = true;
   private fromSnapshot: StepSnapshot | null = null;
   public substituteReferee: Referee | null = null;
+  public nextGroupReferees: { shushin: Referee; fukushin1: Referee; fukushin2: Referee } | null = null;
 
   constructor(store: SimulationStore) {
     this.store = store;
@@ -238,13 +244,38 @@ export class ProcedureManager {
         flagsInRightHand: this.substituteReferee.flagsInRightHand ?? true
       };
     }
+    if (this.nextGroupReferees) {
+      this.fromSnapshot.nextGroup = {
+        shushin: {
+          x: this.nextGroupReferees.shushin.x,
+          y: this.nextGroupReferees.shushin.y,
+          heading: this.nextGroupReferees.shushin.heading ?? Math.PI,
+          flagsRolled: this.nextGroupReferees.shushin.flagsRolled ?? true,
+          flagsInRightHand: this.nextGroupReferees.shushin.flagsInRightHand ?? true
+        },
+        fukushin1: {
+          x: this.nextGroupReferees.fukushin1.x,
+          y: this.nextGroupReferees.fukushin1.y,
+          heading: this.nextGroupReferees.fukushin1.heading ?? Math.PI,
+          flagsRolled: this.nextGroupReferees.fukushin1.flagsRolled ?? true,
+          flagsInRightHand: this.nextGroupReferees.fukushin1.flagsInRightHand ?? true
+        },
+        fukushin2: {
+          x: this.nextGroupReferees.fukushin2.x,
+          y: this.nextGroupReferees.fukushin2.y,
+          heading: this.nextGroupReferees.fukushin2.heading ?? Math.PI,
+          flagsRolled: this.nextGroupReferees.fukushin2.flagsRolled ?? true,
+          flagsInRightHand: this.nextGroupReferees.fukushin2.flagsInRightHand ?? true
+        }
+      };
+    }
   }
 
   private applyStepSnapshot(chapterIdx: number, stepIdx: number, instant: boolean) {
     const chapter = procedureChapters[chapterIdx];
     const step = chapter.steps[stepIdx];
     const courtSize = this.store.state.config.courtSize;
-    const initialTargets = (instant && stepIdx === 0 && step.getInitialTargets)
+    const initialTargets = (instant && step.getInitialTargets)
       ? step.getInitialTargets(courtSize, this.config)
       : step.getTargets(courtSize, this.config);
 
@@ -281,6 +312,44 @@ export class ProcedureManager {
       } else {
         this.substituteReferee = null;
       }
+
+      if (initialTargets.nextGroup) {
+        this.nextGroupReferees = {
+          shushin: {
+            x: initialTargets.nextGroup.shushin.x,
+            y: initialTargets.nextGroup.shushin.y,
+            color: '#38bdf8',
+            label: 'S₂',
+            radius: 0.3,
+            heading: initialTargets.nextGroup.shushin.heading,
+            flagsRolled: initialTargets.nextGroup.shushin.flagsRolled,
+            flagsInRightHand: initialTargets.nextGroup.shushin.flagsInRightHand
+          },
+          fukushin1: {
+            x: initialTargets.nextGroup.fukushin1.x,
+            y: initialTargets.nextGroup.fukushin1.y,
+            color: '#38bdf8',
+            label: 'F1₂',
+            radius: 0.3,
+            heading: initialTargets.nextGroup.fukushin1.heading,
+            flagsRolled: initialTargets.nextGroup.fukushin1.flagsRolled,
+            flagsInRightHand: initialTargets.nextGroup.fukushin1.flagsInRightHand
+          },
+          fukushin2: {
+            x: initialTargets.nextGroup.fukushin2.x,
+            y: initialTargets.nextGroup.fukushin2.y,
+            color: '#38bdf8',
+            label: 'F2₂',
+            radius: 0.3,
+            heading: initialTargets.nextGroup.fukushin2.heading,
+            flagsRolled: initialTargets.nextGroup.fukushin2.flagsRolled,
+            flagsInRightHand: initialTargets.nextGroup.fukushin2.flagsInRightHand
+          }
+        };
+      } else {
+        this.nextGroupReferees = null;
+      }
+
       this.captureFromSnapshot();
     }
   }
@@ -322,6 +391,49 @@ export class ProcedureManager {
       this.interpolateReferee(this.substituteReferee, fromSub, targets.substitute, t, rawProgress);
     } else {
       this.substituteReferee = null;
+    }
+
+    if (targets.nextGroup) {
+      if (!this.nextGroupReferees) {
+        this.nextGroupReferees = {
+          shushin: {
+            x: targets.nextGroup.shushin.x,
+            y: targets.nextGroup.shushin.y,
+            color: '#38bdf8',
+            label: 'S₂',
+            radius: 0.3,
+            heading: targets.nextGroup.shushin.heading,
+            flagsRolled: targets.nextGroup.shushin.flagsRolled,
+            flagsInRightHand: targets.nextGroup.shushin.flagsInRightHand
+          },
+          fukushin1: {
+            x: targets.nextGroup.fukushin1.x,
+            y: targets.nextGroup.fukushin1.y,
+            color: '#38bdf8',
+            label: 'F1₂',
+            radius: 0.3,
+            heading: targets.nextGroup.fukushin1.heading,
+            flagsRolled: targets.nextGroup.fukushin1.flagsRolled,
+            flagsInRightHand: targets.nextGroup.fukushin1.flagsInRightHand
+          },
+          fukushin2: {
+            x: targets.nextGroup.fukushin2.x,
+            y: targets.nextGroup.fukushin2.y,
+            color: '#38bdf8',
+            label: 'F2₂',
+            radius: 0.3,
+            heading: targets.nextGroup.fukushin2.heading,
+            flagsRolled: targets.nextGroup.fukushin2.flagsRolled,
+            flagsInRightHand: targets.nextGroup.fukushin2.flagsInRightHand
+          }
+        };
+      }
+      const fromNext = this.fromSnapshot!.nextGroup || targets.nextGroup;
+      this.interpolateReferee(this.nextGroupReferees.shushin, fromNext.shushin, targets.nextGroup.shushin, t, rawProgress);
+      this.interpolateReferee(this.nextGroupReferees.fukushin1, fromNext.fukushin1, targets.nextGroup.fukushin1, t, rawProgress);
+      this.interpolateReferee(this.nextGroupReferees.fukushin2, fromNext.fukushin2, targets.nextGroup.fukushin2, t, rawProgress);
+    } else {
+      this.nextGroupReferees = null;
     }
 
     // Step completion check
