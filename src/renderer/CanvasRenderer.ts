@@ -20,12 +20,22 @@ export class CanvasRenderer {
   private imgKenshi: HTMLImageElement | null = null;
   private imgKenshiShiro: HTMLImageElement | null = null;
   private imgKenshiAka: HTMLImageElement | null = null;
+  // Shushin sprites (Red in right hand, White in left hand)
   private imgShinpanS: HTMLImageElement | null = null;
   private imgShinpanF1: HTMLImageElement | null = null;
   private imgShinpanF2: HTMLImageElement | null = null;
+  // Fukushin sprites (Red in left hand, White in right hand)
+  private imgShinpanFukushinS: HTMLImageElement | null = null;
+  private imgShinpanFukushinF1: HTMLImageElement | null = null;
+  private imgShinpanFukushinF2: HTMLImageElement | null = null;
+  // Entrada / Saída / Rotação sprites (flags together in right hand, only red visible)
   private imgShinpanEntradaS: HTMLImageElement | null = null;
   private imgShinpanEntradaF1: HTMLImageElement | null = null;
   private imgShinpanEntradaF2: HTMLImageElement | null = null;
+  // Rei / Bowing sprites
+  private imgShinpanReiS: HTMLImageElement | null = null;
+  private imgShinpanReiF1: HTMLImageElement | null = null;
+  private imgShinpanReiF2: HTMLImageElement | null = null;
   private imgFloor: HTMLImageElement | null = null;
 
   // Visual config
@@ -64,9 +74,15 @@ export class CanvasRenderer {
     this.imgShinpanS = new Image(); this.imgShinpanS.src = base + 'assets/shinpan_3.png';
     this.imgShinpanF1 = new Image(); this.imgShinpanF1.src = base + 'assets/shinpan_4.png';
     this.imgShinpanF2 = new Image(); this.imgShinpanF2.src = base + 'assets/shinpan_5.png';
+    this.imgShinpanFukushinS = new Image(); this.imgShinpanFukushinS.src = base + 'assets/shinpan_fukushin/shinpan_3.png';
+    this.imgShinpanFukushinF1 = new Image(); this.imgShinpanFukushinF1.src = base + 'assets/shinpan_fukushin/shinpan_4.png';
+    this.imgShinpanFukushinF2 = new Image(); this.imgShinpanFukushinF2.src = base + 'assets/shinpan_fukushin/shinpan_5.png';
     this.imgShinpanEntradaS = new Image(); this.imgShinpanEntradaS.src = base + 'assets/shinpan_entrada/shinpan_3.png';
     this.imgShinpanEntradaF1 = new Image(); this.imgShinpanEntradaF1.src = base + 'assets/shinpan_entrada/shinpan_4.png';
     this.imgShinpanEntradaF2 = new Image(); this.imgShinpanEntradaF2.src = base + 'assets/shinpan_entrada/shinpan_5.png';
+    this.imgShinpanReiS = new Image(); this.imgShinpanReiS.src = base + 'assets/shinpan_rei/shinpan_3.png';
+    this.imgShinpanReiF1 = new Image(); this.imgShinpanReiF1.src = base + 'assets/shinpan_rei/shinpan_4.png';
+    this.imgShinpanReiF2 = new Image(); this.imgShinpanReiF2.src = base + 'assets/shinpan_rei/shinpan_5.png';
     this.imgFloor = new Image(); this.imgFloor.src = base + 'assets/floor.jpg';
   }
 
@@ -410,7 +426,6 @@ export class CanvasRenderer {
       const isRef = ent === state.shushin || ent === state.fukushin1 || ent === state.fukushin2 || ent === this.procedureSubstituteReferee ||
         (this.procedureNextGroupReferees && (ent === this.procedureNextGroupReferees.shushin || ent === this.procedureNextGroupReferees.fukushin1 || ent === this.procedureNextGroupReferees.fukushin2));
       const ref = ent as Referee;
-      const useEntradaSprite = isRef && (ref.flagsRolled === true || ref.flagsInRightHand === true);
 
       const isNextGroupS = this.procedureNextGroupReferees && ent === this.procedureNextGroupReferees.shushin;
       const isNextGroupF1 = this.procedureNextGroupReferees && ent === this.procedureNextGroupReferees.fukushin1;
@@ -420,14 +435,38 @@ export class CanvasRenderer {
         img = this.imgKenshiShiro || this.imgKenshi;
       } else if (ent === state.red) {
         img = this.imgKenshiAka || this.imgKenshi;
-      } else if (ent === state.shushin || isNextGroupS) {
-        img = useEntradaSprite ? (this.imgShinpanEntradaS || this.imgShinpanS) : this.imgShinpanS;
-      } else if (ent === state.fukushin1 || isNextGroupF1) {
-        img = useEntradaSprite ? (this.imgShinpanEntradaF1 || this.imgShinpanF1) : this.imgShinpanF1;
-      } else if (ent === state.fukushin2 || isNextGroupF2) {
-        img = useEntradaSprite ? (this.imgShinpanEntradaF2 || this.imgShinpanF2) : this.imgShinpanF2;
-      } else if (ent === this.procedureSubstituteReferee) {
-        img = useEntradaSprite ? (this.imgShinpanEntradaS || this.imgShinpanS) : this.imgShinpanS;
+      } else if (isRef) {
+        let charId = 3;
+        if (ent === state.fukushin1 || isNextGroupF1) {
+          charId = 4;
+        } else if (ent === state.fukushin2 || isNextGroupF2) {
+          charId = 5;
+        } else {
+          charId = 3;
+        }
+
+        const isBowing = ref.isBowing === true;
+        const isFlagsInRightHand = ref.flagsRolled === true || ref.flagsInRightHand === true;
+        const isShushinRole = (state.simulationMode === 'PROCEDURE') ? (ent.y > 0) : (ent === state.shushin);
+
+        if (isBowing) {
+          if (charId === 3) img = this.imgShinpanReiS;
+          else if (charId === 4) img = this.imgShinpanReiF1;
+          else img = this.imgShinpanReiF2;
+        } else if (isFlagsInRightHand) {
+          if (charId === 3) img = this.imgShinpanEntradaS;
+          else if (charId === 4) img = this.imgShinpanEntradaF1;
+          else img = this.imgShinpanEntradaF2;
+        } else if (isShushinRole) {
+          if (charId === 3) img = this.imgShinpanS;
+          else if (charId === 4) img = this.imgShinpanF1;
+          else img = this.imgShinpanF2;
+        } else {
+          // Fukushin em combate: bandeira vermelha na mão esquerda e branca na mão direita
+          if (charId === 3) img = this.imgShinpanFukushinS;
+          else if (charId === 4) img = this.imgShinpanFukushinF1;
+          else img = this.imgShinpanFukushinF2;
+        }
       }
 
       if (img && img.complete) {
@@ -456,8 +495,9 @@ export class CanvasRenderer {
         let pivotYRatio = 0.5;
 
         if (isCompetitor) {
-          // kenshi_3 tem os ombros em ~68.8%
           pivotYRatio = 0.69;
+        } else if (ref.isBowing) {
+          pivotYRatio = 0.44;
         } else if (ent === state.shushin || ent === this.procedureSubstituteReferee || isNextGroupS) {
           pivotYRatio = 0.44;
         } else if (ent === state.fukushin1 || isNextGroupF1) {
@@ -715,34 +755,49 @@ export class CanvasRenderer {
       return;
     }
 
-    const sp = this.toScreenInto(anchorX, anchorY, {x:0, y:0});
-    const bubbleY = sp.y - 48;
+    const renderBubble = (ax: number, ay: number, txt: string, bg: string, stroke: string) => {
+      const sp = this.toScreenInto(ax, ay, { x: 0, y: 0 });
+      const bubbleY = sp.y - 48;
 
-    this.ctx.save();
-    this.ctx.font = 'bold 12px system-ui, -apple-system, sans-serif';
-    const metrics = this.ctx.measureText(text);
-    const padX = 14;
-    const h = 28;
-    const w = metrics.width + padX * 2;
-    const x = sp.x - w / 2;
-    const y = bubbleY - h / 2;
+      this.ctx.save();
+      this.ctx.font = 'bold 12px system-ui, -apple-system, sans-serif';
+      const metrics = this.ctx.measureText(txt);
+      const padX = 14;
+      const h = 28;
+      const w = metrics.width + padX * 2;
+      const x = sp.x - w / 2;
+      const y = bubbleY - h / 2;
 
-    this.ctx.shadowColor = 'rgba(0,0,0,0.5)';
-    this.ctx.shadowBlur = 12;
-    this.ctx.fillStyle = bgColor;
-    this.ctx.strokeStyle = strokeColor;
-    this.ctx.lineWidth = 1.5;
+      this.ctx.shadowColor = 'rgba(0,0,0,0.5)';
+      this.ctx.shadowBlur = 12;
+      this.ctx.fillStyle = bg;
+      this.ctx.strokeStyle = stroke;
+      this.ctx.lineWidth = 1.5;
 
-    this.ctx.beginPath();
-    this.ctx.roundRect(x, y, w, h, 8);
-    this.ctx.fill();
-    this.ctx.stroke();
+      this.ctx.beginPath();
+      this.ctx.roundRect(x, y, w, h, 8);
+      this.ctx.fill();
+      this.ctx.stroke();
 
-    this.ctx.shadowBlur = 0;
-    this.ctx.fillStyle = '#ffffff';
-    this.ctx.textAlign = 'center';
-    this.ctx.textBaseline = 'middle';
-    this.ctx.fillText(text, sp.x, bubbleY);
-    this.ctx.restore();
+      this.ctx.shadowBlur = 0;
+      this.ctx.fillStyle = '#ffffff';
+      this.ctx.textAlign = 'center';
+      this.ctx.textBaseline = 'middle';
+      this.ctx.fillText(txt, sp.x, bubbleY);
+      this.ctx.restore();
+    };
+
+    renderBubble(anchorX, anchorY, text, bgColor, strokeColor);
+
+    // Etapa 3.6: ambos o Shushin do grupo que sai e o Shushin do grupo que entra vocalizam "Mae" (baixo)
+    if (step.id === 'exit_march_straight' && this.procedureNextGroupReferees) {
+      renderBubble(
+        this.procedureNextGroupReferees.shushin.x,
+        this.procedureNextGroupReferees.shushin.y,
+        `🤫 "Mae" (voz baixa)`,
+        bgColor,
+        strokeColor
+      );
+    }
   }
 }

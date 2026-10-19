@@ -13,6 +13,7 @@ export interface RefereeVisualState {
   headingDelta?: number;
   flagsRolled?: boolean;
   flagsInRightHand?: boolean;
+  isBowing?: boolean;
 }
 
 export type VocalizationType = 'VOICE_LOUD' | 'VOICE_LOW' | 'SILENT_ACTION';

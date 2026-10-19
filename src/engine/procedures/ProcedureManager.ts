@@ -14,6 +14,7 @@ interface RefereeSnapshot {
   heading: number;
   flagsRolled: boolean;
   flagsInRightHand: boolean;
+  isBowing: boolean;
 }
 
 interface StepSnapshot {
@@ -218,21 +219,24 @@ export class ProcedureManager {
         y: shushin.y,
         heading: shushin.heading ?? -Math.PI / 2,
         flagsRolled: shushin.flagsRolled ?? true,
-        flagsInRightHand: shushin.flagsInRightHand ?? true
+        flagsInRightHand: shushin.flagsInRightHand ?? true,
+        isBowing: shushin.isBowing ?? false
       },
       fukushin1: {
         x: fukushin1.x,
         y: fukushin1.y,
         heading: fukushin1.heading ?? -Math.PI / 2,
         flagsRolled: fukushin1.flagsRolled ?? true,
-        flagsInRightHand: fukushin1.flagsInRightHand ?? true
+        flagsInRightHand: fukushin1.flagsInRightHand ?? true,
+        isBowing: fukushin1.isBowing ?? false
       },
       fukushin2: {
         x: fukushin2.x,
         y: fukushin2.y,
         heading: fukushin2.heading ?? -Math.PI / 2,
         flagsRolled: fukushin2.flagsRolled ?? true,
-        flagsInRightHand: fukushin2.flagsInRightHand ?? true
+        flagsInRightHand: fukushin2.flagsInRightHand ?? true,
+        isBowing: fukushin2.isBowing ?? false
       }
     };
     if (this.substituteReferee) {
@@ -241,7 +245,8 @@ export class ProcedureManager {
         y: this.substituteReferee.y,
         heading: this.substituteReferee.heading ?? Math.PI,
         flagsRolled: this.substituteReferee.flagsRolled ?? true,
-        flagsInRightHand: this.substituteReferee.flagsInRightHand ?? true
+        flagsInRightHand: this.substituteReferee.flagsInRightHand ?? true,
+        isBowing: this.substituteReferee.isBowing ?? false
       };
     }
     if (this.nextGroupReferees) {
@@ -251,21 +256,24 @@ export class ProcedureManager {
           y: this.nextGroupReferees.shushin.y,
           heading: this.nextGroupReferees.shushin.heading ?? Math.PI,
           flagsRolled: this.nextGroupReferees.shushin.flagsRolled ?? true,
-          flagsInRightHand: this.nextGroupReferees.shushin.flagsInRightHand ?? true
+          flagsInRightHand: this.nextGroupReferees.shushin.flagsInRightHand ?? true,
+          isBowing: this.nextGroupReferees.shushin.isBowing ?? false
         },
         fukushin1: {
           x: this.nextGroupReferees.fukushin1.x,
           y: this.nextGroupReferees.fukushin1.y,
           heading: this.nextGroupReferees.fukushin1.heading ?? Math.PI,
           flagsRolled: this.nextGroupReferees.fukushin1.flagsRolled ?? true,
-          flagsInRightHand: this.nextGroupReferees.fukushin1.flagsInRightHand ?? true
+          flagsInRightHand: this.nextGroupReferees.fukushin1.flagsInRightHand ?? true,
+          isBowing: this.nextGroupReferees.fukushin1.isBowing ?? false
         },
         fukushin2: {
           x: this.nextGroupReferees.fukushin2.x,
           y: this.nextGroupReferees.fukushin2.y,
           heading: this.nextGroupReferees.fukushin2.heading ?? Math.PI,
           flagsRolled: this.nextGroupReferees.fukushin2.flagsRolled ?? true,
-          flagsInRightHand: this.nextGroupReferees.fukushin2.flagsInRightHand ?? true
+          flagsInRightHand: this.nextGroupReferees.fukushin2.flagsInRightHand ?? true,
+          isBowing: this.nextGroupReferees.fukushin2.isBowing ?? false
         }
       };
     }
@@ -285,18 +293,21 @@ export class ProcedureManager {
       this.store.state.shushin.heading = initialTargets.shushin.heading;
       this.store.state.shushin.flagsRolled = initialTargets.shushin.flagsRolled;
       this.store.state.shushin.flagsInRightHand = initialTargets.shushin.flagsInRightHand;
+      this.store.state.shushin.isBowing = initialTargets.shushin.isBowing ?? false;
 
       this.store.state.fukushin1.x = initialTargets.fukushin1.x;
       this.store.state.fukushin1.y = initialTargets.fukushin1.y;
       this.store.state.fukushin1.heading = initialTargets.fukushin1.heading;
       this.store.state.fukushin1.flagsRolled = initialTargets.fukushin1.flagsRolled;
       this.store.state.fukushin1.flagsInRightHand = initialTargets.fukushin1.flagsInRightHand;
+      this.store.state.fukushin1.isBowing = initialTargets.fukushin1.isBowing ?? false;
 
       this.store.state.fukushin2.x = initialTargets.fukushin2.x;
       this.store.state.fukushin2.y = initialTargets.fukushin2.y;
       this.store.state.fukushin2.heading = initialTargets.fukushin2.heading;
       this.store.state.fukushin2.flagsRolled = initialTargets.fukushin2.flagsRolled;
       this.store.state.fukushin2.flagsInRightHand = initialTargets.fukushin2.flagsInRightHand;
+      this.store.state.fukushin2.isBowing = initialTargets.fukushin2.isBowing ?? false;
 
       if (initialTargets.substitute) {
         this.substituteReferee = {
@@ -307,7 +318,8 @@ export class ProcedureManager {
           radius: 0.3,
           heading: initialTargets.substitute.heading,
           flagsRolled: initialTargets.substitute.flagsRolled,
-          flagsInRightHand: initialTargets.substitute.flagsInRightHand
+          flagsInRightHand: initialTargets.substitute.flagsInRightHand,
+          isBowing: initialTargets.substitute.isBowing ?? false
         };
       } else {
         this.substituteReferee = null;
@@ -323,7 +335,8 @@ export class ProcedureManager {
             radius: 0.3,
             heading: initialTargets.nextGroup.shushin.heading,
             flagsRolled: initialTargets.nextGroup.shushin.flagsRolled,
-            flagsInRightHand: initialTargets.nextGroup.shushin.flagsInRightHand
+            flagsInRightHand: initialTargets.nextGroup.shushin.flagsInRightHand,
+            isBowing: initialTargets.nextGroup.shushin.isBowing ?? false
           },
           fukushin1: {
             x: initialTargets.nextGroup.fukushin1.x,
@@ -333,7 +346,8 @@ export class ProcedureManager {
             radius: 0.3,
             heading: initialTargets.nextGroup.fukushin1.heading,
             flagsRolled: initialTargets.nextGroup.fukushin1.flagsRolled,
-            flagsInRightHand: initialTargets.nextGroup.fukushin1.flagsInRightHand
+            flagsInRightHand: initialTargets.nextGroup.fukushin1.flagsInRightHand,
+            isBowing: initialTargets.nextGroup.fukushin1.isBowing ?? false
           },
           fukushin2: {
             x: initialTargets.nextGroup.fukushin2.x,
@@ -343,7 +357,8 @@ export class ProcedureManager {
             radius: 0.3,
             heading: initialTargets.nextGroup.fukushin2.heading,
             flagsRolled: initialTargets.nextGroup.fukushin2.flagsRolled,
-            flagsInRightHand: initialTargets.nextGroup.fukushin2.flagsInRightHand
+            flagsInRightHand: initialTargets.nextGroup.fukushin2.flagsInRightHand,
+            isBowing: initialTargets.nextGroup.fukushin2.isBowing ?? false
           }
         };
       } else {
@@ -468,12 +483,14 @@ export class ProcedureManager {
       current.heading = to.heading;
     }
 
-    if (rawT >= 0.5) {
+    if (rawT >= 0.3) {
       current.flagsRolled = to.flagsRolled;
       current.flagsInRightHand = to.flagsInRightHand;
+      current.isBowing = to.isBowing ?? false;
     } else {
       current.flagsRolled = from.flagsRolled;
       current.flagsInRightHand = from.flagsInRightHand;
+      current.isBowing = from.isBowing ?? false;
     }
   }
 }

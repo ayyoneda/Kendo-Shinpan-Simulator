@@ -81,15 +81,23 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(targets.fukushin2.y).toBeCloseTo(yVertex);
   });
 
-  it('verifies Chapter 1 Entry has 8 steps: step 7 turns inward and step 8 separates flags', () => {
+  it('verifies Chapter 1 Entry has 8 steps: step 5 sets isBowing, step 7 turns inward and step 8 separates flags', () => {
     const entry = procedureChapters.find(c => c.id === 'entry')!;
     const courtSize = 10;
     expect(entry.steps).toHaveLength(8);
 
+    const step5 = entry.steps[4];
+    expect(step5.id).toBe('entry_rei');
+    expect(step5.commandCall).toBe('Rei');
+    expect(step5.vocalizationType).toBe('VOICE_LOW');
+    const t5 = step5.getTargets(courtSize);
+    expect(t5.shushin.isBowing).toBe(true);
+    expect(t5.fukushin1.isBowing).toBe(true);
+    expect(t5.fukushin2.isBowing).toBe(true);
+
     const step7 = entry.steps[6];
     expect(step7.id).toBe('entry_turn_inward');
     const t7 = step7.getTargets(courtSize);
-    // In step 7, they turned to center, but flags are STILL in right hand / rolled
     expect(t7.shushin.flagsInRightHand).toBe(true);
     expect(t7.fukushin1.flagsInRightHand).toBe(true);
     expect(t7.fukushin2.flagsInRightHand).toBe(true);
@@ -97,7 +105,6 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     const step8 = entry.steps[7];
     expect(step8.id).toBe('entry_separate_flags');
     const t8 = step8.getTargets(courtSize);
-    // In step 8, flags are separated into both hands
     expect(t8.shushin.flagsInRightHand).toBe(false);
     expect(t8.shushin.flagsRolled).toBe(false);
     expect(t8.fukushin1.flagsInRightHand).toBe(false);
@@ -162,7 +169,7 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     }
   });
 
-  it('verifies Chapter 2B Shinpan Koutai has 8 steps with decoupled walk & reorient, silent entrance, silent mutual rei, and silent final rei', () => {
+  it('verifies Chapter 2B Shinpan Koutai has 8 steps with decoupled walk & reorient, silent entrance, silent mutual rei with isBowing, and silent final rei with isBowing', () => {
     const koutai = procedureChapters.find(c => c.id === 'rotation_koutai')!;
     const courtSize = 10;
     const yVertex = courtSize / 2 - 1; // 4
@@ -184,23 +191,23 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(t2.shushin.x).toBeCloseTo(0);
     expect(t2.substitute!.x).toBeGreaterThan(courtSize / 2);
 
-    // Step 3: walk along triangle sides; sainte and fukushin walk facing march direction; substitute waits outside
+    // Step 3: walk along triangle sides; substitute waits outside
     const step3 = koutai.steps[2];
     expect(step3.id).toBe('koutai_walk_dest');
     const t3 = step3.getTargets(courtSize);
     expect(t3.shushin.x).toBeCloseTo(xBase);
     expect(t3.shushin.y).toBeCloseTo(yBase);
     expect(t3.shushin.heading).toBeCloseTo(Math.atan2(yBase - yVertex, xBase - 0));
-    expect(t3.substitute!.x).toBeGreaterThan(courtSize / 2); // still waiting outside!
+    expect(t3.substitute!.x).toBeGreaterThan(courtSize / 2);
 
     // Step 4: reorient in place upon arrival: sainte turns to outside (+x), remaining refs face center
     const step4 = koutai.steps[3];
     expect(step4.id).toBe('koutai_reorient');
     const t4 = step4.getTargets(courtSize);
-    expect(t4.shushin.heading).toBeCloseTo(0); // facing border towards sub
-    expect(t4.fukushin1.heading).toBeCloseTo(Math.atan2(-yBase, xBase)); // facing center
-    expect(t4.fukushin2.heading).toBeCloseTo(-Math.PI / 2); // facing center
-    expect(t4.substitute!.x).toBeGreaterThan(courtSize / 2); // still waiting outside!
+    expect(t4.shushin.heading).toBeCloseTo(0);
+    expect(t4.fukushin1.heading).toBeCloseTo(Math.atan2(-yBase, xBase));
+    expect(t4.fukushin2.heading).toBeCloseTo(-Math.PI / 2);
+    expect(t4.substitute!.x).toBeGreaterThan(courtSize / 2);
 
     // Step 5: substitute enters silently and halts 1.2m in front (NO vocalization)
     const step5 = koutai.steps[4];
@@ -210,26 +217,30 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     const t5 = step5.getTargets(courtSize);
     expect(t5.substitute!.x).toBeCloseTo(xBase + 1.2);
 
-    // Step 6: silent mutual Rei (NO vocalization)
+    // Step 6: silent mutual Rei (NO vocalization, isBowing: true)
     const step6 = koutai.steps[5];
     expect(step6.id).toBe('koutai_mutual_rei');
     expect(step6.vocalizationType).toBe('SILENT_ACTION');
     expect(step6.commandCall).toBe('');
+    const t6 = step6.getTargets(courtSize);
+    expect(t6.shushin.isBowing).toBe(true);
+    expect(t6.substitute!.isBowing).toBe(true);
 
     // Step 7: sainte exits backward to top border (y <= -5.0) and entrante takes position
     const step7 = koutai.steps[6];
     expect(step7.id).toBe('koutai_exit_backwards_swap');
     const t7 = step7.getTargets(courtSize);
-    expect(t7.shushin.y).toBeLessThanOrEqual(-courtSize / 2); // top/back border
-    expect(t7.shushin.heading).toBeCloseTo(Math.PI / 2); // facing down towards court
+    expect(t7.shushin.y).toBeLessThanOrEqual(-courtSize / 2);
+    expect(t7.shushin.heading).toBeCloseTo(Math.PI / 2);
     expect(t7.substitute!.x).toBeCloseTo(xBase);
     expect(t7.substitute!.y).toBeCloseTo(yBase);
 
-    // Step 8: sainte bows to court silently, 3 referees separate flags
+    // Step 8: sainte bows to court silently (isBowing: true), 3 referees separate flags
     const step8 = koutai.steps[7];
     expect(step8.id).toBe('koutai_final_rei_separate');
     expect(step8.vocalizationType).toBe('SILENT_ACTION');
     const t8 = step8.getTargets(courtSize);
+    expect(t8.shushin.isBowing).toBe(true);
     expect(t8.fukushin1.flagsInRightHand).toBe(false);
     expect(t8.fukushin2.flagsInRightHand).toBe(false);
     expect(t8.substitute!.flagsInRightHand).toBe(false);
@@ -239,7 +250,7 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     }
   });
 
-  it('verifies Chapter 3 Exit brings Fukushin back, plots trapezoid, bows in place, turns sideways, and marches straight', () => {
+  it('verifies Chapter 3 Exit brings Fukushin back, bows in place with isBowing, turns sideways, and marches straight', () => {
     const exit = procedureChapters.find(c => c.id === 'exit')!;
     const courtSize = 10;
     const yVertex = courtSize / 2 - 1; // 4
@@ -265,12 +276,17 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(targetsInward.fukushin1.y).toBeCloseTo(yVertex);
     expect(targetsInward.fukushin2.y).toBeCloseTo(yVertex);
 
-    // Step 4: Rei in place at yVertex (no stepback)
+    // Step 4: Rei in place at yVertex with isBowing: true
     const reiStep = exit.steps.find(s => s.id === 'exit_rei')!;
+    expect(reiStep.commandCall).toBe('Rei');
+    expect(reiStep.vocalizationType).toBe('VOICE_LOW');
     const targetsRei = reiStep.getTargets(courtSize);
     expect(targetsRei.shushin.y).toBeCloseTo(yVertex);
     expect(targetsRei.fukushin1.y).toBeCloseTo(yVertex);
     expect(targetsRei.fukushin2.y).toBeCloseTo(yVertex);
+    expect(targetsRei.shushin.isBowing).toBe(true);
+    expect(targetsRei.fukushin1.isBowing).toBe(true);
+    expect(targetsRei.fukushin2.isBowing).toBe(true);
 
     // Step 5: turn sideways in place at yVertex
     const turnStep = exit.steps.find(s => s.id === 'exit_turn_sideways')!;
@@ -278,25 +294,32 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(targetsTurnLeft.shushin.heading).toBeCloseTo(Math.PI);
     expect(targetsTurnLeft.shushin.y).toBeCloseTo(yVertex);
 
-    // Step 6: march straight along yVertex (1m from border)
+    // Step 6: march straight along yVertex (1m from border) with commandCall 'Mae' (VOICE_LOW)
     const marchStep = exit.steps.find(s => s.id === 'exit_march_straight')!;
+    expect(marchStep.commandCall).toBe('Mae');
+    expect(marchStep.vocalizationType).toBe('VOICE_LOW');
     const targetsMarchLeft = marchStep.getTargets(courtSize, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
     expect(targetsMarchLeft.shushin.y).toBeCloseTo(yVertex);
     expect(targetsMarchLeft.fukushin1.y).toBeCloseTo(yVertex);
     expect(targetsMarchLeft.fukushin2.y).toBeCloseTo(yVertex);
-    // Crucial: nextGroup maintains straight march heading (0) without spinning 180 degrees
     expect(targetsMarchLeft.nextGroup!.shushin.heading).toBeCloseTo(0);
   });
 
-  it('verifies Chapter 3 Sogo-ni-rei forms an equilateral triangle right at the exit line', () => {
+  it('verifies Chapter 3 Sogo-ni-rei forms an equilateral triangle and has isBowing: true', () => {
     const exit = procedureChapters.find(c => c.id === 'exit')!;
     const courtSize = 10;
 
     const sogoStep = exit.steps.find(s => s.id === 'exit_sogo_ni_rei')!;
+    expect(sogoStep.commandCall).toBe(''); // No senkoku
     const targetsLeft = sogoStep.getTargets(courtSize, { seatsSide: 'LEFT', rotationVariant: 'REGULAR' });
 
     // Center is outside the court boundary (courtSize/2 = 5.0)
     expect(Math.abs(targetsLeft.shushin.x)).toBeGreaterThan(courtSize / 2);
+
+    // All 3 referees are bowing (isBowing: true)
+    expect(targetsLeft.shushin.isBowing).toBe(true);
+    expect(targetsLeft.fukushin1.isBowing).toBe(true);
+    expect(targetsLeft.fukushin2.isBowing).toBe(true);
 
     // Distances between all 3 referees form an equilateral triangle
     const dS_F1 = Math.hypot(targetsLeft.shushin.x - targetsLeft.fukushin1.x, targetsLeft.shushin.y - targetsLeft.fukushin1.y);

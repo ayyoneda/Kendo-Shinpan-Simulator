@@ -19,6 +19,7 @@ export interface Referee extends Vector2D {
   heading?: number;
   flagsRolled?: boolean;
   flagsInRightHand?: boolean;
+  isBowing?: boolean;
 }
 
 export interface SimulationConfig {
