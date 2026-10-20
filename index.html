@@ -27,20 +27,20 @@
     <div id="app">
       <canvas id="kendoCanvas" class="absolute top-0 left-0 w-full h-full cursor-crosshair touch-none"></canvas>
 
-      <!-- Main Mode Toggle -->
-      <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full p-1 flex items-center shadow-2xl">
-        <button id="btn-mode-tech" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-white bg-[#bc002d] shadow-lg transition cursor-pointer">Modo Técnico</button>
-        <button id="btn-mode-rpg" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition cursor-pointer">Modo Renderizado</button>
-      </div>
-
-      <!-- Simulation / Procedure Mode Switcher -->
-      <div class="absolute top-16 left-1/2 -translate-x-1/2 z-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full p-1 flex items-center shadow-2xl gap-1">
-        <button id="btn-sim-combat" class="px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#2563eb] shadow-md transition cursor-pointer flex items-center gap-1.5">
-          <i class="fas fa-fist-raised"></i> <span id="ui-sim-combat">Combate Reativo</span>
-        </button>
-        <button id="btn-sim-procedure" class="px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-white transition cursor-pointer flex items-center gap-1.5">
+      <!-- Simulation / Procedure Module Switcher (Primary Selector) -->
+      <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full p-1 flex items-center shadow-2xl gap-1">
+        <button id="btn-sim-procedure" class="px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#bc002d] shadow-md transition cursor-pointer flex items-center gap-1.5">
           <i class="fas fa-scroll"></i> <span id="ui-sim-procedure">Procedimentos FIK</span>
         </button>
+        <button id="btn-sim-combat" class="px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-white transition cursor-pointer flex items-center gap-1.5">
+          <i class="fas fa-fist-raised"></i> <span id="ui-sim-combat">Combate Reativo</span>
+        </button>
+      </div>
+
+      <!-- Main Mode Toggle (Modo Técnico / Modo Renderizado) - Exclusive to Combat Mode -->
+      <div id="mode-render-toggle-container" class="absolute top-16 left-1/2 -translate-x-1/2 z-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full p-1 flex items-center shadow-2xl">
+        <button id="btn-mode-tech" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-white bg-[#bc002d] shadow-lg transition cursor-pointer">Modo Técnico</button>
+        <button id="btn-mode-rpg" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition cursor-pointer">Modo Renderizado</button>
       </div>
 
       <!-- Top-Right Floating Help Button -->
@@ -376,7 +376,7 @@
               <span id="ui-proc-pause-step" class="text-[11px] text-gray-400">Pausar a cada etapa</span>
             </label>
             <button id="proc-reset-btn" class="p-1 px-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white flex items-center gap-1 text-[11px] transition cursor-pointer" title="Reiniciar Capítulo">
-              <i class="fas fa-undo text-[10px]"></i> <span>Reiniciar</span>
+              <i class="fas fa-undo text-[10px]"></i> <span id="ui-proc-reset">Reiniciar</span>
             </button>
           </div>
 

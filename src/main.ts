@@ -70,6 +70,7 @@ const scenarioChipsContainer = document.getElementById('scenario-chips') as HTML
 const scenarioExpandedList = document.getElementById('scenario-expanded-list') as HTMLElement;
 
 // Simulation / Procedure Mode Switcher & Stepper Widget Elements
+const modeRenderToggleContainer = document.getElementById('mode-render-toggle-container') as HTMLElement | null;
 const btnSimCombat = document.getElementById('btn-sim-combat') as HTMLButtonElement;
 const btnSimProcedure = document.getElementById('btn-sim-procedure') as HTMLButtonElement;
 const procedureWidget = document.getElementById('procedure-widget') as HTMLElement;
@@ -446,11 +447,17 @@ function updateProcedureUI() {
       procCommandBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-blue-600/30 text-blue-300 border border-blue-500/40";
       procCommandBadge.classList.remove('hidden');
     } else if (vocType === 'VOICE_LOW' && call) {
-      procCommandBadge.textContent = `🤫 "${call}" (Voz Baixa)`;
+      const jpMap: Record<string, string> = { 'Mae': '前', 'Ippomae': '一歩前', 'Rei': '礼', 'Hidari-muke': '左向け', 'Migi-muke': '右向け' };
+      const lowVoiceText = currentLang === 'jp'
+        ? `🤫「${jpMap[call] || call}」（小声）`
+        : (currentLang === 'en' ? `🤫 "${call}" (low voice)` : `🤫 "${call}" (Voz Baixa)`);
+      procCommandBadge.textContent = lowVoiceText;
       procCommandBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/25 text-amber-300 border border-amber-500/40";
       procCommandBadge.classList.remove('hidden');
     } else if (vocType === 'SILENT_ACTION') {
-      procCommandBadge.textContent = step.actionNote ? `🤫 ${step.actionNote}` : `🤫 Ação Silenciosa`;
+      const actionKey = 'action_' + step.id;
+      const note = s[actionKey] || step.actionNote || (currentLang === 'jp' ? '静かな所作' : (currentLang === 'en' ? 'Silent Action' : 'Ação Silenciosa'));
+      procCommandBadge.textContent = `🤫 ${note}`;
       procCommandBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/25 text-emerald-300 border border-emerald-500/40";
       procCommandBadge.classList.remove('hidden');
     } else if (call) {
@@ -463,7 +470,8 @@ function updateProcedureUI() {
   }
 
   if (procStepDesc) {
-    procStepDesc.textContent = step.description;
+    const descKey = 'step_' + step.id + '_desc';
+    procStepDesc.textContent = s[descKey] || step.description;
   }
 
   const isPlaying = procedureManager.isPlaying();
@@ -495,6 +503,7 @@ function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
     procedureManager.pause();
 
     btnModeTech.classList.remove('opacity-40', 'pointer-events-none');
+    if (modeRenderToggleContainer) modeRenderToggleContainer.classList.remove('hidden');
 
     if (btnSimCombat) {
       btnSimCombat.className = "px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#2563eb] shadow-md transition cursor-pointer flex items-center gap-1.5";
@@ -523,6 +532,7 @@ function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
     renderer.isRPGMode = true;
     applyModeVisuals();
     btnModeTech.classList.add('opacity-40', 'pointer-events-none');
+    if (modeRenderToggleContainer) modeRenderToggleContainer.classList.add('hidden');
 
     if (btnSimProcedure) {
       btnSimProcedure.className = "px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#bc002d] shadow-md transition cursor-pointer flex items-center gap-1.5";
@@ -797,9 +807,11 @@ function updateUIStrings() {
   setText('proc-rot-reg-btn', s.procRotRegular || 'Regular');
   setText('proc-rot-koutai-btn', s.procRotKoutai || 'Troca');
   setText('ui-proc-pause-step', s.pauseOnStepLabel || 'Pausar a cada etapa');
+  setText('ui-proc-reset', s.btnProcReset || 'Reiniciar');
   setText('ui-proc-prev', s.btnPrev || 'Anterior');
   setText('ui-proc-play', procedureManager.isPlaying() ? (s.btnPause || 'Pausar') : (s.btnPlay || 'Reproduzir'));
   setText('ui-proc-next', s.btnNext || 'Próximo');
+  renderer.currentLang = currentLang;
   updateProcedureUI();
 }
 
@@ -942,7 +954,14 @@ function animate(ts: DOMHighResTimeStamp) {
 
   if (store.state.simulationMode === 'PROCEDURE') {
     const wasPlaying = procedureManager.isPlaying();
+    const stepBefore = procedureManager.getCurrentStepIndex();
+    const chapBefore = procedureManager.getCurrentChapter().id;
+
     procedureManager.update(dt);
+
+    const stepAfter = procedureManager.getCurrentStepIndex();
+    const chapAfter = procedureManager.getCurrentChapter().id;
+
     renderer.procedureActiveStep = procedureManager.getCurrentStep();
     renderer.procedureSubstituteReferee = procedureManager.substituteReferee;
     renderer.procedureNextGroupReferees = procedureManager.nextGroupReferees;
@@ -952,7 +971,7 @@ function animate(ts: DOMHighResTimeStamp) {
       procProgressFill.style.width = `${progress}%`;
     }
 
-    if (wasPlaying !== procedureManager.isPlaying()) {
+    if (wasPlaying !== procedureManager.isPlaying() || stepBefore !== stepAfter || chapBefore !== chapAfter) {
       updateProcedureUI();
     }
   } else {

@@ -51,6 +51,7 @@ export class CanvasRenderer {
   public procedureNextGroupReferees: { shushin: Referee; fukushin1: Referee; fukushin2: Referee } | null = null;
   public showProcedureGuides = true;
   public procedureSeatsSide: 'LEFT' | 'RIGHT' = 'LEFT';
+  public currentLang: string = 'pt';
 
   private trails: Record<string, Vector2D[]> = {
     white: [], red: [], shushin: [], fukushin1: [], fukushin2: []
@@ -490,14 +491,15 @@ export class CanvasRenderer {
         this.ctx.rotate(facingAngle + Math.PI / 2);
 
         // Mantém a proporção real da imagem top-down
-        // Dimensão calibrada em 0.75 metros visuais
-        const physicalWidth = 0.75 * this.scale;
+        // Dimensão calibrada em 0.75m para árbitros normais e 0.58m para o sprite de Rei (mantém pés e tronco com tamanho idêntico)
+        const isBowing = ref.isBowing === true;
+        const physicalWidth = (isBowing ? 0.58 : 0.75) * this.scale;
         let pivotYRatio = 0.5;
 
         if (isCompetitor) {
           pivotYRatio = 0.69;
-        } else if (ref.isBowing) {
-          pivotYRatio = 0.44;
+        } else if (isBowing) {
+          pivotYRatio = 0.48; // Alinha os pés exatamente no mesmo ponto de apoio dos sprites naturais
         } else if (ent === state.shushin || ent === this.procedureSubstituteReferee || isNextGroupS) {
           pivotYRatio = 0.44;
         } else if (ent === state.fukushin1 || isNextGroupF1) {
@@ -720,6 +722,48 @@ export class CanvasRenderer {
     }
   }
 
+  private formatLowVoiceCall(call: string): string {
+    if (this.currentLang === 'jp') {
+      const jpMap: Record<string, string> = {
+        'Mae': '前',
+        'Ippomae': '一歩前',
+        'Rei': '礼',
+        'Hidari-muke': '左向け',
+        'Migi-muke': '右向け'
+      };
+      const text = jpMap[call] || call;
+      return `🤫「${text}」（小声）`;
+    }
+    if (this.currentLang === 'en') {
+      return `🤫 "${call}" (low voice)`;
+    }
+    return `🤫 "${call}" (voz baixa)`;
+  }
+
+  private formatActionNote(stepId: string, note: string): string {
+    if (this.currentLang === 'jp') {
+      const jpMap: Record<string, string> = {
+        'entry_rei': '正面への礼',
+        'koutai_mutual_rei': '相互の礼',
+        'koutai_final_rei_separate': '試合場への礼',
+        'exit_rei': '試合場・正面への礼',
+        'exit_sogo_ni_rei': '相互の礼（三人礼）'
+      };
+      return jpMap[stepId] || note;
+    }
+    if (this.currentLang === 'en') {
+      const enMap: Record<string, string> = {
+        'entry_rei': 'Joint Bow (Rei)',
+        'koutai_mutual_rei': 'Mutual Bow (Rei)',
+        'koutai_final_rei_separate': 'Bow to the Court',
+        'exit_rei': 'Final Bow (Rei)',
+        'exit_sogo_ni_rei': 'Mutual Group Bow (Sogo-ni-rei)'
+      };
+      return enMap[stepId] || note;
+    }
+    return note;
+  }
+
   private drawProcedureCallouts(state: EngineState) {
     if (state.simulationMode !== 'PROCEDURE' || !this.procedureActiveStep) return;
     const step = this.procedureActiveStep;
@@ -740,14 +784,18 @@ export class CanvasRenderer {
       bgColor = 'rgba(15, 23, 42, 0.9)';
       strokeColor = 'rgba(59, 130, 246, 0.75)';
     } else if (vocalType === 'VOICE_LOW' && call) {
-      text = `🤫 "${call}" (voz baixa)`;
+      text = this.formatLowVoiceCall(call);
       bgColor = 'rgba(30, 41, 59, 0.9)';
       strokeColor = 'rgba(234, 179, 8, 0.75)';
     } else if (vocalType === 'SILENT_ACTION' && step.actionNote) {
-      text = `🤫 ${step.actionNote}`;
+      text = `🤫 ${this.formatActionNote(step.id, step.actionNote)}`;
       bgColor = 'rgba(6, 78, 59, 0.9)';
       strokeColor = 'rgba(16, 185, 129, 0.75)';
-      if (this.procedureSubstituteReferee) {
+      if (step.id === 'koutai_final_rei_separate') {
+        // Posicionado estritamente sobre o sainte do lado de fora da quadra, sem cobri-lo
+        anchorX = state.shushin.x;
+        anchorY = state.shushin.y;
+      } else if (step.id === 'koutai_mutual_rei' && this.procedureSubstituteReferee) {
         anchorX = (state.shushin.x + this.procedureSubstituteReferee.x) / 2;
         anchorY = (state.shushin.y + this.procedureSubstituteReferee.y) / 2;
       }
@@ -755,9 +803,9 @@ export class CanvasRenderer {
       return;
     }
 
-    const renderBubble = (ax: number, ay: number, txt: string, bg: string, stroke: string) => {
+    const renderBubble = (ax: number, ay: number, txt: string, bg: string, stroke: string, yOffset = 48) => {
       const sp = this.toScreenInto(ax, ay, { x: 0, y: 0 });
-      const bubbleY = sp.y - 48;
+      const bubbleY = sp.y - yOffset;
 
       this.ctx.save();
       this.ctx.font = 'bold 12px system-ui, -apple-system, sans-serif';
@@ -787,14 +835,15 @@ export class CanvasRenderer {
       this.ctx.restore();
     };
 
-    renderBubble(anchorX, anchorY, text, bgColor, strokeColor);
+    const bubbleOffset = (step.id === 'koutai_final_rei_separate') ? 56 : 48;
+    renderBubble(anchorX, anchorY, text, bgColor, strokeColor, bubbleOffset);
 
     // Etapa 3.6: ambos o Shushin do grupo que sai e o Shushin do grupo que entra vocalizam "Mae" (baixo)
     if (step.id === 'exit_march_straight' && this.procedureNextGroupReferees) {
       renderBubble(
         this.procedureNextGroupReferees.shushin.x,
         this.procedureNextGroupReferees.shushin.y,
-        `🤫 "Mae" (voz baixa)`,
+        this.formatLowVoiceCall('Mae'),
         bgColor,
         strokeColor
       );

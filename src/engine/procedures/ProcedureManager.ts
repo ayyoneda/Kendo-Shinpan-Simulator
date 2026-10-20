@@ -471,14 +471,35 @@ export class ProcedureManager {
     easedT: number,
     rawT: number
   ) {
-    current.x = from.x + (to.x - from.x) * easedT;
-    current.y = from.y + (to.y - from.y) * easedT;
+    const wasBowing = from.isBowing === true;
+    const willBow = to.isBowing === true;
+    const hasMovement = (
+      Math.abs(from.x - to.x) > 0.01 ||
+      Math.abs(from.y - to.y) > 0.01 ||
+      (to.headingDelta !== undefined && Math.abs(to.headingDelta) > 0.01) ||
+      (from.heading !== undefined && to.heading !== undefined && Math.abs(angleDiff(from.heading, to.heading)) > 0.05)
+    );
+
+    let moveEasedT = easedT;
+    if (wasBowing && !willBow && hasMovement) {
+      // Transição do Rei para o sprite natural antes de qualquer movimentação
+      const unbowDelay = 0.20;
+      if (rawT < unbowDelay) {
+        moveEasedT = 0;
+      } else {
+        const adjustedRaw = (rawT - unbowDelay) / (1.0 - unbowDelay);
+        moveEasedT = easeInOutCubic(Math.min(1.0, adjustedRaw));
+      }
+    }
+
+    current.x = from.x + (to.x - from.x) * moveEasedT;
+    current.y = from.y + (to.y - from.y) * moveEasedT;
 
     if (to.headingDelta !== undefined && from.heading !== undefined) {
-      current.heading = from.heading + to.headingDelta * easedT;
+      current.heading = from.heading + to.headingDelta * moveEasedT;
     } else if (from.heading !== undefined && to.heading !== undefined) {
       const diff = angleDiff(from.heading, to.heading);
-      current.heading = from.heading + diff * easedT;
+      current.heading = from.heading + diff * moveEasedT;
     } else if (to.heading !== undefined) {
       current.heading = to.heading;
     }
@@ -486,11 +507,23 @@ export class ProcedureManager {
     if (rawT >= 0.3) {
       current.flagsRolled = to.flagsRolled;
       current.flagsInRightHand = to.flagsInRightHand;
-      current.isBowing = to.isBowing ?? false;
     } else {
       current.flagsRolled = from.flagsRolled;
       current.flagsInRightHand = from.flagsInRightHand;
-      current.isBowing = from.isBowing ?? false;
+    }
+
+    // Lógica canônica de transição do Rei
+    if (wasBowing && !willBow) {
+      current.isBowing = false;
+    } else if (!wasBowing && willBow) {
+      if (hasMovement) {
+        // Posicionar primeiro no triângulo e somente ao atingir a posição mudar para o Rei
+        current.isBowing = rawT >= 1.0;
+      } else {
+        current.isBowing = true;
+      }
+    } else {
+      current.isBowing = willBow;
     }
   }
 }

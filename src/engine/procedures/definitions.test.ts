@@ -209,10 +209,10 @@ describe('Procedure Chapters Canonical Definitions V2', () => {
     expect(t4.fukushin2.heading).toBeCloseTo(-Math.PI / 2);
     expect(t4.substitute!.x).toBeGreaterThan(courtSize / 2);
 
-    // Step 5: substitute enters silently and halts 1.2m in front (NO vocalization)
+    // Step 5: substitute enters silently and halts 1.2m in front (NO speech box or vocalization)
     const step5 = koutai.steps[4];
     expect(step5.id).toBe('koutai_sub_enter');
-    expect(step5.vocalizationType).toBe('SILENT_ACTION');
+    expect(step5.vocalizationType).toBeUndefined();
     expect(step5.commandCall).toBe('');
     const t5 = step5.getTargets(courtSize);
     expect(t5.substitute!.x).toBeCloseTo(xBase + 1.2);
