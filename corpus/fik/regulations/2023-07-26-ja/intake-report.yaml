@@ -1,0 +1,98 @@
+ingestion_run_schema_version: 0.1.0
+run_id: fik.regulations.2023-07-26.ja
+run_date: '2026-08-18'
+status: ready_for_ai_structuring
+mode: new_document
+package_identity:
+  package_id: fik.regulations.2023-07-26.ja
+  organization_slug: fik
+  document_family_slug: regulations
+  official_version: '2023-07-26'
+  manifestation_language: ja
+  target_path: corpus/fik/regulations/2023-07-26-ja
+source:
+  original_filename: Regulations-of-Kendo-Shiai-and-Shinpan-JP_Jul2023.pdf
+  staged_path: source/original.pdf
+  sha256: f9c3c691835a620bd134fa50c63fab8e021c6e8b92f9aa0c1be9e914ed8b58a5
+  size_bytes: 1751910
+pdf:
+  creator: Adobe Acrobat Pro 2020 20.5.30763
+  producer: Adobe Acrobat Pro 2020 20.5.30763
+  creation_date: '2025-04-22T15:14:18+09'
+  modified_date: '2025-04-22T15:14:18+09'
+  tagged: 'no'
+  encrypted: 'no'
+  page_size: 419.527 x 595.275 pts
+  pdf_version: '1.6'
+  page_count: 50
+existing_package:
+  target_path: corpus/fik/regulations/2023-07-26-ja
+  exists: false
+  identity_match: null
+  source_checksum_match: null
+previous_package: null
+extraction:
+  extraction_schema_version: 0.1.0
+  source_sha256: f9c3c691835a620bd134fa50c63fab8e021c6e8b92f9aa0c1be9e914ed8b58a5
+  page_count: 50
+  plain_text:
+    path: raw/extracted-text.txt
+    sha256: 588b0a07d1bba0a3b7002d66fde73e43cba520420af2a014aa5b7354af82efeb
+    size_bytes: 59523
+    character_count: 25186
+  layout_text:
+    path: raw/extracted-text-layout.txt
+    sha256: d024ed060b42d4e46f57f2451ac778d2220b1b9a239ff2a7e09e5c9425785692
+    size_bytes: 82233
+    character_count: 47896
+  possible_scanned_pdf: false
+  tool:
+    name: pdftotext
+    version: pdftotext version 25.12.0
+  diagnostics:
+  - message: 'Syntax Warning: Invalid Font Weight'
+    occurrences: 70
+existing_transcription: null
+review_queue: review-queue.yaml
+generated_artifacts:
+- path: context.normalized.yaml
+  sha256: feb041eb94eca0322a4ed34eddfea6b9c8a0ca8beec7e77f15d3220e0ef53fab
+  size_bytes: 1278
+- path: input/context.yaml
+  sha256: 192fbc45b305b343f8ca29bc562e08b70318488935d2824b6ec6bcf19f39eb1a
+  size_bytes: 1312
+- path: raw/extracted-text-layout.txt
+  sha256: d024ed060b42d4e46f57f2451ac778d2220b1b9a239ff2a7e09e5c9425785692
+  size_bytes: 82233
+- path: raw/extracted-text.txt
+  sha256: 588b0a07d1bba0a3b7002d66fde73e43cba520420af2a014aa5b7354af82efeb
+  size_bytes: 59523
+- path: raw/extraction.yaml
+  sha256: a850a795af226b08b9a6aa5099e3cefe3bfa072bc9a09c006be2da2e94376689
+  size_bytes: 631
+- path: review-queue.yaml
+  sha256: b2f74a0866ac4f377449346e559bee710a1f400ae7ed601260bdd708f66cfefe
+  size_bytes: 1435
+- path: source/acquisition.yaml
+  sha256: ec8b9b6aadb833d2d189ec3f6e1f7f56c0fd6d0263c742d308539a576eb0cd6d
+  size_bytes: 590
+- path: source/original.pdf
+  sha256: f9c3c691835a620bd134fa50c63fab8e021c6e8b92f9aa0c1be9e914ed8b58a5
+  size_bytes: 1751910
+warnings:
+- code: rights_status_unknown
+  message: Keep the staged source and generated artifacts restricted to internal research use.
+blocking_issues: []
+processing_policy:
+  ai_processing_policy: local_only
+  external_ai_approval: not_granted
+  external_ai_allowed: false
+next_stage:
+  name: ai_structuring_proposal
+  status: pending
+  may_write_to_corpus: false
+tool:
+  path: ingestion/ingest_document.py
+  version: 0.2.0
+  pdfinfo_version: pdfinfo version 25.12.0
+  pdftotext_version: pdftotext version 25.12.0

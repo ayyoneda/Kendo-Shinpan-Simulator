@@ -1,0 +1,32 @@
+review_queue_schema_version: 0.1.0
+package_id: fik.regulations.2023-07-26.ja
+policy: AI and deterministic tools propose; humans approve identity, semantic migrations, and release.
+tasks:
+- task_id: identity-and-version
+  category: human_gate
+  status: pending_human_review
+  question: Are the organization, document family, title, and official version correct?
+- task_id: rights-and-distribution
+  category: human_gate
+  status: acknowledged_internal_only
+  question: Are the rights status and publication restrictions correctly classified?
+- task_id: ai-processing-policy
+  category: human_gate
+  status: local_only_enforced
+  question: May source content be sent to an external AI service?
+- task_id: text-extraction-quality
+  category: quality_review
+  status: pending_low_confidence_analysis
+  question: Which pages or text regions require OCR or extraction correction?
+- task_id: layout-and-stream-proposal
+  category: ai_proposal
+  status: pending
+  question: How should pages be segmented into canonical text streams and aligned columns?
+- task_id: figures-and-tables-proposal
+  category: ai_proposal
+  status: pending
+  question: Which visual regions are figures or tables, and what structured representation is proposed?
+- task_id: promotion-to-corpus
+  category: human_gate
+  status: blocked_until_structuring_and_validation
+  question: May staged package fik.regulations.2023-07-26.ja be promoted into the canonical corpus?

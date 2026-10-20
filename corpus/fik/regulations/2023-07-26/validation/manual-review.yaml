@@ -47,6 +47,17 @@ text_streams:
     headings_correct: checked
     no_conversion_artifacts: checked
   notes: null
+- path: text/contents.en.md
+  status: machine_verified
+  pdf_pages:
+  - 3-5
+  reviewer: deterministic_pdf_text_extraction
+  reviewed_date: 2026-08-18
+  checks:
+    embedded_text_extracted: checked
+    source_pages_recorded: checked
+    excluded_from_retrieval: checked
+  notes: Page-preserving navigation stream; legal provisions remain authoritative in their article streams.
 - path: text/regulations.en.md
   status: reviewed_ok
   pdf_pages:
@@ -172,4 +183,16 @@ anchors:
     subsidiary_rule_article_anchors_present: checked
     guideline_theme_anchors_present: checked
     duplicate_anchor_ids: checked
+relationships:
+  path: relationships.yaml
+  status: reviewed_ok
+  review_scope: explicit_text_pattern_review_and_semantic_cross_reference_audit
+  reviewer: Adrian Yoneda
+  reviewed_date: 2026-10-01
+  checks:
+    inventory_complete: checked
+    sources_and_targets_exist: checked
+    evidence_quotes_match_text: checked
+    relationship_types_consistent: checked
+  notes: Dedicated semantic review of all 35 explicit-text relationships completed and approved by repository owner Adrian Yoneda on 2026-10-01.
 issues: []

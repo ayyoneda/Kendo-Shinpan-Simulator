@@ -1,0 +1,40 @@
+package_id: fik.regulations.2023-07-26.ja
+counterpart_package_id: fik.regulations.2023-07-26
+status: owner_approved_internal_research_with_documented_differences
+owner_approval:
+  status: approved_internal_research
+  reviewer: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+  scope: Japanese figure and table crops
+  description_verified: false
+  statement: I approve the Japanese visual assets and the three documented visual-alignment differences for internal research.
+  preservation_policy: Preserve each edition's printed labels, notation, grouping, and scoreboard example without merging
+    or rewriting them.
+summary:
+  figure_concepts: 23
+  table_concepts: 4
+  source_specific_difference_groups: 3
+differences:
+- difference_id: visual-alignment-001
+  concept_id: kkp:table:fik.regulations:000002
+  classification: source_grouping_difference
+  japanese: The source prints 表1 for itto and 表2 for nito, followed by measurement diagrams.
+  english: The source registry represents the same material as combined Table 2 with subdivisions.
+  handling: Preserve Japanese component labels and link the group to the shared semantic concept.
+  review_status: approved_internal_research
+- difference_id: visual-alignment-002
+  concept_id: kkp:table:fik.recording-guide:000001
+  classification: language_specific_notation
+  japanese: Marks use Japanese characters such as メ, コ, ド, ツ, 判, 抽, 一本勝, and 延長.
+  english: Marks use the English-edition Roman notation and enclosure conventions.
+  handling: Store each edition's literal marks; map meanings without replacing visible notation.
+  review_status: approved_internal_research
+- difference_id: visual-alignment-003
+  concept_id: kkp:table:fik.recording-guide:000002
+  classification: source_object_type_and_example_data_difference
+  japanese: Printed as 第1図. Jiho places circled 判 in the white row, uses Japanese marks, and prints no aggregate team result.
+  english: Modeled from printed Table 2. The reviewed structure places the Jiho hantei result with red and includes a 3-to-1
+    team result.
+  handling: Preserve both examples independently; do not infer or merge a shared winner/result.
+  domain_review_recommended: true
+  review_status: approved_internal_research

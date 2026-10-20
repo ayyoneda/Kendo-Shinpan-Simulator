@@ -1,0 +1,3535 @@
+alignment_schema_version: 0.1.0
+package_id: fik.regulations.2023-07-26.ja
+counterpart_package_id: fik.regulations.2023-07-26
+status: paired_semantically_reviewed_internal_research
+generated_by:
+  path: ingestion/build_japanese_semantic_alignment.py
+  version: 0.1.0
+  external_ai_used: false
+pair_count: 100
+counts:
+  provisions: 69
+  guideline_sections: 31
+pairs:
+- alignment_id: alignment:kkp:article:fik.regulations:000001
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000001
+  node_type: article
+  local_number: '1'
+  japanese_title: 本規則の目的
+  english_title: The Purpose of the "Regulations"
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000001
+    text_sha256: 7a06d8f98dc4c22fac37485778fcc0446159b6d24d6b052f01857cf7aee183e1
+    text: '**第1条:** この規則は、全日本剣道連盟の剣道試合につき、剣の理法を全うしつつ、公明正大に試合をし、適正公平に審判することを目的とする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000001
+    source_pdf_pages:
+    - 6
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000001
+    text_sha256: 0b40bbb7770cf9b935e5f78d639cd925258a7805f1d33e73f58f60284177ff98
+    text: '**Article 1:** The purpose of the "Regulations" is to get *shiai-sha* to compete fairly in *shiai* of the INTERNATIONAL
+      KENDO FEDERATION (FIK), in accordance with the principles of the sword, and to properly referee the *shiai* without
+      prejudice.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000001
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000002
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000002
+  node_type: article
+  local_number: '2'
+  japanese_title: 試合場
+  english_title: Shiai-jo
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000002
+    text_sha256: 4ec9ad13028b16fde11963697501498837511449680989b9747fd8bdd9231ec5
+    text: '**第2条:** 試合場の基準は次のとおりとし、床は板張を原則とする。
+
+
+      １．試合場は、境界線を含み一辺を９メートルないし11メートルの、正方形または長方形とする。
+
+
+      ２．試合場の中心は×印とし、開始線は、中心より均等の位置（距離）に左右１本ずつ表示する。各線の長さおよび開始線間の距離は細則で定める。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000002
+    source_pdf_pages:
+    - 6
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000002
+    text_sha256: 15b3d8ed065106148745c3169f9e08f709aa98d4189ece0ea51d61a9e988cb4f
+    text: '**Article 2:** As a rule, the *shiai-jo* should have a wooden floor, and its specifications shall be as follows:
+
+      1. The *shiai-jo* should be a square or a rectangle with sides of 9 to 11 meters in length inclusive of the width of
+      the line.
+
+      2. The center of the *shiai-jo* should be marked by a cross, and two *kaishi-sen* should be marked on both sides of
+      the center at an equal distance. The length of the *kaishi-sen* and the distance between them are stipulated in the
+      "Subsidiary Rules."'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000002
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000003
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000003
+  node_type: article
+  local_number: '3'
+  japanese_title: 竹刀
+  english_title: Shinai
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000003
+    text_sha256: 7b10f320e9d386314f2a9938da707a25b14f8df188fbd87e3dd5b47d564aefa1
+    text: '**第3条:** 竹刀は、竹または全日本剣道連盟が認めた竹に代わる化学製品のものとする。竹刀の構造、長さ、重さ、太さ、つば（鍔）の規格などは、細則で定める。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000003
+    source_pdf_pages:
+    - 6
+    - 7
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000003
+    text_sha256: 91bbc41b5baadbbbbde8e38b437db8d43f3878a3eb332dd800fb9bfc69f97895
+    text: '**Article 3:** The *shinai* should be made from bamboo, or from synthetic material as a substitute for bamboo that
+      is approved by the ALL JAPAN KENDO FEDERATION. The structure, length, weight, and diameter of the *shinai*, and specifications
+      for *tsuba* are stipulated in the "Subsidiary Rules."'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000003
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000004
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000004
+  node_type: article
+  local_number: '4'
+  japanese_title: 剣道具
+  english_title: Kendo-gu
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000004
+    text_sha256: a663b56e2ff9cf2a01cdecc46ac0f70afd44a6a967d9aa880d26e737c5d4519b
+    text: '**第4条:** 剣道具は、面、小手、胴、垂れを用いる。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000004
+    source_pdf_pages:
+    - 7
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000004
+    text_sha256: 41018226989a33fd4401cc8fb9dd850f981b86c1a5b6bf3d73aadddba553cd67
+    text: '**Article 4:** The *kendo-gu* shall consist of *men*, *kote*, *do* and *tare*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000004
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000005
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000005
+  node_type: article
+  local_number: '5'
+  japanese_title: 服装
+  english_title: Uniform
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000005
+    text_sha256: eb2eab13a87ddf6c314d34596b7dca2d9c27e92e80d783d4b6f250dc236bb461
+    text: '**第5条:** 服装は、剣道着・袴とする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000005
+    source_pdf_pages:
+    - 8
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000005
+    text_sha256: ef24f76322c1d5b3e6ca3a61d8c05b4198cdfaba1918be11ab777fd97097abd6
+    text: '**Article 5:** The *kendo* uniform shall consist of a *kendo-gi* and *hakama*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000005
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000006
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000006
+  node_type: article
+  local_number: '6'
+  japanese_title: 試合時間
+  english_title: Duration of Shiai
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000006
+    text_sha256: 0938df3698789340b96935ec08c892fc5bebc913acf4cd13ae00244ab01d1890
+    text: '**第6条:** 試合時間は、５分を基準とし、延長の場合は３分を基準とする。ただし、主審が有効打突または試合の中止を宣告したとき、再開までに要した時間は、試合時間に含まない。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000006
+    source_pdf_pages:
+    - 9
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000006
+    text_sha256: 79fb9b2e0406b7887b3d8e13c6043eec6cd1f1ac7f975991e218404b8f261008
+    text: '**Article 6:** The standard duration for *shiai* shall be five minutes, and *encho* shall be three minutes. The
+      time from the *senkoku* for *yuko-datotsu* or suspension pronounced by the *shushin*, until resumption of the *shiai*,
+      shall not be counted in the *shiai* duration.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000006
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000007
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000007
+  node_type: article
+  local_number: '7'
+  japanese_title: 勝敗の決定
+  english_title: Decision of Victory
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000007
+    text_sha256: 03dbe55124b4cd51afd626b47b31085ee1e2fa111aea64b76113b6a997a334ae
+    text: '**第7条:** 勝敗の決定は、次により行う。
+
+
+      １．試合は、３本勝負を原則とする。ただし、運営上必要な場合は１本勝負とすることができる。
+
+
+      ２．勝敗は、試合時間内に２本先取した者を勝ちとする。ただし、一方が１本を取り、そのままで試合時間が終了したときは、この者を勝ちとする。
+
+
+      ３．試合時間内に勝敗が決しない場合は、延長戦を行い、先に１本取った者を勝ちとする。ただし、判定または抽選により勝敗を決め、あるいは、引き分けとすることもできる。
+
+
+      ４．判定または抽選により勝敗を決した場合は、その勝者に対して１本を与える。
+
+
+      ５．判定により勝敗を決する場合は、技能の優劣を優先し、次いで試合態度の良否により、判定する。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000007
+    source_pdf_pages:
+    - 9
+    - 10
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000007
+    text_sha256: 7fd2b7bf44e4b3717dcce718029ec8c6a48d17da4053e33a250635c832f7e147
+    text: '**Article 7:** Victory in *shiai* shall be decided in accordance with the following rules:
+
+      1. In principle, victory shall be decided in accordance with the *sanbon-shobu* rule; however, it may be decided in
+      accordance with the *ippon-shobu* rule depending on the managerial needs for each tournament.
+
+      2. In *sanbon-shobu*, the *shiai-sha* who first scores two points within the *shiai* duration shall be the winner. However,
+      if a *shiai-sha* scores one point without allowing the other any point within the *shiai* duration, the former shall
+      be the winner.
+
+      3. In case victory has not been decided within the *shiai* duration, *encho* may be employed wherein the *shiai-sha*
+      who first scores one point shall be the winner. Otherwise, victory may be decided by *hantei* or by *chusen*, or the
+      *shiai* may be declared a *hikiwake*.
+
+      4. In case victory has been decided by *hantei* or by *chusen*, the winner shall be awarded one point.
+
+      5. In the case of *hantei*, *shinpan-in* shall take into consideration, first the skills of the *shiai-sha*, then their
+      attitude in the *shiai*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000007
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000008
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000008
+  node_type: article
+  local_number: '8'
+  japanese_title: 団体試合
+  english_title: Dantai-shiai
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000008
+    text_sha256: 4ff704ca1db3f55fbd364cc908413bab48f743df61c69f3774ec8977c817cebb
+    text: '**第8条:** 団体試合は、次によるほか、その大会で定められた方法により行い、勝敗を決する。
+
+
+      １．勝者数法は、勝者の数によって団体の勝敗を決する。ただし、勝者が同数の場合は、総本数の多い方を勝ちとする。なお、総本数が同数の場合は、代表者戦によって勝敗を決する。
+
+
+      ２．勝抜き法は、勝者が続けて試合を行い団体の勝敗を決する。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000008
+    source_pdf_pages:
+    - 10
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000008
+    text_sha256: 0d09d4d0280169cfc4a402c40c458705ee48b313fabcc4b397bed597278b4ee8
+    text: '**Article 8:** *Dantai-shiai* shall be carried out in accordance with the following rules; however, the rules may
+      be modified at each tournament if necessary:
+
+      1. The team which has more winners than the other shall be the victor. In the case where the number of winners turns
+      out to be equal, the team which has scored more points than the other shall be the victor. Furthermore, in case the
+      number of scored points happens to be equal, one *daihyosha* from each team shall fight to decide the match.
+
+      2. In the case of the *kachinuki* method, the *shiai-sha* continues to fight for as long as he or she keeps winning.
+      The team which defeats the last *shiai-sha* of the opponent''s team shall be the victor.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000008
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000009
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000009
+  node_type: article
+  local_number: '9'
+  japanese_title: 試合の開始、終了
+  english_title: The Start and End of Shiai
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000009
+    text_sha256: 415b4a274a8440f938409babfd051817ea1c2656ee96c9997c1652ef09ad1b65
+    text: '**第9条:** 試合の開始および終了は、主審の宣告で行う。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000009
+    source_pdf_pages:
+    - 11
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000009
+    text_sha256: 9c979302bb70f1a71f3b7d1acb2784530369d0292359c8361f214781cebbc3ed
+    text: '**Article 9:** The start and end of *shiai* shall be declared by the *shushin*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000009
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000010
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000010
+  node_type: article
+  local_number: '10'
+  japanese_title: 試合の中止、再開
+  english_title: Suspension and Resumption of Shiai
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000010
+    text_sha256: 7fef4676d14f35a793702fff9bce645e17de81f6d02f9cacccf33ae50e2dd0e6
+    text: '**第10条:** 試合の中止は、審判員の宣告で行い、再開は、主審の宣告で行う。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000010
+    source_pdf_pages:
+    - 11
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000010
+    text_sha256: be1c712e546d6941aa3d2b6e1e365ce0b97ae050345560ed67b0033ca21e59f7
+    text: '**Article 10:** Suspension of a *shiai* can be declared by the *shinpan-in*, while resumption of a *shiai* shall
+      be pronounced by the *shushin*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000010
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000011
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000011
+  node_type: article
+  local_number: '11'
+  japanese_title: 試合の中止要請
+  english_title: Request for Suspension of Shiai
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000011
+    text_sha256: ea5c8f55e8ad4591b82c43511df971b97063716c43dce46e059a990ce6a3bf26
+    text: '**第11条:** 試合者は、事故などのために試合を継続することができなくなったときは、試合の中止を要請することができる。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000011
+    source_pdf_pages:
+    - 11
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000011
+    text_sha256: 6176c9635e64675a80f0230f0755474fd785617f501f2db428f3887751c31604
+    text: '**Article 11:** In case a *shiai-sha* becomes unable to continue fighting due to an accident etc., that *shiai-sha*
+      may request a suspension of the *shiai*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000011
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000012
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000012
+  node_type: article
+  local_number: '12'
+  japanese_title: 有効打突
+  english_title: Yuko-datotsu
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000012
+    text_sha256: 9809a788c9ab6a8e47333cff81da922a5ae44a5adf52988c080a9d0d455c9d39
+    text: '**第12条:** 有効打突は、充実した気勢、適正な姿勢をもって、竹刀の打突部で打突部位を刃筋正しく打突し、残心あるものとする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000012
+    source_pdf_pages:
+    - 11
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000012
+    text_sha256: 397c91fe466316f5b074d3781a58298ae5918b9f04c61394a7f8ce36c76b7495
+    text: '**Article 12:** A *yuko-datotsu* is defined as an accurate strike or thrust made onto designated targets (*datotsu-bui*)
+      of the opponent''s *kendo-gu*. The strike or thrust must be executed in high spirits with correct posture, using the
+      striking section (*datotsu-bu*) of the *shinai* with the correct angle (*hasuji*), and followed by *zanshin*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000012
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000013
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000013
+  node_type: article
+  local_number: '13'
+  japanese_title: 竹刀の打突部
+  english_title: Datotsu-bu of the Shinai
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000013
+    text_sha256: 3eec0d8f3b822eb98fb4e79668610984b808eef2f6bd7bf24342d3aa15f0b574
+    text: '**第13条:** 竹刀の打突部は、物打を中心とした刃部（弦の反対側）とする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000013
+    source_pdf_pages:
+    - 12
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000013
+    text_sha256: 7a6ec901c095cec45344b92b19bb58f030f2829ce444e262cbad81d46e8c334a
+    text: '**Article 13:** The *datotsu-bu* of the *shinai* shall be centered on the striking part (*monouchi*) of the *jinbu*
+      on the opposite side of the cord (*tsuru*).'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000013
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000014
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000014
+  node_type: article
+  local_number: '14'
+  japanese_title: 打突部位
+  english_title: Datotsu-bui
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000014
+    text_sha256: d9b6dbe6b9f4fa79f3b0704a7913a1c3b714accbfdb21380346752d15630cf4c
+    text: '**第14条:** 打突部位は、次のとおりとする。（細則第３図参照）
+
+
+      １．面部（正面および左右面）
+
+
+      ２．小手部（右小手および左小手）
+
+
+      ３．胴部（右胴および左胴）
+
+
+      ４．突部（突き垂れ）'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000014
+    source_pdf_pages:
+    - 12
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000014
+    text_sha256: 6fa12cb6bb52f0cfd195e120f5fa6f3315c2af03431cfe521830192c58888fc4
+    text: '**Article 14:** The *datotsu-bui* are as follows (Figure 3):
+
+      1. *Men-bu* (*shomen* and *sayu-men*)
+
+      2. *Kote-bu* (*migi-kote* and *hidari-kote*)
+
+      3. *Do-bu* (*migi-do* and *hidari-do*)
+
+      4. *Tsuki-bu* (*tsuki-dare*)'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000014
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000015
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000015
+  node_type: article
+  local_number: '15'
+  japanese_title: 禁止物質の使用・所持
+  english_title: Use or possession of prohibited substances
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000015
+    text_sha256: 7c923f6ddfb6dcc3d0fc02ddb8db379b646cb295e167cefaa6221149b06dc2f4
+    text: '**第15条:** 禁止物質を使用もしくは所持し、または禁止方法を実施すること。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000015
+    source_pdf_pages:
+    - 12
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000015
+    text_sha256: 05bd1c2a878767dd3aabe90b3a76b657fc9a8a61f02c4841df942e6afcb0777c
+    text: '**Article 15:** Using or possessing prohibited substances, or implementing prohibited methods.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000015
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000016
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000016
+  node_type: article
+  local_number: '16'
+  japanese_title: 非礼な言動
+  english_title: Insulting or Offensive Behavior
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000016
+    text_sha256: 281e841f0b41b2f599d47f5fc3c906cab726132ff772402bfac939b5631b2d3f
+    text: '**第16条:** 審判員または相手に対し、非礼な言動をすること。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000016
+    source_pdf_pages:
+    - 13
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000016
+    text_sha256: dce39fa806cb9ff02900dbb15cfb5ed0956f46ce2cce3faf730c0509fc55423b
+    text: '**Article 16:** *Shiai-sha* are prohibited from insulting or acting offensively towards *shinpan-in* or opponents.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000016
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000017
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000017
+  node_type: article
+  local_number: '17'
+  japanese_title: 諸禁止行為
+  english_title: Miscellaneous Prohibitions
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000017
+    text_sha256: 5aa8f2b5d7da6198e0135a2d58e617e05bc2c4c25f49d7ea6b5886561b851fb8
+    text: '**第17条:** 試合者が、次の各号の行為をすること。
+
+
+      １．定められた以外の用具（不正用具）を使用する。
+
+
+      ２．相手に足を掛けまたは払う。
+
+
+      ３．相手を不当に場外に出す。
+
+
+      ４．試合中に場外に出る。
+
+
+      ５．自己の竹刀を落とす。
+
+
+      ６．不当な中止要請をする。
+
+
+      ７．その他、この規則に反する行為をする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000017
+    source_pdf_pages:
+    - 13
+    - 14
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000017
+    text_sha256: 89cdc66d9f984320ee7dd99630a8ddde9e149537fc7b836987c7eeabad6b312b
+    text: '**Article 17:** *Shiai-sha* are prohibited from engaging in the following acts:
+
+      1. Use of non-regulation kendo equipment.
+
+      2. Tripping the opponent or sweeping their legs.
+
+      3. Unfairly shoving or pushing the opponent out of the *shiai-jo*.
+
+      4. *Jogai*, or stepping out of the *shiai-jo* while the match is in play.
+
+      5. Letting go of the *shinai*.
+
+      6. Requesting for suspension of the *shiai* without a justifiable reason.
+
+      7. Committing other acts that violate the "Regulations".'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000017
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000018
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000018
+  node_type: article
+  local_number: '18'
+  japanese_title: null
+  english_title: Taijo
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000018
+    text_sha256: c657f864c5d5f37fa0d31fe4963427db0963318683af7065edf8cdc5557494a2
+    text: '**第18条:** 第15条、第16条の禁止行為を犯した者は、負けとし、相手に２本を与え、退場を命ずる。退場させられた者の既得本数、既得権は、認めない。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000018
+    source_pdf_pages:
+    - 14
+    - 15
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000018
+    text_sha256: ebc75f5c2700d3e3cac2214cbaa85ed1b67b3751fea3f9c00a570e9f0de08eb3
+    text: '**Article 18:** A *shiai-sha* who commits any of the *hansoku* prescribed in Articles 15 and 16 shall lose the
+      *shiai* and be ordered to retire from the *shiai* area (*taijo*). The points or status hitherto gained by the violator
+      shall be totally nullified, whereas the opponent will be given two points.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000018
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000019
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000019
+  node_type: article
+  local_number: '19'
+  japanese_title: null
+  english_title: Fusei-yogu
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000019
+    text_sha256: 29207b4f9b26a7d2d0152d98d0c56a0dea947396622a5e7338b01c0c56bf183f
+    text: '**第19条:** 第17条１号の禁止行為をした場合は、次の各号により処置する。ただし、両者同時になしたときは、両者とも負けとし、それぞれの既得本数および既得権を認めない。
+
+
+      １．不正用具の使用者は、負けとし、相手に２本を与え、既得本数および既得権を認めない。
+
+
+      ２．前号の処置は、不正用具使用発見以前の試合までさかのぼらない。
+
+
+      ３．不正用具の使用が発見された者は、その後の試合を継続することができない。ただし、団体戦における補欠の出場は、別に定めのない限り認める。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000019
+    source_pdf_pages:
+    - 15
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000019
+    text_sha256: 3dec3c87a7002d269053997a7161f5097dea7454197dbcc0e771d5038f6c7875
+    text: '**Article 19:** A *shiai-sha* who commits the *hansoku* stipulated in Article 17, Item 1 shall receive the penalties
+      outlined below. In cases whereby both *shiai-sha* commit such *hansoku*, both shall lose the *shiai* and their points
+      or status gained hitherto shall be nullified.
+
+      1. A *shiai-sha* who uses prohibited kendo equipment (*fusei yogu*) shall lose the *shiai*. Any points or status acquired
+      hitherto shall be nullified, whereas the opponent will be given two points.
+
+      2. The penalty stipulated in the preceding paragraph will not be retroactive to the preceding *shiai* wherein the use
+      of prohibited kendo equipment had not been detected.
+
+      3. A *shiai-sha* who is detected using prohibited equipment will be disallowed from participating in the remaining *shiai*;
+      however, the violator may be substituted in *dantai-shiai* unless otherwise stipulated.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000019
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000020
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000020
+  node_type: article
+  local_number: '20'
+  japanese_title: null
+  english_title: Others
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000020
+    text_sha256: 9758a754899d9b2036ed3bc5bc9df0e0ca050151611b1bf5ff8e7640deb18522
+    text: '**第20条:** 試合者が第17条２号ないし７号の行為をした場合は、反則とし、２回犯した場合は、相手に１本を与える。反則は、１試合を通じて積算する。ただし、同時反則によって両者が負けになる場合は相殺し、反則としない。
+
+
+      ②第17条４号の場合、両者が相前後して、場外に出たときは、先に出た者のみ反則とする。
+
+
+      ③第17条４号の場合、有効打突を取り消したときは、反則としない。
+
+
+      ④第17条５号の場合、その直後に相手が打突を加え、有効となったときは、反則としない。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000020
+    source_pdf_pages:
+    - 15
+    - 16
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000020
+    text_sha256: 179d8b7f5b696722189289efc0c308f9393fcb30734522c0c69c4d59251c7616
+    text: '**Article 20:**
+
+      1. In the case whereby a *shiai-sha* commits two *hansoku* stipulated under Article 17, Items 2 to 7, the opponent shall
+      be given one point. The number of such *hansoku* shall be cumulative during the round of the concerned *shiai*. However,
+      when both *shiai-sha* have gained one point respectively, a second *hansoku* simultaneously committed by both *shiai-sha*
+      shall be cancelled (*sosai*) and not subject to penalization.
+
+      2. In the *hansoku* stipulated in Article 17, Item 4, when both *shiai-sha* step out of the *shiai-jo*, the one who
+      steps out first shall be subject to penalization.
+
+      3. In the case of Article 17, Item 4, when the *senkoku* for *yuko-datotsu* has been revoked, the infringement shall
+      not be subject to penalization.
+
+      4. In the case of the *hansoku* stipulated in Article 17, Item 5, when the opponent scores a *yuko-datotsu* immediately
+      after the infringement, it will not be subject to penalization.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000020
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000021
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000021
+  node_type: article
+  local_number: '21'
+  japanese_title: 審判員の構成
+  english_title: Composition of the Shinpan Group
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000021
+    text_sha256: c7d7a2120bbdbc9bd400233a3a3e84e5b9da898d6d21f8859322198e9a3eb6b4
+    text: '**第21条:** 審判に従事する者の構成は、審判長・審判主任（２試合場以上の場合）・審判員とする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000021
+    source_pdf_pages:
+    - 16
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000021
+    text_sha256: 386ab44e51880029074733b1acf311669113dcbf6aeb80937b9919a5048edfdf
+    text: '**Article 21:** The *shinpan* group shall consist of the *shinpan-cho*, *shinpan-shunin* (appointed only when two
+      or more *shiai-jo* are set up), and *shinpan-in*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000021
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000022
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000022
+  node_type: article
+  local_number: '22'
+  japanese_title: 審判長
+  english_title: Shinpan-cho
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000022
+    text_sha256: e068e7ac7c24659465cdc71c020fe45e11e856ceb9a1e2904ec288551e97d981
+    text: '**第22条:** 審判長は、公正な試合を遂行するための必要な権限を有する。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000022
+    source_pdf_pages:
+    - 16
+    - 17
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000022
+    text_sha256: bc853480e2431b57f5cc265e848d12aa57d8c7b03d7e61b183b3efa91adc2a52
+    text: '**Article 22:** The *shinpan-cho* has the authority to make sure that *shiai* are conducted fairly.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000022
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000023
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000023
+  node_type: article
+  local_number: '23'
+  japanese_title: 審判主任
+  english_title: Shinpan-shunin
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000023
+    text_sha256: 2b9dd1d51e8c7e681f93e7d14c8e079f818b5b223f6285098784019c40d63d1b
+    text: '**第23条:** 審判主任は、審判長を補佐し、それぞれ当該試合場における運営に必要な審判上の権限を有する。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000023
+    source_pdf_pages:
+    - 17
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000023
+    text_sha256: 9c639c6a92b93be628815f5f83af20b7b1e03c17f93688577af6d46ae5f24eee
+    text: '**Article 23:** The *shinpan-shunin* shall assist the *shinpan-cho*, and has the authority to oversee the *shiai*
+      at their respective *shiai-jo*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000023
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000024
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000024
+  node_type: article
+  local_number: '24'
+  japanese_title: 審判員
+  english_title: Shinpan-in
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000024
+    text_sha256: c9a9ae0f56af0eecf0655ba3df549c575362a460ee5c3f04dd8a52b424e1a82f
+    text: '**第24条:** 審判員は、主審１名、副審２名を原則とし、有効打突およびその他の判定については、同等の権限を有する。
+
+
+      ②主審は、当該試合運営の全般に関する権限を有し、審判旗（以下旗とする）を持って有効打突および反則などの表示と宣告を行う。
+
+
+      ③副審は、旗を持って有効打突および反則などの表示を行い、運営上主審を補佐する。なお、緊急のときは、試合中止の表示と宣告をすることができる。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000024
+    source_pdf_pages:
+    - 18
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000024
+    text_sha256: c00799c01d5344271af455e9bf0051024592d9d616a3d4f358bdbd7363c7c89b
+    text: '**Article 24:**
+
+      1. As a general rule, a *shinpan* group shall consist of a *shushin* and two *fukushin*, each having equal authority
+      to decide on *yuko-datotsu* and other matters.
+
+      2. The *shushin* has the authority to administer *shiai*, to signal with *shinpan-ki*, and to pronounce *yuko-datotsu*,
+      *hansoku*, etc.
+
+      3. The *fukushin* shall assist the *shushin* in the administration of respective *shiai* by signalling *yuko-datotsu*,
+      *hansoku*, etc., with *shinpan-ki*. Further, in the case of emergency, either *fukushin* may signal and pronounce suspension
+      of the *shiai*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000024
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000025
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000025
+  node_type: article
+  local_number: '25'
+  japanese_title: 係員
+  english_title: Kakari-in Group
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000025
+    text_sha256: fd7a8f81b530f450a2cfac76050bf295dbbde169d5b7109cfeb33f939d176660
+    text: '**第25条:** 試合運営上、時計係・掲示係・記録係・選手係を置く。その構成および任務は、細則に定める。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000025
+    source_pdf_pages:
+    - 18
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000025
+    text_sha256: e833a733d994aff04cbb291f1fc5d8f4767665b4796bab9a0af640abc881850f
+    text: '**Article 25:** In order to properly manage *shiai*, a group of *kakari-in* consisting of time keepers, scoreboard
+      recorders, score recorders, and *shiai-sha* callers should be present at each *shiai-jo*. The composition and duties
+      thereof are outlined in the "Subsidiary Rules".'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000025
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000026
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000026
+  node_type: article
+  local_number: '26'
+  japanese_title: 有効打突の決定
+  english_title: Decisions on Yuko-datotsu
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000026
+    text_sha256: dc98eea46cf88501aa124d2b981a7a9a58dc0be061c33038846dacbaf221d0d1
+    text: '**第26条:** 有効打突の決定は、次による。
+
+
+      １．２名以上の審判員が有効打突の表示をしたとき。
+
+
+      ２．１名が有効打突の表示をし、他の審判員が棄権の表示をしたとき。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000026
+    source_pdf_pages:
+    - 20
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000026
+    text_sha256: d9731556e7a20e970fdf6965d3415374b35cfc6b98be5e74ab555d1f3723a9c7
+    text: '**Article 26:** A *datotsu* shall be considered as *yuko* and awarded one point in the following cases:
+
+      1. When two or three *shinpan-in* have signalled *yuko-datotsu*.
+
+      2. When one *shinpan-in* has signalled *yuko-datotsu*, and the others have signalled abstention.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000026
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000027
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000027
+  node_type: article
+  local_number: '27'
+  japanese_title: 有効打突の取り消し
+  english_title: Torikeshi of Yuko-datotsu
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000027
+    text_sha256: 47a49de318fa06874e1a301e697b8c74cc9ba1d2109eaa47d56c283667c2f8ea
+    text: '**第27条:** 試合者に不適切な行為があった場合は、主審が有効打突の宣告をした後でも、審判員は合議の上、その宣告を取り消すことができる。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000027
+    source_pdf_pages:
+    - 20
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000027
+    text_sha256: d81415b21cd40703f1871c5ec06679a579668193613e606c776791c68d2bb7cb
+    text: '**Article 27:** In the case where a *shiai-sha* has committed an improper act, the decision of *yuko-datotsu* may
+      be revoked upon *gogi*, even after its *senkoku*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000027
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000028
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000028
+  node_type: article
+  local_number: '28'
+  japanese_title: 有効打突などの錯誤
+  english_title: Mistakes in Decisions for Yuko-datotsu and Other Judgements
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000028
+    text_sha256: 76830106b30d219aa3c7f5d49562d9cae8258b3fd85df86dc0ee24455e0d6669
+    text: '**第28条:** 審判員が有効打突などの判定に疑義がある場合は、合議の上、その是非を決定する。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000028
+    source_pdf_pages:
+    - 20
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000028
+    text_sha256: 2ec4c4f46d8780155652facd6efacfc3356b71ec9a31dceeea22a08e348c4f48
+    text: '**Article 28:** In cases where the *shinpan-in* have doubts about a decision for *yuko-datotsu* or something else,
+      a *gogi* shall be called wherein the *shinpan-in* shall come to a decision.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000028
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000029
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000029
+  node_type: article
+  local_number: '29'
+  japanese_title: 審判方法
+  english_title: Procedures for Shinpan
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000029
+    text_sha256: 0a84db963b57a06947a257cdb6bb2dd273abc27cbf14c244b840a29c998fbcff
+    text: '**第29条:** 審判員は、次の方法により審判を行う。
+
+
+      １．審判員のうち、１名が有効打突の表示をした場合は、他の審判員は自己の判断を直ちに表示しなければならない。
+
+
+      ２．主審は、有効打突が決定し、または試合を中止した場合は、試合者を開始線に戻した後、試合を再開させる。
+
+
+      ３．審判員は、反則を認めた場合、試合を中止させ、旗を直ちに表示しなければならない。ただし、反則の事実が不明瞭なときは、合議の上、その有無を決定する。
+
+
+      ４．主審は、つば（鍔）競り合いがこうちゃく（膠着）した場合は、試合者をその場で分け、直ちに試合を継続させる。
+
+
+      ５．主審は、試合者が中止を要請した場合は、中止を宣告した後、その理由を質す。
+
+
+      ６．判定によって勝敗を決する場合は、審判員は、主審の「判定」の宣告と同時に旗で表示を行う。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000029
+    source_pdf_pages:
+    - 21
+    - 22
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000029
+    text_sha256: 763321aab459e6af11f6059248c58931e35aa15c429bb9ff22eeaa21ec5ee89d
+    text: '**Article 29:** *Shinpan-in* shall adjudicate *shiai* in the following manner:
+
+      1. In the case where a *shinpan-in* has signalled *yuko-datotsu*, the other *shinpan-in* must immediately signal their
+      judgments.
+
+      2. In the case where a *yuko-datotsu* has been awarded, or the *shiai* has been suspended, the *shushin* will get the
+      *shiai-sha* to return to the *kaishi-sen* and then resume the *shiai*.
+
+      3. In cases whereby the *shinpan-in* have identified a *hansoku*, the *shinpan-in* shall immediately suspend the *shiai*
+      and signal to that effect with their *shinpan-ki*. However, if the *hansoku* was not obvious, the *shinpan-in* shall
+      call *gogi* to discuss the matter.
+
+      4. In the case where *tsubazeriai* has come to a stalemate, the *shushin* shall separate the *shiai-sha* on the spot
+      (*wakare*) and then resume the *shiai*.
+
+      5. In the case where a *shiai-sha* has requested stoppage, the *shushin* shall pronounce suspension of the *shiai* and
+      ask the *shiai-sha* for the reason.
+
+      6. When a victory must be decided by *hantei*, all of the *shinpan-in* shall simultaneously signal their decision for
+      the winner with their *shinpan-ki* upon the *shushin*''s *senkoku* of "Hantei".'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000029
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000030
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000030
+  node_type: article
+  local_number: '30'
+  japanese_title: 負傷または事故
+  english_title: Injury or Accident
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000030
+    text_sha256: f96f91db9ed6020ce946fb46dd0cb388669a6522c58afe9fbbdae5d9e727b37b
+    text: '**第30条:** 負傷または事故などにより試合が継続できない場合は、その原因を質し、次の処置をする。
+
+
+      １．試合継続の可否判断は、医師の意見を徴し審判員の総合判断とする。その処理に要する時間は、原則として５分以内とする。
+
+
+      ２．負傷により試合が継続できないとき、その原因が一方の故意および過失による場合は、その原因を起こした者を負けとし、その原因が明瞭でない場合は、試合不能者を負けとする。
+
+
+      ３．負傷または事故者として処理された者は、医師および審判員の判断により、その後の試合に出場することができる。
+
+
+      ４．加害者として負けとされた者は、その後の試合に出場することができない。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000030
+    source_pdf_pages:
+    - 22
+    - 23
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000030
+    text_sha256: be8b6b1951340d6439f070cee2d9a1e382430e73df20ada91e1f16f7b5e5ff04
+    text: '**Article 30:** In case a *shiai-sha* is unable to continue the *shiai* due to injury or an accident, the *shinpan-in*
+      shall ascertain the cause and handle the matter in the following manner:
+
+      1. The *shinpan-in* shall determine whether to continue the *shiai* after consulting with a doctor. As a general rule,
+      the *shinpan-in* should spend no more than five minutes handling an accident.
+
+      2. In case a *shiai-sha* is unable to continue the *shiai* due to an injury, if the opponent is deemed to be responsible
+      for the accident, whether intentionally or not, the opponent shall lose the *shiai*. If the cause of the accident cannot
+      be ascertained, the injured *shiai-sha* (*shiai-funo-sha*) shall lose the *shiai*.
+
+      3. A *shiai-sha* who becomes incapacitated due to an injury or an accident may be reinstated in later *shiai if a doctor
+      and the *shinpan-in* permit him or her to do so.
+
+      4. A *shiai-sha* who loses a *shiai* through causing an accident will not be allowed to participate in following *shiai*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000030
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000031
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000031
+  node_type: article
+  local_number: '31'
+  japanese_title: 棄権
+  english_title: Kiken
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000031
+    text_sha256: 004c437aa3b900629e67fdb880a921dbbe61fa736c0c44267b94b4de30df65f3
+    text: '**第31条:** 試合を棄権した者は、負けとし、その後の試合に出場することができない。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000031
+    source_pdf_pages:
+    - 23
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000031
+    text_sha256: 135111b8f7a12027fdd7cf7c1e64cadc99feda6433f89d143b31c77e423ebed9
+    text: '**Article 31:** A *shiai-sha* who has defaulted during a *shiai* will be the loser and be prohibited from participating
+      in following *shiai*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000031
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000032
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000032
+  node_type: article
+  local_number: '32'
+  japanese_title: 試合不能者・棄権者の既得本数
+  english_title: Points Gained by Shiai-funo-sha or Kiken-sha
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000032
+    text_sha256: e3a77641a8080408e90b37d2517c2e72edb8fc710da291b6e0fe35fd2ac007e2
+    text: '**第32条:** 第30条、第31条による勝者は、２本勝ちとし、試合不能者の既得の１本は有効とする。ただし、延長戦の場合は、勝者に１本を与える。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000032
+    source_pdf_pages:
+    - 23
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000032
+    text_sha256: 403489dea7a61b3f8b6a7c582ae1b81b95ab22f8fc96bf7bf67bb490faa471c8
+    text: '**Article 32:** The winner by virtue of Articles 30 or 31 shall be given two points. Any point scored by the *shiai-funo-sha*
+      shall remain valid. However, the winner will be awarded one point in the case of *encho*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000032
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000033
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000033
+  node_type: article
+  local_number: '33'
+  japanese_title: 加害者の既得本数、既得権
+  english_title: Points or acquired Status of the Offender
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000033
+    text_sha256: c0d7b23bb7410601d24a8dd1b0002a76b9819c7d312e2a604bf4051ef4f062d4
+    text: '**第33条:** 第30条２号の加害者として負けとされた者の、既得本数、既得権は認めない。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000033
+    source_pdf_pages:
+    - 23
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000033
+    text_sha256: c35af6ca20a9378b8ad70edeeaec26a0578cb7d342d0b54ca3f5e685ddf61c3d
+    text: '**Article 33:** The points or acquired status of the offender who loses a *shiai* due to Article 30, Item 2 shall
+      be invalidated.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000033
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000034
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000034
+  node_type: article
+  local_number: '34'
+  japanese_title: 合議
+  english_title: Gogi
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000034
+    text_sha256: 5a5aff2cf0718ea58eff68fc800315aed5aadf01529be5a6d0a5b2a2ed0ee696
+    text: '**第34条:** 審判員は、合議を必要とするときは、試合を中止し、試合場中央で、合議を行う。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000034
+    source_pdf_pages:
+    - 23
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000034
+    text_sha256: aed9b381672947fc1a82e1e1f1b39464d0a6acfc492d7996b7216b5f38dca841
+    text: '**Article 34:** In case *gogi* is deemed necessary, the *shinpan-in* shall suspend the *shiai*, call *gogi*, and
+      discuss the matter in the centre of the *shiai-jo*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000034
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000035
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000035
+  node_type: article
+  local_number: '35'
+  japanese_title: 異議の申し立て
+  english_title: Igi
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000035
+    text_sha256: 56c96ecec2fe8a7bfa0071631fbc6639b1ab0b7efa422300612ba0ad6912af30
+    text: '**第35条:** 何人も、審判員の判定に対し、異議の申し立てをすることができない。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000035
+    source_pdf_pages:
+    - 24
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000035
+    text_sha256: acc8cd89d3db43eec84bf9fdc4232af81ee9755b63209f26d3e7e41e20ec3e7c
+    text: '**Article 35:** Nobody is allowed to protest against decisions made by *shinpan-in*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000035
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000036
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000036
+  node_type: article
+  local_number: '36'
+  japanese_title: null
+  english_title: Igi
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000036
+    text_sha256: b4aa21ae1db3e2ca3ee173805845e11635440d3d865f88d1b4c2c25a8ffc310a
+    text: '**第36条:** 監督は、この規則の実施に関して疑義があるときは、その試合者の試合終了までに、審判主任または審判長に対して、異議を申し立てることができる。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000036
+    source_pdf_pages:
+    - 24
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000036
+    text_sha256: 0344cba5ac288cfca2daa187ab8ef254eceb89318bfe8b1a9e5194f5f12bef17
+    text: '**Article 36:** In case a *kantoku* about the application of the "Regulations" holds doubts by the *shinpan-in*,
+      he or she may file *igi* with the *shinpan-shunin* or *shinpan-cho* before the concerned *shiai* ends.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000036
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000037
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000037
+  node_type: article
+  local_number: '37'
+  japanese_title: 宣告
+  english_title: Senkoku
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000037
+    text_sha256: fd392a517885b17b7223abada3e90831d6a85604ac3fd825612e0a14e5490064
+    text: '**第37条:** 審判員の宣告は、開始・終了・再開・中止・分かれ・有効打突・勝敗・合議・反則などについて行い、その要領は別表のとおりとする。ただし、とくに宣告に際し必要とする場合は、その理由を述べることができる。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000037
+    source_pdf_pages:
+    - 24
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000037
+    text_sha256: a0958c158ce3d58b69d284aafd71f65831d120f6ec911afaa94170da654f8c11
+    text: '**Article 37:** The *shinpan-in* shall pronounce the start, end, resumption, suspension, *wakare*, *yuko-datotsu*,
+      victory, *gogi*, and *hansoku* in the manner prescribed in Table 1. The *shinpan-in* may explain the *senkoku* if necessary.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000037
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000038
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000038
+  node_type: article
+  local_number: '38'
+  japanese_title: 旗の表示
+  english_title: Use of Shinpan-ki
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000038
+    text_sha256: 636ca24b145d59a04828253e545a9d6f5975b4a9e8d78fe1b10da403c53811b8
+    text: '**第38条:** 審判員の旗の表示は、中止・分かれ・有効打突・勝敗・合議・反則などについて行い、その要領は別表のとおりとする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000038
+    source_pdf_pages:
+    - 24
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000038
+    text_sha256: e762b6e99e20f5d8504875257d27a242e25533a4116b275c2e1af0a0189c136b
+    text: '**Article 38:** The *shinpan-in* shall use *shinpan-ki* to motion suspension, *wakare*, *yuko-datotsu*, victory,
+      *gogi*, and *hansoku* in the manner prescribed in Table 1.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000038
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:article:fik.regulations:000039
+  pair_type: provision
+  canonical_id: kkp:article:fik.regulations:000039
+  node_type: article
+  local_number: '39'
+  japanese_title: null
+  english_title: Supplementary Matters
+  japanese:
+    path: text/regulations.ja.md
+    local_anchor: reg-fik-regulations-ja-000039
+    text_sha256: 72773a45718711873aa2dd8955635fdd5b1655058fc1f686c032192a05c573f9
+    text: '**第39条:** この規則に定められていない事項が発生した場合は、審判員は合議し、審判主任または審判長に図って処理する。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:article:000039
+    source_pdf_pages:
+    - 24
+  english:
+    path: text/regulations.en.md
+    local_anchor: reg-fik-regulations-000039
+    text_sha256: acbfa880c1f79a8ad36762afb6fb3a39b73b1cb3e7e68634550ce096c0246056
+    text: '**Article 39:** In case matters that have not been provided for in the "Regulations" occur, the *shinpan-in* shall
+      decide by *gogi*, subject to the approval of the *shinpan-shunin* or *shinpan-cho*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:article:000039
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000001
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000001
+  node_type: subsidiary-rule
+  local_number: '1'
+  japanese_title: 試合場
+  english_title: Shiai-jo
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000001
+    text_sha256: 442b7e8c5d61454eab8099de5a0035d8875d2080da6059fd58ff461d7f49d6d6
+    text: '**第1条:** 規則第２条（試合場）は、次のとおりとする。
+
+
+      １．試合場の外側に原則として1.5メートル以上の余地を設ける。
+
+
+      ２．各線は、幅５センチメートルないし10センチメートルとし、白線を原則とする。
+
+
+      ３．試合場の中心（×印）、開始線の長さおよび開始線間の距離などは、第１図のとおりとする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000001
+    source_pdf_pages:
+    - 6
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000001
+    text_sha256: b1fed5784fb271eb038f88b2e04b0e85f442108b26c25c95c8e26c86f1749959
+    text: '**Article 1:** The specifications of the *shiai-jo* prescribed in Article 2 of the "Regulations" are as follows:
+
+      1. A space of at least 1.5 meters wide should be kept outside of the *shiai-jo*.
+
+      2. The width of the lines should be 5 to 10 centimeters, and the color thereof should be white as a general rule.
+
+      3. The cross at the center of the *shiai-jo*, the length of the *kaishi-sen* and the distance between them are shown
+      in Figure 1.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000001
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000002
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000002
+  node_type: subsidiary-rule
+  local_number: '2'
+  japanese_title: 竹刀
+  english_title: Shinai
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000002
+    text_sha256: f57f59946e5c993a505fb658338baaeb4f99ef32a47df2476ec97b8669b7999e
+    text: '**第2条:** 規則第３条（竹刀）は、次のとおりとする。
+
+
+      １．竹刀の構造は、四つ割りのものとし、中に異物（先革内部の芯、柄頭のちぎり以外のもの）を入れてはならない。ピース（四つ割りの竹）の合わせに大きな隙間のあるものや安全性を著しく損なう加工、形状変更をしたものを使用してはならない。各部の名称は第２図のとおりとする。
+
+
+      ２．竹刀の基準は、表１および表２のとおりとする。ただし、長さは付属品を含む全長であり、重さはつば（鍔）を含まない。太さは先革先端部最小直径（対辺直径）およびちくとう部直径（竹刀先端より８センチメートルのちくとう対角最小直径）とする。また、竹刀は先端部をちくとうの最も細い部分とし、先端から物打に向かってちくとうが太くなるものとする。
+
+
+      ３．つば（鍔）は、皮革または化学製品の円形のものとする。その大きさは直径９センチメートル以下とし、竹刀に固定する。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000002
+    source_pdf_pages:
+    - 6
+    - 7
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000002
+    text_sha256: 420f4e62884439d5f07eba625dc88451485455bf0db05268ac7337311d14713b
+    text: '**Article 2:** The specifications for *shinai* referred to in Article 3 of the "Regulations" shall be as follows:
+
+      1. The *shinai* shall consist of four slats (quartered bamboo) and should not include therein other objects other than
+      the core inside the *sakigawa*, and the *chigiri* at the end of the *tsuka*.
+
+
+      *Shinai* with large gaps in the alignment of the slats or with processing or shape alterations that significantly impair
+      safety must not be used.
+
+
+      The names of the respective parts of the *shinai* are indicated in Figure 2.
+
+
+      2. Specifications for the *shinai* are indicated in Table 2, A and B. The length indicated therein refers to the total
+      length of the *shinai* inclusive of its accessories; and the weight to the total weight thereof inclusive of its accessories
+      other than the *tsuba*. The required thickness shall be determined by the smallest diameter of the tip of the *sakigawa*
+      (distance between opposite sides), and the diameter of the *chikuto* (distance between opposing corners 8cm from the
+      tip of the *shinai*). The tip of the *shinai* shall be the narrowest part of the *chikuto*, which shall become broader
+      from the tip to the *monouchi*.
+
+
+      3. The *tsuba* should be round in shape, and made of leather or synthetic material; it should be 9 centimeters or smaller
+      in diameter, and be fixed onto the *shinai*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000002
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000003
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000003
+  node_type: subsidiary-rule
+  local_number: '3'
+  japanese_title: 剣道具
+  english_title: Kendo-gu
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000003
+    text_sha256: 6cd183c8bd538c6752644999defb88cf9e9442460feeea4306357289c1b32295
+    text: '**第3条:** 規則第４条（剣道具）は、第３図のとおりとする。
+
+
+      １．面ぶとんは、肩関節を保護する長さがあり、十分な打突の衝撃緩衝能力があるものとする。
+
+
+      ２．小手は、前腕（肘から手首の最長部）の２分の１以上を保護し、小手頭部および小手ぶとん部は十分な打突の衝撃緩衝能力があるものとする。
+
+
+      ３．小手ぶとん部のえぐり（クリ）の深さについては、小手ぶとん最長部と最短部の長さの差が2.5センチメート以内とする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000003
+    source_pdf_pages:
+    - 7
+    - 8
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000003
+    text_sha256: 6e6bdbee611b53073f81d127e2957c72b04af675eaf275b1e0c9e761be7937bb
+    text: '**Article 3:** *Kendo-gu* referred to in Article 4 of the "Regulations" is illustrated in Figure 3.
+
+      1. The *men-buton* shall be long enough to protect the shoulder joints and have sufficient shock-absorbing capacity
+      to cushion the impact of a strike.
+
+      2. *Kote* shall protect at least one-half of the forearm (the longest section between the elbow and the wrist). The
+      *kote* fist and the *kote-buton* shall have sufficient shock-absorbing capacity.
+
+      3. The gouge in the *kote-buton* shall not exceed 2.5cm between its longest and shortest parts.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000003
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000004
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000004
+  node_type: subsidiary-rule
+  local_number: 3-2
+  japanese_title: 剣道具
+  english_title: Kendo-gu
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000004
+    text_sha256: 0aae27c61b896a6bc322eb2c7954e582cd7acb92594b5ede3b20ec0f2ab83ced
+    text: '**第3条の2:** 剣道着の袖は、肘関節を保護する長さを確保したものとする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000004
+    source_pdf_pages:
+    - 8
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000004
+    text_sha256: e92f0498227fd41cb395170ee44e499d9edff0c85a5ed9c3d0a142b2d0fbfcfe
+    text: '**Article 3-2** The sleeves of the *kendo-gi* shall be long enough to protect the elbow joint.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000004
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000005
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000005
+  node_type: subsidiary-rule
+  local_number: '4'
+  japanese_title: 服装
+  english_title: Uniform
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000005
+    text_sha256: 41acf0776d1fdbefc8ea1b860b109eb6bba18a2f9a2c270c8da9d654e9f1d1be
+    text: '**第4条:** 試合者の目印は、全長70センチメートル、幅５センチメートルの赤および白の２色とし、試合者の胴紐の交差する位置に二つ折りにして着ける。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000005
+    source_pdf_pages:
+    - 8
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000005
+    text_sha256: c8b4f40a9c8149a74bec258852baa5796a8162cbdd5746a1af9caa7a6c77e8bb
+    text: '**Article 4:** Each *shiai-sha* shall wear a *mejirushi*, a strip of red or white cloth with a total length of
+      70 centimeters and width of 5 centimeters. The *mejirushi* are attached by being folded in half at the crossing point
+      of the *do* strings.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000005
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000006
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000006
+  node_type: subsidiary-rule
+  local_number: '5'
+  japanese_title: 服装
+  english_title: Uniform
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000006
+    text_sha256: b69bf5e438e59787329896a0a84b90beaa1388050df9bac35a24075f71d929d7
+    text: '**第5条:** 試合者の名札は、第４図のとおりとし、中央の垂れに着ける。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000006
+    source_pdf_pages:
+    - 8
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000006
+    text_sha256: 86e86dd9dcc8372777da8d8331fd54abfa81d735bf1ebc166745a8f447a8340a
+    text: '**Article 5:** The *nafuda*, as illustrated in Figure 4, shall be affixed to the center panel of the *tare*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000006
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000007
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000007
+  node_type: subsidiary-rule
+  local_number: '6'
+  japanese_title: 服装
+  english_title: Uniform
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000007
+    text_sha256: 66e8c858bc8ffca9e2b9d9d83e1a08ba7a729abd826772736f2cb40ff8db4add
+    text: '**第6条:** 審判旗などの規格は、第５図のとおりとする。ただし、旗の柄の太さは直径1.5センチメートルを基準とする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000007
+    source_pdf_pages:
+    - 8
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000007
+    text_sha256: 3e3ff1c3e97c38b227a9b9d7932aa539f497bb6c926ebb5e07508ae8b839acc0
+    text: '**Article 6:** The specifications for *shinpan-ki* are shown in Figure 5. The standard size for the flag handles
+      shall be 1.5 centimeters in diameter.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000007
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000008
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000008
+  node_type: subsidiary-rule
+  local_number: '7'
+  japanese_title: 服装
+  english_title: Uniform
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000008
+    text_sha256: 5b0c62d47757864ac40612f56fbdb374f2c63cdfe1fe6b8fdc5f6aa35280b7eb
+    text: '**第7条:** サポーターなどの使用は、医療上必要と認める場合に限り、見苦しくなく、かつ相手に危害を加えない範囲において、これを認める。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000008
+    source_pdf_pages:
+    - 8
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000008
+    text_sha256: 02c3980a326e67be9963ee6d431ce8a98a4eb9c3e050ebfb2af7d86989af3fcf
+    text: '**Article 7:** *Shiai-sha* may use supporters or other items only in case of medical need, provided that they are
+      tidy and not hazardous to the opponent, and subject to approval by the *shinpan-shunin* or *shinpan-cho*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000008
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000009
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000009
+  node_type: subsidiary-rule
+  local_number: '8'
+  japanese_title: null
+  english_title: null
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000009
+    text_sha256: d81b4eb9f8a2c708f39173c541866f5770d0e84bf408bd6832d14df2ad45a160
+    text: '**第8条:** 試合者の入退場および礼法は、その大会で定められた方法により行う。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000009
+    source_pdf_pages:
+    - 9
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000009
+    text_sha256: eccd30c57598782cbacbd59288365103d0933989d52a822fa38dd8abe024d506
+    text: '**Article 8:** The *shiai-sha* procedures for entering and leaving the *shiai-jo* and the manner for *rei* may
+      be specified at each tournament.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000009
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000010
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000010
+  node_type: subsidiary-rule
+  local_number: '9'
+  japanese_title: 勝敗の決定
+  english_title: Decision of Victory
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000010
+    text_sha256: 25488df97be25ff751819784d025e06a710e345341f9c159b1dac665602af034
+    text: '**第9条:** 規則第７条５号「判定」は、次のとおりとする。
+
+
+      １．技能の優劣は、有効打突に近い打突を優位とする。
+
+
+      ２．試合態度の良否は、姿勢および動作において優っている者を優位とする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000010
+    source_pdf_pages:
+    - 10
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000010
+    text_sha256: 32ea61560b0844492791b578eb9dcba23d07179e661d944962575c11f1bdfff9
+    text: '**Article 9:** The *hantei* prescribed in Article 7 Item 5 of the "Regulations" shall be based on the following
+      criteria:
+
+      1. In the case where a *shiai-sha* makes *datotsu* nearly equal to *yuko-datotsu*, his or her skill should be regarded
+      as superior.
+
+      2. In the case where a *shiai-sha* is superior in posture and movement, his or her attitude should be regarded as superior.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000010
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000011
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000011
+  node_type: subsidiary-rule
+  local_number: '10'
+  japanese_title: 有効打突
+  english_title: Yuko-datotsu
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000011
+    text_sha256: 22548a6794039b3872cc9bb7e0e246d4411577f3c6b9cea95959ca1b03665de2
+    text: '**第10条:** 規則第12条の「刃筋正しく」とは、竹刀の打突方向と刃部の向きが同一方向である場合とする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000011
+    source_pdf_pages:
+    - 11
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000011
+    text_sha256: da834057b2e731278894eeef572883e118c62efbd535b822980fed27b5a83496
+    text: '**Article 10:** The "accurate" strike prescribed in Article 12 of the "Regulations" means a strike made in the
+      same direction as the *jin-bu* of the *shinai*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000011
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000012
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000012
+  node_type: subsidiary-rule
+  local_number: '11'
+  japanese_title: 有効打突
+  english_title: Yuko-datotsu
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000012
+    text_sha256: d5a3f35b905c0208087a7858ed7ca8a48382432ec565cbd89736a633b0955516
+    text: '**第11条:** 次の場合は、有効とすることができる。
+
+
+      １．竹刀を落とした者に、直ちに加えた打突。
+
+
+      ２．一方が、場外に出ると同時に加えた打突。
+
+
+      ３．倒れた者に、直ちに加えた打突。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000012
+    source_pdf_pages:
+    - 11
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000012
+    text_sha256: d996068db45bd5f1fb79325835d56adabf631cd3df68bc94b83d7c9b9c97fdc1
+    text: '**Article 11:** The following *datotsu* shall be valid:
+
+      1. *Datotsu* made to the opponent immediately after the opponent has let go of his or her *shinai*.
+
+      2. *Datotsu* made simultaneously to the opponent stepping out of the *shiai-jo*.
+
+      3. *Datotsu* made immediately after the opponent has fallen down.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000012
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000013
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000013
+  node_type: subsidiary-rule
+  local_number: '12'
+  japanese_title: 有効打突
+  english_title: Yuko-datotsu
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000013
+    text_sha256: 045305a06b6fb11a83e517ab020c059552d9684f0f507f59b57b75e05e7f07cb
+    text: '**第12条:** 次の場合は、有効打突としない。
+
+
+      １．有効打突が、両者同時にあった場合（相打ち）。
+
+
+      ２．被打突者の剣先が、相手の上体前面に付いてその気勢、姿勢が充実していると判断した場合。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000013
+    source_pdf_pages:
+    - 11
+    - 12
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000013
+    text_sha256: 16145b044066de2cd7092bccdbe2e051b7bb97546ef546775ae01dd3b0e3665c
+    text: '**Article 12:** *Datotsu* in the following cases shall not be valid:
+
+      1. *Ai-uchi*.
+
+      2. As the *datotsu* is made, the attacker is checked at the upper-front body by the tip of the recipient''s *shinai*,
+      who is in high spirits and in the right posture.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000013
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000014
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000014
+  node_type: subsidiary-rule
+  local_number: '13'
+  japanese_title: 打突部位
+  english_title: Datotsu-bui
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000014
+    text_sha256: 07ee3a2f604a111421fda33a3dbac649a19225af890931b9e57be80067ec2267
+    text: '**第13条:** 規則第14条（打突部位）は、第３図のとおりとし、面部および小手部は、次のとおりとする。
+
+
+      １．面部のうち左右面は、こめかみ部以上。
+
+
+      ２．小手部は、中段の構えの右小手（左手前の左小手）および中段以外の構えなどのときの左小手または右小手。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000014
+    source_pdf_pages:
+    - 12
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000014
+    text_sha256: 83fd1323fc15cdb5c39e399cabc855f13c8db1d6ec5b9e7f2449c2358d397d5a
+    text: '**Article 13:** The *datotsu-bui* prescribed in Article 14 of the "Regulations" are shown in Figure 3. The target
+      areas of *men* and *kote* are as follows:
+
+      1. Right and left *men* shall be above the temples.
+
+      2. The target area for *kote* shall be the right forearm in the case of *chudan-no-kamae* (the left forearm if the opponent
+      holds his or her *shinai* with the left hand forward), or the left and right forearms in the case of other *kamae*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000014
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000015
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000015
+  node_type: subsidiary-rule
+  local_number: '14'
+  japanese_title: 禁止物質の使用・所持
+  english_title: Use or possession of prohibited substances
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000015
+    text_sha256: 1cad8c37b54ca09e2be70718207265ea2bfd6fa20609c45fad718a107028d002
+    text: '**第14条:** 規則第15条の禁止物質および禁止方法とは、世界ドーピング防止機構（WADA）の最新の禁止表に掲載されているものをいう。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000015
+    source_pdf_pages:
+    - 12
+    - 13
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000015
+    text_sha256: b3d81a2d54f600fd8b65d6751287bf31c1fde06bf94ca521acf684dfd4de898e
+    text: '**Article 14:** Prohibited substances and prohibited methods under Article 15 of the "Regulations" mean those listed
+      in the latest Prohibited Table of the World Anti-Doping Agency (WADA).'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000015
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000016
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000016
+  node_type: subsidiary-rule
+  local_number: '15'
+  japanese_title: 諸禁止行為
+  english_title: Miscellaneous Prohibitions
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000016
+    text_sha256: 2daf87ff9d01094d73ed6ea2bbdd9ac207001f65fb3dd250c1c26e32daedb77b
+    text: '**第15条:** 規則第17条第１号の不正用具とは、規則第３条に規定する竹刀（細則第２条で定める規格を満たしているものに限る）および同第４条に規定する剣道具（第３図に図示する面、小手、胴、垂）以外のものをいう。なお、細則第３条第２号から第４号および同第３条の２の基準に合致しない剣道具または剣道着は当面の間、不正用具としない。この場合、試合終了後に審判員から注意を与える。
+
+
+      ②規則第17条４号の「場外」は、次のとおりとする。
+
+
+      １．片足が、完全に境界線外に出た場合。
+
+
+      ２．倒れたときに、身体の一部が境界線外に出た場合。
+
+
+      ３．境界線外において、身体の一部または竹刀で身体を支えた場合。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000016
+    source_pdf_pages:
+    - 13
+    - 14
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000016
+    text_sha256: 6724716c3736e65e22bf89434d5f06ce430896abeccaa62c375722e4630b58d0
+    text: '**Article 15:** The illegal equipment as stipulated in Article 17 No. 1 of the "Regulations" refers to all items
+      other than the *shinai* as specified in Article 3 of the "Regulations" (limited to those that meet the standards stipulated
+      in Article 2 of the "Subsidiary Rules"), and the *kendo-gu* (*men*, *kote*, *do*, and *tare* as illustrated in Figure
+      3). For the time being, any kendo equipment or *kendo-gi* that does not meet the criteria of Article 3 No. 2~4 and Article
+      3-2 of the "Subsidiary Rules" will not be considered illegal equipment. In such cases, a caution will be given by the
+      *shinpan-in* after the match.
+
+
+      ② *Jogai* as prescribed in Article 17, Item 4 of the "Regulations" is specified as follows:
+
+      1. Having one foot totally outside the boundary line.
+
+      2. Falling on the floor with a part of the body outside the boundary line.
+
+      3. Supporting the body with a part of the body or *shinai* outside the boundary line.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000016
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000017
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000017
+  node_type: subsidiary-rule
+  local_number: '16'
+  japanese_title: 諸禁止行為
+  english_title: Miscellaneous Prohibitions
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000017
+    text_sha256: a3756e7e4dcd657bff4bac15730d7e5c14f2bde8c6d3d1ec021cd7dfa187d7af
+    text: '**第16条:** 規則第17条7号の禁止行為は、次の各号などをいう。
+
+
+      １．相手に手をかけまたは抱えこむ。
+
+
+      ２．相手の竹刀を握るまたは自分の竹刀の刃部を握る。
+
+
+      ３．相手の竹刀を抱える。
+
+
+      ４．相手の肩に故意に竹刀をかける。
+
+
+      ５．倒れたとき、相手の攻撃に対応することなく、うつ伏せなどになる。
+
+
+      ６．故意に時間の空費をする。
+
+
+      ７．不当なつば（鍔）競り合いおよび打突をする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000017
+    source_pdf_pages:
+    - 14
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000017
+    text_sha256: 822c4e5aee6f66e6ce377083bc0639d0e27f7f7355be618b2fe77b31a2debe52
+    text: '**Article 16:** Prohibited acts prescribed in Article 17, Item 7 of the "Regulations" shall include the following:
+
+      1. Putting one''s hand on the opponent, or holding the opponent in one''s arms.
+
+      2. Taking hold of the opponent''s *shinai*, or grasping one''s own *shinai* on its *jin-bu*.
+
+      3. Taking hold of the opponent''s *shinai* under one''s arm.
+
+      4. Intentionally putting one''s *shinai* on the opponent''s shoulder.
+
+      5. Lying face down after falling on the floor without counteracting the opponent.
+
+      6. Intentionally wasting time.
+
+      7. Doing inappropriate *tsubazeriai* or *datotsu*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000017
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000018
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000018
+  node_type: subsidiary-rule
+  local_number: '17'
+  japanese_title: null
+  english_title: Others
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000018
+    text_sha256: 38f7fb1d91ea4d6b31c6c9ddf1c6e9a2f25940be5f3d31c883d2e1ec893b617f
+    text: '**第17条:** 規則第20条の同時反則による相殺は、次の方法で行う。
+
+
+      １．１回目の場合は、赤・白の順に反則を宣告し、相殺する。
+
+
+      ２．２回目以降の場合は、相殺の宣告と表示を同時に行う。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000018
+    source_pdf_pages:
+    - 15
+    - 16
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000018
+    text_sha256: eef94081b2083ec94b5ea19fc316c0be7c8e08ba046dd2368d5857ae45e86d3b
+    text: '**Article 17:** *Sosai* applied to simultaneous *hansoku* as prescribed in Article 20 of the "Regulations" shall
+      be implemented as follows:
+
+      1. In the case of the first *sosai*, *senkoku* of *hansoku* shall be first addressed to the *shiai-sha* on red side
+      and then to the white side, followed by another *senkoku* of *sosai*.
+
+      2. In the case of a second subsequent *sosai*, the *senkoku* and signalling with the *shinpan-ki* shall be made simultaneously.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000018
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000019
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000019
+  node_type: subsidiary-rule
+  local_number: '18'
+  japanese_title: 審判長
+  english_title: Shinpan-cho
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000019
+    text_sha256: 21ff4964c1afcc507fc6bb2d9981c274a78edf6e0ee68ba5afee519713ef09d9
+    text: '**第18条:** 審判長の任務は次のとおりとする。
+
+
+      １．規則および細則の厳正な運用に留意する。
+
+
+      ２．試合の進行について留意する。
+
+
+      ３．異議の申し立てについて裁決する。
+
+
+      ４．その他、規則および細則にない諸問題、あるいは突発事故について判断する。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000019
+    source_pdf_pages:
+    - 17
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000019
+    text_sha256: b772d8ebfd4376942c3c9e2d2e328b3d17ff796cac0088774a79b3dbaa42e0fa
+    text: '**Article 18:** The duties of the *shinpan-cho* are as follows:
+
+      1. To ensure strict application of the "Regulations" and "Subsidiary Rules" to *shiai*.
+
+      2. To ensure the smooth progress of *shiai*.
+
+      3. To render decisions on *igi*.
+
+      4. To decide on matters which have not been prescribed in the "Regulations" or "Subsidiary Rules", and on unexpected
+      happenings.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000019
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000020
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000020
+  node_type: subsidiary-rule
+  local_number: '19'
+  japanese_title: 審判長
+  english_title: Shinpan-cho
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000020
+    text_sha256: 4f5f98fd1df0b832dd33b19585a80ea9f348172488dd4a4bdfe1011b304bb17a
+    text: '**第19条:** 試合開始時の審判長の合図は、次のとおりとする。
+
+
+      １．１試合場の場合は、最初の試合者が立礼の位置（開始線の手前３歩。以下同じ）に立ったとき、審判長は、起立し主審の宣告で試合を開始させる。
+
+
+      ２．２試合場以上の場合は、最初の試合者が立礼の位置に立ち、全体が揃ったとき、審判長は起立して笛などで合図する。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000020
+    source_pdf_pages:
+    - 17
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000020
+    text_sha256: 751acc5aab0c4a927a3ee211d5b00afd2e97ad464d6f7783b95057b2b42d05db
+    text: '**Article 19:** Signalling by the *shinpan-cho* for the beginning of the first *shiai* shall be conducted as follows:
+
+      1. In the case wherein one *shiai-jo* is set, the *shinpan-cho* shall stand up and have the *shushin* declare the commencement
+      of *shiai* when the first *shiai-sha* are standing at the location for *ritsu-rei*, three steps back from the *kaishi-sen*
+      (hereinafter the same).
+
+      2. In the case wherein two or more *shiai-jo* are set, the *shinpan-cho* shall stand up and signal for commencement
+      using a whistle or the like when all of the first pairs of *shiai-sha* are standing at the location for *ritsu-rei*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000020
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000021
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000021
+  node_type: subsidiary-rule
+  local_number: '20'
+  japanese_title: 審判主任
+  english_title: Shinpan-shunin
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000021
+    text_sha256: 94c6bd8a8636dfa7a46077fa0433b3fe47bdc0e7988d39f94674b841e0a98997
+    text: '**第20条:** 審判主任の任務は、次のとおりとする。
+
+
+      １．当該試合場の責任者とする。
+
+
+      ２．規則および細則が適切に実施されているか留意する。
+
+
+      ３．規則および細則の違反、あるいは異議の申し立てがあった場合は、適切敏速に処置し、必要に応じ審判長に報告する。
+
+
+      ４．当該試合場の審判員を掌握する。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000021
+    source_pdf_pages:
+    - 17
+    - 18
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000021
+    text_sha256: 33c11d6812bd900bb28e4e84ac98a20ca2d3817c29828fb21b1b5c139d0f7167
+    text: '**Article 20:** The duties of the *shinpan-shunin* are as follows:
+
+      1. To take responsibility for the management of *shiai* at their respective *shiai-jo*.
+
+      2. To ensure the proper application of the "Regulations" and "Subsidiary Rules".
+
+      3. To properly and speedily decide on violations of the "Regulations" or "Subsidiary Rules", and on *igi* if filed,
+      and report to the *shinpan-cho* if necessary.
+
+      4. To supervise the *shinpan-in* in charge of their *shiai-jo*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000021
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000022
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000022
+  node_type: subsidiary-rule
+  local_number: '21'
+  japanese_title: 審判員
+  english_title: Shinpan-in
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000022
+    text_sha256: 232f157206beb8857eaea3b4d7b47d0ed3c4e7b91108aa69bb1542c4c543376c
+    text: '**第21条:** 審判員の任務は、次のとおりとする。
+
+
+      １．当該試合を運営する。
+
+
+      ２．宣告および表示を明確に行う。
+
+
+      ３．審判員相互の意思統一をはかる。
+
+
+      ４．審判員相互の旗の表示を確認する。
+
+
+      ５．試合終了後、必要に応じ審判主任または審判長の所見を徴し、他の審判員とともに当該審判の反省を行う。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000022
+    source_pdf_pages:
+    - 18
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000022
+    text_sha256: 3aa176d96e1fae77448925695e6e35e10452ebd5efdfe3edf9f579edd19b5bf6
+    text: '**Article 21:** The duties of *shinpan-in* are as follows:
+
+      1. To manage their respective *shiai*.
+
+      2. To clearly pronounce and signal decisions.
+
+      3. To share a common standard of judgement with other *shinpan-in*.
+
+      4. To acknowledge by flags the signals made by other *shinpan-in*.
+
+      5. After a round of *shiai*, *shinpan-in* will confer to review the *shiai* concerned, consulting the *shinpan-shunin*
+      and/or *shinpan-cho*, if necessary.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000022
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000023
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000023
+  node_type: subsidiary-rule
+  local_number: '22'
+  japanese_title: 係員
+  english_title: Kakari-in Group
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000023
+    text_sha256: 7dfa1ded45b83f950c1cd991c4b5e46158d5d991f70ccb45ae0e4e775add10c6
+    text: '**第22条:** 規則第25条の係員の構成および任務は、次のとおりとする。
+
+
+      １．時計係は、原則として主任１名、係員２名以上とし、試合時間の計時にあたり試合時間終了の合図をする。
+
+
+      ２．掲示係は、原則として主任１名、係員２名以上とし、審判員の判定の掲示および審判旗の点検・確認をする。
+
+
+      ３．記録係は、原則として主任１名、係員２名以上とし、有効打突の部位および反則の種類と回数ならびに試合の所要時間などを記録する。
+
+
+      ４．選手係は、原則として主任１名、係員２名以上とし、試合者の召集・用具などの点検にあたる。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000023
+    source_pdf_pages:
+    - 18
+    - 19
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000023
+    text_sha256: 5035f51984e436d4b5e52a135bb39d31f2078ca18b18340d19d8f4f49842530f
+    text: '**Article 22:** The composition and duties of the *kakari-in* prescribed in Article 25 of the "Regulations" are
+      as follows:
+
+      1. There shall be, in principle, one head time keeper and two or more sub-keepers per *shiai-jo* who shall time the
+      *shiai*, and signal its expiration using the flag (Fig. 5).
+
+      2. There shall be, in principle, one head scoreboard recorder and two or more sub-recorders per *shiai-jo* who shall
+      mark the *shinpan-in*''s *senkoku* on the board, and also check the *shinpan-ki*.
+
+      3. There shall be, in principle, one head score recorder and two or more sub-recorders per *shiai-jo* who shall keep
+      a record of scores including *yuko-datotsu-bui*, the number and kinds of *hansoku*, and the time spent for each *shiai*.
+
+      4. There shall be, in principle, one head *shiai-sha* caller and two or more sub-callers per *shiai-jo* who shall summon
+      *shiai-sha* and inspect their equipment.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000023
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000024
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000024
+  node_type: subsidiary-rule
+  local_number: '23'
+  japanese_title: 係員
+  english_title: Kakari-in Group
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000024
+    text_sha256: c2bd48dab56fcf2f5eff959981124c1ad41b3712313b3d92b673135d2e3d55fe
+    text: '**第23条:** 審判員の服装は、次のとおりとする。ただし、その大会で定められた場合は、この限りではない。
+
+
+      １．上衣は紺色（無地）とする。
+
+
+      ２．ズボンは灰色（無地）とする。
+
+
+      ３．ワイシャツは白色（無地）とする。
+
+
+      ４．ネクタイはえんじ色（無地）とする。
+
+
+      ５．靴下は紺色（無地）とする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000024
+    source_pdf_pages:
+    - 19
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000024
+    text_sha256: 35e1a38cc5c624fa0c6a8b8e3ba934ded3456789ea35e7e1f4bf36eca1509c00
+    text: '**Article 23:** Unless otherwise stipulated at each tournament, the uniform for *shinpan-in* shall be as follows:
+
+      1. A plain, dark blue jacket
+
+      2. A plain, grey pair of trousers
+
+      3. A plain, white shirt
+
+      4. A plain, deep red necktie
+
+      5. A plain, dark blue pair of socks'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000024
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000025
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000025
+  node_type: subsidiary-rule
+  local_number: '24'
+  japanese_title: 有効打突の取り消し
+  english_title: Torikeshi of Yuko-datotsu
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000025
+    text_sha256: 2e68b9c127576e95ab117caa19c0950fb8cea76ae6526c8790edd530c95448b1
+    text: '**第24条:** 規則第27条（有効打突の取り消し）不適切な行為とは、打突後、必要以上の余勢や有効を誇示した場合などとする。
+
+
+      1．打突後、相手に対して身構え気構えがない場合。
+
+
+      2．打突後、必要以上の余勢や有効などを誇示した場合。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000025
+    source_pdf_pages:
+    - 20
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000025
+    text_sha256: cbfc549b4c864144df55310bd4e48fa2f73c8d1125878e6ffb7de70da7926210
+    text: '**Article 24:** The *torikeshi* of a *yuko-datotsu* provided for in Article 27 of the "Regulations": Inappropriate
+      behavior is defined as any excessive display or appeal for validity after a strike is made.
+
+      1. When the *shiai-sha* who has scored *yuko-datotsu* is not alert in spirit and/or posture to a possible counterattack
+      by the opponent.
+
+      2. When the *shiai-sha* who has scored *yuko-datotsu* makes exaggerated gestures appealing the validity of the *datotsu*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000025
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000026
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000026
+  node_type: subsidiary-rule
+  local_number: '25'
+  japanese_title: 有効打突などの錯誤
+  english_title: Mistakes in Decisions for Yuko-datotsu and Other Judgements
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000026
+    text_sha256: 4800688bcbafdfd877eb4de5067e29788e1cb8a9408528e699ab712e50cb4edc
+    text: '**第25条:** 規則第28条（有効打突などの錯誤）は、次のとおりとする。
+
+
+      １．有効打突または反則を錯誤して判定した場合。
+
+
+      ２．時計係の試合時間終了の合図が確認できず試合が継続され、有効打突の判定が行われた場合。
+
+
+      ３．反則回数を錯誤して、試合が継続され、有効打突の判定が行われた場合。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000026
+    source_pdf_pages:
+    - 20
+    - 21
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000026
+    text_sha256: 87ad8c5d20b61d2a0abe0a70f5d223f27a87bb768f489755771df6d6ae72d4c4
+    text: '**Article 25:** Mistakes in decisions for *yuko-datotsu* and other judgements provided for in Article 28 of the
+      "Regulations" are specified as follows:
+
+      1. In the case when an erroneous decision has been made concerning *yuko-datotsu* or *hansoku*.
+
+      2. In the case when a decision for *yuko-datotsu* has been made despite a signal for the expiration of the *shiai* time.
+
+      3. In the case when a decision for *yuko-datotsu* has been made during the *shiai* in which the number of *hansoku*
+      has been incorrectly calculated.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000026
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000027
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000027
+  node_type: subsidiary-rule
+  local_number: '26'
+  japanese_title: 審判方法
+  english_title: Procedures for Shinpan
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000027
+    text_sha256: 1fd52661632c71e9aa798680e4674e9b8908bf49a2624cc2e419aa4c72644ff3
+    text: '**第26条:** 規則第29条４号「分かれ」は、次の要領で行う。
+
+
+      １．「分かれ」の宣告をし、両者を分け、直ちに試合を継続させる。
+
+
+      ２．分かれさせる位置は、試合場内とする。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000027
+    source_pdf_pages:
+    - 21
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000027
+    text_sha256: 06e81e53026b492d2af7c70a701967cab3139acdeeb92cabff66840b7a36ff8f
+    text: '**Article 26:** *Wakare* provided for in Article 29, Item 4 of the "Regulations" shall be carried out as follows:
+
+      1. The *shushin* shall separate the *shiai-sha* by pronouncing "Wakare" and then resume the *shiai* immediately.
+
+      2. The spot where the *shiai-sha* are separated must be inside the *shiai-jo*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000027
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000028
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000028
+  node_type: subsidiary-rule
+  local_number: '27'
+  japanese_title: 審判方法
+  english_title: Procedures for Shinpan
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000028
+    text_sha256: 3bfd0a88224a8c60365e4762e19eaca0c72e4086ec0763177d3e0e4e52d2f528
+    text: '**第27条:** 主審は、試合者の竹刀の弦が上になっていない場合、１回のみ明確に指導する。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000028
+    source_pdf_pages:
+    - 22
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000028
+    text_sha256: 86b8a819b9ce2b27febe1b7498a42ac234db52ea933e2f41fcced7ca5814c00b
+    text: '**Article 27:** *Shushin* will give a clear instruction only once in the case where the *tsuru* of a *shiai-sha*''s
+      *shinai* is not on top.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000028
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000029
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000029
+  node_type: subsidiary-rule
+  local_number: '28'
+  japanese_title: 棄権
+  english_title: Kiken
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000029
+    text_sha256: ad6d90b0fc3535835afaa516f2875b18e5a4ac1c2336c5b2f01032faa05c2b44
+    text: '**第28条:** 規則第31条（棄権）は、次のとおりとする。
+
+
+      １．健康上およびその他の事由により、自ら試合することを止めた場合。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000029
+    source_pdf_pages:
+    - 23
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000029
+    text_sha256: 5d9b46fee49e9b2688ffbb63aa01e5d2947b9136f78539ec14f67f536620d295
+    text: '**Article 28:** *Kiken* as provided for in Article 31 of the "Regulations" shall include the following case:
+
+      1. In case a *shiai-sha* has arbitrarily defaulted the *shiai* due to health or for some other reason.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000029
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000030
+  pair_type: provision
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000030
+  node_type: subsidiary-rule
+  local_number: '29'
+  japanese_title: null
+  english_title: Igi
+  japanese:
+    path: text/subsidiary-rules.ja.md
+    local_anchor: sub-fik-regulations-ja-000030
+    text_sha256: 913789ac6bf253b145e93d24850b7a204898e0dd08ec5fda4ce7bc36e2854042
+    text: '**第29条:** 規則第36条（異議の申し立て）の時期は、当該試合者の試合終了時の相互の礼までとし、その要領は次のとおりとする。
+
+
+      １．監督は、異議の申し立ての合図をする。
+
+
+      ２．監督は、審判主任または審判長に疑義の内容を申し立てる。'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:ja:subsidiary-rule:000030
+    source_pdf_pages:
+    - 24
+  english:
+    path: text/subsidiary-rules.en.md
+    local_anchor: sub-fik-regulations-000030
+    text_sha256: d61b2545a50bebfa05fa731fe6f6899bbab29464e8e8cbcdc6ef7247043fcee0
+    text: '**Article 29:** *Igi* as provided for in Article 36 of the "Regulations" shall be filed in the following manner
+      before *sogo-no-rei* at the end of the concerned *shiai*:
+
+      1. The *kantoku* must signal with the *kantoku-ki* (Fig. 5) when filing *igi*.
+
+      2. The *kantoku* will state the contents of the *igi* to the *shinpan-shunin* or *shinpan-cho*.'
+    node_version_id: kkp:node:fik.regulations:2023-07-26:en:subsidiary-rule:000030
+  structural_alignment: same_official_provision_type_and_number
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:entering-or-leaving
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:entering-or-leaving
+  audience: shiai-sha
+  japanese_title: 入場等
+  english_title: (Entering or Leaving)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-entering-or-leaving
+    text_sha256: c50c950d0c7407ec7bbde90361453424e8a2ebabb638f76ea6d882b7ac957a59
+    text: '**『入　場　等』**
+
+
+      １．試合者は入退場の際、選手席に整列し、監督の指示で正面に礼をした後、着座または退場する。'
+    source_pdf_pages:
+    - 32
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-entering-or-leaving
+    text_sha256: 5a32cb0ad6865d4f22a9d26a81c949ca30cbe8352f41b5e2af40c33be9cfc501
+    text: '**(Entering or Leaving)**
+
+      1. When entering the *shiai-jo*, *shiai-sha* will line up in the position where they will be seated, bow to the *shomen*
+      when instructed by their *kantoku*, and then sit down. Likewise, prior to leaving, the *shiai-sha* shall line up, bow,
+      and then exit the *shiai-jo*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:team-line-up
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:team-line-up
+  audience: shiai-sha
+  japanese_title: 整列
+  english_title: (Team Line-up)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-team-line-up
+    text_sha256: f7cf823dc3181f1f0806b3d877c872fe096e9b716d52d911b42ae8fe9d6dab49
+    text: '**『整　列』**
+
+
+      １．団体試合の場合、先鋒・次鋒は剣道具を着け、竹刀を持って立礼の位置（開始線の手前３歩。以下同じ）に整列し、主審の「礼」の号令により相互の礼を行う（試合者の整列方法第１図）。引き続き次の試合が行われる場合、試合場内に２チーム１列で並ぶ。ただし、２チーム１列で並べない場合は、この限りではない（団体試合の整列方法第１図・第２図）。'
+    source_pdf_pages:
+    - 32
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-team-line-up
+    text_sha256: de2e81c00d16230cbae1a3aa71dde897c908f88c64f5280ffe1ef8c712e7a7c5
+    text: '**(Team Line-up)**
+
+      1. The teams shall face each other in two lines (three steps behind the *kaishi-sen*) as in Figure 1, and perform *rei*
+      at the order of the *shushin*. Only *senpo* and *jiho* line up in full armour with *shinai* in hand before commencement
+      of the match. In case another *shiai* is scheduled to follow a match that is just concluded, the retiring teams and
+      the next teams line up together. However, if the two teams cannot stand in a row as in Figure 2, the two retiring teams
+      and the two starting ones shall perform *rei* separately.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:rei-to-the-shomen
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:rei-to-the-shomen
+  audience: shiai-sha
+  japanese_title: 正面への礼
+  english_title: (Rei to the Shomen)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-rei-to-the-shomen
+    text_sha256: 55c2e12ce990b82fd942fd0c5e2779e6c5249d8f9f117ca36b8b54d57bfcf070
+    text: '**『正面への礼』**
+
+
+      １．試合者は次の場合、主審の号令により正面への礼を行う。
+
+
+      （1）第１試合の開始時および決勝戦の開始時と終了時。
+
+
+      （2）試合が２日以上にわたる場合、第１試合の開始時と最後の試合の終了時および決勝戦の開始時と終了時。
+
+
+      （3）正面への礼は、立礼の位置で行う。'
+    source_pdf_pages:
+    - 34
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-rei-to-the-shomen
+    text_sha256: 96b065080402641ff6af6108146a17daf56d26d4a973278ef933344779c804be
+    text: '**(Rei to the Shomen)**
+
+      1. The *rei* to the *shomen* shall be conducted as follows at the order of the *shushin*:
+
+      1) At the beginning of the first *shiai*, and the beginning and end of the final *shiai* of the tournament.
+
+      2) If the tournament runs for more than a day, *rei* should be conducted at the beginning of the first *shiai* and at
+      the end of the last one each day, and at the beginning and end of the final *shiai* of the tournament.
+
+      3) *Rei* to the *shomen* is conducted at the location of the mutual *ritsu-rei*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:beginning
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:beginning
+  audience: shiai-sha
+  japanese_title: 開始
+  english_title: (Beginning)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-beginning
+    text_sha256: c14657b0d3f9b40f89af9694dcc78bec9539e2e0a3d3c8843dbfe4bc6a85fbbb
+    text: '**『開　始』**
+
+
+      １．試合者は、試合を開始する場合、立礼の位置に進み、提げ刀の姿勢で相互の礼を行い、帯刀し、３歩進んで開始線で竹刀を抜き合わせつつ、そんきょ（蹲踞）し、主審の宣告で試合を開始する。'
+    source_pdf_pages:
+    - 34
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-beginning
+    text_sha256: 1487f2beb7c03240bfc60c5a61e3a5dcc08dc679dad97d5d850bf522b4fab692
+    text: '**(Beginning)**
+
+      1. Before the beginning of the *shiai*, the two *shiai-sha* shall first proceed to the *ritsu-rei* location and exchange
+      *rei* while in the *sageto* posture. Both take the *taito* position then take three steps forward and crouch into the
+      *sonkyo* position while drawing the *shinai*. The *shiai* will commence with the *shushin*''s *senkoku* to start.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:yuko-datotsu
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:yuko-datotsu
+  audience: shiai-sha
+  japanese_title: 有効打突
+  english_title: (Yuko-datotsu)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-yuko-datotsu
+    text_sha256: 0b17eae942fe2671ed7876ba2b3faa7f5309b990af15fe6fdb26dd55c81bc22b
+    text: '**『有効打突』**
+
+
+      １．試合者は、主審の有効打突の宣告があった場合、直ちに試合を中止し、開始線に戻り相中段に構え、主審の宣告を受ける。'
+    source_pdf_pages:
+    - 35
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-yuko-datotsu
+    text_sha256: 1d90aadbbf42e46d0d9f0d2bdadca355e3bc0bdabac68e289adaa9478f67b6ae
+    text: '**(Yuko-datotsu)**
+
+      1. The *shiai-sha* will immediately stop the *shiai* upon the *shushin*''s *senkoku* of *yuko-datotsu*. They will then
+      return to the *kaishi-sen*, and assume *chudan-no-kamae* to receive the *shushin*''s next *senkoku*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:request-for-a-stoppage
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:request-for-a-stoppage
+  audience: shiai-sha
+  japanese_title: 中止の要請
+  english_title: (Request for a Stoppage)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-request-for-a-stoppage
+    text_sha256: 96b9b9473680158f31dd082e37cc2a7df2fa75801e1e22e39dcd9d69c69b742f
+    text: '**『中止の要請』**
+
+
+      １．試合者は、試合の中止を要請する場合、手を上げ、かつ主審に向かって発声し、直ちにその理由を主審に申し述べる。
+
+
+      ２．試合者は、着装の乱れを直すときは、開始線で立ったまま納刀し、境界線の内側まで後退し、そんきょ（蹲踞）もしくは正座して速やかに行う。'
+    source_pdf_pages:
+    - 35
+    - 36
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-request-for-a-stoppage
+    text_sha256: f1205961e420ef61b77a519bbdd5442c532d74819ac11f91ca3268dccbb1de37
+    text: '**(Request for a Stoppage)**
+
+      1. *Shiai-sha* must make a verbal request to the *shushin* for stoppage while raising a hand, and then explain the reason.
+
+      2. In order to adjust loose equipment or uniform during the stoppage, the *shiai-sha* must perform *noto* standing at
+      the *kaishi-sen*, retreat to a position just inside the *shiai-jo*''s border, and kneel in *seiza* or crouch in the
+      *sonkyo* position. Meanwhile, the opponent waits in either *seiza* or *sonkyo*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:suspension
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:suspension
+  audience: shiai-sha
+  japanese_title: 中止
+  english_title: (Suspension)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-suspension
+    text_sha256: 5769484636c560714691da13ee71adcc1d5f1173a4d46ab84c869e909641a2b7
+    text: '**『中　止』**
+
+
+      １．試合者は審判員の「止め」の宣告があった場合、直ちに試合を中止し、開始線に戻り、主審の宣告または指示を受ける。'
+    source_pdf_pages:
+    - 36
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-suspension
+    text_sha256: e62e6539c7c9c1aa0ee569ecdca2d0eff7cdbb1aebdf2188cafac35de3194b0e
+    text: '**(Suspension)**
+
+      1. When a *shinpan-in* pronounces "Yame", the *shiai-sha* must stop the *shiai* immediately, and return to the *kaishi-sen*
+      to receive a *senkoku* or instruction from the *shushin*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:gogi
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:gogi
+  audience: shiai-sha
+  japanese_title: 合議
+  english_title: (Gogi)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-gogi
+    text_sha256: 58b96361ab5bc691234c0ab683acb49ea34a3f8bcf4640fb4279ae6a3124ad7a
+    text: '**『合　議』**
+
+
+      １．試合者は主審が合議の宣告をした場合、開始線で立ったまま納刀し、境界線の内側まで後退し、そんきょ（蹲踞）もしくは正座で待機する。'
+    source_pdf_pages:
+    - 37
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-gogi
+    text_sha256: 7083a17cd36e7179a912d3bb8bb2270c3e42d4be3dbe07e919b97e7394312d59
+    text: '**(Gogi)**
+
+      1. Upon the *shushin*''s call for *gogi*, the *shiai-sha* perform *noto* standing at the *kaishi-sen*, and retreat to
+      a position just inside the *shiai-jo*''s border and wait in *sonkyo* or in *seiza*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:resumption
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:resumption
+  audience: shiai-sha
+  japanese_title: 再開
+  english_title: (Resumption)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-resumption
+    text_sha256: a46deefbd8e93669c4999f4644f50174711d66e3b905a52fc07dc79a1d672414
+    text: '**『再　開』**
+
+
+      １．試合者は、中止後に試合を再開する場合、開始線で立ったまま相中段に構え、主審の宣告により試合を再開する。'
+    source_pdf_pages:
+    - 38
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-resumption
+    text_sha256: 9666eb803eaa8ee1ba9d5a3b07445e3fea00233358393d33b3261f15558df0d9
+    text: '**(Resumption)**
+
+      1. *Shiai-sha* shall assume *chudan-no-kamae* at the *kaishi-sen*, and resume the *shiai* upon the *shushin*''s *senkoku*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:wakare
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:wakare
+  audience: shiai-sha
+  japanese_title: 分かれ
+  english_title: (Wakare)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-wakare
+    text_sha256: a6f79df1b25b56423eb8392c9c323c36aeaa9f6b0b7ccef123c41656e6f9aed3
+    text: '**『分かれ』**
+
+
+      １．試合者は、主審の「分かれ」の宣告があった場合、直ちに間合いを取り、相中段に構え、主審の宣告で試合を継続する。'
+    source_pdf_pages:
+    - 38
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-wakare
+    text_sha256: 8e76cf1878d41d43d0a2c7e8ef6fe327f5035142c7a127f62a16647a075bdf91
+    text: '**(Wakare)**
+
+      1. Upon the *shushin*''s pronouncement of "Wakare", the *shiai-sha* shall immediately separate, assume *chudan-no-kamae*
+      on the spot, and resume the *shiai* with *shushin*''s *senkoku*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:filing-igi
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:filing-igi
+  audience: shiai-sha
+  japanese_title: 異議の申し立て
+  english_title: (Filing Igi)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-filing-igi
+    text_sha256: 9c887d7be3f8a849aca43910f7d4a24ceff2cef3ef7bd7ea7dbe35fc29eadb28
+    text: '**『異議の申し立て』**
+
+
+      １．監督が異議の申し立てをした場合、試合者は「合議」の場合の要領で待機する。'
+    source_pdf_pages:
+    - 38
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-filing-igi
+    text_sha256: 7e6c1738be77a6702605fad64d5dad737009a61abda35d2743bdcc002c9c388e
+    text: '**(Filing Igi)**
+
+      1. When a *kantoku* files *igi*, the *shiai-sha* must wait in the same manner as in *gogi*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:hantei-chusen-or-shiai-funo
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:hantei-chusen-or-shiai-funo
+  audience: shiai-sha
+  japanese_title: 判定・抽選勝ち・試合不能
+  english_title: (Hantei, Chusen or Shiai-funo)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-hantei-chusen-or-shiai-funo
+    text_sha256: 616cbd035e663af785afe1e339930a6476d23de302bd5da8901e983d7710d9c4
+    text: '**『判定・抽選勝ち・試合不能』**
+
+
+      １．試合者は、判定により勝敗を決する場合、開始線で相中段に構え、主審の宣告を受ける。
+
+
+      ２．試合者は、抽選および試合不能により勝敗を決する場合、上記１．による。'
+    source_pdf_pages:
+    - 38
+    - 39
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-hantei-chusen-or-shiai-funo
+    text_sha256: 1a79a188eba300f7df468b879da2ef881ecea54d2f0e765040d29f84ae333c26
+    text: '**(Hantei, Chusen or Shiai-funo)**
+
+      1. When deciding victory by *hantei*, the *shiai-sha* stand at the *kaishi-sen* in *chudan-no-kamae* and receive the
+      *shushin*''s *senkoku*.
+
+      2. When deciding victory by *chusen* or *shiai-funo*, the *shiai-sha* act in the same manner as above.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:fusen-gachi
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:fusen-gachi
+  audience: shiai-sha
+  japanese_title: 不戦勝ち
+  english_title: (Fusen-gachi)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-fusen-gachi
+    text_sha256: 32fcdd2ed94ef8b6691e07a964cd0adb73084f45569d2aaa8d3f6453517d0fa9
+    text: '**『不戦勝ち』**
+
+
+      １．試合者は、不戦勝ちで勝者の宣告を受ける場合、試合を行う要領で開始線に進み、立ち上がったところで主審の宣告を受け、そんきょ（蹲踞）して納刀し、元に戻る。
+
+
+      ２．団体試合の不戦勝ちの場合は、全試合者は立礼の位置で主審の宣告を受ける（団体試合の整列方法第１図）。'
+    source_pdf_pages:
+    - 39
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-fusen-gachi
+    text_sha256: 473ba13cdd7295177206b9108d6202b0b5adcd859a19f193798a192b7d98927b
+    text: '**(Fusen-gachi)**
+
+      1. In the case of *fusen-gachi*, the *shiai-sha* proceeds to the *kaishi-sen*, crouches in *sonkyo*, stands, receives
+      the *senkoku* for *fusen-gachi*, repeats *sonkyo*, performs *noto*, and leaves the *shiai-jo*.
+
+      2. In the case of *fusen-gachi* in *dantai-shiai*, the winning team shall line up and receive the *shushin*''s *senkoku*.
+      (Figure 1)'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:ending
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:ending
+  audience: shiai-sha
+  japanese_title: 終了
+  english_title: (Ending)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-ending
+    text_sha256: de6dc51b9acb85f45584e65227132d0d449b536b1fb66d338b4c553b5f7ef509
+    text: '**『終　了』**
+
+
+      １．試合者は、試合を終了する場合、開始線で相中段に構え、主審の宣告の後、そんきょ（蹲踞）して納刀し、立ち上がり帯刀姿勢で立礼の位置まで後退し、提げ刀の姿勢となり相互の礼を行う。
+
+
+      ２．団体試合が終了した場合、両団体は立礼の位置に整列し、主審の号令で団体間の礼を行い退場する。この場合、最後の試合者は剣道具をつけ竹刀を持ち整列する（団体試合の整列方法第１図・第２図）。'
+    source_pdf_pages:
+    - 39
+    - 40
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-ending
+    text_sha256: 0284430b1f5d0d8bcbb3a717ad00bf1d056eb8a8ebd9c790e6cb5657f5e4f9d3
+    text: '**(Ending)**
+
+      1. At the end of the *shiai*, the *shiai-sha* shall first return to the *kaishi-sen*, assume *chudan-no-kamae*, receive
+      the *shushin*''s *senkoku*, crouch in *sonkyo*, perform *noto*, stand, take the *taito* position, step back to the *ritsurei*
+      location, lower the *shinai* to *sageto*, and exchange *ritsu-rei*.
+
+      2. Having completed a *dantai-shiai*, the last two *shiai-sha* remain in the *shiai-jo* in full armour with their *shinai*,
+      wait for their respective teammates to line up, exchange *rei* at the pronouncement of the *shushin*, and then leave
+      the *shiai-jo*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:other-guidelines
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:other-guidelines
+  audience: shiai-sha
+  japanese_title: その他の要領
+  english_title: (Other Guidelines)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shiai-sha-ja-other-guidelines
+    text_sha256: 4f0ea169a2ba759eca3f8d41f5b7179081448e94b463116de3f7ca0d012752b0
+    text: '**『その他の要領』**
+
+
+      １．試合者が二刀を使用する場合は、次の要領で行う。
+
+
+      （1）小刀および大刀を共に提げ刀する。
+
+
+      （2）構えるときは、最初に右手で左手に持つ竹刀を抜いて左手に持ち替え、次に右手に持つ竹刀を構える。
+
+
+      （3）納めるときは、最初に右手に持った竹刀を納め、次に左手に持った竹刀を右手に持ち替え、納める。
+
+
+      （4）その他は一刀の場合の要領に準じて行う。
+
+
+      ２．試合者の服装は清潔で、綻びや破れのないものとする。
+
+
+      ３．剣道具は試合中、乱れないように堅固に着装する。なお、面紐の長さは結び目から40センチメートル以下とする。
+
+
+      ４．試合者は試合場内では相互の礼のみとし、審判員に対する礼や相互の個人的な座礼などは行わない。
+
+
+      ５．試合者が交替する際、胴づき、握手などの行為をしてはならない。
+
+
+      ６．試合者は審判員が移動して定位置につくまで試合場に入ってはならない。
+
+
+      ７．次の試合者は、前の試合者が試合場内から出るまでは試合場内に入ってはならない。
+
+
+      ８．監督・試合者は選手席への時計の持ち込み、サインなどによる指示や試合者への声援をしてはならない。
+
+
+      ９．先鋒戦および最後の試合者の対戦の場合、控えの試合者は正座することが望ましい。'
+    source_pdf_pages:
+    - 40
+    - 41
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shiai-sha-other-guidelines
+    text_sha256: dad4fd8c5a87ba6745977507156e00a94dbb2932c47b26c30fcdf8a2a73c6bd3
+    text: '**(Other Guidelines)**
+
+      1. *Nito* shall be managed in the following way:
+
+      (1) Both the *daito* and the *shoto* are carried in the left hand in *sageto*.
+
+      (2) When assuming *kamae*, the *shinai* to be held in the left hand is drawn with the right hand and passed to the left.
+      The other *shinai* to be held in the right hand is then drawn with the right hand.
+
+      (3) To perform *noto* with two *shinai*, the one in the right hand is first passed to the left hand, and the second
+      one already in the left hand is turned with the right hand back into the left.
+
+      (4) Other than the three differences listed above, the manners for *shiai-sha* using *nito* are the same as those for
+      *itto*.
+
+
+      2. The uniform of *shiai-sha* must be kept neat, without rips or tears.
+
+      3. *Kendo-gu* shall be tightly fastened so as not to become loose during *shiai*. In addition, the length of the *men-himo*
+      should be shorter than 40 centimeters from the knot.
+
+      4. *Shiai-sha* should only perform *sogo-no-rei*, and refrain from bowing to the *shinpan-in*, or from exchanging *zarei*
+      or the like privately in the *shiai-jo*.
+
+      5. Shaking hands or other physical acts of encouragement such as tapping each other''s *do* should be avoided as the
+      previous *shiai-sha* is exiting and the next *shiai-sha* enters the *shiai-jo*.
+
+      6. *Shiai-sha* shall refrain from entering the *shiai-jo* until all of the *shinpan-in* have taken their positions.
+
+      7. *Shiai-sha* shall not enter the *shiai-jo* before both of the *shiai-sha* from the previous *shiai* have exited.
+
+      8. The *kantoku* or *shiai-sha* must not bring watches into the waiting area for *shiai-sha*, or signal or call out
+      to offer encouragement.
+
+      9. It is preferable for teammates to sit in *seiza* for the first and last match of a *dantai-shiai*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:entering-or-leaving
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:entering-or-leaving
+  audience: shinpan-in
+  japanese_title: 入場等
+  english_title: (Entering or Leaving)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-entering-or-leaving
+    text_sha256: 6587e59abf98e6cabb69c4e8c41ea519ff17c1178d31c1305450bb5e93bea1a3
+    text: '**『入　場　等』**
+
+
+      １．審判員が入退場する場合、主審を中央に審判旗を右手に持ち、境界線内側中央に整列する（審判員の移動・交替要領第１図・第６図）。'
+    source_pdf_pages:
+    - 32
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-entering-or-leaving
+    text_sha256: ced3eddfaad3ebecc3d1daceff3a8db5cdd17188bd48428fd46237673961f8d9
+    text: '**(Entering or Leaving)**
+
+      1. When entering or leaving the *shiai-jo*, the *shinpan-in* hold the *shinpan-ki* in their right hands and line up
+      adjacent to the *shiai-jo*''s centre just inside the boundary, with the *shushin* positioned in the middle. (Figures
+      3 & 8).'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:positioning-of-the-shinpan-in-prior-to-the-commencement-of-a-shiai-and-handling-the-shinpan-ki
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:positioning-of-the-shinpan-in-prior-to-the-commencement-of-a-shiai-and-handling-the-shinpan-ki
+  audience: shinpan-in
+  japanese_title: 試合開始前の審判員の移動および旗の保持
+  english_title: (Positioning of the shinpan-in prior to the commencement of a shiai, and handling the shinpan-ki)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-positioning-of-the-shinpan-in-prior-to-the-commencement-of-a-shiai-and-handling-the-shinpan-ki
+    text_sha256: 8216f9b521d58924dd132dac4e09bf103c97fa539dd930973c841070e34475da
+    text: '**『試合開始前の審判員の移動および旗の保持』**
+
+
+      １．審判員の移動は次による。
+
+
+      （1）個人試合（第１試合）の場合、整列後、定位置へ移動する（審判員の移動・交替要領第１図→第２図）。
+
+
+      （2）団体試合の場合、整列し主審の号令により団体相互の礼の後、定位置に移動する（審判員の移動・交替要領第１図→第２図）。
+
+
+      ２．審判員の旗の保持は次による。
+
+
+      （1）移動する場合、両旗を右手に持つ。
+
+
+      （2）定位置に移動後は、主審は赤旗を右手、白旗を左手に持ち、副審はその逆（白旗を右手、赤旗を左手）に持つ。
+
+
+      （3）交替する場合は、白旗を中に赤旗を外にして両旗を巻く。'
+    source_pdf_pages:
+    - 32
+    - 33
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-positioning-of-the-shinpan-in-prior-to-the-commencement-of-a-shiai-and-handling-the-shinpan-ki
+    text_sha256: 7ed32b3b0a56b041482f8e2dcad8345050a4902c3e17e62ac19487cac4750121
+    text: '**(Positioning of the shinpan-in prior to the commencement of a shiai, and handling the shinpan-ki)**
+
+      1. Positioning of the *shinpan-in* shall be as follows:
+
+      (1) For the first round of *kojin-shiai*, *shinpan-in* shall take their starting positions after the *shiai-sha* have
+      assembled. (Figures 3 & 4)
+
+      (2) In *dantai-shiai*, *shinpan-in* take their starting positions after the teams line up in the *shiai-jo* and have
+      performed *rei* at the order of the *shushin*. (Figures 3 & 4)
+
+
+      2. The *shinpan-ki* are handled as follows:
+
+      (1) Both *shinpan-ki* are held in the right hand when the *shinpan-in* rotate positions.
+
+      (2) After rotation, the *shushin* holds the red *shinpan-ki* with the right hand, and the white one with the left. *Fukushin*
+      hold the *shinpan-ki* in the reverse way (white in the right hand, and red in the left).
+
+      (3) When changing *shinpan-in*, both *shinpan-ki* are rolled up together with the white flag inside the red, and are
+      held with the right hand.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:rotation-changing-of-shinpan-in
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:rotation-changing-of-shinpan-in
+  audience: shinpan-in
+  japanese_title: 審判員の交替
+  english_title: (Rotation/Changing of Shinpan-in)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-rotation-changing-of-shinpan-in
+    text_sha256: 9544c9598d08b28951c7b549600c928226822284af8574b7138cb99425e398e7
+    text: '**『審判員の交替』**
+
+
+      １．審判員の交替要領は、次による（審判員の移動・交替要領第３図～第６図）。（主審と副審の移動交替）
+
+
+      （1）各審判員は、両旗を巻かずに、定位置に移動し交替する（第３図）。（その場での審判員の交替）
+
+
+      （2）各審判員は、両旗を巻き、次の審判員と相互の礼をし交替する（第４図）。（移動しての１名の交替）
+
+
+      （3）各審判員は、定位置に移動し、主審を終えた審判員は両旗を巻き、次の審判員と相互の礼をし交替する（第５図）。（終了した審判員の交替）
+
+
+      （4）終了した審判員は、両旗を巻き、整列し次の審判員と交替する（第６図）。'
+    source_pdf_pages:
+    - 33
+    - 34
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-rotation-changing-of-shinpan-in
+    text_sha256: c80ff454ef81fb95461c0b10b58bea96f0d573ac5a937a70897e35cf7ccc72de
+    text: '**(Rotation/Changing of Shinpan-in)**
+
+      1. The rotation of *shinpan-in* is conducted as follows:
+
+      (1) **(Rotation of Shushin and Fukushin)**
+
+      *Shinpan-in* shall move to their next location without rolling up their *shinpan-ki*. (Figure 5)
+
+      (2) **(Substituting Shinpan-in at their Respective Positions)**
+
+      Outgoing *shinpan-in* shall be substituted after rolling up their *shinpan-ki* and exchanging *rei* with their replacements.
+      (Figure 6)
+
+      (3) **(Substituting One Shinpan-in after Rotation)**
+
+      After rotation, the *shinpan-in* who has just finished as *shushin* rolls up the *shinpan-ki*, and is substituted by
+      the incoming *shinpan-in* after exchanging *rei*. (Figure 7)
+
+      (4) **(Alternation of Shinpan-in who have Finished)**
+
+      A team of *shinpan-in* which has finished shall stand in a row after rolling up their *shinpan-ki* and be replaced by
+      the next team. (Figure 8)'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:rei-to-the-shomen
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:rei-to-the-shomen
+  audience: shinpan-in
+  japanese_title: 正面への礼
+  english_title: (Rei to the Shomen)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-rei-to-the-shomen
+    text_sha256: b919f71c9e86965592dba872feec472f9e2d5ad6455d3d541e25ba473cb7de55
+    text: '**『正面への礼』**
+
+
+      １．審判員は、正面への礼を次の場合に行う。
+
+
+      （1）第１試合の開始時および決勝戦の開始時と終了時。
+
+
+      （2）試合が２日以上にわたる場合、第１試合の開始時と最後の試合の終了時および決勝戦の開始時と終了時。
+
+
+      ２．主審は、次の場合に、正面への礼の号令を行う。
+
+
+      （1）個人試合の場合、審判員が定位置、試合者が立礼の位置についた直後。
+
+
+      （2）団体試合の場合、審判員および試合者が整列した直後。'
+    source_pdf_pages:
+    - 34
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-rei-to-the-shomen
+    text_sha256: 88488c2e8d35dc3a02a94b7528db9be5cae2af8c56a0cd69978164659230457a
+    text: '**(Rei to the Shomen)**
+
+      1. The *shinpan-in* shall perform *rei* to the *shomen* in the following cases:
+
+      (1) At the beginning of the first *shiai*, and at the beginning and end of the final *shiai* of the tournament.
+
+      (2) If the tournament runs for more than a day, *rei* should be conducted at the beginning of the first and last *shiai*
+      each day, and at the beginning and end of the final *shiai* of the tournament.
+
+
+      2. The *shushin* shall order *rei* to the *shomen* in the following cases:
+
+      (1) For *kojin-shiai* – when the *shinpan-in* have taken their positions and the *shiai-sha* have arrived at their locations
+      for the standing bow.
+
+      (2) For *dantai-shiai* – when the *shinpan-in* and *shiai-sha* have lined up inside the *shiai-jo*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:beginning
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:beginning
+  audience: shinpan-in
+  japanese_title: 開始
+  english_title: (Beginning)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-beginning
+    text_sha256: 580f55a7804b2d49edafdda6441e8dc8983f05aae07eec3f574d16a0a05a9221
+    text: '**『開　始』**
+
+
+      １．審判長は、第１試合開始の場合、次により行う。
+
+
+      （1）１試合場の場合は、最初の試合者が立礼の位置に立ったとき、起立する。
+
+
+      （2）２試合場以上の場合は、最初の試合者が立礼の位置に立ち、全体が揃ったとき、起立し笛などで合図する。
+
+
+      ２．主審は、第１試合開始の場合、審判長の合図の後、試合開始の宣告を行う（旗の表示要領第１図）。'
+    source_pdf_pages:
+    - 34
+    - 35
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-beginning
+    text_sha256: 7f6e17d21c214f5108e0a1e8de95275e9cbdcd6566d5d67412b495ea09bd1d10
+    text: '**(Beginning)**
+
+      1. At the beginning of the first *shiai*, the *shinpan-cho* will do as follows:
+
+      (1) In case there is one *shiai-jo*, the *shinpan-cho* will stand when the first *shiai-sha* arrive at their *ritsu-rei*
+      positions.
+
+      (2) In case there are two or more *shiai-jo*, the *shinpan-cho* stands when the first round of *shiai-sha* are standing
+      in the *ritsu-rei* positions, and signals by whistle or other means.
+
+
+      2. The *shushin* pronounces the start of the first *shiai* upon receiving the *shinpan-cho*''s signal. (Figure 9)'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:yuko-datotsu
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:yuko-datotsu
+  audience: shinpan-in
+  japanese_title: 有効打突
+  english_title: (Yuko-datotsu)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-yuko-datotsu
+    text_sha256: a12a766db42ab6dcf43b05f35437d19ca86f39dbee8cd1d00db37968ac707391
+    text: '**『有効打突』**
+
+
+      １．審判員の旗の表示は次による（旗の表示要領第１図～第４図）。
+
+
+      （1）有効打突が決定した場合、審判員は旗を表示したまま定位置に戻り、主審の宣告で旗を下ろす（旗の表示要領第２図・第４図）。
+
+
+      （2）有効打突が決定しない場合、審判員は直ちに旗の表示を止める。
+
+
+      （3）有効打突を認めない旗の表示をした場合、他の審判員がその表示を確認した後、旗を振ることを止める（旗の表示要領第３図→第１図）。
+
+
+      （4）主審が有効打突を認めない表示、または棄権の表示をし、有効打突が決定した場合、主審は、有効の表示を行う（旗の表示要領第３図・第４図→第２図）。
+
+
+      ２．有効打突を取り消す場合、主審は合議開始前の旗の表示に戻り、宣告して両旗を左右に振る（旗の表示要領第２図→第３図）。'
+    source_pdf_pages:
+    - 35
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-yuko-datotsu
+    text_sha256: a41a772de20887e9234ebb94adf754bb778fff7d9f0404cd239d3a2f3267b36a
+    text: '**(Yuko-datotsu)**
+
+      1. Signalling with the *shinpan-ki* by *shinpan-in* shall be done as follows (Figures 9 to 12):
+
+      (1) After the *shinpan-in* approve a *datotsu* as valid, they shall return to their original positions holding the *shinpan-ki*
+      signalling their verdict, and then lower their *shinpan-ki* upon the *shushin*''s *senkoku*.
+
+      (2) When the validity of a *datotsu* is not agreed upon, the *shinpan-in* must stop signalling immediately.
+
+      (3) As soon as signals of disagreement are acknowledged by the other *shinpan-in*, the *shinpan-in* must cease his or
+      her signalling. (Figures 11 & 9)
+
+      (4) When a *datotsu* is judged as valid according to Article 26 of the "Regulations", despite disagreement or *kiken*
+      initially signalled by the *shushin*, *yuko-datotsu* must be then indicated by the *shushin* with the *shinpan-ki*.
+
+
+      2. For *torikeshi* of a *yuko-datotsu* after *gogi*, the *shushin* raises the *shinpan-ki* back to the position taken
+      prior to calling *gogi*, then declares "torikeshi" as the *shinpan-ki* are waved in the lower position crossed. (Figures
+      10 & 11)'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:request-for-a-stoppage
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:request-for-a-stoppage
+  audience: shinpan-in
+  japanese_title: 中止の要請
+  english_title: (Request for a Stoppage)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-request-for-a-stoppage
+    text_sha256: 383d81df8c778ad39ae7077aaa43ae6c38d3acf994f5d22e93ee82d59e5c58fc
+    text: '**『中止の要請』**
+
+
+      １．試合者より試合中止の要請があった場合、主審は直ちに試合を中止し、中止要請の理由を質す。〔試合・審判規則第29条５号〕
+
+
+      ２．前項の中止要請が不当と審判員が判断した場合、合議を行う。'
+    source_pdf_pages:
+    - 35
+    - 36
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-request-for-a-stoppage
+    text_sha256: cefaf8ca74442623b7064473b270bf4bda7580ff915cd45ea417f4b04e210f96
+    text: '**(Request for a Stoppage)**
+
+      1. Recognizing a *shiai-sha*''s request for stoppage, the *shushin* shall immediately suspend the *shiai* and ask the
+      *shiai-sha* for the reason. (Refer to Article 29, Item 5 of the "Regulations")
+
+
+      2. If the *shushin* deems the request for stoppage to be unjustified, *gogi* should be called.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:suspension
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:suspension
+  audience: shinpan-in
+  japanese_title: 中止
+  english_title: (Suspension)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-suspension
+    text_sha256: 1810277794d0af78c9fa23c56fb874d8cd6cf1bc2e7f7602534bef36802be214
+    text: '**『中　止』**
+
+
+      １．審判員の中止宣告は、次の場合に行う。
+
+
+      ①反則の事実
+
+
+      ②負傷や事故
+
+
+      ③危険防止
+
+
+      ④竹刀操作不能の状態
+
+
+      ⑤異議の申し立て
+
+
+      ⑥合議
+
+
+      ２．中止宣告の場合、審判員は次による。
+
+
+      （1）中止の宣告があった場合、審判員は定位置に戻る。
+
+
+      （2）試合者双方が中止宣告または旗の表示を確認したとき、審判員は旗を下ろす（旗の表示要領第６図→第１図）。
+
+
+      （3）反則が認められた場合、審判員は旗を表示したまま定位置に戻り、主審の宣告で旗の表示を止める（旗の表示要領第９図→第１図）。
+
+
+      （4）副審が中止の宣告をした場合、主審は直ちに試合中止の宣告と同時に旗の表示を行う（旗の表示要領第６図→第１図）。
+
+
+      ３．一方の試合者が竹刀を落とした場合または倒れた場合に相手が直ちに打突しないとき、主審は試合を中止する（旗の表示要領第６図→第１図）。
+
+
+      ４．反則と認めた場合、主審は一方の旗を片方の手に持ち替え、反則者側に「反則○回」と指で示しながら宣告し、基本姿勢に戻る（旗の表示要領第９図→第１図）。
+
+
+      ５．双方の試合者が同時反則を犯し、白（赤）に１本が与えられる場合、主審は白・赤（赤・白）の順で宣告を行う（旗の表示要領第10図→第１図）。'
+    source_pdf_pages:
+    - 36
+    - 37
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-suspension
+    text_sha256: 1c17383939748fc66674cc4ec4e310f1c18c03ea57603a910145be0dfe4ae19e
+    text: '**(Suspension)**
+
+      1. *Shinpan-in* shall suspend *shiai* in the following cases:
+
+      (1) *Hansoku*
+
+      (2) Injury or accident
+
+      (3) To avoid danger
+
+      (4) Loss of shinai control
+
+      (5) *Igi*
+
+      (6) *Gogi*
+
+
+      2. *Shinpan-in* shall suspend *shiai* in the following manner:
+
+      (1) Upon *senkoku* for suspension, the *shinpan-in* shall return to their original locations.
+
+      (2) When both *shiai-sha* have acknowledged the *senkoku* or signal for suspension by the *shinpan-ki*, the *shinpan-in*
+      must lower their *shinpan-ki*. (Figures 14 & 9)
+
+      (3) In the case of *hansoku*, the *shinpan-in* shall return to their original locations holding their *shinpan-ki* in
+      the signal position until *shushin*''s *senkoku*. (Figure 17 -> Figure 9)
+
+      (4) In the case where a *fukushin* pronounces suspension, the *shushin* shall immediately enunciate suspension also,
+      and signal with the *shinpan-ki*. (Figure 14 -> Figure 9)
+
+
+      3. In cases where a *shinai* has been dropped or a *shiai-sha* has fallen over, and the opponent does not immediately
+      strike or thrust at that *shiai-sha*, the *shushin* must suspend the *shiai*. (Figure 14 -> Figure 9)
+
+
+      4. When a *hansoku* has been determined, the *shushin* returns to the original position, and holding both *shinpan-ki*
+      in one hand, indicates the number of *hansoku* to the violator. (Figure 17 -> Figure 9)
+
+
+      5. If both *shiai-sha* have simultaneously committed a *hansoku* which will result in the awarding of a point to one
+      *shiai-sha*, the *shiai-sha* who will be awarded the point is penalized first, followed by the other. (Figure 18 ->
+      Figure 9)'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:gogi
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:gogi
+  audience: shinpan-in
+  japanese_title: 合議
+  english_title: (Gogi)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-gogi
+    text_sha256: 9b805af4ff2dec8ddccbde679a36c40f7a67cf204a9be5a270c6714ada8c7f97
+    text: '**『合　議』**
+
+
+      １．審判員の合議は次の場合行う。
+
+
+      ①有効打突の取り消し
+
+
+      ②審判員の錯誤
+
+
+      ③反則の事実が不明瞭な場合
+
+
+      ④規則の運用および実施の疑義
+
+
+      ２．審判員は合議を次により行う。
+
+
+      （1）試合者双方を主審は、境界線の内側まで後退させる。
+
+
+      （2）副審が合議を要請したする場合、副審が「止め」の宣告後、直ちに主審が「止め」の宣告をし試合を中止する（旗の表示要領第６図・第８図→第１図）。'
+    source_pdf_pages:
+    - 37
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-gogi
+    text_sha256: fd6e5d187ac9919dc5a47ade7766af777d415be10ba79aabb7a4f98c4700c274
+    text: '**(Gogi)**
+
+      1. *Gogi* should be called in the following cases:
+
+      (1) The *torikeshi* of *yuko-datotsu*
+
+      (2) A mistake made by *shinpan-in*
+
+      (3) Unclear *hansoku*
+
+      (4) Doubts about the execution or application of the "Regulations"
+
+
+      2. *Gogi* shall be conducted as follows:
+
+      (1) The *shushin* has both *shiai-sha* retreat to a position just inside the *shiai-jo*''s border.
+
+      (2) When a *fukushin* calls for *gogi*, the *shushin* immediately proclaims "yame" and suspends the *shiai* following
+      *fukushin* has proclaimed "yame". (Figures 14 & 16)'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:resumption
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:resumption
+  audience: shinpan-in
+  japanese_title: 再開
+  english_title: (Resumption)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-resumption
+    text_sha256: 858c7d4da2cff0dd949ed616abb5805b7990267e3107efce69dab2463830b3b3
+    text: '**『再　開』**
+
+
+      １．「２本目」または「勝負」の場合、副審は、主審の宣告と同時に、表示した旗を下ろす（旗の表示要領第２図→第１図）。
+
+
+      ２．試合中止後に再開する場合、主審は、試合開始の要領で行う（旗の表示要領第１図）。'
+    source_pdf_pages:
+    - 38
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-resumption
+    text_sha256: 32089af4ac36d4f60d523b169a877a3604cece9be333d42337a79be65816becb
+    text: '**(Resumption)**
+
+      1. The *fukushin* lower their *shinpan-ki* upon the *shushin*''s *senkoku* to resume the *shiai* for *nihon-me* or *shobu*.
+
+      2. The resumption of a *shiai* after suspension is conducted in the same manner as the beginning of the *shiai*. (Figure
+      9)'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:wakare
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:wakare
+  audience: shinpan-in
+  japanese_title: 分かれ
+  english_title: (Wakare)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-wakare
+    text_sha256: 9c45607ddf6089b4ffc9ac3e9fa0ae842026fc7dccca2515bf1dc8ce25bbf660
+    text: '**『分かれ』**
+
+
+      １．試合者がつば（鍔）競り合いがこうちゃく（膠着）した場合、主審は「分かれ」の宣告と同時に「両旗を前方に出し」、両者を分け、その場で、「始め」の宣告と同時に両旗を下ろし試合を継続する（旗の表示要領第７図→第１図）。なお、一方の試合者が境界線を背にしている場合、主審は迅速に両者の位置を調整する。'
+    source_pdf_pages:
+    - 38
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-wakare
+    text_sha256: 358eaa285096956e98f6fb802805a0704c0f12c558be65451a1c60319340c556
+    text: '**(Wakare)**
+
+      1. When *tsubazeriai* has come to a stalemate, the *shushin* shall separate the *shiai-sha* by holding both *shinpan-ki*
+      straight forward while pronouncing "Wakare", and have them resume the *shiai* by lowering the *shinpan-ki* with the
+      *senkoku* of "Hajime" (Figures 15 & 9). If a *shiai-sha* is close to a boundary line, the *shushin* should immediately
+      adjust the *shiai-sha* positions so they remain inside the *shiai-jo*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:filing-igi
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:filing-igi
+  audience: shinpan-in
+  japanese_title: 異議の申し立て
+  english_title: (Filing Igi)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-filing-igi
+    text_sha256: 922ff8172eae43af52b4d7e49c81779cce4c3f118c161fc957c495dcb81f11b7
+    text: '**『異議の申し立て』**
+
+
+      １．審判員は異議の申し立てがあった場合、次による。
+
+
+      （1）審判員は、直ちに試合を中止する（旗の表示要領第６図→第１図）。
+
+
+      （2）審判主任または審判長は、審判員に疑義の内容を合議させる。
+
+
+      （3）審判主任または審判長は、その結果を監督に伝える。
+
+
+      （4）主審は、試合を再開する（旗の表示要領第１図）。'
+    source_pdf_pages:
+    - 38
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-filing-igi
+    text_sha256: ebc6fe8d2dda3e4dbf5bfdad239c0278ba938ebf525097fd1da6839cbd9de69e
+    text: '**(Filing Igi)**
+
+      1. The *shinpan-in* should deal with *igi* in the following manner:
+
+      (1) The *shinpan-in* shall immediately suspend the *shiai*. (Figure 14)
+
+      (2) The *shinpan-shunin* or *shinpan-cho* will direct the *shinpan-in* to discuss the *igi* in *gogi*.
+
+      (3) The *shinpan-shunin* or *shinpan-cho* shall inform the *kantoku* of the *shinpan-in*''s decision.
+
+      (4) The *shushin* resumes the *shiai*. (Figure 9)'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:hantei-chusen-or-shiai-funo
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:hantei-chusen-or-shiai-funo
+  audience: shinpan-in
+  japanese_title: 判定・抽選勝ち・試合不能
+  english_title: (Hantei, Chusen or Shiai-funo)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-hantei-chusen-or-shiai-funo
+    text_sha256: a6ff92b36edb9409a4fce88c3cfeb771bafb4526ca57904636f98f471e984d3f
+    text: '**『判定・抽選勝ち・試合不能』**
+
+
+      １．判定で勝敗を決する場合、審判員は主審の「判定」の宣告に合わせ勝者と判断した側の旗を表示する（旗の表示要領第２図→第１図）。この場合、引き分けまたは棄権の表示はできない。
+
+
+      ２．抽選および試合不能により勝敗の宣告をする場合、主審は勝者側に宣告と同時に表示した旗を下ろす（旗の表示要領第２図→第１図）。'
+    source_pdf_pages:
+    - 38
+    - 39
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-hantei-chusen-or-shiai-funo
+    text_sha256: b4c553f2a2771b38011c735a953d09d275ec4f99053cc224d45379985c248d70
+    text: '**(Hantei, Chusen or Shiai-funo)**
+
+      1. When deciding victory by *hantei*, the *shinpan-in* shall signal their decisions by simultaneously raising their
+      *shinpan-ki* for the winner upon the *senkoku* of "Hantei" by the *shushin* (Figure 10). The *shinpan-in* are not permitted
+      to signal *hikiwake* or abstention.
+
+      2. In pronouncing victory by *chusen* or *shiai-funo*, the *shushin* shall signal the victor with the *shinpan-ki* and
+      *senkoku*, and then instantly lower the *shinpan-ki*. (Figures 10 & 9)'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:fusen-gachi
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:fusen-gachi
+  audience: shinpan-in
+  japanese_title: 不戦勝ち
+  english_title: (Fusen-gachi)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-fusen-gachi
+    text_sha256: 2d16bff03dbc78dda4e11ae7ba672b4294ce7779aa95a18b236f973f8aecf05a
+    text: '**『不戦勝ち』**
+
+
+      １．個人試合の場合、主審は勝者側に宣告と旗の表示を行う（旗の表示要領第２図）。
+
+
+      ２．団体試合の場合、主審は勝ちチームを整列させた後、宣告と同時に旗の表示を行う（旗の表示要領第２図）。'
+    source_pdf_pages:
+    - 39
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-fusen-gachi
+    text_sha256: a13f00a144efecf597cdfb7951b28ea71d029bfb9b7b9b02a3829b70aa26bde7
+    text: '**(Fusen-gachi)**
+
+      1. In *kojin-shiai*, the *shushin* pronounces victory for the winner while signalling with the *shinpan-ki*. (Figure
+      10)
+
+      2. In *dantai-shiai*, the *shushin* shall first have the winning team line up, and then pronounce victory while signalling
+      with the *shinpan-ki*. (Figure 10)'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:ending
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:ending
+  audience: shinpan-in
+  japanese_title: 終了
+  english_title: (Ending)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-ending
+    text_sha256: 854c41e54d5ebc5635a6e12706783d0a8618bb097330ab640b47524a26ef01ed
+    text: '**『終　了』**
+
+
+      １．勝敗が決した場合または試合時間が終了した場合、主審は試合を中止し、試合者を開始線に戻した後、宣告と同時に旗の表示を行う（旗の表示要領第６図→第１図→第２図・第５図→第１図）。なお、延長の場合、延長の宣告をし、試合を再開する（旗の表示要領第１図）。
+
+
+      ２．団体試合を終了する場合、審判員は整列し主審の号令で団体間の礼を行わせる（団体試合の整列方法第１図）。'
+    source_pdf_pages:
+    - 39
+    - 40
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-ending
+    text_sha256: cdee6db65c25902020f9e267d4c1df50ce8b3822bb8ab3835861be10b58285e8
+    text: '**(Ending)**
+
+      1. When victory has been concluded or the *shiai* time has expired, the *shushin* will suspend the *shiai*, have the
+      *shiai-sha* return to the *kaishi-sen*, and signal the result with the *shinpan-ki* simultaneously with the *senkoku*
+      (Figures 14 -> 9 or 13 -> 9). In the case of *encho*, the *shushin* pronounces "Encho", and resumes the *shiai*. (Figure
+      9)
+
+      2. After one *dantai-shiai* has finished, the *shinpan-in* line up, and the *shushin* has both teams exchange *rei*.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:other-guidelines
+  pair_type: guideline_section
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:other-guidelines
+  audience: shinpan-in
+  japanese_title: その他の要領
+  english_title: (Other Guidelines)
+  japanese:
+    path: text/guidelines.ja.md
+    local_anchor: guidelines-shinpan-in-ja-other-guidelines
+    text_sha256: d0f1b01a112d03516bd4dd2812b65b4a9fccb0514d908fe34a0f290710a8e216
+    text: '**『その他の要領』**
+
+
+      １．審判員は、試合開始前、試合者の服装（剣道着・袴・目印・名札）の適否を確認する〔試合・審判規則第５条試合・審判細則第４条・第５条〕。
+
+
+      ２．審判員は、試合者の用具（剣道具・竹刀・つば（鍔））の適否を確認する〔試合・審判規則第３条・第４条試合・審判細則第２条・第３条〕。
+
+
+      ３．主審は、試合者が不適切な礼法を行った場合、指導をする。
+
+
+      ４．審判員は、試合者が試合終了後、選手席などで不適切な言動を行った場合もしくは行おうとした場合、厳正に指導する。
+
+
+      ５．各係員は、円滑な任務が遂行できるよう、審判主任または審判長を中心に事前に緊密な連携を取り、迅速かつ正確に任務を遂行する。
+
+
+      ６．掲示係は、審判旗の点検・確認をし、審判席に置く（１会場６組）。'
+    source_pdf_pages:
+    - 40
+    - 41
+  english:
+    path: text/guidelines.en.md
+    local_anchor: guidelines-shinpan-in-other-guidelines
+    text_sha256: fcd3f48da6656136263655413d5f9ebad1aa5fe7930d8d2421a66c0362200ce7
+    text: '**(Other Guidelines)**
+
+      1. *Shinpan-in* should check to make sure that the *shiai-sha* are wearing their uniforms (*kendo-gi*, *hakama*, *mejirushi*
+      and *nafuda*) appropriately prior to the beginning of the *shiai*. Refer to Article 5 of the "Regulations", and Articles
+      4 and 5 of the "Subsidiary Rules".
+
+
+      2. *Shinpan-in* should make sure that *shiai-sha* are equipped with appropriate *kendo-gu* and *shinai* (including *tsuba*).
+      Refer to Articles 3 and 4 of the "Regulations", and Articles 3 and 4 of the "Subsidiary Rules".
+
+      3. The *shushin* should correct any inappropriate manners of the *shiai-sha*.
+
+      4. The *shinpan-in* should strictly correct any inappropriate talk or acts made by *shiai-sha* at their seats, even
+      after the *shiai*.
+
+      5. *Kakari-in* must carry out their duties by coordinating with the *shinpan-shunin* or *shinpan-cho* to ensure the
+      smooth administration of the *shiai*.
+
+      6. Scoreboard recorders shall, prior to the beginning of the *shiai*, ensure that *shinpan-ki* are available for use.
+      Six sets of *shinpan-ki* per *shiai-jo* are necessary.'
+  structural_alignment: explicit_counterpart_anchor_and_audience
+  semantic_review_status: pending

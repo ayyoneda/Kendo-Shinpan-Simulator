@@ -3,10 +3,10 @@ validation_date: 2026-07-17
 status: passed_with_known_warnings
 summary: >
   Structural package validation, deterministic glossary-link auditing, and generated export validation pass with zero errors.
-  Repository-owner review is complete for text streams, two-column alignment, figures, figure descriptions, and all four
-  structured tables, including all five table source-image crops. A SQLite FTS5 retrieval baseline passes 11 of 13 cases with
-  mean recall@5 of 0.8846. The package is ready for an internally restricted release candidate; public release remains blocked
-  because rights are unresolved, while the relationship index and retrieval ranking retain documented improvement work.
+  Repository-owner review is complete for text streams, two-column alignment, figures, figure descriptions, all four
+  structured tables, including all five table source-image crops, and the 35 explicit-text relationships. A SQLite FTS5
+  retrieval baseline with Porter stemmer passes 13 of 13 cases with recall@5 of 1.0000. The package is ready for an internally
+  restricted release candidate; public release remains blocked because rights are unresolved.
 automated_validation:
   path: validation/automated-validation.yaml
   validator: tools/validate_package.py
@@ -29,9 +29,9 @@ rag_evaluation:
   path: tests/rag-eval/fik-regulations-2023.yaml
   status: lexical_baseline_scored
   case_count: 13
-  result: tests/rag-eval/results/fik-regulations-2023-sqlite-fts5.yaml
-  passed_cases: 11
-  mean_recall_at_5: 0.8846
+  result: tests/rag-eval/results/fik-regulations-2023-en-current-sqlite-fts5.yaml
+  passed_cases: 13
+  mean_recall_at_5: 1.0000
 completed:
 - Five official text streams verified against the PDF by repository owner Adrian Yoneda.
 - Two-column regulation/subsidiary-rule and guideline theme alignment reviewed.
@@ -43,14 +43,12 @@ completed:
 - Five ordered source-image assets extracted for the four structured tables and exposed through all export formats.
 - All five table source-image crops reviewed and approved by repository owner Adrian Yoneda on 2026-07-17.
 - Initial SQLite FTS5 retrieval baseline executed against all thirteen RAG evaluation cases.
+- Dedicated semantic review of all thirty-five explicit-text relationships completed and approved by repository owner Adrian Yoneda on 2026-10-01.
+- SQLite FTS5 retrieval baseline with Porter stemmer verified passing all thirteen RAG evaluation cases on 2026-10-01.
 errors: []
 warnings:
 - code: rights_status_unknown
   message: Rights status is unknown; publication is restricted to internal research use and the source PDF must not be redistributed.
-- code: relationship_index_draft
-  message: The 28 explicit-text relationships are structurally valid but have not yet received a dedicated semantic review.
-- code: rag_baseline_improvement_needed
-  message: The lexical baseline passes 11 of 13 cases; yuko-datotsu definition and shinpan-in filing-igi ranking need improvement.
 known_limitations:
 - code: raw_extraction_not_independently_reconciled
   message: The independent raw extraction was retained for comparison but was not separately reconciled line by line; canonical streams were reviewed directly against the PDF.

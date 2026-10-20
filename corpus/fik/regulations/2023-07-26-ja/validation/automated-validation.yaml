@@ -1,0 +1,33 @@
+package_id: fik.regulations.2023-07-26.ja
+status: pass_with_review_required
+summary:
+  error_count: 0
+  warning_count: 3
+  node_count: 69
+  counterpart_count: 69
+  rendered_source_page_count: 11
+  individual_figure_count: 23
+  structured_table_count: 4
+  visual_concept_count: 27
+errors: []
+warnings:
+- code: semantic_domain_review_recommended
+  message: The 13 edition differences are owner-approved for internal research; expert review remains recommended before authoritative
+    guidance.
+- code: visual_assets_internal_research_only
+  message: Japanese visual assets and three source-specific alignment differences are owner-approved for internal research;
+    each edition must remain independently represented.
+- code: japanese_legal_expert_review_pending
+  message: The independent multimodal text audit is reconciled, but no Japanese legal-domain expert has attested interpretation.
+checks:
+  source_checksum: pass
+  legal_node_structure: pass
+  english_counterparts: pass
+  guideline_structure_and_page_coverage: pass
+  source_page_assets: pass
+  individual_visual_assets: pass
+  source_anomaly_decisions: pass
+  ruby_annotations: pass
+  independent_audit_disposition: pass
+  semantic_alignment: pass
+  external_ai_used: false

@@ -1,7 +1,7 @@
 package_id: fik.regulations.2023-07-26
 validation_type: generated_export_validation
 validator: tools/validate_exports.py
-validation_date: '2026-07-17'
+validation_date: '2026-10-01'
 status: passed
 result:
   errors: 0

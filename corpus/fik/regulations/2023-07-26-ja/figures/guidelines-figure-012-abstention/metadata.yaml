@@ -1,0 +1,64 @@
+package_id: fik.regulations.2023-07-26.ja
+figure_id: kkp:figure:fik.guidelines:000012
+figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000012
+citation_label: 第4図
+citation_context: 旗の表示要領
+figure_set: guidelines
+title: 有効打突の判定を棄権したとき
+display_title: 有効打突の判定を棄権したとき
+source_object_type: figure
+language_counterpart:
+  package_id: fik.regulations.2023-07-26
+  canonical_id: kkp:figure:fik.guidelines:000012
+  registry_path: figures.yaml
+  relation: official_language_visual_counterpart_of
+source_pdf: source/original.pdf
+source_pdf_page: 44
+asset_path: figures/guidelines-figure-012-abstention/source.png
+description_path: figures/guidelines-figure-012-abstention/description.en.md
+provenance: official-source-rendered-crop
+description_provenance: editorial-draft-from-visual-inspection
+asset_status: extracted_from_pdf_render
+verification_status: verified_by_repository_owner
+extracted_date: '2026-08-19'
+crop:
+  crop_map: figures/crop-map.yaml
+  reference_render_dpi: 200
+  reference_render_size_px:
+  - 1166
+  - 1653
+  reference_crop_box_px:
+  - 600
+  - 600
+  - 1090
+  - 1040
+  reference_crop_segments_px: []
+  reference_whiteout_boxes_px: []
+  extraction_render_dpi: 300
+  rendered_page_size_px:
+  - 1749
+  - 2481
+  actual_crop_box_px:
+  - 900
+  - 901
+  - 1635
+  - 1561
+  actual_crop_segments_px: []
+  actual_trim_boxes_px: []
+  output_size_px:
+  - 735
+  - 660
+  whitespace_trimmed: false
+tool:
+  script: tools/extract_figure_assets.py
+  renderer: pdftoppm
+visual_review:
+  status: approved_internal_research
+  reviewer: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+  scope: Japanese figure and table crops
+  description_verified: false
+  statement: I approve the Japanese visual assets and the three documented visual-alignment differences
+    for internal research.
+  preservation_policy: Preserve each edition's printed labels, notation, grouping, and scoreboard example
+    without merging or rewriting them.

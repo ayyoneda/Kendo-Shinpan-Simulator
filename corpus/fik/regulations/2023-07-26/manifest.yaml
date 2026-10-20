@@ -6,6 +6,8 @@ official_version: 2023-07-26
 primary_language: en
 embedded_languages:
 - ja
+counterpart_package_id: fik.regulations.2023-07-26.ja
+counterpart_relation: official_language_counterpart_of
 status: reviewed
 package_schema_version: 0.1.0
 rights_status: unknown
@@ -24,6 +26,7 @@ raw_inputs:
 planned_text_streams:
 - text/foreword.en.md
 - text/foreword.ja.md
+- text/contents.en.md
 - text/regulations.en.md
 - text/subsidiary-rules.en.md
 - text/guidelines.en.md
@@ -38,6 +41,12 @@ text_streams:
   language: ja
   status: reviewed
   verification_status: verified_against_pdf_by_repository_owner
+- path: text/contents.en.md
+  stream_id: contents.en
+  language: en
+  status: machine_verified
+  verification_status: machine_verified_against_embedded_pdf_text
+  indexing_policy: excluded_from_retrieval
 - path: text/regulations.en.md
   stream_id: regulations.en
   language: en
@@ -57,6 +66,9 @@ segmentation:
   notes: segmentation-notes.yaml
   status: reviewed
   layout_alignment: layout-alignment.yaml
+source_anomalies:
+  path: source-anomalies.yaml
+  status: reviewed_with_approved_normalization
 planned_structured_assets:
   nodes: nodes.yaml
   figures: figures.yaml
@@ -74,17 +86,18 @@ node_index:
   id_policy: typed_sequential_ids_with_official_citation_labels
 relationship_index:
   path: relationships.yaml
-  status: draft
-  relationship_count: 28
+  status: reviewed
+  relationship_count: 35
   registry_resolution_status: figure_and_table_targets_resolved_for_initial_relationships
   included_streams:
   - text/regulations.en.md
   - text/subsidiary-rules.en.md
   counts:
-    supplements: 14
+    supplements: 18
     references_figure: 10
     references_table: 3
     external_reference: 1
+    references_article: 3
 figure_registry:
   path: figures.yaml
   status: reviewed
@@ -132,8 +145,8 @@ validation:
 exports:
   status: generated
   generator: tools/export_package.py
-  generator_version: 0.1.0
-  generated_date: 2026-07-17
+  generator_version: 0.2.0
+  generated_date: 2026-08-18
   chunk_count: 224
   jsonl: exports/jsonl/corpus.jsonl
   sqlite: exports/sqlite/corpus.sqlite

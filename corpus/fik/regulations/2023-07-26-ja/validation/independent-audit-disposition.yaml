@@ -1,0 +1,107 @@
+package_id: fik.regulations.2023-07-26.ja
+audit_source: Gemini discrepancy report supplied by Adrian Yoneda
+audit_received_date: '2026-08-18'
+follow_up_audit_source: Gemini flat-file discrepancy report supplied by Adrian Yoneda
+follow_up_audit_received_date: '2026-08-18'
+reconciled_by: Codex
+reconciled_date: '2026-08-18'
+status: reconciled_corrections_applied
+interpretation_policy: Ruby omissions are source-presentation completeness gaps, not changes to the base legal wording.
+summary:
+  reported_findings: 8
+  follow_up_reported_findings: 2
+  total_reported_findings: 10
+  accepted_reported_findings: 8
+  accepted_follow_up_findings: 2
+  auditor_locator_corrections: 2
+  additional_findings: 2
+  unresolved_findings: 0
+dispositions:
+- finding_id: GJA-001
+  decision: accepted_as_ruby_annotation_gap
+  resolution: Reading preserved in ruby-annotations.yaml; official linear text retains only the base characters.
+  annotation_ids:
+  - ruby-ja-000002
+  status: resolved
+- finding_id: GJA-002
+  decision: accepted_as_ruby_annotation_gap
+  resolution: Reading preserved in ruby-annotations.yaml; official linear text retains only the base characters.
+  annotation_ids:
+  - ruby-ja-000001
+  status: resolved
+  auditor_locator_correction: Physical PDF page is 7, not 25.
+- finding_id: GJA-003
+  decision: accepted_as_ruby_annotation_gap
+  resolution: Reading preserved in ruby-annotations.yaml; official linear text retains only the base characters.
+  annotation_ids:
+  - ruby-ja-000003
+  status: resolved
+  auditor_locator_correction: Physical PDF page is 8, not 26.
+- finding_id: GJA-004
+  decision: accepted_as_ruby_annotation_gap
+  resolution: Reading preserved in ruby-annotations.yaml; official linear text retains only the base characters.
+  annotation_ids:
+  - ruby-ja-000004
+  - ruby-ja-000005
+  status: resolved
+  additional_resolution: The page-preserving renderer now excludes ruby-only fragments from headings and emits the heading
+    as an explicit scoped event.
+- finding_id: GJA-007
+  decision: accepted_as_ruby_annotation_gap
+  resolution: Reading preserved in ruby-annotations.yaml; official linear text retains only the base characters.
+  annotation_ids:
+  - ruby-ja-000007
+  status: resolved
+- finding_id: GJA-008
+  decision: accepted_as_ruby_annotation_gap
+  resolution: Reading preserved in ruby-annotations.yaml; official linear text retains only the base characters.
+  annotation_ids:
+  - ruby-ja-000008
+  status: resolved
+- finding_id: GJA-005
+  decision: accepted_as_page_preserving_structure_defect
+  resolution: Page-preserving output now emits each shared or column-specific heading atomically, followed by the affected
+    column text until the next applicable heading.
+  status: resolved
+- finding_id: GJA-006
+  decision: accepted_as_display_representation_issue
+  resolution: Distributed heading spacing is represented consistently with U+3000 IDEOGRAPHIC SPACE and documented as a display
+    convention rather than a literal PDF character claim.
+  status: resolved
+- finding_id: LOCAL-RUBY-001
+  decision: additional_gap_found_during_reconciliation
+  source_pdf_page: 40
+  description: The reading はかま over 袴 in the shinpan-in column was not listed in the supplied audit.
+  annotation_ids:
+  - ruby-ja-000006
+  status: resolved
+- finding_id: LOCAL-RUBY-002
+  decision: annotation_presence_confirmed_but_initial_reading_corrected_in_follow_up
+  source_pdf_page: 41
+  description: The initial reconciliation correctly found unregistered ruby over 鋒 in 先鋒戦 but incorrectly recorded its reading
+    as ほう. Follow-up finding RUBY-002 established the printed reading as ぽう.
+  annotation_ids:
+  - ruby-ja-000009
+  status: resolved
+- finding_id: RUBY-001
+  audit_round: flat_file_follow_up
+  decision: accepted
+  source_pdf_page: 32
+  resolution: ruby-ja-000004 corrected from ぽう to the visibly printed ぼう. The linguistically expected ぽう is preserved separately
+    as the owner-approved normalized reading in source-anomaly-005.
+  verification: Confirmed with PDF text geometry and a 600 DPI visual crop.
+  owner_decision: Preserve printed ぼう; use ぽう for generated search and study metadata.
+  approved_by: Adrian Yoneda
+  approved_date: '2026-08-18'
+  annotation_ids:
+  - ruby-ja-000004
+  status: resolved
+- finding_id: RUBY-002
+  audit_round: flat_file_follow_up
+  decision: accepted
+  source_pdf_page: 41
+  resolution: ruby-ja-000009 corrected from ほう to the visibly printed ぽう.
+  verification: Confirmed with PDF text geometry and a 600 DPI visual crop.
+  annotation_ids:
+  - ruby-ja-000009
+  status: resolved

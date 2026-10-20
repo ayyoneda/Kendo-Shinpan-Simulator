@@ -1,0 +1,13 @@
+acquisition_schema_version: 0.1.0
+source_type: official_pdf
+acquisition_method: user_provided_file
+intake_date: '2026-08-18'
+original_filename: Regulations-of-Kendo-Shiai-and-Shinpan-JP_Jul2023.pdf
+staged_path: source/original.pdf
+checksum:
+  algorithm: sha256
+  value: f9c3c691835a620bd134fa50c63fab8e021c6e8b92f9aa0c1be9e914ed8b58a5
+rights_status: unknown
+publication_policy: internal_research_use_only
+source_redistribution: prohibited_until_rights_confirmed
+official_source_url: https://www.kendo-fik.org/wp-content/uploads/2025/04/Regulations-of-Kendo-Shiai-and-Shinpan-JP_Jul2023.pdf

@@ -1,0 +1,73 @@
+package_id: fik.regulations.2023-07-26.ja
+status: reviewed_with_approved_normalization
+policy: Preserve printed wording and readings in official representations; apply owner-approved normalizations only to generated
+  retrieval text or study metadata.
+anomalies:
+- anomaly_id: source-anomaly-001
+  source_pdf_page: 8
+  source_text: 2.5センチメート以内
+  suspected_reading: 2.5センチメートル以内
+  reason: Possible omitted character in the official source.
+  decision: use_suspected_reading
+  applied_text: 2.5センチメートル以内
+  official_text_path: text/subsidiary-rules.ja.md
+  normalization_target: generated_retrieval_text
+  status: approved_normalization
+  approved_by: Adrian Yoneda
+  approved_date: '2026-08-18'
+- anomaly_id: source-anomaly-002
+  source_pdf_page: 37
+  source_text: 副審が合議を要請したする場合
+  suspected_reading: 副審が合議を要請する場合
+  reason: Possible duplicated verb fragment in the official source.
+  decision: use_suspected_reading
+  applied_text: 副審が合議を要請する場合
+  official_text_path: text/guidelines.ja.md
+  normalization_target: generated_retrieval_text
+  status: approved_normalization
+  approved_by: Adrian Yoneda
+  approved_date: '2026-08-18'
+- anomaly_id: cross-language-divergence-001
+  source_pdf_page: 6
+  japanese_source_text: 全日本剣道連盟の剣道試合
+  english_counterpart_summary: English Article 1 refers to International Kendo Federation matches.
+  reason: Official language counterparts are not word-for-word identical.
+  status: requires_explicit_alignment_note
+- anomaly_id: source-anomaly-003
+  source_pdf_page: 13
+  source_text: 細則第３条第２号から第４号
+  corrected_reading: 細則第３条第１号から第３号
+  related_source_locator: Subsidiary Rule 3 contains items 1 through 3 in this edition.
+  reason: The internal reference appears to include a non-existent item 4.
+  decision: correct_reference_to_existing_items_1_through_3
+  applied_text: 細則第３条第１号から第３号
+  official_text_path: text/subsidiary-rules.ja.md
+  normalization_target: generated_retrieval_text
+  english_counterpart_registry: corpus/fik/regulations/2023-07-26/source-anomalies.yaml
+  status: approved_normalization
+  approved_by: Adrian Yoneda
+  approved_date: '2026-08-18'
+- anomaly_id: source-anomaly-004
+  source_pdf_page: 24
+  source_text: 審判長に図って処理する
+  suspected_reading: 審判長に諮って処理する
+  reason: The printed wording may use the wrong kanji for consulting the shinpan-cho.
+  decision: preserve_source_wording
+  decision_note: The suspected reading is plausible, but the printed wording may be intentional or acceptable.
+  applied_text: 審判長に図って処理する
+  status: reviewed_source_retained
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-18'
+- anomaly_id: source-anomaly-005
+  source_pdf_page: 32
+  source_text: 'reading: ぼう'
+  source_context: 先鋒・次鋒
+  suspected_reading: 'reading: ぽう'
+  reason: The printed ruby differs from the standard reading of 先鋒 (せんぽう).
+  decision: preserve_source_and_use_normalized_reading_for_search_and_study
+  applied_text: 'reading: ぽう'
+  official_text_path: ruby-annotations.yaml
+  normalization_target: generated_retrieval_and_study_metadata
+  status: approved_normalization
+  approved_by: Adrian Yoneda
+  approved_date: '2026-08-18'

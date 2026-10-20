@@ -1,0 +1,144 @@
+package_id: fik.regulations.2023-07-26.ja
+table_id: kkp:table:fik.regulations:000002
+language: ja
+data_status: structured_verified_internal_research
+source_components:
+- 表1 竹刀の基準（一刀の場合）
+- 表2 竹刀の基準（二刀の場合）
+- 計測方法
+sections:
+- section_id: itto
+  citation_label: 表1
+  title: 竹刀の基準（一刀の場合）
+  audiences:
+  - 中学生（12-15歳）
+  - 高校生（15-18歳）相当年齢のものも含む
+  - 大学生・一般（18歳以上）
+  rows:
+  - specification: 長さ
+    gender: 男女共通
+    measurement: maximum_total_length
+    unit: cm
+    values:
+    - 114
+    - 117
+    - 120
+  - specification: 重さ
+    gender: 男性
+    measurement: minimum_total_weight
+    unit: g
+    values:
+    - 440
+    - 480
+    - 510
+  - specification: 重さ
+    gender: 女性
+    measurement: minimum_total_weight
+    unit: g
+    values:
+    - 400
+    - 420
+    - 440
+  - specification: 太さ
+    gender: 男性
+    measurement: minimum_diameter_of_tip
+    unit: mm
+    values:
+    - 25
+    - 26
+    - 26
+  - specification: 太さ
+    gender: 男性
+    measurement: minimum_diameter_of_chikuto
+    unit: mm
+    values:
+    - 20
+    - 21
+    - 21
+  - specification: 太さ
+    gender: 女性
+    measurement: minimum_diameter_of_tip
+    unit: mm
+    values:
+    - 24
+    - 25
+    - 25
+  - specification: 太さ
+    gender: 女性
+    measurement: minimum_diameter_of_chikuto
+    unit: mm
+    values:
+    - 19
+    - 20
+    - 20
+- section_id: nito
+  citation_label: 表2
+  title: 竹刀の基準（二刀の場合）
+  audience: 大学生・一般（18歳以上）
+  weapons:
+  - 大刀
+  - 小刀
+  rows:
+  - specification: 長さ
+    gender: 男女共通
+    measurement: maximum_total_length
+    unit: cm
+    values:
+    - 114
+    - 62
+  - specification: 重さ
+    gender: 男性
+    measurement: weight
+    unit: g
+    values:
+    - minimum: 440
+    - minimum: 280
+      maximum: 300
+  - specification: 重さ
+    gender: 女性
+    measurement: weight
+    unit: g
+    values:
+    - minimum: 400
+    - minimum: 250
+      maximum: 280
+  - specification: 太さ
+    gender: 男性
+    measurement: minimum_diameter_of_tip
+    unit: mm
+    values:
+    - 25
+    - 24
+  - specification: 太さ
+    gender: 男性
+    measurement: minimum_diameter_of_chikuto
+    unit: mm
+    values:
+    - 20
+    - 19
+  - specification: 太さ
+    gender: 女性
+    measurement: minimum_diameter_of_tip
+    unit: mm
+    values:
+    - 24
+    - 24
+  - specification: 太さ
+    gender: 女性
+    measurement: minimum_diameter_of_chikuto
+    unit: mm
+    values:
+    - 19
+    - 19
+measurement_methods:
+- measurement: minimum_diameter_of_tip
+  source_title: 竹刀の先革先端部最小直径値 計測方法
+  requirements:
+  - 先革の長さ5センチメートル以上
+  - 計測位置は先端から1.5センチメートル
+  - 計測位置（対辺直径）
+- measurement: minimum_diameter_of_chikuto
+  source_title: ちくとうの最小直径値の計測方法
+  requirements:
+  - 計測位置は先端から8センチメートル
+  - 計測位置（対辺直径）

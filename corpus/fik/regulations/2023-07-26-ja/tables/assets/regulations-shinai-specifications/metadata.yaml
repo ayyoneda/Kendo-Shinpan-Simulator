@@ -1,0 +1,62 @@
+package_id: fik.regulations.2023-07-26.ja
+table_id: kkp:table:fik.regulations:000002
+table_manifestation_id: kkp:table-manifestation:fik.regulations:2023-07-26:ja:regulations:000002
+citation_label: 表1・表2
+citation_context: 剣道試合・審判規則
+table_set: regulations
+title: 竹刀の基準
+source_object_type: table_group
+source_components:
+- citation_label: 表1
+  title: 竹刀の基準（一刀の場合）
+- citation_label: 表2
+  title: 竹刀の基準（二刀の場合）
+- source_object_type: measurement_diagrams
+  title: 計測方法
+language_counterpart:
+  package_id: fik.regulations.2023-07-26
+  canonical_id: kkp:table:fik.regulations:000002
+  registry_path: tables.yaml
+  relation: official_language_visual_counterpart_of
+source_pdf: source/original.pdf
+provenance: official-source-rendered-crop
+visual_asset_status: verified_by_repository_owner
+extracted_date: '2026-08-19'
+crop_map: tables/crop-map.yaml
+reference_render_dpi: 200
+extraction_render_dpi: 300
+assets:
+- part: 1
+  asset_path: tables/assets/regulations-shinai-specifications/source.png
+  source_pdf_page: 28
+  provenance: official-source-rendered-crop
+  asset_status: extracted_from_pdf_render
+  crop_status: verified_by_repository_owner
+  reference_crop_box_px:
+  - 110
+  - 105
+  - 1055
+  - 1550
+  rendered_page_size_px:
+  - 1749
+  - 2481
+  output_size_px:
+  - 1417
+  - 2168
+  actual_crop_box_px:
+  - 165
+  - 158
+  - 1582
+  - 2326
+tool:
+  script: tools/extract_table_assets.py
+  renderer: pdftoppm
+visual_review:
+  status: approved_internal_research
+  reviewer: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+  scope: Japanese figure and table crops
+  description_verified: false
+  statement: I approve the Japanese visual assets and the three documented visual-alignment differences for internal research.
+  preservation_policy: Preserve each edition's printed labels, notation, grouping, and scoreboard example without merging
+    or rewriting them.

@@ -1,0 +1,56 @@
+package_id: fik.regulations.2023-07-26.ja
+table_id: kkp:table:fik.recording-guide:000002
+table_manifestation_id: kkp:table-manifestation:fik.regulations:2023-07-26:ja:recording-guide:000002
+citation_label: 第1図
+citation_context: 掲示要領・掲示方法
+table_set: recording-guide
+title: 掲示板および掲示方法
+source_object_type: figure
+source_components: null
+language_counterpart:
+  package_id: fik.regulations.2023-07-26
+  canonical_id: kkp:table:fik.recording-guide:000002
+  registry_path: tables.yaml
+  relation: official_language_visual_counterpart_of
+source_pdf: source/original.pdf
+provenance: official-source-rendered-crop
+visual_asset_status: verified_by_repository_owner
+extracted_date: '2026-08-19'
+crop_map: tables/crop-map.yaml
+reference_render_dpi: 200
+extraction_render_dpi: 300
+assets:
+- part: 1
+  asset_path: tables/assets/recording-guide-scoreboard-example/source.png
+  source_pdf_page: 47
+  provenance: official-source-rendered-crop
+  asset_status: extracted_from_pdf_render
+  crop_status: verified_by_repository_owner
+  reference_crop_box_px:
+  - 105
+  - 225
+  - 1060
+  - 1165
+  rendered_page_size_px:
+  - 1749
+  - 2481
+  output_size_px:
+  - 1432
+  - 1411
+  actual_crop_box_px:
+  - 158
+  - 338
+  - 1590
+  - 1749
+tool:
+  script: tools/extract_table_assets.py
+  renderer: pdftoppm
+visual_review:
+  status: approved_internal_research
+  reviewer: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+  scope: Japanese figure and table crops
+  description_verified: false
+  statement: I approve the Japanese visual assets and the three documented visual-alignment differences for internal research.
+  preservation_policy: Preserve each edition's printed labels, notation, grouping, and scoreboard example without merging
+    or rewriting them.

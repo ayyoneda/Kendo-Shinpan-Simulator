@@ -1,0 +1,98 @@
+package_id: fik.regulations.2023-07-26.ja
+status: reviewed_internal_research
+policy: Ruby is pronunciation metadata. Keep the base characters in official linear text and expose readings through annotations;
+  never concatenate a reading into the legal sentence. Preserve printed readings, and keep owner-approved normalized readings
+  separate for generated retrieval and study metadata.
+display_spacing_policy: The PDF positions some heading glyphs with distributed spacing. Maintained Markdown represents that
+  visual treatment with U+3000 IDEOGRAPHIC SPACE; it is not asserted as a literal source character.
+annotation_count: 9
+annotations:
+- annotation_id: ruby-ja-000001
+  source_pdf_page: 7
+  official_text_path: text/subsidiary-rules.ja.md
+  target_id: kkp:subsidiary-rule:fik.regulations:000002
+  local_anchor: sub-fik-regulations-ja-000002
+  base_text: 芯
+  reading: しん
+  context: 先革内部の芯、柄頭のちぎり以外のもの
+  evidence: pdf_bbox_and_visual_review
+- annotation_id: ruby-ja-000002
+  source_pdf_page: 8
+  official_text_path: text/regulations.ja.md
+  target_id: kkp:article:fik.regulations:000005
+  local_anchor: reg-fik-regulations-ja-000005
+  base_text: 袴
+  reading: はかま
+  context: 服装は、剣道着・袴とする
+  evidence: pdf_bbox_and_visual_review
+- annotation_id: ruby-ja-000003
+  source_pdf_page: 8
+  official_text_path: text/subsidiary-rules.ja.md
+  target_id: kkp:subsidiary-rule:fik.regulations:000005
+  local_anchor: sub-fik-regulations-ja-000005
+  base_text: 紐
+  reading: ひも
+  context: 試合者の胴紐の交差する位置
+  evidence: pdf_bbox_and_visual_review
+- annotation_id: ruby-ja-000004
+  source_pdf_page: 32
+  official_text_path: text/guidelines.ja.md
+  target_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:team-line-up
+  local_anchor: guidelines-shiai-sha-ja-team-line-up
+  base_text: 鋒
+  reading: ぼう
+  context: 先鋒・次鋒
+  term: 先鋒
+  suspected_reading: ぽう
+  normalized_reading: ぽう
+  normalization_status: owner_approved
+  normalization_target: generated_retrieval_and_study_metadata
+  source_anomaly_id: source-anomaly-005
+  evidence: pdf_bbox_and_visual_review
+- annotation_id: ruby-ja-000005
+  source_pdf_page: 32
+  official_text_path: text/guidelines.ja.md
+  target_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:team-line-up
+  local_anchor: guidelines-shiai-sha-ja-team-line-up
+  base_text: 鋒
+  reading: ほう
+  context: 先鋒・次鋒
+  term: 次鋒
+  evidence: pdf_bbox_and_visual_review
+- annotation_id: ruby-ja-000006
+  source_pdf_page: 40
+  official_text_path: text/guidelines.ja.md
+  target_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:other-guidelines
+  local_anchor: guidelines-shinpan-in-ja-other-guidelines
+  base_text: 袴
+  reading: はかま
+  context: 試合者の服装（剣道着・袴・目印・名札）
+  evidence: pdf_bbox_and_visual_review
+- annotation_id: ruby-ja-000007
+  source_pdf_page: 40
+  official_text_path: text/guidelines.ja.md
+  target_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:other-guidelines
+  local_anchor: guidelines-shiai-sha-ja-other-guidelines
+  base_text: 綻
+  reading: ほころ
+  context: 綻びや破れのないものとする
+  evidence: pdf_bbox_and_visual_review
+- annotation_id: ruby-ja-000008
+  source_pdf_page: 40
+  official_text_path: text/guidelines.ja.md
+  target_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:other-guidelines
+  local_anchor: guidelines-shiai-sha-ja-other-guidelines
+  base_text: 紐
+  reading: ひも
+  context: 面紐の長さは結び目から40センチメートル以下
+  evidence: pdf_bbox_and_visual_review
+- annotation_id: ruby-ja-000009
+  source_pdf_page: 41
+  official_text_path: text/guidelines.ja.md
+  target_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:other-guidelines
+  local_anchor: guidelines-shiai-sha-ja-other-guidelines
+  base_text: 鋒
+  reading: ぽう
+  context: 先鋒戦および最後の試合者の対戦
+  term: 先鋒
+  evidence: pdf_bbox_and_visual_review

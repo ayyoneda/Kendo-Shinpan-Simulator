@@ -1,0 +1,358 @@
+package_id: fik.regulations.2023-07-26.ja
+status: reviewed_internal_research
+section_count: 31
+sections:
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:entering-or-leaving
+  audience: shiai-sha
+  title: 入場等
+  local_anchor: guidelines-shiai-sha-ja-entering-or-leaving
+  source_pdf_pages:
+  - 32
+  english_counterpart_anchor: guidelines-shiai-sha-entering-or-leaving
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:entering-or-leaving
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:team-line-up
+  audience: shiai-sha
+  title: 整列
+  local_anchor: guidelines-shiai-sha-ja-team-line-up
+  source_pdf_pages:
+  - 32
+  english_counterpart_anchor: guidelines-shiai-sha-team-line-up
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:team-line-up
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:rei-to-the-shomen
+  audience: shiai-sha
+  title: 正面への礼
+  local_anchor: guidelines-shiai-sha-ja-rei-to-the-shomen
+  source_pdf_pages:
+  - 34
+  english_counterpart_anchor: guidelines-shiai-sha-rei-to-the-shomen
+  relation: official_language_counterpart_of
+  status: documented_semantic_difference_owner_approved_domain_review_recommended
+  semantic_classification: potentially_meaningful_difference
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:rei-to-the-shomen
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:beginning
+  audience: shiai-sha
+  title: 開始
+  local_anchor: guidelines-shiai-sha-ja-beginning
+  source_pdf_pages:
+  - 34
+  english_counterpart_anchor: guidelines-shiai-sha-beginning
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:beginning
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:yuko-datotsu
+  audience: shiai-sha
+  title: 有効打突
+  local_anchor: guidelines-shiai-sha-ja-yuko-datotsu
+  source_pdf_pages:
+  - 35
+  english_counterpart_anchor: guidelines-shiai-sha-yuko-datotsu
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:yuko-datotsu
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:request-for-a-stoppage
+  audience: shiai-sha
+  title: 中止の要請
+  local_anchor: guidelines-shiai-sha-ja-request-for-a-stoppage
+  source_pdf_pages:
+  - 35
+  - 36
+  english_counterpart_anchor: guidelines-shiai-sha-request-for-a-stoppage
+  relation: official_language_counterpart_of
+  status: documented_semantic_difference_owner_approved_domain_review_recommended
+  semantic_classification: potentially_meaningful_difference
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:request-for-a-stoppage
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:suspension
+  audience: shiai-sha
+  title: 中止
+  local_anchor: guidelines-shiai-sha-ja-suspension
+  source_pdf_pages:
+  - 36
+  english_counterpart_anchor: guidelines-shiai-sha-suspension
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:suspension
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:gogi
+  audience: shiai-sha
+  title: 合議
+  local_anchor: guidelines-shiai-sha-ja-gogi
+  source_pdf_pages:
+  - 37
+  english_counterpart_anchor: guidelines-shiai-sha-gogi
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:gogi
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:resumption
+  audience: shiai-sha
+  title: 再開
+  local_anchor: guidelines-shiai-sha-ja-resumption
+  source_pdf_pages:
+  - 38
+  english_counterpart_anchor: guidelines-shiai-sha-resumption
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:resumption
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:wakare
+  audience: shiai-sha
+  title: 分かれ
+  local_anchor: guidelines-shiai-sha-ja-wakare
+  source_pdf_pages:
+  - 38
+  english_counterpart_anchor: guidelines-shiai-sha-wakare
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:wakare
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:filing-igi
+  audience: shiai-sha
+  title: 異議の申し立て
+  local_anchor: guidelines-shiai-sha-ja-filing-igi
+  source_pdf_pages:
+  - 38
+  english_counterpart_anchor: guidelines-shiai-sha-filing-igi
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:filing-igi
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:hantei-chusen-or-shiai-funo
+  audience: shiai-sha
+  title: 判定・抽選勝ち・試合不能
+  local_anchor: guidelines-shiai-sha-ja-hantei-chusen-or-shiai-funo
+  source_pdf_pages:
+  - 38
+  - 39
+  english_counterpart_anchor: guidelines-shiai-sha-hantei-chusen-or-shiai-funo
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:hantei-chusen-or-shiai-funo
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:fusen-gachi
+  audience: shiai-sha
+  title: 不戦勝ち
+  local_anchor: guidelines-shiai-sha-ja-fusen-gachi
+  source_pdf_pages:
+  - 39
+  english_counterpart_anchor: guidelines-shiai-sha-fusen-gachi
+  relation: official_language_counterpart_of
+  status: documented_semantic_difference_owner_approved_domain_review_recommended
+  semantic_classification: potentially_meaningful_difference
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:fusen-gachi
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:ending
+  audience: shiai-sha
+  title: 終了
+  local_anchor: guidelines-shiai-sha-ja-ending
+  source_pdf_pages:
+  - 39
+  - 40
+  english_counterpart_anchor: guidelines-shiai-sha-ending
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:ending
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:other-guidelines
+  audience: shiai-sha
+  title: その他の要領
+  local_anchor: guidelines-shiai-sha-ja-other-guidelines
+  source_pdf_pages:
+  - 40
+  - 41
+  english_counterpart_anchor: guidelines-shiai-sha-other-guidelines
+  relation: official_language_counterpart_of
+  status: documented_semantic_difference_owner_approved_domain_review_recommended
+  semantic_classification: potentially_meaningful_difference
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:other-guidelines
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:entering-or-leaving
+  audience: shinpan-in
+  title: 入場等
+  local_anchor: guidelines-shinpan-in-ja-entering-or-leaving
+  source_pdf_pages:
+  - 32
+  english_counterpart_anchor: guidelines-shinpan-in-entering-or-leaving
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:entering-or-leaving
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:positioning-of-the-shinpan-in-prior-to-the-commencement-of-a-shiai-and-handling-the-shinpan-ki
+  audience: shinpan-in
+  title: 試合開始前の審判員の移動および旗の保持
+  local_anchor: guidelines-shinpan-in-ja-positioning-of-the-shinpan-in-prior-to-the-commencement-of-a-shiai-and-handling-the-shinpan-ki
+  source_pdf_pages:
+  - 32
+  - 33
+  english_counterpart_anchor: guidelines-shinpan-in-positioning-of-the-shinpan-in-prior-to-the-commencement-of-a-shiai-and-handling-the-shinpan-ki
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:positioning-of-the-shinpan-in-prior-to-the-commencement-of-a-shiai-and-handling-the-shinpan-ki
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:rotation-changing-of-shinpan-in
+  audience: shinpan-in
+  title: 審判員の交替
+  local_anchor: guidelines-shinpan-in-ja-rotation-changing-of-shinpan-in
+  source_pdf_pages:
+  - 33
+  - 34
+  english_counterpart_anchor: guidelines-shinpan-in-rotation-changing-of-shinpan-in
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:rotation-changing-of-shinpan-in
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:rei-to-the-shomen
+  audience: shinpan-in
+  title: 正面への礼
+  local_anchor: guidelines-shinpan-in-ja-rei-to-the-shomen
+  source_pdf_pages:
+  - 34
+  english_counterpart_anchor: guidelines-shinpan-in-rei-to-the-shomen
+  relation: official_language_counterpart_of
+  status: documented_semantic_difference_owner_approved_domain_review_recommended
+  semantic_classification: potentially_meaningful_difference
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:rei-to-the-shomen
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:beginning
+  audience: shinpan-in
+  title: 開始
+  local_anchor: guidelines-shinpan-in-ja-beginning
+  source_pdf_pages:
+  - 34
+  - 35
+  english_counterpart_anchor: guidelines-shinpan-in-beginning
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:beginning
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:yuko-datotsu
+  audience: shinpan-in
+  title: 有効打突
+  local_anchor: guidelines-shinpan-in-ja-yuko-datotsu
+  source_pdf_pages:
+  - 35
+  english_counterpart_anchor: guidelines-shinpan-in-yuko-datotsu
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:yuko-datotsu
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:request-for-a-stoppage
+  audience: shinpan-in
+  title: 中止の要請
+  local_anchor: guidelines-shinpan-in-ja-request-for-a-stoppage
+  source_pdf_pages:
+  - 35
+  - 36
+  english_counterpart_anchor: guidelines-shinpan-in-request-for-a-stoppage
+  relation: official_language_counterpart_of
+  status: documented_semantic_difference_owner_approved_domain_review_recommended
+  semantic_classification: potentially_meaningful_difference
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:request-for-a-stoppage
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:suspension
+  audience: shinpan-in
+  title: 中止
+  local_anchor: guidelines-shinpan-in-ja-suspension
+  source_pdf_pages:
+  - 36
+  - 37
+  english_counterpart_anchor: guidelines-shinpan-in-suspension
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:suspension
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:gogi
+  audience: shinpan-in
+  title: 合議
+  local_anchor: guidelines-shinpan-in-ja-gogi
+  source_pdf_pages:
+  - 37
+  english_counterpart_anchor: guidelines-shinpan-in-gogi
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:gogi
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:resumption
+  audience: shinpan-in
+  title: 再開
+  local_anchor: guidelines-shinpan-in-ja-resumption
+  source_pdf_pages:
+  - 38
+  english_counterpart_anchor: guidelines-shinpan-in-resumption
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:resumption
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:wakare
+  audience: shinpan-in
+  title: 分かれ
+  local_anchor: guidelines-shinpan-in-ja-wakare
+  source_pdf_pages:
+  - 38
+  english_counterpart_anchor: guidelines-shinpan-in-wakare
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:wakare
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:filing-igi
+  audience: shinpan-in
+  title: 異議の申し立て
+  local_anchor: guidelines-shinpan-in-ja-filing-igi
+  source_pdf_pages:
+  - 38
+  english_counterpart_anchor: guidelines-shinpan-in-filing-igi
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:filing-igi
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:hantei-chusen-or-shiai-funo
+  audience: shinpan-in
+  title: 判定・抽選勝ち・試合不能
+  local_anchor: guidelines-shinpan-in-ja-hantei-chusen-or-shiai-funo
+  source_pdf_pages:
+  - 38
+  - 39
+  english_counterpart_anchor: guidelines-shinpan-in-hantei-chusen-or-shiai-funo
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:hantei-chusen-or-shiai-funo
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:fusen-gachi
+  audience: shinpan-in
+  title: 不戦勝ち
+  local_anchor: guidelines-shinpan-in-ja-fusen-gachi
+  source_pdf_pages:
+  - 39
+  english_counterpart_anchor: guidelines-shinpan-in-fusen-gachi
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:fusen-gachi
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:ending
+  audience: shinpan-in
+  title: 終了
+  local_anchor: guidelines-shinpan-in-ja-ending
+  source_pdf_pages:
+  - 39
+  - 40
+  english_counterpart_anchor: guidelines-shinpan-in-ending
+  relation: official_language_counterpart_of
+  status: semantically_reviewed_equivalent
+  semantic_classification: wording_differs_but_meaning_equivalent
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:ending
+- section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:other-guidelines
+  audience: shinpan-in
+  title: その他の要領
+  local_anchor: guidelines-shinpan-in-ja-other-guidelines
+  source_pdf_pages:
+  - 40
+  - 41
+  english_counterpart_anchor: guidelines-shinpan-in-other-guidelines
+  relation: official_language_counterpart_of
+  status: documented_semantic_difference_owner_approved_domain_review_recommended
+  semantic_classification: potentially_meaningful_difference
+  semantic_alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:other-guidelines
+semantic_alignment_status: owner_approved_internal_research_with_documented_differences

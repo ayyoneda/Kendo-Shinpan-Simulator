@@ -1,0 +1,14 @@
+package_id: fik.regulations.2023-07-26.ja
+status: pass
+promoted_date: '2026-08-19'
+source_run_id: fik.regulations.2023-07-26.ja
+target_path: corpus/fik/regulations/2023-07-26-ja
+source_sha256: f9c3c691835a620bd134fa50c63fab8e021c6e8b92f9aa0c1be9e914ed8b58a5
+file_count_before_promotion_report: 134
+validation_status: pass_with_review_required
+validation_error_count: 0
+preservation_policy: Preserve each edition's printed labels, notation, grouping, and scoreboard example without merging or
+  rewriting them.
+tool:
+  path: ingestion/promote_japanese_proposal.py
+  version: 0.1.0

@@ -1,0 +1,91 @@
+package_id: fik.regulations.2023-07-26.ja
+table_id: kkp:table:fik.recording-guide:000002
+language: ja
+source_object_type: figure
+citation_label: 第1図
+title: 掲示板および掲示方法
+data_status: structured_verified_internal_research
+orientation:
+  red: upper_score_row
+  white: lower_score_row
+  rounds:
+  - 先鋒
+  - 次鋒
+  - 中堅
+  - 副将
+  - 大将
+rounds:
+- order: 先鋒
+  red_marks:
+  - code: メ
+    enclosure: circle
+    fill: empty
+    meaning: 面
+  - code: 一本勝
+    enclosure: none
+  center_marks: []
+  white_marks: []
+- order: 次鋒
+  red_marks: []
+  center_marks:
+  - code: 延長
+    enclosure: none
+  white_marks:
+  - code: 判
+    enclosure: circle
+    fill: empty
+    meaning: 判定勝ち
+- order: 中堅
+  red_marks: []
+  center_marks: []
+  white_marks:
+  - code: null
+    enclosure: circle
+    fill: empty
+    count: 2
+    meaning: 不戦勝ち等
+- order: 副将
+  red_marks:
+  - code: メ
+    enclosure: circle
+    fill: empty
+    meaning: 面
+  center_marks:
+  - code: ×
+    enclosure: none
+    meaning: 引き分け
+  white_marks:
+  - code: 反
+    enclosure: circle
+    fill: empty
+    meaning: 反則2回による1本
+- order: 大将
+  red_marks:
+  - code: null
+    shape: triangle
+    fill: solid
+    color: red
+    meaning: 反則
+  - code: メ
+    enclosure: circle
+    fill: empty
+    meaning: 面
+  - code: ツ
+    enclosure: circle
+    fill: empty
+    meaning: 突き
+  center_marks: []
+  white_marks:
+  - code: null
+    shape: triangle
+    fill: solid
+    color: red
+    meaning: 反則
+  - code: コ
+    enclosure: circle
+    fill: empty
+    meaning: 小手
+notes:
+- This is a literal structural reading of the Japanese example; no team winner or totals are inferred because the source does
+  not print them.
+- The Japanese marks and placement differ from the reviewed English example and must not be replaced by the English notation.

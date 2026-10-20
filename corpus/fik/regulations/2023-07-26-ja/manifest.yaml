@@ -1,0 +1,76 @@
+package_id: fik.regulations.2023-07-26.ja
+work_id: fik.regulations
+organization: FIK
+document_family: regulations
+official_title: 剣道試合・審判規則
+official_version: '2023-07-26'
+primary_language: ja
+embedded_languages:
+- en
+manifestation_language: ja
+status: reviewed_internal_research
+counterpart_package_id: fik.regulations.2023-07-26
+counterpart_relation: official_language_counterpart_of
+source:
+  path: source/original.pdf
+  original_filename: Regulations-of-Kendo-Shiai-and-Shinpan-JP_Jul2023.pdf
+  checksum:
+    algorithm: sha256
+    value: f9c3c691835a620bd134fa50c63fab8e021c6e8b92f9aa0c1be9e914ed8b58a5
+text_streams:
+- text/foreword.en.md
+- text/foreword.ja.md
+- text/contents.ja.md
+- text/regulations.ja.md
+- text/subsidiary-rules.ja.md
+- text/guidelines.ja.md
+nodes: nodes.yaml
+language_counterparts: language-counterparts.yaml
+guideline_sections: guideline-sections.yaml
+source_anomalies: source-anomalies.yaml
+ruby_annotations: ruby-annotations.yaml
+asset_inventory: asset-inventory.yaml
+publication_policy: internal_research_use_only
+validation:
+  independent_audit_disposition: validation/independent-audit-disposition.yaml
+  deterministic_text_audit: validation/deterministic-text-audit.yaml
+  promotion: validation/promotion.yaml
+semantic_alignment:
+  status: owner_approved_internal_research_with_documented_differences
+  paired_texts: alignment/paired-texts.yaml
+  review: alignment/semantic-alignment.yaml
+  exception_report: alignment/exception-report.md
+  validation: validation/semantic-alignment-validation.yaml
+figures: figures.yaml
+tables: tables.yaml
+asset_concepts: asset-concepts.yaml
+visual_assets:
+  status: owner_approved_internal_research
+  review: validation/visual-review.yaml
+  figure_count: 23
+  table_concept_count: 4
+  table_visual_asset_count: 5
+  source_fidelity_policy: preserve_language_specific_labels_and_object_types
+visual_alignment: visual-alignment.yaml
+package_schema_version: 0.2.0
+rights_status: unknown
+source_redistribution: prohibited_until_rights_confirmed
+context: context.yaml
+intake_provenance:
+  intake_report: intake-report.yaml
+  review_queue: review-queue.yaml
+  submitted_context: provenance/submitted-context.yaml
+raw_inputs:
+  extracted_text: raw/extracted-text.txt
+  layout_text: raw/extracted-text-layout.txt
+  extraction_metadata: raw/extraction.yaml
+  bbox_extraction: raw/extracted-text-bbox.html
+promotion:
+  status: promoted
+  promoted_date: '2026-08-19'
+  tool: ingestion/promote_japanese_proposal.py
+  tool_version: 0.1.0
+  source_run_id: fik.regulations.2023-07-26.ja
+  source_run_date: '2026-08-18'
+  target_path: corpus/fik/regulations/2023-07-26-ja
+  external_ai_used: false

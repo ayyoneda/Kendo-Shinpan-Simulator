@@ -1,0 +1,31 @@
+package_id: fik.regulations.2023-07-26.ja
+status: proposal_generated_pending_human_review
+checks:
+  pdf_page_count:
+    expected: 50
+    actual: 50
+    result: pass
+  regulation_article_count:
+    expected: 39
+    actual: 39
+    result: pass
+  subsidiary_rule_count:
+    expected: 30
+    actual: 30
+    result: pass
+  english_counterpart_node_count:
+    expected: 69
+    actual: 69
+    result: pass
+  external_ai_used:
+    expected: false
+    actual: false
+    result: pass
+review_required:
+- Obtain Japanese legal-domain review before treating the proposal as an authoritative interpretation.
+- Review cross-language guideline meaning; structural alignment does not assert translation equivalence.
+- Review the unresolved cross-language divergence entry; approved retrieval normalizations are recorded.
+- Extract and visually review figures and tables after text approval.
+tool:
+  path: ingestion/structure_fik_japanese_2023.py
+  version: 0.4.0

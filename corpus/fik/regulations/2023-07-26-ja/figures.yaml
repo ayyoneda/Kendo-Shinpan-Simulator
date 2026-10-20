@@ -1,0 +1,541 @@
+package_id: fik.regulations.2023-07-26.ja
+language: ja
+figure_registry_status: verified_by_repository_owner
+notes:
+- Canonical figure IDs are shared with the English semantic concepts.
+- Japanese manifestation IDs and citation contexts disambiguate repeated printed labels such as 第1図.
+- English descriptions are editorial aids derived from the reviewed English counterparts; the Japanese
+  crop remains authoritative.
+- Figure images have been verified by the repository owner; English editorial descriptions remain drafts.
+- Crop decisions are recorded in figures/crop-map.yaml.
+figures:
+- figure_id: kkp:figure:fik.regulations:000001
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:regulations:000001
+  citation_label: 第1図
+  citation_context: 剣道試合・審判規則
+  figure_set: regulations
+  title: 試合場（基準）
+  display_title: 試合場（基準）
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.regulations:000001
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/regulations-figure-001-shiai-jo/source.png
+  metadata_path: figures/regulations-figure-001-shiai-jo/metadata.yaml
+  description_path: figures/regulations-figure-001-shiai-jo/description.en.md
+  source_pdf_page: 29
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.regulations:000002
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:regulations:000002
+  citation_label: 第2図
+  citation_context: 剣道試合・審判規則
+  figure_set: regulations
+  title: 竹刀各部の名称
+  display_title: 竹刀各部の名称
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.regulations:000002
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/regulations-figure-002-shinai-parts/source.png
+  metadata_path: figures/regulations-figure-002-shinai-parts/metadata.yaml
+  description_path: figures/regulations-figure-002-shinai-parts/description.en.md
+  source_pdf_page: 29
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.regulations:000003
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:regulations:000003
+  citation_label: 第3図
+  citation_context: 剣道試合・審判規則
+  figure_set: regulations
+  title: 剣道具および打突部位
+  display_title: 剣道具および打突部位
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.regulations:000003
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/regulations-figure-003-kendo-gu-datotsu-bui/source.png
+  metadata_path: figures/regulations-figure-003-kendo-gu-datotsu-bui/metadata.yaml
+  description_path: figures/regulations-figure-003-kendo-gu-datotsu-bui/description.en.md
+  source_pdf_page: 30
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.regulations:000004
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:regulations:000004
+  citation_label: 第4図
+  citation_context: 剣道試合・審判規則
+  figure_set: regulations
+  title: 試合者の名札
+  display_title: 試合者の名札
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.regulations:000004
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/regulations-figure-004-nafuda/source.png
+  metadata_path: figures/regulations-figure-004-nafuda/metadata.yaml
+  description_path: figures/regulations-figure-004-nafuda/description.en.md
+  source_pdf_page: 30
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.regulations:000005
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:regulations:000005
+  citation_label: 第5図
+  citation_context: 剣道試合・審判規則
+  figure_set: regulations
+  title: 審判旗などの規格
+  display_title: 審判旗などの規格
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.regulations:000005
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/regulations-figure-005-flag-specifications/source.png
+  metadata_path: figures/regulations-figure-005-flag-specifications/metadata.yaml
+  description_path: figures/regulations-figure-005-flag-specifications/description.en.md
+  source_pdf_page: 30
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000001
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000001
+  citation_label: 第1図
+  citation_context: 団体試合の整列方法
+  figure_set: guidelines
+  title: 試合前後の整列方法（1チームの場合）
+  display_title: 試合前後の整列方法（1チームの場合）
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000001
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-001-line-up/source.png
+  metadata_path: figures/guidelines-figure-001-line-up/metadata.yaml
+  description_path: figures/guidelines-figure-001-line-up/description.en.md
+  source_pdf_page: 42
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000002
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000002
+  citation_label: 第2図
+  citation_context: 団体試合の整列方法
+  figure_set: guidelines
+  title: 試合前後の整列の仕方（2チームの場合）
+  display_title: 試合前後の整列の仕方（2チームの場合）
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000002
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-002-continuous-line-up/source.png
+  metadata_path: figures/guidelines-figure-002-continuous-line-up/metadata.yaml
+  description_path: figures/guidelines-figure-002-continuous-line-up/description.en.md
+  source_pdf_page: 42
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000003
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000003
+  citation_label: 第1図
+  citation_context: 審判員の移動・交替要領
+  figure_set: guidelines
+  title: 審判員の入場および整列
+  display_title: 審判員の入場および整列
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000003
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-003-shinpan-in-line-up/source.png
+  metadata_path: figures/guidelines-figure-003-shinpan-in-line-up/metadata.yaml
+  description_path: figures/guidelines-figure-003-shinpan-in-line-up/description.en.md
+  source_pdf_page: 42
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000004
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000004
+  citation_label: 第2図
+  citation_context: 審判員の移動・交替要領
+  figure_set: guidelines
+  title: 審判員の定位
+  display_title: 審判員の定位
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000004
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-004-shinpan-in-starting-locations/source.png
+  metadata_path: figures/guidelines-figure-004-shinpan-in-starting-locations/metadata.yaml
+  description_path: figures/guidelines-figure-004-shinpan-in-starting-locations/description.en.md
+  source_pdf_page: 42
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000005
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000005
+  citation_label: 第3図
+  citation_context: 審判員の移動・交替要領
+  figure_set: guidelines
+  title: 主審・副審の移動交替
+  display_title: 主審・副審の移動交替
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000005
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-005-rotation/source.png
+  metadata_path: figures/guidelines-figure-005-rotation/metadata.yaml
+  description_path: figures/guidelines-figure-005-rotation/description.en.md
+  source_pdf_page: 43
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000006
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000006
+  citation_label: 第4図
+  citation_context: 審判員の移動・交替要領
+  figure_set: guidelines
+  title: その場での審判員の交替
+  display_title: その場での審判員の交替
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000006
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-006-alternation-a/source.png
+  metadata_path: figures/guidelines-figure-006-alternation-a/metadata.yaml
+  description_path: figures/guidelines-figure-006-alternation-a/description.en.md
+  source_pdf_page: 43
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000007
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000007
+  citation_label: 第5図
+  citation_context: 審判員の移動・交替要領
+  figure_set: guidelines
+  title: 審判員が移動して交替
+  display_title: 審判員が移動して交替
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000007
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-007-alternation-b/source.png
+  metadata_path: figures/guidelines-figure-007-alternation-b/metadata.yaml
+  description_path: figures/guidelines-figure-007-alternation-b/description.en.md
+  source_pdf_page: 43
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000008
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000008
+  citation_label: 第6図
+  citation_context: 審判員の移動・交替要領
+  figure_set: guidelines
+  title: 終了した審判員の交替
+  display_title: 終了した審判員の交替
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000008
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-008-alternation-in-group/source.png
+  metadata_path: figures/guidelines-figure-008-alternation-in-group/metadata.yaml
+  description_path: figures/guidelines-figure-008-alternation-in-group/description.en.md
+  source_pdf_page: 43
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000009
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000009
+  citation_label: 第1図
+  citation_context: 旗の表示要領
+  figure_set: guidelines
+  title: 開始・再開・終了
+  display_title: 開始・再開・終了
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000009
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-009-basic-stance/source.png
+  metadata_path: figures/guidelines-figure-009-basic-stance/metadata.yaml
+  description_path: figures/guidelines-figure-009-basic-stance/description.en.md
+  source_pdf_page: 44
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000010
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000010
+  citation_label: 第2図
+  citation_context: 旗の表示要領
+  figure_set: guidelines
+  title: 有効打突・判定・勝敗の決定
+  display_title: 有効打突・判定・勝敗の決定
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000010
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-010-point-victory-call/source.png
+  metadata_path: figures/guidelines-figure-010-point-victory-call/metadata.yaml
+  description_path: figures/guidelines-figure-010-point-victory-call/description.en.md
+  source_pdf_page: 44
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000011
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000011
+  citation_label: 第3図
+  citation_context: 旗の表示要領
+  figure_set: guidelines
+  title: 有効打突を認めないときか取り消すとき・相殺のとき
+  display_title: 有効打突を認めないときか取り消すとき・相殺のとき
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000011
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-011-revocation-disagreement/source.png
+  metadata_path: figures/guidelines-figure-011-revocation-disagreement/metadata.yaml
+  description_path: figures/guidelines-figure-011-revocation-disagreement/description.en.md
+  source_pdf_page: 44
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000012
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000012
+  citation_label: 第4図
+  citation_context: 旗の表示要領
+  figure_set: guidelines
+  title: 有効打突の判定を棄権したとき
+  display_title: 有効打突の判定を棄権したとき
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000012
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-012-abstention/source.png
+  metadata_path: figures/guidelines-figure-012-abstention/metadata.yaml
+  description_path: figures/guidelines-figure-012-abstention/description.en.md
+  source_pdf_page: 44
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000013
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000013
+  citation_label: 第5図
+  citation_context: 旗の表示要領
+  figure_set: guidelines
+  title: 引き分けのとき
+  display_title: 引き分けのとき
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000013
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-013-hikiwake/source.png
+  metadata_path: figures/guidelines-figure-013-hikiwake/metadata.yaml
+  description_path: figures/guidelines-figure-013-hikiwake/description.en.md
+  source_pdf_page: 44
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000014
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000014
+  citation_label: 第6図
+  citation_context: 旗の表示要領
+  figure_set: guidelines
+  title: 中止のとき
+  display_title: 中止のとき
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000014
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-014-suspension/source.png
+  metadata_path: figures/guidelines-figure-014-suspension/metadata.yaml
+  description_path: figures/guidelines-figure-014-suspension/description.en.md
+  source_pdf_page: 44
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000015
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000015
+  citation_label: 第7図
+  citation_context: 旗の表示要領
+  figure_set: guidelines
+  title: 分かれのとき
+  display_title: 分かれのとき
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000015
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-015-wakare/source.png
+  metadata_path: figures/guidelines-figure-015-wakare/metadata.yaml
+  description_path: figures/guidelines-figure-015-wakare/description.en.md
+  source_pdf_page: 45
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000016
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000016
+  citation_label: 第8図
+  citation_context: 旗の表示要領
+  figure_set: guidelines
+  title: 合議のとき
+  display_title: 合議のとき
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000016
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-016-gogi/source.png
+  metadata_path: figures/guidelines-figure-016-gogi/metadata.yaml
+  description_path: figures/guidelines-figure-016-gogi/description.en.md
+  source_pdf_page: 45
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000017
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000017
+  citation_label: 第9図
+  citation_context: 旗の表示要領
+  figure_set: guidelines
+  title: 反則のとき
+  display_title: 反則のとき
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000017
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-017-hansoku/source.png
+  metadata_path: figures/guidelines-figure-017-hansoku/metadata.yaml
+  description_path: figures/guidelines-figure-017-hansoku/description.en.md
+  source_pdf_page: 45
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+- figure_id: kkp:figure:fik.guidelines:000018
+  figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:guidelines:000018
+  citation_label: 第10図
+  citation_context: 旗の表示要領
+  figure_set: guidelines
+  title: 同時反則のとき
+  display_title: 同時反則のとき
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:figure:fik.guidelines:000018
+    registry_path: figures.yaml
+    relation: official_language_visual_counterpart_of
+  asset_status: extracted_from_pdf_render
+  description_status: editorial_draft_retained
+  asset_path: figures/guidelines-figure-018-simultaneous-hansoku/source.png
+  metadata_path: figures/guidelines-figure-018-simultaneous-hansoku/metadata.yaml
+  description_path: figures/guidelines-figure-018-simultaneous-hansoku/description.en.md
+  source_pdf_page: 45
+  crop_status: verified_by_repository_owner
+  reviewed_by: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+crop_map: figures/crop-map.yaml

@@ -1,0 +1,117 @@
+package_id: fik.regulations.2023-07-26.ja
+language: ja
+table_registry_status: reviewed_internal_research
+notes:
+- Table registry records and structured data were reviewed by the repository owner.
+- Structured YAML is paired with source-image crops; neither replaces the official PDF.
+- Canonical table IDs identify shared semantic concepts while Japanese source labels and object types remain source-faithful.
+- Japanese 表1 and 表2 jointly correspond to the combined English Table 2.
+- Japanese 第1図 掲示板および掲示方法 corresponds semantically to the English recording-guide Table 2.
+- Visual source assets are rendered PDF crops reviewed and approved by Adrian Yoneda on 2026-08-19.
+tables:
+- table_id: kkp:table:fik.regulations:000001
+  table_manifestation_id: kkp:table-manifestation:fik.regulations:2023-07-26:ja:regulations:000001
+  citation_label: 〔別表〕
+  citation_context: 剣道試合・審判規則
+  table_set: regulations
+  title: 審判員の宣告と旗の表示方法
+  language: ja
+  source_object_type: table
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:table:fik.regulations:000001
+    registry_path: tables.yaml
+    relation: official_language_visual_counterpart_of
+  structure_status: structured_verified_internal_research
+  data_path: tables/regulations-announcement-and-flags.ja.yaml
+  visual_asset_status: verified_by_repository_owner
+  visual_metadata_path: tables/assets/regulations-announcement-and-flags/metadata.yaml
+  visual_assets:
+  - part: 1
+    asset_path: tables/assets/regulations-announcement-and-flags/part-01-page-026.png
+    source_pdf_page: 26
+    provenance: official-source-rendered-crop
+    crop_status: verified_by_repository_owner
+  - part: 2
+    asset_path: tables/assets/regulations-announcement-and-flags/part-02-page-027.png
+    source_pdf_page: 27
+    provenance: official-source-rendered-crop
+    crop_status: verified_by_repository_owner
+- table_id: kkp:table:fik.regulations:000002
+  table_manifestation_id: kkp:table-manifestation:fik.regulations:2023-07-26:ja:regulations:000002
+  citation_label: 表1・表2
+  citation_context: 剣道試合・審判規則
+  table_set: regulations
+  title: 竹刀の基準
+  language: ja
+  source_object_type: table_group
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:table:fik.regulations:000002
+    registry_path: tables.yaml
+    relation: official_language_visual_counterpart_of
+  structure_status: structured_verified_internal_research
+  data_path: tables/regulations-shinai-specifications.ja.yaml
+  visual_asset_status: verified_by_repository_owner
+  source_components:
+  - citation_label: 表1
+    title: 竹刀の基準（一刀の場合）
+  - citation_label: 表2
+    title: 竹刀の基準（二刀の場合）
+  - source_object_type: measurement_diagrams
+    title: 計測方法
+  visual_metadata_path: tables/assets/regulations-shinai-specifications/metadata.yaml
+  visual_assets:
+  - part: 1
+    asset_path: tables/assets/regulations-shinai-specifications/source.png
+    source_pdf_page: 28
+    provenance: official-source-rendered-crop
+    crop_status: verified_by_repository_owner
+- table_id: kkp:table:fik.recording-guide:000001
+  table_manifestation_id: kkp:table-manifestation:fik.regulations:2023-07-26:ja:recording-guide:000001
+  citation_label: null
+  citation_context: 掲示要領
+  table_set: recording-guide
+  title: 掲示項目および掲示内容
+  language: ja
+  source_object_type: table
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:table:fik.recording-guide:000001
+    registry_path: tables.yaml
+    relation: official_language_visual_counterpart_of
+  structure_status: structured_verified_internal_research
+  data_path: tables/recording-guide-matters.ja.yaml
+  visual_asset_status: verified_by_repository_owner
+  visual_metadata_path: tables/assets/recording-guide-matters/metadata.yaml
+  visual_assets:
+  - part: 1
+    asset_path: tables/assets/recording-guide-matters/source.png
+    source_pdf_page: 46
+    provenance: official-source-rendered-crop
+    crop_status: verified_by_repository_owner
+- table_id: kkp:table:fik.recording-guide:000002
+  table_manifestation_id: kkp:table-manifestation:fik.regulations:2023-07-26:ja:recording-guide:000002
+  citation_label: 第1図
+  citation_context: 掲示要領・掲示方法
+  table_set: recording-guide
+  title: 掲示板および掲示方法
+  language: ja
+  source_object_type: figure
+  language_counterpart:
+    package_id: fik.regulations.2023-07-26
+    canonical_id: kkp:table:fik.recording-guide:000002
+    registry_path: tables.yaml
+    relation: official_language_visual_counterpart_of
+  structure_status: structured_verified_internal_research
+  data_path: tables/recording-guide-scoreboard-example.ja.yaml
+  visual_asset_status: verified_by_repository_owner
+  visual_metadata_path: tables/assets/recording-guide-scoreboard-example/metadata.yaml
+  visual_assets:
+  - part: 1
+    asset_path: tables/assets/recording-guide-scoreboard-example/source.png
+    source_pdf_page: 47
+    provenance: official-source-rendered-crop
+    crop_status: verified_by_repository_owner
+crop_map: tables/crop-map.yaml
+visual_asset_status: verified_by_repository_owner

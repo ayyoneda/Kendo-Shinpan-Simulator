@@ -1,0 +1,1052 @@
+semantic_alignment_schema_version: 0.1.0
+package_id: fik.regulations.2023-07-26.ja
+counterpart_package_id: fik.regulations.2023-07-26
+status: owner_approved_internal_research_with_documented_differences
+paired_texts:
+  path: alignment/paired-texts.yaml
+  sha256: 0b9a7d83680b81062a940ee22f6ce89eb8cbec9e5bbf6cdb7254cad3de568275
+review_decisions:
+  path: ingestion/reviews/fik-regulations-2023-ja-en-semantic.yaml
+  sha256: ab8f724561bf98c3e62e0410058ea6c3f76665a8a863b2044656372914428190
+  review_id: fik-regulations-2023-ja-en-semantic-001
+  reviewed_date: '2026-08-18'
+  reviewer:
+    name: Codex
+    method: bilingual_semantic_comparison_in_repository_workspace
+    external_api_used: false
+  limitations:
+  - This review compares official source manifestations; it is not a Japanese legal-domain expert attestation.
+  - A difference classification does not decide which official publication governs a particular tournament.
+  owner_approval:
+    approved_by: Adrian Yoneda
+    approved_date: '2026-08-19'
+    statement: I approve the 13 documented Japanese-English edition differences as internal-research semantic alignment exceptions.
+    preservation_policy: Preserve both official texts without rewriting either edition.
+    effect: Accept the differences as documented corpus metadata; do not select one edition as universally controlling.
+summary:
+  pair_count: 100
+  exception_count: 13
+  counts_by_classification:
+    equivalent: 0
+    potentially_meaningful_difference: 13
+    unable_to_determine: 0
+    wording_differs_but_meaning_equivalent: 87
+pairs:
+- alignment_id: alignment:kkp:article:fik.regulations:000001
+  pair_type: provision
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: 7a06d8f98dc4c22fac37485778fcc0446159b6d24d6b052f01857cf7aee183e1
+  english_text_sha256: 0b40bbb7770cf9b935e5f78d639cd925258a7805f1d33e73f58f60284177ff98
+  canonical_id: kkp:article:fik.regulations:000001
+  node_type: article
+  local_number: '1'
+  difference_type: governing_organization_scope
+  japanese_summary: The purpose applies to shiai of the All Japan Kendo Federation.
+  english_summary: The purpose applies to shiai of the International Kendo Federation.
+  significance: The named governing organization and therefore the stated institutional scope differ.
+  recommended_treatment: Preserve both official texts and expose the scope difference; do not normalize either organization
+    name.
+- alignment_id: alignment:kkp:article:fik.regulations:000002
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 4ec9ad13028b16fde11963697501498837511449680989b9747fd8bdd9231ec5
+  english_text_sha256: 15b3d8ed065106148745c3169f9e08f709aa98d4189ece0ea51d61a9e988cb4f
+  canonical_id: kkp:article:fik.regulations:000002
+  node_type: article
+  local_number: '2'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000003
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 7b10f320e9d386314f2a9938da707a25b14f8df188fbd87e3dd5b47d564aefa1
+  english_text_sha256: 91bbc41b5baadbbbbde8e38b437db8d43f3878a3eb332dd800fb9bfc69f97895
+  canonical_id: kkp:article:fik.regulations:000003
+  node_type: article
+  local_number: '3'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000004
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: a663b56e2ff9cf2a01cdecc46ac0f70afd44a6a967d9aa880d26e737c5d4519b
+  english_text_sha256: 41018226989a33fd4401cc8fb9dd850f981b86c1a5b6bf3d73aadddba553cd67
+  canonical_id: kkp:article:fik.regulations:000004
+  node_type: article
+  local_number: '4'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000005
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: eb2eab13a87ddf6c314d34596b7dca2d9c27e92e80d783d4b6f250dc236bb461
+  english_text_sha256: ef24f76322c1d5b3e6ca3a61d8c05b4198cdfaba1918be11ab777fd97097abd6
+  canonical_id: kkp:article:fik.regulations:000005
+  node_type: article
+  local_number: '5'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000006
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 0938df3698789340b96935ec08c892fc5bebc913acf4cd13ae00244ab01d1890
+  english_text_sha256: 79fb9b2e0406b7887b3d8e13c6043eec6cd1f1ac7f975991e218404b8f261008
+  canonical_id: kkp:article:fik.regulations:000006
+  node_type: article
+  local_number: '6'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000007
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 03dbe55124b4cd51afd626b47b31085ee1e2fa111aea64b76113b6a997a334ae
+  english_text_sha256: 7fd2b7bf44e4b3717dcce718029ec8c6a48d17da4053e33a250635c832f7e147
+  canonical_id: kkp:article:fik.regulations:000007
+  node_type: article
+  local_number: '7'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000008
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 4ff704ca1db3f55fbd364cc908413bab48f743df61c69f3774ec8977c817cebb
+  english_text_sha256: 0d09d4d0280169cfc4a402c40c458705ee48b313fabcc4b397bed597278b4ee8
+  canonical_id: kkp:article:fik.regulations:000008
+  node_type: article
+  local_number: '8'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000009
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 415b4a274a8440f938409babfd051817ea1c2656ee96c9997c1652ef09ad1b65
+  english_text_sha256: 9c979302bb70f1a71f3b7d1acb2784530369d0292359c8361f214781cebbc3ed
+  canonical_id: kkp:article:fik.regulations:000009
+  node_type: article
+  local_number: '9'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000010
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 7fef4676d14f35a793702fff9bce645e17de81f6d02f9cacccf33ae50e2dd0e6
+  english_text_sha256: be1c712e546d6941aa3d2b6e1e365ce0b97ae050345560ed67b0033ca21e59f7
+  canonical_id: kkp:article:fik.regulations:000010
+  node_type: article
+  local_number: '10'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000011
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: ea5c8f55e8ad4591b82c43511df971b97063716c43dce46e059a990ce6a3bf26
+  english_text_sha256: 6176c9635e64675a80f0230f0755474fd785617f501f2db428f3887751c31604
+  canonical_id: kkp:article:fik.regulations:000011
+  node_type: article
+  local_number: '11'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000012
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 9809a788c9ab6a8e47333cff81da922a5ae44a5adf52988c080a9d0d455c9d39
+  english_text_sha256: 397c91fe466316f5b074d3781a58298ae5918b9f04c61394a7f8ce36c76b7495
+  canonical_id: kkp:article:fik.regulations:000012
+  node_type: article
+  local_number: '12'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000013
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 3eec0d8f3b822eb98fb4e79668610984b808eef2f6bd7bf24342d3aa15f0b574
+  english_text_sha256: 7a6ec901c095cec45344b92b19bb58f030f2829ce444e262cbad81d46e8c334a
+  canonical_id: kkp:article:fik.regulations:000013
+  node_type: article
+  local_number: '13'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000014
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: d9b6dbe6b9f4fa79f3b0704a7913a1c3b714accbfdb21380346752d15630cf4c
+  english_text_sha256: 6fa12cb6bb52f0cfd195e120f5fa6f3315c2af03431cfe521830192c58888fc4
+  canonical_id: kkp:article:fik.regulations:000014
+  node_type: article
+  local_number: '14'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000015
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 7c923f6ddfb6dcc3d0fc02ddb8db379b646cb295e167cefaa6221149b06dc2f4
+  english_text_sha256: 05bd1c2a878767dd3aabe90b3a76b657fc9a8a61f02c4841df942e6afcb0777c
+  canonical_id: kkp:article:fik.regulations:000015
+  node_type: article
+  local_number: '15'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000016
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 281e841f0b41b2f599d47f5fc3c906cab726132ff772402bfac939b5631b2d3f
+  english_text_sha256: dce39fa806cb9ff02900dbb15cfb5ed0956f46ce2cce3faf730c0509fc55423b
+  canonical_id: kkp:article:fik.regulations:000016
+  node_type: article
+  local_number: '16'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000017
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 5aa8f2b5d7da6198e0135a2d58e617e05bc2c4c25f49d7ea6b5886561b851fb8
+  english_text_sha256: 89cdc66d9f984320ee7dd99630a8ddde9e149537fc7b836987c7eeabad6b312b
+  canonical_id: kkp:article:fik.regulations:000017
+  node_type: article
+  local_number: '17'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000018
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: c657f864c5d5f37fa0d31fe4963427db0963318683af7065edf8cdc5557494a2
+  english_text_sha256: ebc75f5c2700d3e3cac2214cbaa85ed1b67b3751fea3f9c00a570e9f0de08eb3
+  canonical_id: kkp:article:fik.regulations:000018
+  node_type: article
+  local_number: '18'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000019
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 29207b4f9b26a7d2d0152d98d0c56a0dea947396622a5e7338b01c0c56bf183f
+  english_text_sha256: 3dec3c87a7002d269053997a7161f5097dea7454197dbcc0e771d5038f6c7875
+  canonical_id: kkp:article:fik.regulations:000019
+  node_type: article
+  local_number: '19'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000020
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 9758a754899d9b2036ed3bc5bc9df0e0ca050151611b1bf5ff8e7640deb18522
+  english_text_sha256: 179d8b7f5b696722189289efc0c308f9393fcb30734522c0c69c4d59251c7616
+  canonical_id: kkp:article:fik.regulations:000020
+  node_type: article
+  local_number: '20'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000021
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: c7d7a2120bbdbc9bd400233a3a3e84e5b9da898d6d21f8859322198e9a3eb6b4
+  english_text_sha256: 386ab44e51880029074733b1acf311669113dcbf6aeb80937b9919a5048edfdf
+  canonical_id: kkp:article:fik.regulations:000021
+  node_type: article
+  local_number: '21'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000022
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: e068e7ac7c24659465cdc71c020fe45e11e856ceb9a1e2904ec288551e97d981
+  english_text_sha256: bc853480e2431b57f5cc265e848d12aa57d8c7b03d7e61b183b3efa91adc2a52
+  canonical_id: kkp:article:fik.regulations:000022
+  node_type: article
+  local_number: '22'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000023
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 2b9dd1d51e8c7e681f93e7d14c8e079f818b5b223f6285098784019c40d63d1b
+  english_text_sha256: 9c639c6a92b93be628815f5f83af20b7b1e03c17f93688577af6d46ae5f24eee
+  canonical_id: kkp:article:fik.regulations:000023
+  node_type: article
+  local_number: '23'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000024
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: c9a9ae0f56af0eecf0655ba3df549c575362a460ee5c3f04dd8a52b424e1a82f
+  english_text_sha256: c00799c01d5344271af455e9bf0051024592d9d616a3d4f358bdbd7363c7c89b
+  canonical_id: kkp:article:fik.regulations:000024
+  node_type: article
+  local_number: '24'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000025
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: fd7a8f81b530f450a2cfac76050bf295dbbde169d5b7109cfeb33f939d176660
+  english_text_sha256: e833a733d994aff04cbb291f1fc5d8f4767665b4796bab9a0af640abc881850f
+  canonical_id: kkp:article:fik.regulations:000025
+  node_type: article
+  local_number: '25'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000026
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: dc98eea46cf88501aa124d2b981a7a9a58dc0be061c33038846dacbaf221d0d1
+  english_text_sha256: d9731556e7a20e970fdf6965d3415374b35cfc6b98be5e74ab555d1f3723a9c7
+  canonical_id: kkp:article:fik.regulations:000026
+  node_type: article
+  local_number: '26'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000027
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 47a49de318fa06874e1a301e697b8c74cc9ba1d2109eaa47d56c283667c2f8ea
+  english_text_sha256: d81415b21cd40703f1871c5ec06679a579668193613e606c776791c68d2bb7cb
+  canonical_id: kkp:article:fik.regulations:000027
+  node_type: article
+  local_number: '27'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000028
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 76830106b30d219aa3c7f5d49562d9cae8258b3fd85df86dc0ee24455e0d6669
+  english_text_sha256: 2ec4c4f46d8780155652facd6efacfc3356b71ec9a31dceeea22a08e348c4f48
+  canonical_id: kkp:article:fik.regulations:000028
+  node_type: article
+  local_number: '28'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000029
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 0a84db963b57a06947a257cdb6bb2dd273abc27cbf14c244b840a29c998fbcff
+  english_text_sha256: 763321aab459e6af11f6059248c58931e35aa15c429bb9ff22eeaa21ec5ee89d
+  canonical_id: kkp:article:fik.regulations:000029
+  node_type: article
+  local_number: '29'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000030
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: f96f91db9ed6020ce946fb46dd0cb388669a6522c58afe9fbbdae5d9e727b37b
+  english_text_sha256: be8b6b1951340d6439f070cee2d9a1e382430e73df20ada91e1f16f7b5e5ff04
+  canonical_id: kkp:article:fik.regulations:000030
+  node_type: article
+  local_number: '30'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000031
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 004c437aa3b900629e67fdb880a921dbbe61fa736c0c44267b94b4de30df65f3
+  english_text_sha256: 135111b8f7a12027fdd7cf7c1e64cadc99feda6433f89d143b31c77e423ebed9
+  canonical_id: kkp:article:fik.regulations:000031
+  node_type: article
+  local_number: '31'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000032
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: e3a77641a8080408e90b37d2517c2e72edb8fc710da291b6e0fe35fd2ac007e2
+  english_text_sha256: 403489dea7a61b3f8b6a7c582ae1b81b95ab22f8fc96bf7bf67bb490faa471c8
+  canonical_id: kkp:article:fik.regulations:000032
+  node_type: article
+  local_number: '32'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000033
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: c0d7b23bb7410601d24a8dd1b0002a76b9819c7d312e2a604bf4051ef4f062d4
+  english_text_sha256: c35af6ca20a9378b8ad70edeeaec26a0578cb7d342d0b54ca3f5e685ddf61c3d
+  canonical_id: kkp:article:fik.regulations:000033
+  node_type: article
+  local_number: '33'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000034
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 5a5aff2cf0718ea58eff68fc800315aed5aadf01529be5a6d0a5b2a2ed0ee696
+  english_text_sha256: aed9b381672947fc1a82e1e1f1b39464d0a6acfc492d7996b7216b5f38dca841
+  canonical_id: kkp:article:fik.regulations:000034
+  node_type: article
+  local_number: '34'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000035
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 56c96ecec2fe8a7bfa0071631fbc6639b1ab0b7efa422300612ba0ad6912af30
+  english_text_sha256: acc8cd89d3db43eec84bf9fdc4232af81ee9755b63209f26d3e7e41e20ec3e7c
+  canonical_id: kkp:article:fik.regulations:000035
+  node_type: article
+  local_number: '35'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000036
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: b4aa21ae1db3e2ca3ee173805845e11635440d3d865f88d1b4c2c25a8ffc310a
+  english_text_sha256: 0344cba5ac288cfca2daa187ab8ef254eceb89318bfe8b1a9e5194f5f12bef17
+  canonical_id: kkp:article:fik.regulations:000036
+  node_type: article
+  local_number: '36'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000037
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: fd392a517885b17b7223abada3e90831d6a85604ac3fd825612e0a14e5490064
+  english_text_sha256: a0958c158ce3d58b69d284aafd71f65831d120f6ec911afaa94170da654f8c11
+  canonical_id: kkp:article:fik.regulations:000037
+  node_type: article
+  local_number: '37'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000038
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 636ca24b145d59a04828253e545a9d6f5975b4a9e8d78fe1b10da403c53811b8
+  english_text_sha256: e762b6e99e20f5d8504875257d27a242e25533a4116b275c2e1af0a0189c136b
+  canonical_id: kkp:article:fik.regulations:000038
+  node_type: article
+  local_number: '38'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:article:fik.regulations:000039
+  pair_type: provision
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: 72773a45718711873aa2dd8955635fdd5b1655058fc1f686c032192a05c573f9
+  english_text_sha256: acbfa880c1f79a8ad36762afb6fb3a39b73b1cb3e7e68634550ce096c0246056
+  canonical_id: kkp:article:fik.regulations:000039
+  node_type: article
+  local_number: '39'
+  difference_type: consultation_vs_approval
+  japanese_summary: Referees confer and handle the matter after consulting the shinpan-shunin or shinpan-cho.
+  english_summary: The gogi decision is subject to approval of the shinpan-shunin or shinpan-cho.
+  significance: Consultation and required approval may imply different final authority.
+  recommended_treatment: Preserve both formulations and request domain review before presenting them as procedurally identical.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000001
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 442b7e8c5d61454eab8099de5a0035d8875d2080da6059fd58ff461d7f49d6d6
+  english_text_sha256: b1fed5784fb271eb038f88b2e04b0e85f442108b26c25c95c8e26c86f1749959
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000001
+  node_type: subsidiary-rule
+  local_number: '1'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000002
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: f57f59946e5c993a505fb658338baaeb4f99ef32a47df2476ec97b8669b7999e
+  english_text_sha256: 420f4e62884439d5f07eba625dc88451485455bf0db05268ac7337311d14713b
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000002
+  node_type: subsidiary-rule
+  local_number: '2'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000003
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 6cd183c8bd538c6752644999defb88cf9e9442460feeea4306357289c1b32295
+  english_text_sha256: 6e6bdbee611b53073f81d127e2957c72b04af675eaf275b1e0c9e761be7937bb
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000003
+  node_type: subsidiary-rule
+  local_number: '3'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000004
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 0aae27c61b896a6bc322eb2c7954e582cd7acb92594b5ede3b20ec0f2ab83ced
+  english_text_sha256: e92f0498227fd41cb395170ee44e499d9edff0c85a5ed9c3d0a142b2d0fbfcfe
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000004
+  node_type: subsidiary-rule
+  local_number: 3-2
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000005
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 41acf0776d1fdbefc8ea1b860b109eb6bba18a2f9a2c270c8da9d654e9f1d1be
+  english_text_sha256: c8b4f40a9c8149a74bec258852baa5796a8162cbdd5746a1af9caa7a6c77e8bb
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000005
+  node_type: subsidiary-rule
+  local_number: '4'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000006
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: b69bf5e438e59787329896a0a84b90beaa1388050df9bac35a24075f71d929d7
+  english_text_sha256: 86e86dd9dcc8372777da8d8331fd54abfa81d735bf1ebc166745a8f447a8340a
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000006
+  node_type: subsidiary-rule
+  local_number: '5'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000007
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 66e8c858bc8ffca9e2b9d9d83e1a08ba7a729abd826772736f2cb40ff8db4add
+  english_text_sha256: 3e3ff1c3e97c38b227a9b9d7932aa539f497bb6c926ebb5e07508ae8b839acc0
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000007
+  node_type: subsidiary-rule
+  local_number: '6'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000008
+  pair_type: provision
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: 5b0c62d47757864ac40612f56fbdb374f2c63cdfe1fe6b8fdc5f6aa35280b7eb
+  english_text_sha256: 02c3980a326e67be9963ee6d431ce8a98a4eb9c3e050ebfb2af7d86989af3fcf
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000008
+  node_type: subsidiary-rule
+  local_number: '7'
+  difference_type: additional_approval_condition
+  japanese_summary: Medical supporters are allowed when necessary, tidy, and not hazardous.
+  english_summary: The same conditions apply, plus approval by the shinpan-shunin or shinpan-cho.
+  significance: The English edition adds an express approval requirement absent from the Japanese passage.
+  recommended_treatment: Preserve the edition-specific condition and surface it in cross-language comparison.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000009
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: d81b4eb9f8a2c708f39173c541866f5770d0e84bf408bd6832d14df2ad45a160
+  english_text_sha256: eccd30c57598782cbacbd59288365103d0933989d52a822fa38dd8abe024d506
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000009
+  node_type: subsidiary-rule
+  local_number: '8'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000010
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 25488df97be25ff751819784d025e06a710e345341f9c159b1dac665602af034
+  english_text_sha256: 32ea61560b0844492791b578eb9dcba23d07179e661d944962575c11f1bdfff9
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000010
+  node_type: subsidiary-rule
+  local_number: '9'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000011
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 22548a6794039b3872cc9bb7e0e246d4411577f3c6b9cea95959ca1b03665de2
+  english_text_sha256: da834057b2e731278894eeef572883e118c62efbd535b822980fed27b5a83496
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000011
+  node_type: subsidiary-rule
+  local_number: '10'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000012
+  pair_type: provision
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: d5a3f35b905c0208087a7858ed7ca8a48382432ec565cbd89736a633b0955516
+  english_text_sha256: d996068db45bd5f1fb79325835d56adabf631cd3df68bc94b83d7c9b9c97fdc1
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000012
+  node_type: subsidiary-rule
+  local_number: '11'
+  difference_type: modality
+  japanese_summary: The listed immediate strikes may be treated as valid.
+  english_summary: The listed immediate strikes shall be valid.
+  significance: The Japanese wording is discretionary while the English wording is mandatory.
+  recommended_treatment: Preserve both modals and flag the difference for referee-domain review.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000013
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 045305a06b6fb11a83e517ab020c059552d9684f0f507f59b57b75e05e7f07cb
+  english_text_sha256: 16145b044066de2cd7092bccdbe2e051b7bb97546ef546775ae01dd3b0e3665c
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000013
+  node_type: subsidiary-rule
+  local_number: '12'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000014
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 07ee3a2f604a111421fda33a3dbac649a19225af890931b9e57be80067ec2267
+  english_text_sha256: 83fd1323fc15cdb5c39e399cabc855f13c8db1d6ec5b9e7f2449c2358d397d5a
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000014
+  node_type: subsidiary-rule
+  local_number: '13'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000015
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 1cad8c37b54ca09e2be70718207265ea2bfd6fa20609c45fad718a107028d002
+  english_text_sha256: b3d81a2d54f600fd8b65d6751287bf31c1fde06bf94ca521acf684dfd4de898e
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000015
+  node_type: subsidiary-rule
+  local_number: '14'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000016
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 2daf87ff9d01094d73ed6ea2bbdd9ac207001f65fb3dd250c1c26e32daedb77b
+  english_text_sha256: 6724716c3736e65e22bf89434d5f06ce430896abeccaa62c375722e4630b58d0
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000016
+  node_type: subsidiary-rule
+  local_number: '15'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000017
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: a3756e7e4dcd657bff4bac15730d7e5c14f2bde8c6d3d1ec021cd7dfa187d7af
+  english_text_sha256: 822c4e5aee6f66e6ce377083bc0639d0e27f7f7355be618b2fe77b31a2debe52
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000017
+  node_type: subsidiary-rule
+  local_number: '16'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000018
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 38f7fb1d91ea4d6b31c6c9ddf1c6e9a2f25940be5f3d31c883d2e1ec893b617f
+  english_text_sha256: eef94081b2083ec94b5ea19fc316c0be7c8e08ba046dd2368d5857ae45e86d3b
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000018
+  node_type: subsidiary-rule
+  local_number: '17'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000019
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 21ff4964c1afcc507fc6bb2d9981c274a78edf6e0ee68ba5afee519713ef09d9
+  english_text_sha256: b772d8ebfd4376942c3c9e2d2e328b3d17ff796cac0088774a79b3dbaa42e0fa
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000019
+  node_type: subsidiary-rule
+  local_number: '18'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000020
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 4f5f98fd1df0b832dd33b19585a80ea9f348172488dd4a4bdfe1011b304bb17a
+  english_text_sha256: 751acc5aab0c4a927a3ee211d5b00afd2e97ad464d6f7783b95057b2b42d05db
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000020
+  node_type: subsidiary-rule
+  local_number: '19'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000021
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 94c6bd8a8636dfa7a46077fa0433b3fe47bdc0e7988d39f94674b841e0a98997
+  english_text_sha256: 33c11d6812bd900bb28e4e84ac98a20ca2d3817c29828fb21b1b5c139d0f7167
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000021
+  node_type: subsidiary-rule
+  local_number: '20'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000022
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 232f157206beb8857eaea3b4d7b47d0ed3c4e7b91108aa69bb1542c4c543376c
+  english_text_sha256: 3aa176d96e1fae77448925695e6e35e10452ebd5efdfe3edf9f579edd19b5bf6
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000022
+  node_type: subsidiary-rule
+  local_number: '21'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000023
+  pair_type: provision
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: 7dfa1ded45b83f950c1cd991c4b5e46158d5d991f70ccb45ae0e4e775add10c6
+  english_text_sha256: 5035f51984e436d4b5e52a135bb39d31f2078ca18b18340d19d8f4f49842530f
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000023
+  node_type: subsidiary-rule
+  local_number: '22'
+  difference_type: additional_signalling_method
+  japanese_summary: Timekeepers signal expiration of shiai time without specifying the instrument in this article.
+  english_summary: Timekeepers signal expiration using the flag and cite Figure 5.
+  significance: The English edition adds a specific signalling instrument and figure reference.
+  recommended_treatment: Preserve the extra English operational detail and verify it against tournament practice before treating
+    it as shared.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000024
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: c2bd48dab56fcf2f5eff959981124c1ad41b3712313b3d92b673135d2e3d55fe
+  english_text_sha256: 35e1a38cc5c624fa0c6a8b8e3ba934ded3456789ea35e7e1f4bf36eca1509c00
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000024
+  node_type: subsidiary-rule
+  local_number: '23'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000025
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 2e68b9c127576e95ab117caa19c0950fb8cea76ae6526c8790edd530c95448b1
+  english_text_sha256: cbfc549b4c864144df55310bd4e48fa2f73c8d1125878e6ffb7de70da7926210
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000025
+  node_type: subsidiary-rule
+  local_number: '24'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000026
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 4800688bcbafdfd877eb4de5067e29788e1cb8a9408528e699ab712e50cb4edc
+  english_text_sha256: 87ad8c5d20b61d2a0abe0a70f5d223f27a87bb768f489755771df6d6ae72d4c4
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000026
+  node_type: subsidiary-rule
+  local_number: '25'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000027
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 1fd52661632c71e9aa798680e4674e9b8908bf49a2624cc2e419aa4c72644ff3
+  english_text_sha256: 06e81e53026b492d2af7c70a701967cab3139acdeeb92cabff66840b7a36ff8f
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000027
+  node_type: subsidiary-rule
+  local_number: '26'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000028
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 3bfd0a88224a8c60365e4762e19eaca0c72e4086ec0763177d3e0e4e52d2f528
+  english_text_sha256: 86b8a819b9ce2b27febe1b7498a42ac234db52ea933e2f41fcced7ca5814c00b
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000028
+  node_type: subsidiary-rule
+  local_number: '27'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000029
+  pair_type: provision
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: ad6d90b0fc3535835afaa516f2875b18e5a4ac1c2336c5b2f01032faa05c2b44
+  english_text_sha256: 5d9b46fee49e9b2688ffbb63aa01e5d2947b9136f78539ec14f67f536620d295
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000029
+  node_type: subsidiary-rule
+  local_number: '28'
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:subsidiary-rule:fik.regulations:000030
+  pair_type: provision
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: 913789ac6bf253b145e93d24850b7a204898e0dd08ec5fda4ce7bc36e2854042
+  english_text_sha256: d61b2545a50bebfa05fa731fe6f6899bbab29464e8e8cbcdc6ef7247043fcee0
+  canonical_id: kkp:subsidiary-rule:fik.regulations:000030
+  node_type: subsidiary-rule
+  local_number: '29'
+  difference_type: additional_signalling_method
+  japanese_summary: The kantoku gives a signal when filing igi, without specifying an instrument.
+  english_summary: The kantoku signals with a kantoku-ki and cites Figure 5.
+  significance: The English edition specifies an instrument absent from the Japanese passage.
+  recommended_treatment: Preserve the edition-specific detail and avoid silently adding kantoku-ki to the Japanese text.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:entering-or-leaving
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: c50c950d0c7407ec7bbde90361453424e8a2ebabb638f76ea6d882b7ac957a59
+  english_text_sha256: 5a32cb0ad6865d4f22a9d26a81c949ca30cbe8352f41b5e2af40c33be9cfc501
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:entering-or-leaving
+  audience: shiai-sha
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:team-line-up
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: f7cf823dc3181f1f0806b3d877c872fe096e9b716d52d911b42ae8fe9d6dab49
+  english_text_sha256: de2e81c00d16230cbae1a3aa71dde897c908f88c64f5280ffe1ef8c712e7a7c5
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:team-line-up
+  audience: shiai-sha
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:rei-to-the-shomen
+  pair_type: guideline_section
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: 55c2e12ce990b82fd942fd0c5e2779e6c5249d8f9f117ca36b8b54d57bfcf070
+  english_text_sha256: 96b065080402641ff6af6108146a17daf56d26d4a973278ef933344779c804be
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:rei-to-the-shomen
+  audience: shiai-sha
+  difference_type: multi_day_frequency
+  japanese_summary: For an event spanning two or more days, the text names the first shiai and last shiai without expressly
+    saying each day.
+  english_summary: The bow is expressly required at the first and last shiai of each day.
+  significance: The English edition explicitly creates a daily repetition not stated in the Japanese passage.
+  recommended_treatment: Link this finding with the shinpan-in counterpart and request domain confirmation as one shared-heading
+    issue.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:beginning
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: c14657b0d3f9b40f89af9694dcc78bec9539e2e0a3d3c8843dbfe4bc6a85fbbb
+  english_text_sha256: 1487f2beb7c03240bfc60c5a61e3a5dcc08dc679dad97d5d850bf522b4fab692
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:beginning
+  audience: shiai-sha
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:yuko-datotsu
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 0b17eae942fe2671ed7876ba2b3faa7f5309b990af15fe6fdb26dd55c81bc22b
+  english_text_sha256: 1d90aadbbf42e46d0d9f0d2bdadca355e3bc0bdabac68e289adaa9478f67b6ae
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:yuko-datotsu
+  audience: shiai-sha
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:request-for-a-stoppage
+  pair_type: guideline_section
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: 96b9b9473680158f31dd082e37cc2a7df2fa75801e1e22e39dcd9d69c69b742f
+  english_text_sha256: f1205961e420ef61b77a519bbdd5442c532d74819ac11f91ca3268dccbb1de37
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:request-for-a-stoppage
+  audience: shiai-sha
+  difference_type: additional_opponent_instruction
+  japanese_summary: The requesting shiai-sha withdraws and adjusts equipment in sonkyo or seiza.
+  english_summary: The same procedure is given, plus an instruction that the opponent waits in seiza or sonkyo.
+  significance: The English edition adds an operational duty for the opponent.
+  recommended_treatment: Preserve the additional English instruction and do not inject it into Japanese official text.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:suspension
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 5769484636c560714691da13ee71adcc1d5f1173a4d46ab84c869e909641a2b7
+  english_text_sha256: e62e6539c7c9c1aa0ee569ecdca2d0eff7cdbb1aebdf2188cafac35de3194b0e
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:suspension
+  audience: shiai-sha
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:gogi
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 58b96361ab5bc691234c0ab683acb49ea34a3f8bcf4640fb4279ae6a3124ad7a
+  english_text_sha256: 7083a17cd36e7179a912d3bb8bb2270c3e42d4be3dbe07e919b97e7394312d59
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:gogi
+  audience: shiai-sha
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:resumption
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: a46deefbd8e93669c4999f4644f50174711d66e3b905a52fc07dc79a1d672414
+  english_text_sha256: 9666eb803eaa8ee1ba9d5a3b07445e3fea00233358393d33b3261f15558df0d9
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:resumption
+  audience: shiai-sha
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:wakare
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: a6f79df1b25b56423eb8392c9c323c36aeaa9f6b0b7ccef123c41656e6f9aed3
+  english_text_sha256: 8e76cf1878d41d43d0a2c7e8ef6fe327f5035142c7a127f62a16647a075bdf91
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:wakare
+  audience: shiai-sha
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:filing-igi
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 9c887d7be3f8a849aca43910f7d4a24ceff2cef3ef7bd7ea7dbe35fc29eadb28
+  english_text_sha256: 7e6c1738be77a6702605fad64d5dad737009a61abda35d2743bdcc002c9c388e
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:filing-igi
+  audience: shiai-sha
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:hantei-chusen-or-shiai-funo
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 616cbd035e663af785afe1e339930a6476d23de302bd5da8901e983d7710d9c4
+  english_text_sha256: 1a79a188eba300f7df468b879da2ef881ecea54d2f0e765040d29f84ae333c26
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:hantei-chusen-or-shiai-funo
+  audience: shiai-sha
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:fusen-gachi
+  pair_type: guideline_section
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: 32fcdd2ed94ef8b6691e07a964cd0adb73084f45569d2aaa8d3f6453517d0fa9
+  english_text_sha256: 473ba13cdd7295177206b9108d6202b0b5adcd859a19f193798a192b7d98927b
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:fusen-gachi
+  audience: shiai-sha
+  difference_type: team_participants
+  japanese_summary: In dantai-shiai fusen-gachi, all shiai-sha receive the declaration at the ritsu-rei location.
+  english_summary: The winning team lines up and receives the declaration.
+  significance: The passages may identify different participants in the team procedure.
+  recommended_treatment: Request domain review with the source figure before asserting equivalence.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:ending
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: de6dc51b9acb85f45584e65227132d0d449b536b1fb66d338b4c553b5f7ef509
+  english_text_sha256: 0284430b1f5d0d8bcbb3a717ad00bf1d056eb8a8ebd9c790e6cb5657f5e4f9d3
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:ending
+  audience: shiai-sha
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:other-guidelines
+  pair_type: guideline_section
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: 4f0ea169a2ba759eca3f8d41f5b7179081448e94b463116de3f7ca0d012752b0
+  english_text_sha256: dad4fd8c5a87ba6745977507156e00a94dbb2932c47b26c30fcdf8a2a73c6bd3
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shiai-sha:other-guidelines
+  audience: shiai-sha
+  difference_type: multiple_operational_differences
+  japanese_summary: The passage specifies the nito sheathing sequence, men-himo of 40cm or less, and prohibits physical gestures
+    during changeover.
+  english_summary: The nito sheathing wording does not describe the same sequence clearly, says shorter than 40cm, and says
+    gestures should be avoided.
+  significance: The pair contains a sequence discrepancy, a boundary difference at exactly 40cm, and a weaker English modal.
+  recommended_treatment: Keep the three sub-findings together but expose them separately in applications and domain review.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:entering-or-leaving
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 6587e59abf98e6cabb69c4e8c41ea519ff17c1178d31c1305450bb5e93bea1a3
+  english_text_sha256: ced3eddfaad3ebecc3d1daceff3a8db5cdd17188bd48428fd46237673961f8d9
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:entering-or-leaving
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:positioning-of-the-shinpan-in-prior-to-the-commencement-of-a-shiai-and-handling-the-shinpan-ki
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 8216f9b521d58924dd132dac4e09bf103c97fa539dd930973c841070e34475da
+  english_text_sha256: 7ed32b3b0a56b041482f8e2dcad8345050a4902c3e17e62ac19487cac4750121
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:positioning-of-the-shinpan-in-prior-to-the-commencement-of-a-shiai-and-handling-the-shinpan-ki
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:rotation-changing-of-shinpan-in
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 9544c9598d08b28951c7b549600c928226822284af8574b7138cb99425e398e7
+  english_text_sha256: c80ff454ef81fb95461c0b10b58bea96f0d573ac5a937a70897e35cf7ccc72de
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:rotation-changing-of-shinpan-in
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:rei-to-the-shomen
+  pair_type: guideline_section
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: b919f71c9e86965592dba872feec472f9e2d5ad6455d3d541e25ba473cb7de55
+  english_text_sha256: 88488c2e8d35dc3a02a94b7528db9be5cae2af8c56a0cd69978164659230457a
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:rei-to-the-shomen
+  audience: shinpan-in
+  difference_type: multi_day_frequency
+  japanese_summary: For an event spanning two or more days, the text names the first shiai and last shiai without expressly
+    saying each day.
+  english_summary: The bow is expressly required at the first and last shiai of each day.
+  significance: This repeats the shared-heading frequency difference in the shinpan-in stream.
+  recommended_treatment: Review together with the shiai-sha counterpart as one source-level issue.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:beginning
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 580f55a7804b2d49edafdda6441e8dc8983f05aae07eec3f574d16a0a05a9221
+  english_text_sha256: 7f6e17d21c214f5108e0a1e8de95275e9cbdcd6566d5d67412b495ea09bd1d10
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:beginning
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:yuko-datotsu
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: a12a766db42ab6dcf43b05f35437d19ca86f39dbee8cd1d00db37968ac707391
+  english_text_sha256: a41a772de20887e9234ebb94adf754bb778fff7d9f0404cd239d3a2f3267b36a
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:yuko-datotsu
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:request-for-a-stoppage
+  pair_type: guideline_section
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: 383d81df8c778ad39ae7077aaa43ae6c38d3acf994f5d22e93ee82d59e5c58fc
+  english_text_sha256: cefaf8ca74442623b7064473b270bf4bda7580ff915cd45ea417f4b04e210f96
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:request-for-a-stoppage
+  audience: shinpan-in
+  difference_type: decision_authority
+  japanese_summary: Gogi follows when the shinpan-in judge the stoppage request unjustified.
+  english_summary: Gogi follows when the shushin deems the request unjustified.
+  significance: Collective referees and the chief referee may imply different decision authority.
+  recommended_treatment: Preserve both and request referee-domain confirmation.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:suspension
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 1810277794d0af78c9fa23c56fb874d8cd6cf1bc2e7f7602534bef36802be214
+  english_text_sha256: 1c17383939748fc66674cc4ec4e310f1c18c03ea57603a910145be0dfe4ae19e
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:suspension
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:gogi
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 9b805af4ff2dec8ddccbde679a36c40f7a67cf204a9be5a270c6714ada8c7f97
+  english_text_sha256: fd6e5d187ac9919dc5a47ade7766af777d415be10ba79aabb7a4f98c4700c274
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:gogi
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:resumption
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 858c7d4da2cff0dd949ed616abb5805b7990267e3107efce69dab2463830b3b3
+  english_text_sha256: 32089af4ac36d4f60d523b169a877a3604cece9be333d42337a79be65816becb
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:resumption
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:wakare
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 9c45607ddf6089b4ffc9ac3e9fa0ae842026fc7dccca2515bf1dc8ce25bbf660
+  english_text_sha256: 358eaa285096956e98f6fb802805a0704c0f12c558be65451a1c60319340c556
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:wakare
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:filing-igi
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 922ff8172eae43af52b4d7e49c81779cce4c3f118c161fc957c495dcb81f11b7
+  english_text_sha256: ebc6fe8d2dda3e4dbf5bfdad239c0278ba938ebf525097fd1da6839cbd9de69e
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:filing-igi
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:hantei-chusen-or-shiai-funo
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: a6ff92b36edb9409a4fce88c3cfeb771bafb4526ca57904636f98f471e984d3f
+  english_text_sha256: b4c553f2a2771b38011c735a953d09d275ec4f99053cc224d45379985c248d70
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:hantei-chusen-or-shiai-funo
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:fusen-gachi
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 2d16bff03dbc78dda4e11ae7ba672b4294ce7779aa95a18b236f973f8aecf05a
+  english_text_sha256: a13f00a144efecf597cdfb7951b28ea71d029bfb9b7b9b02a3829b70aa26bde7
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:fusen-gachi
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:ending
+  pair_type: guideline_section
+  classification: wording_differs_but_meaning_equivalent
+  japanese_text_sha256: 854c41e54d5ebc5635a6e12706783d0a8618bb097330ab640b47524a26ef01ed
+  english_text_sha256: cdee6db65c25902020f9e267d4c1df50ce8b3822bb8ab3835861be10b58285e8
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:ending
+  audience: shinpan-in
+  rationale: The passages express the same operational or normative meaning despite translation, terminology, or source-local
+    figure numbering differences.
+- alignment_id: alignment:kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:other-guidelines
+  pair_type: guideline_section
+  classification: potentially_meaningful_difference
+  japanese_text_sha256: d0f1b01a112d03516bd4dd2812b65b4a9fccb0514d908fe34a0f290710a8e216
+  english_text_sha256: fcd3f48da6656136263655413d5f9ebad1aa5fe7930d8d2421a66c0362200ce7
+  section_id: kkp:guideline-section:fik.regulations:2023-07-26:ja:shinpan-in:other-guidelines
+  audience: shinpan-in
+  difference_type: cross_reference_and_scope
+  japanese_summary: Equipment checking cites Subsidiary Rules Articles 2 and 3 and includes attempted inappropriate conduct
+    after shiai.
+  english_summary: Equipment checking cites Subsidiary Rules Articles 3 and 4 and omits attempted conduct.
+  significance: The English cross-references point to kendo-gu and mejirushi rather than both shinai and kendo-gu, and its
+    conduct scope is narrower.
+  recommended_treatment: Preserve the printed references, flag the English reference set as potentially erroneous, and do
+    not silently correct it.

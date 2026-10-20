@@ -1,0 +1,12 @@
+package_id: fik.regulations.2023-07-26.ja
+validation_type: semantic_alignment_artifact
+status: pass
+tool:
+  path: ingestion/finalize_japanese_semantic_alignment.py
+  version: 0.1.0
+summary:
+  pair_count: 100
+  classified_pair_count: 100
+  exception_count: 13
+  failure_count: 0
+failures: []

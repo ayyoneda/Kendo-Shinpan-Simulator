@@ -1,0 +1,68 @@
+package_id: fik.regulations.2023-07-26.ja
+figure_id: kkp:figure:fik.regulations:000004
+figure_manifestation_id: kkp:figure-manifestation:fik.regulations:2023-07-26:ja:regulations:000004
+citation_label: 第4図
+citation_context: 剣道試合・審判規則
+figure_set: regulations
+title: 試合者の名札
+display_title: 試合者の名札
+source_object_type: figure
+language_counterpart:
+  package_id: fik.regulations.2023-07-26
+  canonical_id: kkp:figure:fik.regulations:000004
+  registry_path: figures.yaml
+  relation: official_language_visual_counterpart_of
+source_pdf: source/original.pdf
+source_pdf_page: 30
+asset_path: figures/regulations-figure-004-nafuda/source.png
+description_path: figures/regulations-figure-004-nafuda/description.en.md
+provenance: official-source-rendered-crop
+description_provenance: editorial-draft-from-visual-inspection
+asset_status: extracted_from_pdf_render
+verification_status: verified_by_repository_owner
+extracted_date: '2026-08-19'
+crop:
+  crop_map: figures/crop-map.yaml
+  reference_render_dpi: 200
+  reference_render_size_px:
+  - 1166
+  - 1653
+  reference_crop_box_px:
+  - 130
+  - 930
+  - 560
+  - 1540
+  reference_crop_segments_px: []
+  reference_whiteout_boxes_px: []
+  extraction_render_dpi: 300
+  rendered_page_size_px:
+  - 1749
+  - 2481
+  actual_crop_box_px:
+  - 195
+  - 1396
+  - 840
+  - 2311
+  actual_crop_segments_px: []
+  actual_trim_boxes_px:
+  - - 0
+    - 0
+    - 645
+    - 913
+  output_size_px:
+  - 645
+  - 913
+  whitespace_trimmed: true
+tool:
+  script: tools/extract_figure_assets.py
+  renderer: pdftoppm
+visual_review:
+  status: approved_internal_research
+  reviewer: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+  scope: Japanese figure and table crops
+  description_verified: false
+  statement: I approve the Japanese visual assets and the three documented visual-alignment differences
+    for internal research.
+  preservation_policy: Preserve each edition's printed labels, notation, grouping, and scoreboard example
+    without merging or rewriting them.

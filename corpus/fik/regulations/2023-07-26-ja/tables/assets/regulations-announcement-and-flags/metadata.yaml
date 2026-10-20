@@ -1,0 +1,78 @@
+package_id: fik.regulations.2023-07-26.ja
+table_id: kkp:table:fik.regulations:000001
+table_manifestation_id: kkp:table-manifestation:fik.regulations:2023-07-26:ja:regulations:000001
+citation_label: 〔別表〕
+citation_context: 剣道試合・審判規則
+table_set: regulations
+title: 審判員の宣告と旗の表示方法
+source_object_type: table
+source_components: null
+language_counterpart:
+  package_id: fik.regulations.2023-07-26
+  canonical_id: kkp:table:fik.regulations:000001
+  registry_path: tables.yaml
+  relation: official_language_visual_counterpart_of
+source_pdf: source/original.pdf
+provenance: official-source-rendered-crop
+visual_asset_status: verified_by_repository_owner
+extracted_date: '2026-08-19'
+crop_map: tables/crop-map.yaml
+reference_render_dpi: 200
+extraction_render_dpi: 300
+assets:
+- part: 1
+  asset_path: tables/assets/regulations-announcement-and-flags/part-01-page-026.png
+  source_pdf_page: 26
+  provenance: official-source-rendered-crop
+  asset_status: extracted_from_pdf_render
+  crop_status: verified_by_repository_owner
+  reference_crop_box_px:
+  - 110
+  - 60
+  - 1050
+  - 1540
+  rendered_page_size_px:
+  - 1749
+  - 2481
+  output_size_px:
+  - 1410
+  - 2221
+  actual_crop_box_px:
+  - 165
+  - 90
+  - 1575
+  - 2311
+- part: 2
+  asset_path: tables/assets/regulations-announcement-and-flags/part-02-page-027.png
+  source_pdf_page: 27
+  provenance: official-source-rendered-crop
+  asset_status: extracted_from_pdf_render
+  crop_status: verified_by_repository_owner
+  reference_crop_box_px:
+  - 110
+  - 90
+  - 1050
+  - 1510
+  rendered_page_size_px:
+  - 1749
+  - 2481
+  output_size_px:
+  - 1410
+  - 2131
+  actual_crop_box_px:
+  - 165
+  - 135
+  - 1575
+  - 2266
+tool:
+  script: tools/extract_table_assets.py
+  renderer: pdftoppm
+visual_review:
+  status: approved_internal_research
+  reviewer: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+  scope: Japanese figure and table crops
+  description_verified: false
+  statement: I approve the Japanese visual assets and the three documented visual-alignment differences for internal research.
+  preservation_policy: Preserve each edition's printed labels, notation, grouping, and scoreboard example without merging
+    or rewriting them.

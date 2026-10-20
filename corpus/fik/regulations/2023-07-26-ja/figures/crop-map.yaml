@@ -1,0 +1,281 @@
+package_id: fik.regulations.2023-07-26.ja
+crop_map_schema_version: 0.2.0
+source_pdf: source/original.pdf
+reference_render:
+  tool: pdftoppm
+  dpi: 200
+  page_size_px:
+  - 1166
+  - 1653
+extraction_render:
+  tool: pdftoppm
+  dpi: 300
+status: verified_by_repository_owner
+review:
+  status: approved_internal_research
+  reviewer: Adrian Yoneda
+  reviewed_date: '2026-08-19'
+  scope: Japanese figure and table crops
+  description_verified: false
+  statement: I approve the Japanese visual assets and the three documented visual-alignment differences for internal research.
+  preservation_policy: Preserve each edition's printed labels, notation, grouping, and scoreboard example without merging
+    or rewriting them.
+notes:
+- Crop boxes use the same page geometry as the reviewed English edition, then are verified against the Japanese render.
+- Whiteout boxes remove neighboring figures only; they do not alter the selected figure.
+figures:
+- figure_id: kkp:figure:fik.regulations:000001
+  output_dir: figures/regulations-figure-001-shiai-jo
+  source_pdf_page: 29
+  crop_box_px:
+  - 160
+  - 100
+  - 1020
+  - 980
+  description: Diagram of the shiai-jo showing its boundary, outer area, center mark, kaishi-sen, and official dimensions.
+  crop_segments_px:
+  - - 250
+    - 100
+    - 900
+    - 220
+  - - 160
+    - 300
+    - 1020
+    - 980
+  segment_gap_px: 12
+  trim_whitespace: true
+  trim_padding_px: 12
+- figure_id: kkp:figure:fik.regulations:000002
+  output_dir: figures/regulations-figure-002-shinai-parts
+  source_pdf_page: 29
+  crop_box_px:
+  - 230
+  - 985
+  - 1010
+  - 1430
+  description: Labeled diagram naming the parts of a shinai in Japanese, including the printed ruby annotations.
+- figure_id: kkp:figure:fik.regulations:000003
+  output_dir: figures/regulations-figure-003-kendo-gu-datotsu-bui
+  source_pdf_page: 30
+  crop_box_px:
+  - 115
+  - 60
+  - 1050
+  - 925
+  description: Composite diagram of men, kote, do, tare, and the protected striking areas.
+- figure_id: kkp:figure:fik.regulations:000004
+  output_dir: figures/regulations-figure-004-nafuda
+  source_pdf_page: 30
+  crop_box_px:
+  - 130
+  - 930
+  - 560
+  - 1540
+  description: Diagram of the competitor name tag showing team name, surname, lettering direction, and cloth color.
+  trim_whitespace: true
+  trim_padding_px: 12
+- figure_id: kkp:figure:fik.regulations:000005
+  output_dir: figures/regulations-figure-005-flag-specifications
+  source_pdf_page: 30
+  crop_box_px:
+  - 560
+  - 930
+  - 1055
+  - 1540
+  description: Specifications and dimensions for referee, supervisor, and timekeeper flags.
+  trim_whitespace: true
+  trim_padding_px: 12
+- figure_id: kkp:figure:fik.guidelines:000001
+  output_dir: figures/guidelines-figure-001-line-up
+  source_pdf_page: 42
+  crop_box_px:
+  - 135
+  - 160
+  - 705
+  - 705
+  description: Team line-up before and after a match when one team is present.
+  whiteout_boxes_px:
+  - - 600
+    - 160
+    - 705
+    - 240
+  - - 620
+    - 285
+    - 705
+    - 705
+- figure_id: kkp:figure:fik.guidelines:000002
+  output_dir: figures/guidelines-figure-002-continuous-line-up
+  source_pdf_page: 42
+  crop_box_px:
+  - 625
+  - 160
+  - 1035
+  - 705
+  description: Team line-up before and after a match when two teams rotate.
+  whiteout_boxes_px:
+  - - 625
+    - 235
+    - 720
+    - 285
+- figure_id: kkp:figure:fik.guidelines:000003
+  output_dir: figures/guidelines-figure-003-shinpan-in-line-up
+  source_pdf_page: 42
+  crop_box_px:
+  - 40
+  - 820
+  - 555
+  - 1455
+  description: Entry and line-up positions of the referee team.
+- figure_id: kkp:figure:fik.guidelines:000004
+  output_dir: figures/guidelines-figure-004-shinpan-in-starting-locations
+  source_pdf_page: 42
+  crop_box_px:
+  - 600
+  - 820
+  - 1035
+  - 1455
+  description: Starting positions of shushin and fukushin.
+- figure_id: kkp:figure:fik.guidelines:000005
+  output_dir: figures/guidelines-figure-005-rotation
+  source_pdf_page: 43
+  crop_box_px:
+  - 140
+  - 110
+  - 545
+  - 760
+  description: Movement and role rotation of shushin and fukushin.
+- figure_id: kkp:figure:fik.guidelines:000006
+  output_dir: figures/guidelines-figure-006-alternation-a
+  source_pdf_page: 43
+  crop_box_px:
+  - 535
+  - 110
+  - 1050
+  - 785
+  description: Replacement of referees at their current positions.
+- figure_id: kkp:figure:fik.guidelines:000007
+  output_dir: figures/guidelines-figure-007-alternation-b
+  source_pdf_page: 43
+  crop_box_px:
+  - 140
+  - 800
+  - 590
+  - 1470
+  description: Replacement after referees move across the shiai-jo.
+  whiteout_boxes_px:
+  - - 535
+    - 1230
+    - 590
+    - 1470
+- figure_id: kkp:figure:fik.guidelines:000008
+  output_dir: figures/guidelines-figure-008-alternation-in-group
+  source_pdf_page: 43
+  crop_box_px:
+  - 550
+  - 800
+  - 1040
+  - 1480
+  description: Replacement of the referee team that has completed its duty.
+  whiteout_boxes_px:
+  - - 550
+    - 900
+    - 630
+    - 1150
+- figure_id: kkp:figure:fik.guidelines:000009
+  output_dir: figures/guidelines-figure-009-basic-stance
+  source_pdf_page: 44
+  crop_box_px:
+  - 95
+  - 160
+  - 590
+  - 565
+  description: Flag position for beginning, resumption, and ending.
+- figure_id: kkp:figure:fik.guidelines:000010
+  output_dir: figures/guidelines-figure-010-point-victory-call
+  source_pdf_page: 44
+  crop_box_px:
+  - 600
+  - 155
+  - 1090
+  - 570
+  description: Flag signal for yuko-datotsu, hantei, and deciding victory.
+- figure_id: kkp:figure:fik.guidelines:000011
+  output_dir: figures/guidelines-figure-011-revocation-disagreement
+  source_pdf_page: 44
+  crop_box_px:
+  - 95
+  - 600
+  - 590
+  - 1060
+  description: Flag signal for disagreement, cancellation of yuko-datotsu, or sosai.
+- figure_id: kkp:figure:fik.guidelines:000012
+  output_dir: figures/guidelines-figure-012-abstention
+  source_pdf_page: 44
+  crop_box_px:
+  - 600
+  - 600
+  - 1090
+  - 1040
+  description: Flag signal for abstaining from a yuko-datotsu decision.
+- figure_id: kkp:figure:fik.guidelines:000013
+  output_dir: figures/guidelines-figure-013-hikiwake
+  source_pdf_page: 44
+  crop_box_px:
+  - 95
+  - 1055
+  - 590
+  - 1535
+  description: Flag signal for hikiwake.
+- figure_id: kkp:figure:fik.guidelines:000014
+  output_dir: figures/guidelines-figure-014-suspension
+  source_pdf_page: 44
+  crop_box_px:
+  - 600
+  - 1055
+  - 1090
+  - 1535
+  description: Flag signal for stopping a match.
+  trim_whitespace: true
+  trim_padding_px: 12
+- figure_id: kkp:figure:fik.guidelines:000015
+  output_dir: figures/guidelines-figure-015-wakare
+  source_pdf_page: 45
+  crop_box_px:
+  - 95
+  - 130
+  - 590
+  - 610
+  description: Flag signal for wakare.
+  trim_whitespace: true
+  trim_padding_px: 12
+- figure_id: kkp:figure:fik.guidelines:000016
+  output_dir: figures/guidelines-figure-016-gogi
+  source_pdf_page: 45
+  crop_box_px:
+  - 600
+  - 130
+  - 1060
+  - 610
+  description: Flag signal for gogi.
+- figure_id: kkp:figure:fik.guidelines:000017
+  output_dir: figures/guidelines-figure-017-hansoku
+  source_pdf_page: 45
+  crop_box_px:
+  - 95
+  - 600
+  - 610
+  - 1040
+  description: Flag signal for hansoku.
+  trim_whitespace: true
+  trim_padding_px: 12
+- figure_id: kkp:figure:fik.guidelines:000018
+  output_dir: figures/guidelines-figure-018-simultaneous-hansoku
+  source_pdf_page: 45
+  crop_box_px:
+  - 600
+  - 600
+  - 1085
+  - 1040
+  description: Flag signal for simultaneous hansoku.
+  trim_whitespace: true
+  trim_padding_px: 12

@@ -1,0 +1,20 @@
+extraction_schema_version: 0.1.0
+source_sha256: f9c3c691835a620bd134fa50c63fab8e021c6e8b92f9aa0c1be9e914ed8b58a5
+page_count: 50
+plain_text:
+  path: raw/extracted-text.txt
+  sha256: 588b0a07d1bba0a3b7002d66fde73e43cba520420af2a014aa5b7354af82efeb
+  size_bytes: 59523
+  character_count: 25186
+layout_text:
+  path: raw/extracted-text-layout.txt
+  sha256: d024ed060b42d4e46f57f2451ac778d2220b1b9a239ff2a7e09e5c9425785692
+  size_bytes: 82233
+  character_count: 47896
+possible_scanned_pdf: false
+tool:
+  name: pdftotext
+  version: pdftotext version 25.12.0
+diagnostics:
+- message: 'Syntax Warning: Invalid Font Weight'
+  occurrences: 70

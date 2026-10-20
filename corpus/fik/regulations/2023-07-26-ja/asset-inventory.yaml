@@ -1,0 +1,105 @@
+package_id: fik.regulations.2023-07-26.ja
+status: individual_assets_owner_approved_internal_research
+source_pdf: source/original.pdf
+groups:
+- kind: announcement_table
+  source_pdf_pages:
+  - 26
+  - 27
+- kind: shinai_specification_tables_and_measurement_diagrams
+  source_pdf_pages:
+  - 28
+- kind: regulations_figures
+  source_pdf_pages:
+  - 29
+  - 30
+  official_figure_labels:
+  - 第1図
+  - 第2図
+  - 第3図
+  - 第4図
+  - 第5図
+- kind: guidelines_figures
+  source_pdf_pages:
+  - 42
+  - 43
+  - 44
+  - 45
+- kind: recording_guide_tables
+  source_pdf_pages:
+  - 46
+  - 47
+- kind: source_glossary
+  source_pdf_pages:
+  - 48
+  - 49
+  - 50
+  language: en
+source_page_assets:
+- source_pdf_page: 26
+  path: assets/source-pages/page-026.png
+  sha256: 82c6d936979d4459d9e6b69dcec70e7dc00b7ab54f57b5e01001675404e1eb31
+  size_bytes: 266405
+  status: source_page_render_verified_crops_approved
+- source_pdf_page: 27
+  path: assets/source-pages/page-027.png
+  sha256: 81b7230a67735a7520bde661fd59c9b8c6c79a9b2f16b87e339b832366536af2
+  size_bytes: 255395
+  status: source_page_render_verified_crops_approved
+- source_pdf_page: 28
+  path: assets/source-pages/page-028.png
+  sha256: c8c80fe61946a0365478b4f7338c52a17782f49e809a0f6caf68a6238dec8f69
+  size_bytes: 212558
+  status: source_page_render_verified_crops_approved
+- source_pdf_page: 29
+  path: assets/source-pages/page-029.png
+  sha256: c61451a39ea754f9ba5db6fd020241aedda5af4809302a70714c3478aee8c825
+  size_bytes: 73767
+  status: source_page_render_verified_crops_approved
+- source_pdf_page: 30
+  path: assets/source-pages/page-030.png
+  sha256: d89d7ca04e6509aba09c3f850aea477b3d473022451ee44da3634ac43e460a72
+  size_bytes: 215503
+  status: source_page_render_verified_crops_approved
+- source_pdf_page: 42
+  path: assets/source-pages/page-042.png
+  sha256: 7a606c5ef4156d8d6cb059e51eef9fbbe56fa359efa6ddb78a773198d9d3ab6a
+  size_bytes: 159056
+  status: source_page_render_verified_crops_approved
+- source_pdf_page: 43
+  path: assets/source-pages/page-043.png
+  sha256: 7c5f5d4f243c755ccb1fb25d94d3902f8e6cca76494e4ed973ebb88c92590b74
+  size_bytes: 82755
+  status: source_page_render_verified_crops_approved
+- source_pdf_page: 44
+  path: assets/source-pages/page-044.png
+  sha256: d162b717f2cf537b29e13c335825e74995abdeec609ef444f3d02ae6f6c7d6e0
+  size_bytes: 145005
+  status: source_page_render_verified_crops_approved
+- source_pdf_page: 45
+  path: assets/source-pages/page-045.png
+  sha256: e8d419a316e10a44a2f677f1f680475b9a2babd3dafc228de4a4934ee26ab0ec
+  size_bytes: 81143
+  status: source_page_render_verified_crops_approved
+- source_pdf_page: 46
+  path: assets/source-pages/page-046.png
+  sha256: 482bb6f05b91b9fcb10ec1c53830676fb04eeb1d58c6d594928fbda7389aadc9
+  size_bytes: 240787
+  status: source_page_render_verified_crops_approved
+- source_pdf_page: 47
+  path: assets/source-pages/page-047.png
+  sha256: 817477cd45adc8b14b92bbc45270bd99bfa123dc70086a60e54d9ad95f941e31
+  size_bytes: 104707
+  status: source_page_render_verified_crops_approved
+note: Japanese printed labels and object types are preserved even where the English edition groups or labels the same concept
+  differently.
+registries:
+  figures: figures.yaml
+  figure_crop_map: figures/crop-map.yaml
+  tables: tables.yaml
+  table_crop_map: tables/crop-map.yaml
+  cross_language_concepts: asset-concepts.yaml
+summary:
+  figure_count: 23
+  table_concept_count: 4
+  table_visual_asset_count: 5

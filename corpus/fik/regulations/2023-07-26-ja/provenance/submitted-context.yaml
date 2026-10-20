@@ -1,0 +1,29 @@
+context_schema_version: 0.2.0
+organization: FIK
+document_family: regulations
+official_title: The Regulations of Kendo Shiai and Shinpan
+official_version: 2023-07-26
+primary_language: ja
+manifestation_language: ja
+embedded_languages:
+- en
+source_file: Regulations-of-Kendo-Shiai-and-Shinpan-JP_Jul2023.pdf
+original_source_filename: Regulations-of-Kendo-Shiai-and-Shinpan-JP_Jul2023.pdf
+document_type: regulations
+known_context: >
+  Complete official FIK Japanese edition revised July 26, 2023. It contains
+  regulations and subsidiary rules in parallel columns, appended guidelines,
+  figures, tables, a bilingual foreword, and an English glossary.
+rights_status: unknown
+publication_policy: internal_research_use_only
+source_redistribution: prohibited_until_rights_confirmed
+ai_processing_policy: local_only
+external_ai_approval: not_granted
+official_source_url: https://www.kendo-fik.org/wp-content/uploads/2025/04/Regulations-of-Kendo-Shiai-and-Shinpan-JP_Jul2023.pdf
+related_packages:
+- package_id: fik.regulations.2023-07-26
+  relation: official_language_counterpart_of
+notes: >
+  Preserve official Japanese wording verbatim. Separate the regulations and
+  subsidiary-rules columns. Record suspected source typographical errors in a
+  separate anomaly registry rather than silently correcting official text.

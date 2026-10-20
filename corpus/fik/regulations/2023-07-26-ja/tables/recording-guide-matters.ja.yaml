@@ -1,0 +1,97 @@
+package_id: fik.regulations.2023-07-26.ja
+table_id: kkp:table:fik.recording-guide:000001
+language: ja
+title: 掲示項目および掲示内容
+data_status: structured_verified_internal_research
+columns:
+- 項目
+- 表示物
+- 掲示内容
+rows:
+- matter: 有効打突
+  marks:
+  - code: メ
+    enclosure: circle
+    fill: empty
+    meaning: 面
+  - code: コ
+    enclosure: circle
+    fill: empty
+    meaning: 小手
+  - code: ド
+    enclosure: circle
+    fill: empty
+    meaning: 胴
+  - code: ツ
+    enclosure: circle
+    fill: empty
+    meaning: 突き
+  indication: 有効打突の掲示の順序は第1図の大将戦のように掲示する。
+  row_id: recording-ja-001
+- matter: 反則
+  marks:
+  - code: null
+    shape: triangle
+    fill: solid
+    color: red
+  indication: 枠の上下両端の左側に赤色の反則印を掲示する。
+  row_id: recording-ja-002
+- matter: 反則2回
+  marks:
+  - code: 反
+    enclosure: circle
+    fill: empty
+    meaning: 反則2回による1本
+  indication: 反則印を取り除き、反を相手側に掲示する。
+  row_id: recording-ja-003
+- matter: 相殺
+  marks:
+  - code: null
+    shape: triangle
+    fill: solid
+    color: red
+  indication: 相殺前の反則印を残し、回数は記録用紙に記録する。
+  row_id: recording-ja-004
+- matter: 判定勝ち
+  marks:
+  - code: 判
+    enclosure: circle
+    fill: empty
+    meaning: 判定勝ち
+  indication: 判を掲示する。
+  row_id: recording-ja-005
+- matter: 抽選勝ち
+  marks:
+  - code: 抽
+    enclosure: circle
+    fill: empty
+    meaning: 抽選勝ち
+  indication: 抽を掲示する。
+  row_id: recording-ja-006
+- matter: 一本勝ち
+  marks:
+  - code: 一本勝
+    enclosure: none
+    meaning: 一本勝ち
+  indication: 一方が1本取得し試合時間が終了した場合は一本勝を掲示する。
+  row_id: recording-ja-007
+- matter: 延長
+  marks:
+  - code: 延長
+    enclosure: none
+  indication: 枠の中心線の左側に延長を掲示する。
+  row_id: recording-ja-008
+- matter: 引き分け
+  marks:
+  - code: ×
+    enclosure: none
+  indication: 枠の中心線の中央に×を掲示する。
+  row_id: recording-ja-009
+- matter: 不戦勝ち・棄権・試合不能
+  marks:
+  - code: null
+    enclosure: circle
+    fill: empty
+    count: 2
+  indication: 勝者側に○○を掲示し、延長戦の場合は○を掲示する。
+  row_id: recording-ja-010
