@@ -1,7 +1,7 @@
 export const i18n: Record<string, Record<string, string>> = {
   pt: {
     title: "Kendo Shinpan",
-    langLabel: "Idioma",
+    langLabel: "Idioma / Language / 言語",
     courtSize: "Dimensão da Quadra",
     description: "Simulação da movimentação do trio de arbitragem (Shinpan) baseada no posicionamento dos atletas.",
     labelViz: "Visualização",
@@ -199,7 +199,7 @@ export const i18n: Record<string, Record<string, string>> = {
   },
   en: {
     title: "Kendo Shinpan",
-    langLabel: "Language",
+    langLabel: "Idioma / Language / 言語",
     courtSize: "Court Size",
     description: "Simulation of referee (Shinpan) movement based on competitor positioning.",
     labelViz: "Visualization",
@@ -398,7 +398,7 @@ export const i18n: Record<string, Record<string, string>> = {
   },
   jp: {
     title: "剣道審判シミュレーター",
-    langLabel: "言語",
+    langLabel: "Idioma / Language / 言語",
     courtSize: "試合場の広さ",
     description: "試合者の位置に基づいた審判員（審判団）の動きのシミュレーション。",
     labelViz: "表示設定",

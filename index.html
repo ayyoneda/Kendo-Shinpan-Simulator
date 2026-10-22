@@ -38,7 +38,7 @@
       </div>
 
       <!-- Main Mode Toggle (Modo Técnico / Modo Renderizado) - Exclusive to Combat Mode -->
-      <div id="mode-render-toggle-container" class="absolute top-16 left-1/2 -translate-x-1/2 z-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full p-1 flex items-center shadow-2xl">
+      <div id="mode-render-toggle-container" class="hidden absolute top-16 left-1/2 -translate-x-1/2 z-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full p-1 flex items-center shadow-2xl">
         <button id="btn-mode-tech" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-white bg-[#bc002d] shadow-lg transition cursor-pointer">Modo Técnico</button>
         <button id="btn-mode-rpg" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition cursor-pointer">Modo Renderizado</button>
       </div>
@@ -66,7 +66,7 @@
             </div>
           </div>
           <div class="flex justify-between items-center text-sm text-gray-400 mt-2">
-            <span id="ui-lang-label" class="font-medium"><i class="fas fa-language"></i> Idioma</span>
+            <span id="ui-lang-label" class="font-medium"><i class="fas fa-language"></i> Idioma / Language / 言語</span>
             <select id="lang-select" class="p-1 rounded border border-white/20 bg-black/50 text-white focus:outline-none cursor-pointer">
               <option value="pt">Português</option>
               <option value="en">English</option>
@@ -266,7 +266,7 @@
       </div>
 
       <!-- FLOATING SCENARIOS WIDGET (Option A) -->
-      <div id="scenarios-widget" class="fixed bottom-7 right-4 z-20 flex flex-col items-end select-none">
+      <div id="scenarios-widget" class="hidden fixed bottom-7 right-4 z-20 flex flex-col items-end select-none">
         
         <!-- Expanded Card (Initially Hidden) -->
         <div id="scenarios-expanded" class="hidden mb-2 bg-[#18181b]/95 backdrop-blur-md border border-white/15 rounded-xl shadow-2xl p-3 w-72 text-gray-200 transition-all">
@@ -308,7 +308,7 @@
       </div>
 
       <!-- DOCKED PROCEDURE PANEL (RIGHT SIDEBAR) -->
-      <div id="procedure-widget" class="hidden fixed top-16 right-4 z-20 w-[350px] max-h-[85vh] bg-[#18181b]/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl p-4 text-gray-200 flex flex-col gap-3 select-none transition-all overflow-hidden">
+      <div id="procedure-widget" class="fixed top-16 right-4 z-20 w-[350px] max-h-[85vh] bg-[#18181b]/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl p-4 text-gray-200 flex flex-col gap-3 select-none transition-all overflow-hidden">
         
         <!-- Header & Chapter Selector -->
         <div class="flex items-center justify-between pb-2.5 border-b border-white/10 flex-shrink-0">

@@ -541,9 +541,9 @@ function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
       btnSimCombat.className = "px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-white transition cursor-pointer flex items-center gap-1.5";
     }
 
-    // Auto-collapse left combat settings panel to give full canvas breadth
-    controlsContainer.classList.add('collapsed');
-    openPanelBtn.classList.remove('hidden');
+    // Keep left settings panel open for general settings (language, court size)
+    controlsContainer.classList.remove('collapsed');
+    openPanelBtn.classList.add('hidden');
     floatingResetBtn.classList.add('hidden');
 
     if (procedureWidget) procedureWidget.classList.remove('hidden');
@@ -818,6 +818,7 @@ function updateUIStrings() {
 initScenariosWidget();
 updateUIStrings();
 applyModeVisuals();
+setSimulationMode('PROCEDURE');
 
 if (langSelect) {
   langSelect.addEventListener('change', (e) => {
@@ -853,7 +854,9 @@ if (togglePanelBtn) {
     controlsContainer.classList.add('collapsed');
     setTimeout(() => {
       openPanelBtn.classList.remove('hidden');
-      floatingResetBtn.classList.remove('hidden');
+      if (store.state.simulationMode === 'COMBAT') {
+        floatingResetBtn.classList.remove('hidden');
+      }
     }, 300);
   });
 }
