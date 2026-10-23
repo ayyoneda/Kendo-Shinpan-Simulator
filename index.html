@@ -53,7 +53,7 @@
       <div id="controls-container" class="absolute top-4 left-4 w-[340px] max-h-[90vh] rounded-xl shadow-2xl flex flex-col z-10 transition-transform duration-300 bg-black/50 backdrop-blur-2xl border border-white/10 text-gray-300 overflow-hidden">
         
         <!-- FROZEN / STICKY HEADER -->
-        <div class="flex-shrink-0 p-4 border-b border-white/10 flex flex-col gap-2 bg-white/5 rounded-t-xl">
+        <div class="flex-shrink-0 p-4 border-b border-white/10 flex flex-col gap-2.5 bg-white/5 rounded-t-xl">
           <div class="flex justify-between items-center">
             <h1 id="ui-app-title" class="text-lg font-bold text-white m-0 leading-none">Kendo Shinpan</h1>
             <div class="flex items-center gap-2">
@@ -65,150 +65,214 @@
               </button>
             </div>
           </div>
-          <div class="flex justify-between items-center text-sm text-gray-400 mt-2">
-            <span id="ui-lang-label" class="font-medium"><i class="fas fa-language"></i> Idioma / Language / 言語</span>
-            <select id="lang-select" class="p-1 rounded border border-white/20 bg-black/50 text-white focus:outline-none cursor-pointer">
-              <option value="pt">Português</option>
-              <option value="en">English</option>
-              <option value="jp">日本語</option>
-            </select>
-          </div>
-          <div class="flex justify-between items-center text-sm text-gray-400 mt-2">
-            <span id="ui-court-label" class="font-medium"><i class="fas fa-ruler-combined"></i> Dimensão da Quadra</span>
-            <select id="court-select" class="p-1 rounded border border-white/20 bg-black/50 text-white focus:outline-none cursor-pointer">
-              <option value="9">9 x 9 m</option>
-              <option value="10" selected>10 x 10 m</option>
-              <option value="11">11 x 11 m</option>
-            </select>
+
+          <!-- GLOBAL SETTINGS (COMMON TO BOTH MODULES) -->
+          <div class="pt-2 border-t border-white/10 space-y-2">
+            <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 flex items-center gap-1.5">
+              <i class="fas fa-globe text-[#bc002d]"></i> <span id="ui-section-global-label">Configurações Gerais</span>
+            </div>
+            <div class="flex justify-between items-center text-sm text-gray-400">
+              <span id="ui-lang-label" class="font-medium text-xs"><i class="fas fa-language"></i> Idioma / Language / 言語</span>
+              <select id="lang-select" class="p-1 rounded border border-white/20 bg-black/50 text-white focus:outline-none cursor-pointer text-xs">
+                <option value="pt">Português</option>
+                <option value="en">English</option>
+                <option value="jp">日本語</option>
+              </select>
+            </div>
+            <div class="flex justify-between items-center text-sm text-gray-400">
+              <span id="ui-court-label" class="font-medium text-xs"><i class="fas fa-ruler-combined"></i> Dimensão da Quadra</span>
+              <select id="court-select" class="p-1 rounded border border-white/20 bg-black/50 text-white focus:outline-none cursor-pointer text-xs">
+                <option value="9">9 x 9 m</option>
+                <option value="10" selected>10 x 10 m</option>
+                <option value="11">11 x 11 m</option>
+              </select>
+            </div>
           </div>
         </div>
 
         <!-- SCROLLABLE BODY -->
         <div class="p-4 flex-1 overflow-y-auto space-y-4 custom-scrollbar">
-          <!-- Description -->
-          <p id="ui-description" class="text-[13px] leading-tight text-gray-400"></p>
-
-          <!-- Adaptive Legend -->
-          <div id="legend-container" class="bg-white/5 p-3 rounded-lg text-[13px] border border-white/10">
-            <div id="ui-label-legend" class="font-bold mb-2 uppercase text-[11px] text-gray-500 tracking-wider"></div>
-            
-            <!-- Technical Legend -->
-            <div id="tech-legend" class="grid grid-cols-2 gap-2">
-              <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-white border border-gray-800"></span><span id="ui-leg-white"></span></div>
-              <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-[#bc002d]"></span><span id="ui-leg-red"></span></div>
-              <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-[#2563eb]"></span><span id="ui-leg-s"></span></div>
-              <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-[#fbbf24]"></span><span id="ui-leg-f1"></span></div>
-              <div class="flex items-center col-span-2"><span class="w-3 h-3 rounded-full mr-2 bg-[#22c55e]"></span><span id="ui-leg-f2"></span></div>
+          
+          <!-- Contextual Procedure Information Card (Visible only in Procedure Mode) -->
+          <div id="procedure-context-container" class="space-y-3">
+            <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs space-y-2">
+              <div class="flex items-center gap-2 border-b border-white/10 pb-1.5 text-white font-bold">
+                <i class="fas fa-scroll text-[#bc002d]"></i>
+                <span id="ui-proc-ctx-title">Diretrizes & Protocolo FIK</span>
+              </div>
+              <p id="ui-proc-ctx-desc" class="text-gray-300 leading-relaxed text-[11px]">
+                Coreografia protocolar de arbitragem em piso de madeira (dojo), conforme normas da FIK / AJKF (2023/2025).
+              </p>
             </div>
 
-            <!-- Rendered Legend (Adaptive) -->
-            <div id="rendered-legend" class="hidden space-y-2">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-white border border-gray-500"></span>
-                <span id="ui-leg-kenshi-shiro" class="text-xs text-gray-300"></span>
+            <!-- Flag protocol card -->
+            <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs space-y-2">
+              <div class="font-bold text-[10px] uppercase text-gray-400 flex items-center gap-1.5">
+                <i class="fas fa-flag text-amber-400"></i> <span id="ui-proc-ctx-flags-title">Porte das Bandeiras (Shinpanki)</span>
               </div>
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#bc002d]"></span>
-                <span id="ui-leg-kenshi-aka" class="text-xs text-gray-300"></span>
-              </div>
-              <div class="flex items-center gap-2 pt-1 border-t border-white/10">
-                <i class="fas fa-flag text-xs text-gray-400"></i>
-                <span id="ui-leg-shinpan-trio" class="text-xs text-gray-300"></span>
+              <div class="space-y-1.5 text-[11px] text-gray-300">
+                <div class="flex items-start gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#bc002d] mt-1 flex-shrink-0"></span>
+                  <span id="ui-proc-ctx-shushin"><strong>Shushin:</strong> Direita Vermelha / Esquerda Branca</span>
+                </div>
+                <div class="flex items-start gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-white border border-gray-500 mt-1 flex-shrink-0"></span>
+                  <span id="ui-proc-ctx-fukushin"><strong>Fukushin:</strong> Direita Branca / Esquerda Vermelha</span>
+                </div>
+                <div class="flex items-start gap-1.5 pt-1 border-t border-white/10">
+                  <i class="fas fa-walking text-gray-400 text-[10px] mt-0.5 flex-shrink-0"></i>
+                  <span id="ui-proc-ctx-movement"><strong>Entrada / Rotação / Saída:</strong> Na mão direita (Vermelha cobre a Branca).</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Advanced Parameters (Directly open in Technical Mode, Hidden in Rendered Mode) -->
-          <div id="tech-advanced-section" class="bg-white/5 p-3 rounded-lg border border-white/10 text-sm space-y-3.5">
-            <div class="flex items-center justify-between border-b border-white/10 pb-1.5">
-              <span class="font-bold text-xs uppercase tracking-wider text-white">
-                <i class="fas fa-sliders-h mr-1.5 text-[#bc002d]"></i> <span id="ui-advanced-title">Parâmetros</span>
+            <!-- Geometry references card -->
+            <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs space-y-2">
+              <div class="font-bold text-[10px] uppercase text-gray-400 flex items-center gap-1.5">
+                <i class="fas fa-drafting-compass text-blue-400"></i> <span id="ui-proc-ctx-geom-title">Geometria da Quadra (Shiai-jo)</span>
+              </div>
+              <ul class="space-y-1 text-[11px] text-gray-300 list-disc list-inside">
+                <li id="ui-proc-ctx-geom-dist">Fukushin: distância fixa de 4,0 m (por dentro do kaishisen).</li>
+                <li id="ui-proc-ctx-geom-entry">Marcha tangencial: a ~0,45 m da borda externa.</li>
+                <li id="ui-proc-ctx-geom-step">Entrada na quadra: ~1,0 m após o "Ippomae".</li>
+              </ul>
+            </div>
+
+            <!-- Tip card -->
+            <div class="bg-[#bc002d]/10 text-white p-2.5 rounded-lg text-xs border border-[#bc002d]/20">
+              <span class="text-gray-300 text-[11px]" id="ui-proc-ctx-tip">
+                <i class="fas fa-info-circle text-[#bc002d] mr-1"></i> Utilize o painel flutuante à direita para navegar entre capítulos, etapas e velocidade.
               </span>
             </div>
+          </div>
 
-            <!-- Movimento: Suavização (k) -->
-            <div>
-              <div id="ui-advanced-section-motion" class="font-bold text-[11px] uppercase text-gray-500 mb-1"></div>
-              <div class="space-y-1">
-                <div class="flex justify-between text-xs">
-                  <span id="ui-smooth-label"></span>
-                  <span id="val-smooth" class="font-mono text-white font-semibold">5.0</span>
-                </div>
-                <input id="slide-smooth" type="range" min="1" max="15" step="0.5" value="5.0" class="w-full">
-              </div>
-            </div>
+          <!-- Combat Controls Container (Visible only in Combat Mode) -->
+          <div id="combat-controls-container" class="space-y-4 hidden">
+            <!-- Description -->
+            <p id="ui-description" class="text-[13px] leading-tight text-gray-400"></p>
 
-            <!-- Thresholds de Transição: 5 sliders -->
-            <div class="space-y-2.5">
-              <div id="ui-advanced-section-thresholds" class="font-bold text-[11px] uppercase text-gray-500 mb-1"></div>
+            <!-- Adaptive Legend -->
+            <div id="legend-container" class="bg-white/5 p-3 rounded-lg text-[13px] border border-white/10">
+              <div id="ui-label-legend" class="font-bold mb-2 uppercase text-[11px] text-gray-500 tracking-wider"></div>
               
-              <div class="space-y-1">
-                <div class="flex justify-between text-xs">
-                  <span id="ui-th-enter-vertex"></span>
-                  <span id="val-enter-vertex" class="font-mono text-white font-semibold">90°</span>
-                </div>
-                <input id="slide-enter-vertex" type="range" min="40" max="110" step="1" value="90" class="w-full">
+              <!-- Technical Legend -->
+              <div id="tech-legend" class="grid grid-cols-2 gap-2">
+                <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-white border border-gray-800"></span><span id="ui-leg-white"></span></div>
+                <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-[#bc002d]"></span><span id="ui-leg-red"></span></div>
+                <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-[#2563eb]"></span><span id="ui-leg-s"></span></div>
+                <div class="flex items-center"><span class="w-3 h-3 rounded-full mr-2 bg-[#fbbf24]"></span><span id="ui-leg-f1"></span></div>
+                <div class="flex items-center col-span-2"><span class="w-3 h-3 rounded-full mr-2 bg-[#22c55e]"></span><span id="ui-leg-f2"></span></div>
               </div>
 
-              <div class="space-y-1">
-                <div class="flex justify-between text-xs">
-                  <span id="ui-th-exit-vertex"></span>
-                  <span id="val-exit-vertex" class="font-mono text-white font-semibold">45°</span>
+              <!-- Rendered Legend (Adaptive) -->
+              <div id="rendered-legend" class="hidden space-y-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-white border border-gray-500"></span>
+                  <span id="ui-leg-kenshi-shiro" class="text-xs text-gray-300"></span>
                 </div>
-                <input id="slide-exit-vertex" type="range" min="10" max="80" step="1" value="45" class="w-full">
-              </div>
-
-              <div class="space-y-1">
-                <div class="flex justify-between text-xs">
-                  <span id="ui-th-enter-sbase"></span>
-                  <span id="val-enter-sbase" class="font-mono text-white font-semibold">123°</span>
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#bc002d]"></span>
+                  <span id="ui-leg-kenshi-aka" class="text-xs text-gray-300"></span>
                 </div>
-                <input id="slide-enter-sbase" type="range" min="100" max="150" step="1" value="123" class="w-full">
-              </div>
-
-              <div class="space-y-1">
-                <div class="flex justify-between text-xs">
-                  <span id="ui-th-exit-sbase"></span>
-                  <span id="val-exit-sbase" class="font-mono text-white font-semibold">90°</span>
+                <div class="flex items-center gap-2 pt-1 border-t border-white/10">
+                  <i class="fas fa-flag text-xs text-gray-400"></i>
+                  <span id="ui-leg-shinpan-trio" class="text-xs text-gray-300"></span>
                 </div>
-                <input id="slide-exit-sbase" type="range" min="70" max="130" step="1" value="90" class="w-full">
-              </div>
-
-              <div class="space-y-1">
-                <div class="flex justify-between text-xs">
-                  <span id="ui-th-enter-flip"></span>
-                  <span id="val-enter-flip" class="font-mono text-white font-semibold">135°</span>
-                </div>
-                <input id="slide-enter-flip" type="range" min="110" max="170" step="1" value="135" class="w-full">
               </div>
             </div>
 
-            <div id="ui-advanced-note" class="text-[11px] text-gray-500 leading-tight"></div>
-          </div>
+            <!-- Advanced Parameters (Directly open in Technical Mode, Hidden in Rendered Mode) -->
+            <div id="tech-advanced-section" class="bg-white/5 p-3 rounded-lg border border-white/10 text-sm space-y-3.5">
+              <div class="flex items-center justify-between border-b border-white/10 pb-1.5">
+                <span class="font-bold text-xs uppercase tracking-wider text-white">
+                  <i class="fas fa-sliders-h mr-1.5 text-[#bc002d]"></i> <span id="ui-advanced-title">Parâmetros</span>
+                </span>
+              </div>
 
-          <!-- Tip -->
-          <div class="bg-[#bc002d]/10 text-white p-3 rounded-lg text-sm border border-[#bc002d]/20">
-            <strong><i class="fas fa-lightbulb text-[#bc002d] mr-1"></i> <span id="ui-tip-title"></span>:</strong>
-            <span id="ui-tip-body" class="block mt-1 text-gray-300"></span>
-          </div>
+              <!-- Movimento: Suavização (k) -->
+              <div>
+                <div id="ui-advanced-section-motion" class="font-bold text-[11px] uppercase text-gray-500 mb-1"></div>
+                <div class="space-y-1">
+                  <div class="flex justify-between text-xs">
+                    <span id="ui-smooth-label"></span>
+                    <span id="val-smooth" class="font-mono text-white font-semibold">5.0</span>
+                  </div>
+                  <input id="slide-smooth" type="range" min="1" max="15" step="0.5" value="5.0" class="w-full">
+                </div>
+              </div>
 
-          <!-- Debug Panel (Only in Technical Mode) -->
-          <div id="debug-panel" class="bg-black/80 text-green-400 p-3 rounded-lg text-xs font-mono space-y-1 shadow-inner border border-white/10">
-            <div class="text-gray-500 mb-2 font-bold uppercase text-[10px]" id="ui-label-angles"></div>
-            <div class="flex justify-between"><span id="ui-angle-combat"></span><span id="debug-angle" class="text-white">0°</span></div>
-            <div class="flex justify-between"><span id="ui-mode-label"></span><span id="debug-mode" class="text-white">STANDARD</span></div>
-            <div class="flex justify-between"><span id="ui-flag-label"></span><span id="debug-flag" class="text-white">1</span></div>
-            <div class="flex justify-between"><span id="ui-freeze-label"></span><span id="debug-freeze" class="text-white">STABLE</span></div>
-            <div class="mt-2 border-t border-white/20 pt-2 space-y-1">
-              <div class="flex justify-between"><span id="ui-ref-s"></span><span id="debug-s" class="text-white">0°</span></div>
-              <div class="flex justify-between"><span id="ui-ref-f1"></span><span id="debug-f1" class="text-white">0°</span></div>
-              <div class="flex justify-between"><span id="ui-ref-f2"></span><span id="debug-f2" class="text-white">0°</span></div>
+              <!-- Thresholds de Transição: 5 sliders -->
+              <div class="space-y-2.5">
+                <div id="ui-advanced-section-thresholds" class="font-bold text-[11px] uppercase text-gray-500 mb-1"></div>
+                
+                <div class="space-y-1">
+                  <div class="flex justify-between text-xs">
+                    <span id="ui-th-enter-vertex"></span>
+                    <span id="val-enter-vertex" class="font-mono text-white font-semibold">90°</span>
+                  </div>
+                  <input id="slide-enter-vertex" type="range" min="40" max="110" step="1" value="90" class="w-full">
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex justify-between text-xs">
+                    <span id="ui-th-exit-vertex"></span>
+                    <span id="val-exit-vertex" class="font-mono text-white font-semibold">45°</span>
+                  </div>
+                  <input id="slide-exit-vertex" type="range" min="10" max="80" step="1" value="45" class="w-full">
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex justify-between text-xs">
+                    <span id="ui-th-enter-sbase"></span>
+                    <span id="val-enter-sbase" class="font-mono text-white font-semibold">123°</span>
+                  </div>
+                  <input id="slide-enter-sbase" type="range" min="100" max="150" step="1" value="123" class="w-full">
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex justify-between text-xs">
+                    <span id="ui-th-exit-sbase"></span>
+                    <span id="val-exit-sbase" class="font-mono text-white font-semibold">90°</span>
+                  </div>
+                  <input id="slide-exit-sbase" type="range" min="70" max="130" step="1" value="90" class="w-full">
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex justify-between text-xs">
+                    <span id="ui-th-enter-flip"></span>
+                    <span id="val-enter-flip" class="font-mono text-white font-semibold">135°</span>
+                  </div>
+                  <input id="slide-enter-flip" type="range" min="110" max="170" step="1" value="135" class="w-full">
+                </div>
+              </div>
+
+              <div id="ui-advanced-note" class="text-[11px] text-gray-500 leading-tight"></div>
+            </div>
+
+            <!-- Tip -->
+            <div class="bg-[#bc002d]/10 text-white p-3 rounded-lg text-sm border border-[#bc002d]/20">
+              <strong><i class="fas fa-lightbulb text-[#bc002d] mr-1"></i> <span id="ui-tip-title"></span>:</strong>
+              <span id="ui-tip-body" class="block mt-1 text-gray-300"></span>
+            </div>
+
+            <!-- Debug Panel (Only in Technical Mode) -->
+            <div id="debug-panel" class="bg-black/80 text-green-400 p-3 rounded-lg text-xs font-mono space-y-1 shadow-inner border border-white/10">
+              <div class="text-gray-500 mb-2 font-bold uppercase text-[10px]" id="ui-label-angles"></div>
+              <div class="flex justify-between"><span id="ui-angle-combat"></span><span id="debug-angle" class="text-white">0°</span></div>
+              <div class="flex justify-between"><span id="ui-mode-label"></span><span id="debug-mode" class="text-white">STANDARD</span></div>
+              <div class="flex justify-between"><span id="ui-flag-label"></span><span id="debug-flag" class="text-white">1</span></div>
+              <div class="flex justify-between"><span id="ui-freeze-label"></span><span id="debug-freeze" class="text-white">STABLE</span></div>
+              <div class="mt-2 border-t border-white/20 pt-2 space-y-1">
+                <div class="flex justify-between"><span id="ui-ref-s"></span><span id="debug-s" class="text-white">0°</span></div>
+                <div class="flex justify-between"><span id="ui-ref-f1"></span><span id="debug-f1" class="text-white">0°</span></div>
+                <div class="flex justify-between"><span id="ui-ref-f2"></span><span id="debug-f2" class="text-white">0°</span></div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- FROZEN / STICKY FOOTER / RESET -->
-        <div class="flex-shrink-0 p-3 bg-black/60 border-t border-white/10 rounded-b-xl">
+        <!-- FROZEN / STICKY FOOTER / RESET (Visible only in Combat Mode) -->
+        <div id="reset-btn-container" class="flex-shrink-0 p-3 bg-black/60 border-t border-white/10 rounded-b-xl hidden">
           <button id="reset-btn" class="w-full bg-[#bc002d] hover:bg-red-800 text-white font-semibold py-2.5 px-4 rounded-lg shadow-md transition transform active:scale-95 flex items-center justify-center gap-2 cursor-pointer">
             <i class="fas fa-undo-alt"></i> <span id="ui-btn-reset"></span>
           </button>
@@ -227,7 +291,7 @@
 
       <!-- HELP MODAL OVERLAY -->
       <div id="help-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
-        <div class="bg-[#18181b]/95 border border-white/20 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col text-gray-200 overflow-hidden">
+        <div class="bg-[#18181b]/95 border border-white/20 rounded-2xl shadow-2xl w-[94vw] max-w-5xl max-h-[88vh] flex flex-col text-gray-200 overflow-hidden">
           
           <!-- Modal Header -->
           <div class="p-4 px-6 border-b border-white/10 flex justify-between items-center bg-white/5">
@@ -241,14 +305,28 @@
           </div>
 
           <!-- Tabs Navigation -->
-          <div class="flex overflow-x-auto gap-1 p-2 px-4 border-b border-white/10 bg-black/40 text-xs font-semibold custom-scrollbar">
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg bg-[#bc002d] text-white transition whitespace-nowrap cursor-pointer" data-tab="usage" id="tab-btn-usage">Como Usar</button>
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer" data-tab="modes" id="tab-btn-modes">Modos de Visão</button>
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer" data-tab="viz" id="tab-btn-viz">Zonas & Geometria</button>
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer" data-tab="advanced" id="tab-btn-advanced">Parâmetros</button>
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer" data-tab="scenarios" id="tab-btn-scenarios">Cenários</button>
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer" data-tab="concept" id="tab-btn-concept">Conceito Marcial</button>
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer" data-tab="disclaimer" id="tab-btn-disclaimer">Disclaimer & Regras</button>
+          <div class="flex overflow-x-auto gap-1 p-2 px-4 border-b border-white/10 bg-black/40 text-xs font-semibold custom-scrollbar" id="help-tabs-nav">
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg bg-[#bc002d] text-white transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="global" id="tab-btn-global">
+              <i class="fas fa-globe"></i> <span id="ui-help-tab-global">Módulos & Configurações</span>
+            </button>
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="procedures" id="tab-btn-procedures">
+              <i class="fas fa-scroll"></i> <span id="ui-help-tab-procedures">Procedimentos FIK</span>
+            </button>
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="combat" id="tab-btn-combat">
+              <i class="fas fa-fist-raised"></i> <span id="ui-help-tab-combat">Combate Reativo</span>
+            </button>
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="advanced" id="tab-btn-advanced">
+              <i class="fas fa-sliders-h"></i> <span id="ui-help-tab-advanced">Lógica & Parâmetros</span>
+            </button>
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="scenarios" id="tab-btn-scenarios">
+              <i class="fas fa-play-circle"></i> <span id="ui-help-tab-scenarios">Cenários de Teste</span>
+            </button>
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="concept" id="tab-btn-concept">
+              <i class="fas fa-yin-yang"></i> <span id="ui-help-tab-concept">Conceito Marcial</span>
+            </button>
+            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="disclaimer" id="tab-btn-disclaimer">
+              <i class="fas fa-balance-scale"></i> <span id="ui-help-tab-disclaimer">Disclaimer & Regras</span>
+            </button>
           </div>
 
           <!-- Modal Body Content -->

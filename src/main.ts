@@ -33,6 +33,9 @@ const togglePanelBtn = document.getElementById('toggle-panel-btn') as HTMLButton
 const openPanelBtn = document.getElementById('open-panel-btn') as HTMLButtonElement;
 const floatingResetBtn = document.getElementById('floating-reset-btn') as HTMLButtonElement;
 const resetBtn = document.getElementById('reset-btn') as HTMLButtonElement;
+const resetBtnContainer = document.getElementById('reset-btn-container') as HTMLElement | null;
+const procedureContextContainer = document.getElementById('procedure-context-container') as HTMLElement | null;
+const combatControlsContainer = document.getElementById('combat-controls-container') as HTMLElement | null;
 
 // Help Modal Elements
 const helpBtn = document.getElementById('help-btn') as HTMLButtonElement;
@@ -151,14 +154,14 @@ currentLang = detectLanguage();
 if (langSelect) langSelect.value = currentLang;
 
 // Help Modal Tabs & Content
-let activeHelpTab = 'usage';
+let activeHelpTab = 'global';
 
 function renderHelpTabContent() {
   const s = i18n[currentLang];
   if (!helpTabContent) return;
-  if (activeHelpTab === 'usage') helpTabContent.innerHTML = s.helpUsageBody;
-  else if (activeHelpTab === 'modes') helpTabContent.innerHTML = s.helpModesBody;
-  else if (activeHelpTab === 'viz') helpTabContent.innerHTML = s.helpVizBody;
+  if (activeHelpTab === 'global') helpTabContent.innerHTML = s.helpGlobalBody;
+  else if (activeHelpTab === 'procedures') helpTabContent.innerHTML = s.helpProceduresBody;
+  else if (activeHelpTab === 'combat') helpTabContent.innerHTML = s.helpCombatBody;
   else if (activeHelpTab === 'advanced') helpTabContent.innerHTML = s.helpAdvancedBody;
   else if (activeHelpTab === 'scenarios') helpTabContent.innerHTML = s.helpScenariosBody;
   else if (activeHelpTab === 'concept') helpTabContent.innerHTML = s.helpConceptBody;
@@ -170,15 +173,15 @@ function setActiveHelpTab(tab: string) {
   document.querySelectorAll('.help-tab-btn').forEach(btn => {
     const t = btn.getAttribute('data-tab');
     if (t === tab) {
-      btn.className = 'help-tab-btn px-3 py-1.5 rounded-lg bg-[#bc002d] text-white transition whitespace-nowrap cursor-pointer';
+      btn.className = 'help-tab-btn px-3 py-1.5 rounded-lg bg-[#bc002d] text-white transition whitespace-nowrap cursor-pointer flex items-center gap-1.5';
     } else {
-      btn.className = 'help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer';
+      btn.className = 'help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5';
     }
   });
   renderHelpTabContent();
 }
 
-function openHelpModal(tab: string = 'usage') {
+function openHelpModal(tab: string = 'global') {
   setActiveHelpTab(tab);
   if (helpModal) helpModal.classList.remove('hidden');
 }
@@ -187,8 +190,8 @@ function closeHelpModal() {
   if (helpModal) helpModal.classList.add('hidden');
 }
 
-if (helpBtn) helpBtn.addEventListener('click', () => openHelpModal('usage'));
-if (panelHelpBtn) panelHelpBtn.addEventListener('click', () => openHelpModal('usage'));
+if (helpBtn) helpBtn.addEventListener('click', () => openHelpModal('global'));
+if (panelHelpBtn) panelHelpBtn.addEventListener('click', () => openHelpModal('global'));
 if (helpModalClose) helpModalClose.addEventListener('click', closeHelpModal);
 if (helpModalBottomClose) helpModalBottomClose.addEventListener('click', closeHelpModal);
 
@@ -206,7 +209,7 @@ window.addEventListener('keydown', (e) => {
 
 document.querySelectorAll('.help-tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    const tab = btn.getAttribute('data-tab') || 'usage';
+    const tab = btn.getAttribute('data-tab') || 'global';
     setActiveHelpTab(tab);
   });
 });
@@ -226,7 +229,7 @@ function applyModeVisuals() {
     btnModeTech.classList.remove('bg-[#bc002d]', 'shadow-lg');
     btnModeTech.classList.add('hover:text-white');
 
-    // Rendered Mode: clean tatame, only triangle and movement trails
+    // Rendered Mode: clean shiai-jo, only triangle and movement trails
     renderer.showTriangle = true;
     renderer.showSquareS = false;
     renderer.showSquareF1 = false;
@@ -517,6 +520,10 @@ function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
     openPanelBtn.classList.add('hidden');
     floatingResetBtn.classList.add('hidden');
 
+    if (procedureContextContainer) procedureContextContainer.classList.add('hidden');
+    if (combatControlsContainer) combatControlsContainer.classList.remove('hidden');
+    if (resetBtnContainer) resetBtnContainer.classList.remove('hidden');
+
     if (procedureWidget) procedureWidget.classList.add('hidden');
     if (procMinimizedPill) procMinimizedPill.classList.add('hidden');
     if (scenariosWidget) scenariosWidget.classList.remove('hidden');
@@ -545,6 +552,10 @@ function setSimulationMode(mode: 'COMBAT' | 'PROCEDURE') {
     controlsContainer.classList.remove('collapsed');
     openPanelBtn.classList.add('hidden');
     floatingResetBtn.classList.add('hidden');
+
+    if (procedureContextContainer) procedureContextContainer.classList.remove('hidden');
+    if (combatControlsContainer) combatControlsContainer.classList.add('hidden');
+    if (resetBtnContainer) resetBtnContainer.classList.add('hidden');
 
     if (procedureWidget) procedureWidget.classList.remove('hidden');
     if (procMinimizedPill) procMinimizedPill.classList.add('hidden');
@@ -781,16 +792,30 @@ function updateUIStrings() {
     if (scId) btn.textContent = getScenarioTranslatedTitle(scId);
   });
 
-  // Help modal
+  // Global Settings and Contextual Card
+  setText('ui-section-global-label', s.sectionGlobalLabel || 'Configurações Gerais');
+  setText('ui-proc-ctx-title', s.procCtxTitle || 'Diretrizes & Protocolo FIK');
+  setText('ui-proc-ctx-desc', s.procCtxDesc || '');
+  setText('ui-proc-ctx-flags-title', s.procCtxFlagsTitle || 'Porte das Bandeiras (Shinpanki)');
+  setHtml('ui-proc-ctx-shushin', s.procCtxShushin || '<strong>Shushin:</strong> Direita Vermelha / Esquerda Branca');
+  setHtml('ui-proc-ctx-fukushin', s.procCtxFukushin || '<strong>Fukushin:</strong> Direita Branca / Esquerda Vermelha');
+  setHtml('ui-proc-ctx-movement', s.procCtxMovement || '<strong>Entrada / Rotação / Saída:</strong> Na mão direita (Vermelha cobre a Branca).');
+  setText('ui-proc-ctx-geom-title', s.procCtxGeomTitle || 'Geometria da Quadra (Shiai-jo)');
+  setText('ui-proc-ctx-geom-dist', s.procCtxGeomDist || 'Fukushin: distância fixa de 4,0 m (por dentro do kaishisen).');
+  setText('ui-proc-ctx-geom-entry', s.procCtxGeomEntry || 'Marcha tangencial: a ~0,45 m da borda externa.');
+  setText('ui-proc-ctx-geom-step', s.procCtxGeomStep || 'Entrada na quadra: ~1,0 m após o "Ippomae".');
+  setHtml('ui-proc-ctx-tip', s.procCtxTip || '');
+
+  // Help modal tabs
   setText('help-modal-title', s.helpModalTitle);
   setText('help-modal-bottom-close', s.helpCloseBtn);
-  setText('tab-btn-usage', s.helpTabUsage);
-  setText('tab-btn-modes', s.helpTabModes);
-  setText('tab-btn-viz', s.helpTabViz);
-  setText('tab-btn-advanced', s.helpTabAdvanced);
-  setText('tab-btn-scenarios', s.helpTabScenarios);
-  setText('tab-btn-concept', s.helpTabConcept);
-  setText('tab-btn-disclaimer', s.helpTabDisclaimer);
+  setText('ui-help-tab-global', s.helpTabGlobal);
+  setText('ui-help-tab-procedures', s.helpTabProcedures);
+  setText('ui-help-tab-combat', s.helpTabCombat);
+  setText('ui-help-tab-advanced', s.helpTabAdvanced);
+  setText('ui-help-tab-scenarios', s.helpTabScenarios);
+  setText('ui-help-tab-concept', s.helpTabConcept);
+  setText('ui-help-tab-disclaimer', s.helpTabDisclaimer);
   renderHelpTabContent();
 
   // Procedure Mode and Stepper Strings

@@ -133,68 +133,425 @@ export const i18n: Record<string, Record<string, string>> = {
     step_exit_turn_sideways_desc: "Ao comando \"Hidari-muke\" (se os assentos estiverem à esquerda) ou \"Migi-muke\" (se à direita) do Shushin, os 3 árbitros giram 90º no próprio eixo, prontos para marchar em direção à saída.",
     step_exit_march_straight_desc: "Ao comando \"Mae\" do Shushin, o trio que encerra caminha em linha reta em direção à borda de saída da quadra. Simultaneamente, o novo grupo de árbitros, também ao comando de \"Mae\" do Shushin, avança pela lateral tangenciando a quadra até o centro de entrada.",
     step_exit_sogo_ni_rei_desc: "Assim que cruzam os limites da quadra, o trio que está saindo abre a formação de triângulo equilátero, viram-se entre si e realizam o Sogo-ni-rei, enquanto o novo trio está pronto no centro para iniciar.",
+    sectionGlobalLabel: "Configurações Gerais",
+    procCtxTitle: "Diretrizes & Protocolo FIK",
+    procCtxDesc: "Coreografia protocolar de arbitragem em piso de madeira (dojo), conforme normas da FIK / AJKF (2023/2025).",
+    procCtxFlagsTitle: "Porte das Bandeiras (Shinpanki)",
+    procCtxShushin: "<strong>Shushin:</strong> Direita Vermelha / Esquerda Branca",
+    procCtxFukushin: "<strong>Fukushin:</strong> Direita Branca / Esquerda Vermelha",
+    procCtxMovement: "<strong>Entrada / Rotação / Saída:</strong> Na mão direita (Vermelha cobre a Branca).",
+    procCtxGeomTitle: "Geometria da Quadra (Shiai-jo)",
+    procCtxGeomDist: "Fukushin: distância fixa de 4,0 m (por dentro do kaishisen).",
+    procCtxGeomEntry: "Marcha tangencial: a ~0,45 m da borda externa.",
+    procCtxGeomStep: "Entrada na quadra: ~1,0 m após o \"Ippomae\".",
+    procCtxTip: '<i class="fas fa-info-circle text-[#bc002d] mr-1"></i> Utilize o painel flutuante à direita para navegar entre capítulos, etapas e velocidade.',
     helpModalTitle: "Guia do Simulador & Fundamentos",
     helpCloseBtn: "Fechar Guia",
-    helpTabUsage: "Como Usar",
-    helpTabModes: "Modos de Visão",
-    helpTabViz: "Zonas & Geometria",
-    helpTabAdvanced: "Parâmetros",
-    helpTabScenarios: "Cenários",
+    helpTabGlobal: "Módulos & Configurações",
+    helpTabProcedures: "Procedimentos FIK",
+    helpTabCombat: "Combate Reativo",
+    helpTabAdvanced: "Lógica & Parâmetros",
+    helpTabScenarios: "Cenários de Teste",
     helpTabConcept: "Conceito Marcial",
     helpTabDisclaimer: "Disclaimer & Regras",
-    helpUsageBody: `<p class="mb-3"><strong>Interação Básica:</strong> Clique e arraste os atletas (Branco / Vermelho) pela quadra para observar como o trio de arbitragem reage e se movimenta dinamicamente.</p>
-<p class="mb-3"><strong>O Triângulo Isósceles:</strong> Os três árbitros (Shushin e dois Fukushin) devem manter um triângulo que enquadra a ação dos lutadores, mantendo os competidores sempre em seu campo visual e minimizando pontos cegos.</p>
-<p><strong>Responsividade:</strong> Você pode ajustar a dimensão da quadra (9x9m, 10x10m, 11x11m) no cabeçalho e resetar as posições a qualquer momento através do botão de reset.</p>`,
-    helpModesBody: `<p class="mb-3"><strong>Modo Técnico:</strong> Exibição puramente diagramática e vetorial. Apresenta os círculos com identificação (W, R, S, F1, F2), as áreas de atuação de cada árbitro e o painel de depuração em tempo real com leitura dos ângulos e estados matemáticos.</p>
-<p class="mb-3"><strong>Modo Renderizado:</strong> Visualização zenital (top-down) realista sobre a quadra. Utiliza sprites em pixel art dos competidores (com Tasuki vermelho e branco nas costas) e dos três árbitros com uniforme oficial e shinpanki.</p>`,
-    helpVizBody: `<ul class="space-y-2 list-disc list-inside">
-<li><strong>Triângulo dos Árbitros:</strong> Linha tracejada que conecta os 3 árbitros, evidenciando o triângulo isósceles.</li>
-<li><strong>Eixo / Quadrado Dinâmico:</strong> Eixo central da disputa entre os lutadores e quadrado móvel formado pela união das áreas dos árbitros.</li>
-<li><strong>Áreas do Shushin e Fukushin:</strong> Regiões poligonais que ilustram a fatia de responsabilidade de movimentação de cada árbitro (metade inferior para o shushin e os dois triângulos diagonais de cada fukushin).</li>
-<li><strong>Indicadores de Direção:</strong> Vetores apontando para onde cada participante está direcionando seu olhar/postura.</li>
-<li><strong>Trilhas de Movimento:</strong> Rastros que registram as curvas de deslocamento dos árbitros pela quadra.</li>
-<li><strong>Modo Debug:</strong> Exibe ângulos absolutos, modo de máquina de estados (STANDARD, VERTEX, S_BASE, FLIP) e status de congelamento.</li>
-</ul>`,
-    helpAdvancedBody: `<div class="space-y-3">
-<p><strong>Movimento:</strong></p>
-<ul class="space-y-1 list-disc list-inside text-xs pl-2 text-gray-300">
-<li><strong>Suavização (k):</strong> Calibra a inércia e o tempo de resposta do trio de arbitragem. Valores altos tornam a reação imediata; valores baixos geram movimentação fluida e natural.</li>
-</ul>
-<p><strong>Thresholds de Transição (5 Limiares Angulares):</strong> Limites em graus que determinam as transições de formação (quando temporariamente o Shushin deixa de ser o vértice do triângulo isósceles), respeitando as áreas de atuação e mantendo a visibilidade dos competidores:</p>
-<ul class="space-y-1 list-disc list-inside text-xs pl-2 text-gray-300">
-<li><strong>Entrada Vertex (padrão 90°):</strong> Ângulo de combate no qual o Shushin começa a transitar para a base do triângulo.</li>
-<li><strong>Retorno de Vertex (padrão 45°):</strong> Limiar para retornar à formação Standard com histerese para evitar oscilações.</li>
-<li><strong>Entrada S_Base (padrão 123°):</strong> Ponto em que o Shushin assume a base invertida.</li>
-<li><strong>Retorno de S_Base (padrão 90°):</strong> Retorno de S_Base para Vertex.</li>
-<li><strong>Entrada Flip (padrão 135°):</strong> Inversão de quadrante para preservar a geometria sem cruzar árbitros.</li>
-</ul>
-<p><strong>Estabilização Interna (Freeze):</strong> Em situações de corpo a corpo (<em>tsubazeriai</em>) ou giros rápidos acumulados, o motor estabiliza automaticamente os árbitros para evitar oscilações desnecessárias na quadra.</p>
+    helpGlobalBody: `<div class="space-y-4">
+  <div class="bg-gradient-to-r from-[#bc002d]/20 to-transparent p-4 rounded-xl border border-[#bc002d]/30">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-globe text-[#bc002d]"></i> Visão Geral da Plataforma Kendo Shinpan Simulator
+    </h3>
+    <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">
+      Ferramenta educacional interativa de arbitragem marcial desenvolvida pelo Prof. Adrian Yoneda (Renshi 7º Dan Kendo). O simulador opera em dois módulos complementares de alta fidelidade em piso de madeira (<em>shiai-jo</em>).
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-2">
+      <div class="flex items-center gap-2 font-bold text-sm text-white">
+        <span class="w-6 h-6 rounded-full bg-[#bc002d] text-white flex items-center justify-center text-xs">1</span>
+        <span>Módulo de Procedimentos FIK</span>
+      </div>
+      <p class="text-xs text-gray-300 leading-relaxed">
+        Demonstração animada passo a passo da <strong>coreografia protocolar oficial</strong> da Federação Internacional de Kendo (FIK / AJKF 2023 & 2025). Abrange a entrada em quadra, alinhamentos geométricos, marcha pelo trapézio, saudações (Rei), rotações de postos, troca de árbitros (<em>Shinpan Koutai</em>) e saída sincronizada com Sogo-ni-rei.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-2">
+      <div class="flex items-center gap-2 font-bold text-sm text-white">
+        <span class="w-6 h-6 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs">2</span>
+        <span>Módulo de Combate Reativo</span>
+      </div>
+      <p class="text-xs text-gray-300 leading-relaxed">
+        Motor interativo em tempo real onde você arrasta os atletas <strong>Shiro</strong> (Branco) e <strong>Aka</strong> (Vermelho) pela quadra para observar como o trio de arbitragem (Shushin e dois Fukushin) ajusta instantaneamente suas posições, preservando o <strong>triângulo isósceles</strong> e eliminando pontos cegos.
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-sliders-h text-amber-400"></i> Configurações Gerais (Cabeçalho Fixo do Painel Esquerdo)
+    </h4>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-300">
+      <div class="flex items-start gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <i class="fas fa-language text-blue-400 mt-0.5"></i>
+        <div>
+          <strong class="text-white block">Idioma / Language / 言語:</strong>
+          Comutador trilingue instantâneo entre Português, Inglês e Japonês em todos os textos, descrições didáticas e comandos da ferramenta.
+        </div>
+      </div>
+      <div class="flex items-start gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <i class="fas fa-ruler-combined text-green-400 mt-0.5"></i>
+        <div>
+          <strong class="text-white block">Dimensão da Quadra:</strong>
+          Permite selecionar <strong>9 x 9 m</strong>, <strong>10 x 10 m</strong> ou <strong>11 x 11 m</strong>, ajustando dinamicamente as proporções espaciais, linhas de limite e distâncias canônicas da FIK.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-200 flex items-start gap-2">
+    <i class="fas fa-info-circle text-amber-400 mt-0.5 flex-shrink-0"></i>
+    <span><strong>Painel Adaptativo:</strong> Ao alternar entre os módulos no topo da tela, o painel lateral esquerdo adapta-se automaticamente, exibindo as notas didáticas e protocolares no modo Procedimentos e os controles de depuração/visualização no modo Combate.</span>
+  </div>
 </div>`,
-    helpScenariosBody: `<p class="mb-3">O simulador oferece 8 baterias de teste automatizadas para demonstrar comportamentos típicos e avaliar a física da arbitragem:</p>
-<ul class="space-y-1.5 list-disc list-inside text-xs">
-<li><strong>1A: Giro Lento 360º:</strong> Avalia a rotação contínua e a preservação do triângulo.</li>
-<li><strong>1B: Teste Vertex:</strong> Simula a entrada e saída do modo Vertex.</li>
-<li><strong>1C: Teste S_BASE:</strong> Validação da zona base do Shushin.</li>
-<li><strong>1D: Giro Reverso 360º:</strong> Verifica a histerese angular na rotação em sentido horário/anti-horário.</li>
-<li><strong>2: Taiatari Swap:</strong> Troca rápida de posição entre os lutadores (choque corporal).</li>
-<li><strong>3: Tsubazeriai Pião:</strong> Rotação rápida em curta distância (ativação do freeze).</li>
-<li><strong>4 e 5: Inversões perto de 90º e 135º:</strong> Estudo de transição crítica nos limiares de inversão.</li>
-</ul>`,
-    helpConceptBody: `<p class="mb-3"><em>"Acredito que o árbitro deve naturalizar sua movimentação para liberar sua mente para o julgamento correto do ippon."</em></p>
-<p class="mb-3">Um posicionamento incorreto ocasiona pontos cegos. Os árbitros devem se movimentar para maximizar as oportunidades de enxergar com clareza. O trio atua em sinergia: o mau posicionamento de um compromete a posição dos outros dois.</p>
-<p>Como as oportunidades presenciais de treinamento de movimentação em seminários são escassas, este simulador interativo foi concebido para transformar regras teóricas em visualização prática e dinâmica.</p>`,
-    helpDisclaimerBody: `<div class="p-3 bg-red-950/40 border border-red-800/40 rounded-lg mb-3">
-<strong class="text-red-400 block mb-1">Aviso Importante (Disclaimer):</strong>
-<p class="text-xs leading-relaxed text-gray-300">Esta ferramenta foi desenvolvida por iniciativa pessoal e não constitui uma verdade absoluta. Por basear-se em modelos matemáticos e algorítmicos, pode apresentar comportamentos imprecisos em situações extremas. Em caso de dúvidas, busque sempre o senso crítico e a orientação de árbitros experientes e mestres graduados.</p>
-</div>
-<p class="text-xs mb-2"><strong>Referências Canônicas:</strong></p>
-<ul class="text-xs list-disc list-inside space-y-1 text-gray-400">
-<li>Regulations of Kendo Shiai and Shinpan (FIK, Jul/2023)</li>
-<li>Handbook for Kendo Shiai and Shinpan Management (FIK, Jul/2025)</li>
-</ul>
-<div class="mt-3 pt-3 border-t border-white/10 text-xs text-gray-400">
-<p><strong>Autor:</strong> Adrian Yu Yoneda (Renshi 7º Dan / Iaido 5º Dan — São Paulo, Brasil)</p>
-<p>Dúvidas e feedbacks: <em>adrian.yoneda@gmail.com</em></p>
+    helpProceduresBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-scroll text-[#bc002d]"></i> Guia do Módulo de Procedimentos FIK
+    </h3>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      Este módulo reproduz com rigor canônico todos os movimentos, posições, comandos de voz e saudações do trio de arbitragem em piso de madeira (dojo), em conformidade com as regras oficiais da <em>International Kendo Federation</em> (FIK, Jul/2023) e o manual <em>FIK Handbook for Kendo Shiai and Shinpan Management</em> (2025).
+    </p>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-gamepad text-[#bc002d]"></i> Como Operar o Painel Flutuante de Procedimentos
+    </h4>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-gray-300">
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white flex items-center gap-1.5 mb-1"><i class="fas fa-play text-green-400"></i> Reprodução & Navegação:</strong>
+        Utilize <strong>Reproduzir / Pausar</strong> para rodar a animação contínua. Use <strong>Anterior</strong> e <strong>Próximo</strong> para examinar cada etapa individualmente.
+      </div>
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white flex items-center gap-1.5 mb-1"><i class="fas fa-tachometer-alt text-blue-400"></i> Velocidade de Marcha:</strong>
+        Alterne entre <strong>0.5x</strong> (análise minuciosa de passadas), <strong>1.0x</strong> (velocidade real de seminário), <strong>1.5x</strong> e <strong>2.0x</strong>.
+      </div>
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white flex items-center gap-1.5 mb-1"><i class="fas fa-check-square text-amber-400"></i> Pausa a cada Etapa (Didático):</strong>
+        Quando marcada, a animação pausa automaticamente ao final de cada etapa, permitindo ler o texto explicativo oficial e absorver os detalhes posturais.
+      </div>
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white flex items-center gap-1.5 mb-1"><i class="fas fa-chair text-purple-400"></i> Assentos da Mesa & Rotação:</strong>
+        Selecione <strong>Esquerda</strong> ou <strong>Direita</strong> para definir o lado dos assentos de arbitragem, e alterne o modo de rotação entre <strong>Regular</strong> e <strong>Troca</strong> (Shinpan Koutai).
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-list-ol text-blue-400"></i> Estrutura dos Três Capítulos Canônicos
+    </h4>
+    <div class="space-y-3 text-xs text-gray-300">
+      <div class="border-l-2 border-[#bc002d] pl-3 py-0.5">
+        <strong class="text-white block font-semibold">1. Entrada & Formação (8 etapas):</strong>
+        Perfilamento externo (Fukushin - Shushin - Fukushin) &rarr; Comando "Mae" e marcha tangencial retilínea &rarr; Giro simultâneo de 90° voltado para a quadra &rarr; Comando "Ippomae" e passada direita-esquerda-direita entrando na quadra (~1m da linha) &rarr; Comando "Rei" e saudação conjunta &rarr; Fukushin marcham pelas pernas do trapézio isósceles (por dentro dos kaishisen mantendo 4,0m entre si) enquanto o Shushin permanece fixo &rarr; Giro dos Fukushin estritamente para o interior da quadra &rarr; Separação simultânea das bandeiras.
+      </div>
+      <div class="border-l-2 border-amber-500 pl-3 py-0.5">
+        <strong class="text-white block font-semibold">2A. Rotação Regular (Sem Troca - 5 etapas):</strong>
+        Junção das bandeiras na mão direita &rarr; Giro no próprio eixo em direção ao próximo vértice &rarr; Marcha retilínea ao longo dos lados do triângulo isósceles &rarr; Giro anti-horário para o centro da quadra &rarr; Separação simultânea das bandeiras.
+      </div>
+      <div class="border-l-2 border-green-500 pl-3 py-0.5">
+        <strong class="text-white block font-semibold">2B. Rotação com Troca — Shinpan Koutai (8 etapas):</strong>
+        Bandeiras na mão direita &rarr; Giro e deslocamento ao próximo vértice &rarr; Árbitros mantidos viram-se ao centro; o árbitro sainte vira-se para o substituto externo e enrola as bandeiras (branca por dentro, vermelha por fora) &rarr; Substituto ingressa na quadra sincronizado &rarr; Saudação mútua (Rei) &rarr; Sainte gira 90° e recua de costas voltado para a quadra &rarr; Saudação à quadra e separação simultânea das bandeiras em quadra.
+      </div>
+      <div class="border-l-2 border-purple-500 pl-3 py-0.5">
+        <strong class="text-white block font-semibold">3. Encerramento & Saída (7 etapas):</strong>
+        Enrolar simultâneo das bandeiras &rarr; Fukushin retornam ao Shushin pelo trapézio &rarr; Giro para dentro e alinhamento a 1m da linha &rarr; Comando "Rei" ao Shomen &rarr; Comando "Hidari-muke" ou "Migi-muke" &rarr; Comando "Mae" e marcha em tandem até a borda de saída, enquanto o novo trio entra &rarr; Dispersão em triângulo equilátero e saudação mútua externa (Sogo-ni-rei).
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-black/40 p-3.5 rounded-xl border border-white/10 space-y-2 text-xs">
+    <h4 class="font-bold text-white flex items-center gap-1.5 text-xs uppercase tracking-wider">
+      <i class="fas fa-flag text-amber-400"></i> Regras Rigorosas de Porte das Bandeiras (Shinpanki)
+    </h4>
+    <ul class="space-y-1.5 text-gray-300 list-disc list-inside">
+      <li><strong>Em Deslocamento (Marcha de Entrada, Rotação e Saída):</strong> Ambas as bandeiras devem ser portadas <em>exclusivamente na mão direita</em>, ao lado do corpo, enroladas, com a bandeira vermelha cobrindo a bandeira branca.</li>
+      <li><strong>Em Posição de Combate:</strong>
+        <ul class="pl-4 mt-1 space-y-1 list-none">
+          <li>&bull; <strong class="text-white">Shushin:</strong> Bandeira Vermelha na mão direita / Bandeira Branca na mão esquerda.</li>
+          <li>&bull; <strong class="text-white">Fukushin:</strong> Bandeira Branca na mão direita / Bandeira Vermelha na mão esquerda.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>`,
+    helpCombatBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-fist-raised text-[#2563eb]"></i> Guia do Módulo de Combate Reativo
+    </h3>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      O módulo de Combate Reativo simula as leis cinemáticas de movimentação de um trio de arbitragem em resposta à ação contínua dos atletas na quadra de madeira.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+      <strong class="text-white text-sm flex items-center gap-1.5"><i class="fas fa-hand-pointer text-blue-400"></i> Interação Prática</strong>
+      <p class="leading-relaxed">
+        Clique e arraste diretamente os lutadores <strong>W</strong> (<em>Shiro</em> / Branco) e <strong>R</strong> (<em>Aka</em> / Vermelho) em qualquer direção na quadra. O trio de arbitragem reagirá automaticamente para manter o enquadramento isósceles.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+      <strong class="text-white text-sm flex items-center gap-1.5"><i class="fas fa-undo-alt text-[#bc002d]"></i> Reset das Posições</strong>
+      <p class="leading-relaxed">
+        O botão <strong>Resetar Posições</strong> (no rodapé do painel esquerdo ou flutuante se recolhido) devolve instantaneamente os atletas aos seus <em>kaishisen</em> (marcas de início) e restaura o posicionamento padrão dos árbitros.
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-layer-group text-green-400"></i> Os 2 Modos de Visualização
+    </h4>
+    <div class="space-y-2.5 text-xs text-gray-300">
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white block font-semibold mb-1">Modo Renderizado (Visualização Zenital Marcial):</strong>
+        Projetado para seminários e projeções em tela grande. Exibe a quadra em piso de madeira clássico com marcações brancas, atletas com uniforme de Kendo e <em>Tasuki</em> vermelho e branco nas costas, além dos três árbitros vestidos formalmente portando suas bandeiras conforme a canônica marcial.
+      </div>
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white block font-semibold mb-1">Modo Técnico (Diagrama Analítico & Depuração):</strong>
+        Focado no estudo das zonas matemáticas. Apresenta os círculos com letras de identificação (W, R, S, F1, F2), as linhas de visão, as áreas poligonais de cada árbitro e o painel Debug com medição angular e estados da máquina de movimentação.
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-eye text-amber-400"></i> Opções de Visualização em Quadra (Painel Esquerdo)
+    </h4>
+    <ul class="space-y-1.5 list-disc list-inside">
+      <li><strong>Triângulo dos Árbitros:</strong> Linha tracejada que conecta os 3 árbitros, evidenciando o triângulo isósceles.</li>
+      <li><strong>Eixo / Quadrado Dinâmico:</strong> Linha de confronto direto entre os lutadores e quadrado móvel representativo do setor de ação.</li>
+      <li><strong>Áreas de Responsabilidade:</strong> Polígonos sombreados delimitando a área primária de atuação de cada árbitro.</li>
+      <li><strong>Indicadores de Direção:</strong> Vetores apontando a orientação corporal e a linha de olhar de cada interveniente.</li>
+      <li><strong>Trilhas de Movimento:</strong> Linhas de rastro que registram as curvas de deslocamento dos árbitros no piso da quadra.</li>
+    </ul>
+  </div>
+</div>`,
+    helpAdvancedBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-sliders-h text-[#bc002d]"></i> Lógica Cinemática & Parâmetros Avançados
+    </h3>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      A movimentação do trio baseia-se em um modelo vetorial e angular que busca otimizar a visualização do <em>yuko-datotsu</em> através da manutenção de um triângulo isósceles com os atletas no centro de gravidade.
+    </p>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-wave-square text-blue-400"></i> Suavização do Movimento (k)
+    </h4>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      O parâmetro <strong>Suavização (k)</strong> (ajustável de 1.0 a 15.0) controla a taxa de convergência inercial dos árbitros:
+    </p>
+    <ul class="space-y-1 text-xs text-gray-300 list-disc list-inside pl-2">
+      <li><strong>Valores Altos (8.0 a 15.0):</strong> Resposta imediata e ágil, com menor inércia, ideal para acompanhar testes matemáticos rápidos.</li>
+      <li><strong>Valor Padrão (5.0):</strong> Balanço ideal que simula a passada fluida e a massa corporal de um árbitro humano em deslocamento.</li>
+      <li><strong>Valores Baixos (1.0 a 3.0):</strong> Alta inércia, gerando curvas de aproximação mais lentas e amortecidas.</li>
+    </ul>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-compass text-amber-400"></i> Os 5 Limiares Angulares de Transição (Thresholds)
+    </h4>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      Em combate real, a linha entre os lutadores gira. Quando atinge ângulos críticos, o Shushin deixa temporariamente de ser o vértice do triângulo e desloca-se para a base oposta, invertendo papéis com os Fukushin para não cruzar a linha de visão:
+    </p>
+    <div class="space-y-2 text-xs text-gray-300">
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">1. Entrada VERTEX (padrão 90°):</strong> Ângulo de combate no qual o Shushin inicia a transição suave em direção à base do triângulo.
+      </div>
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">2. Saída VERTEX &rarr; STANDARD (padrão 45°):</strong> Limiar de retorno à formação padrão. Possui uma ampla histerese angular (de 90° para 45°) para evitar que os árbitros fiquem oscilando de um lado para o outro em combates na fronteira angular.
+      </div>
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">3. Entrada S_BASE (padrão 123°):</strong> Ponto em que o Shushin assume integralmente a base invertida.
+      </div>
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">4. Saída S_BASE &rarr; VERTEX (padrão 90°):</strong> Limiar de retorno de S_BASE para a zona intermediária.
+      </div>
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">5. Entrada FLIP (padrão 135°):</strong> Inversão simétrica de quadrante para preservar a geometria sem colisão de trajetórias.
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-snowflake text-cyan-400"></i> Estabilização Automática (Freeze) em Tsubazeriai
+    </h4>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      Quando os atletas entram em combate corpo a corpo (<em>tsubazeriai</em>) ou realizam múltiplos giros rápidos acumulados em curta distância, um árbitro humano não corre desordenadamente em círculos. O simulador replica essa sabedoria marcial: ao detectar alta rotação em curto raio, o motor aciona o estado <strong>FROZEN</strong>, mantendo as posições estáveis até que haja definição ou ruptura espacial.
+    </p>
+  </div>
+</div>`,
+    helpScenariosBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-play-circle text-[#bc002d]"></i> Bateria de Cenários de Teste Automatizados
+    </h3>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      O simulador conta com 8 rotinas automatizadas de trajetória cinemática no piso da quadra. Cada cenário foi desenvolvido para isolar e avaliar um comportamento específico da arbitragem.
+    </p>
+  </div>
+
+  <div class="space-y-2.5 text-xs text-gray-300">
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">1A</span>
+        <span>Giro Lento 360º</span>
+      </div>
+      <p class="leading-relaxed">
+        Rotação contínua e suave dos competidores ao redor do centro do shiai-jo. Valida a rotação harmônica do trio e a preservação ininterrupta do triângulo isósceles em velocidade controlada.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">1B</span>
+        <span>Teste Vertex</span>
+      </div>
+      <p class="leading-relaxed">
+        Desloca os lutadores na fronteira angular de 90º para avaliar a entrada e saída suave do modo Vertex pelo Shushin, demonstrando a ausência de solavancos visuais.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">1C</span>
+        <span>Teste S_BASE</span>
+      </div>
+      <p class="leading-relaxed">
+        Conduz os atletas a uma rotação superior a 123º, comprovando a eficácia do Shushin atuando na base invertida e a cobertura angular dos dois Fukushin.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">1D</span>
+        <span>Giro Reverso 360º</span>
+      </div>
+      <p class="leading-relaxed">
+        Giro completo no sentido anti-horário com inversão imediata para o sentido horário, validando a histerese matemática e a simetria de resposta do algoritmo.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">2</span>
+        <span>Taiatari Swap (Choque Corporal)</span>
+      </div>
+      <p class="leading-relaxed">
+        Simula um golpe com choque frontal violento onde os lutadores trocam de posição bruscamente em fração de segundo. Comprova a estabilidade dos árbitros sem giros descontrolados.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">3</span>
+        <span>Tsubazeriai Pião</span>
+      </div>
+      <p class="leading-relaxed">
+        Luta acirrada de tsubazeriai com giros rápidos acumulados em raio minúsculo. Demonstra o disparo imediato do estado Freeze, preservando os árbitros firmes e atentos.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">4 & 5</span>
+        <span>Inversões Perto de 90º e 135º</span>
+      </div>
+      <p class="leading-relaxed">
+        Oscilações deliberadas sobre as fronteiras de transição mais críticas, validando que a máquina de estados não apresenta ruídos ou comportamentos espúrios.
+      </p>
+    </div>
+  </div>
+</div>`,
+    helpConceptBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-yin-yang text-[#bc002d]"></i> Conceito Marcial & Filosofia da Arbitragem
+    </h3>
+    <blockquote class="border-l-4 border-[#bc002d] pl-4 italic text-xs text-gray-200 py-1 leading-relaxed bg-black/20 rounded-r-lg">
+      "Acredito que o árbitro deve naturalizar sua movimentação até que ela se torne um reflexo espontâneo, liberando sua mente para manter-se límpida e focada no julgamento imediato do ippon."
+      <span class="block text-right text-gray-400 font-semibold mt-1 not-italic">— Prof. Adrian Yoneda (Renshi 7º Dan)</span>
+    </blockquote>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-eye text-amber-400"></i> Shinpan-me: O Julgamento do Yuko-Datotsu
+    </h4>
+    <p class="leading-relaxed">
+      No Kendo, um ponto válido (<em>yuko-datotsu</em>) dura uma fração de segundo e requer a convergência simultânea de requisitos espirituais, técnicos e físicos: <strong>Ki-Ken-Tai-Ichi</strong> (união de espírito, espada e corpo), contato com a parte correta da lâmina de bambu (<em>Datotsubu</em>), ângulo de corte exato (<em>Hasuji</em>), postura digna e presença de espírito após o golpe (<em>Zanshin</em>).
+    </p>
+    <p class="leading-relaxed">
+      Se o árbitro estiver em dúvida sobre onde posicionar seus pés ou com a linha de visão obstruída pelo corpo de outro árbitro ou atleta, o momento do julgamento é irremediavelmente perdido.
+    </p>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-project-diagram text-blue-400"></i> A Sinergia do Trio de Arbitragem
+    </h4>
+    <p class="leading-relaxed">
+      O trio de arbitragem atua como um <strong>organismo vivo e articulado</strong>. O posicionamento incorreto ou a hesitação de um dos árbitros rompe imediatamente o equilíbrio do triângulo isósceles, forçando os outros dois colegas ao erro geométrico e criando pontos cegos imperdoáveis.
+    </p>
+    <p class="leading-relaxed">
+      Por isso, a formação de árbitros requer o domínio não apenas das regras escritas, mas da sensibilidade espacial coletiva sobre o piso de madeira do shiai-jo.
+    </p>
+  </div>
+</div>`,
+    helpDisclaimerBody: `<div class="space-y-4">
+  <div class="p-4 bg-red-950/40 border border-red-800/40 rounded-xl space-y-2">
+    <strong class="text-red-400 text-sm font-bold flex items-center gap-2">
+      <i class="fas fa-exclamation-triangle"></i> Aviso Importante (Disclaimer Educacional)
+    </strong>
+    <p class="text-xs leading-relaxed text-gray-300">
+      Esta ferramenta foi desenvolvida por iniciativa pessoal e tem caráter estritamente didático e educacional. Baseando-se em modelos matemáticos e algorítmicos simplificados de cinemática computacional, não constitui uma verdade dogmática incontestável.
+    </p>
+    <p class="text-xs leading-relaxed text-gray-300">
+      Em situações reais no dojo ou competições oficiais, a orientação dos mestres e árbitros de alta graduação é soberana e deve sempre prevalecer.
+    </p>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-book text-amber-400"></i> Referências Canônicas Oficiais
+    </h4>
+    <ul class="space-y-1.5 list-disc list-inside pl-2">
+      <li><strong>Regulations of Kendo Shiai and Shinpan:</strong> International Kendo Federation (FIK, Julho/2023).</li>
+      <li><strong>Handbook for Kendo Shiai and Shinpan Management:</strong> International Kendo Federation (FIK, Julho/2025).</li>
+      <li><strong>Diretrizes de Formação de Árbitros da CBK:</strong> Confederação Brasileira de Kendo.</li>
+    </ul>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-400">
+    <div class="flex items-center gap-2 text-white font-semibold">
+      <i class="fas fa-user-tie text-[#bc002d]"></i> Autoria & Contato
+    </div>
+    <p>
+      <strong>Idealização & Coordenação Técnica:</strong> Prof. Adrian Yu Yoneda (Renshi 7º Dan Kendo / 5º Dan Iaido — São Paulo, Brasil).
+    </p>
+    <p>
+      Dúvidas, sugestões e colaborações para aprimoramento da ferramenta: <a href="mailto:adrian.yoneda@gmail.com" class="text-blue-400 underline hover:text-blue-300">adrian.yoneda@gmail.com</a>
+    </p>
+  </div>
 </div>`
   },
   en: {
@@ -331,69 +688,424 @@ export const i18n: Record<string, Record<string, string>> = {
     step_exit_turn_sideways_desc: "At the command \"Hidari-muke\" (or \"Migi-muke\") from the Shushin, the 3 referees turn 90º on their axis, ready to march towards the exit.",
     step_exit_march_straight_desc: "At the command \"Mae\" from the Shushin, the exiting trio marches in a straight line towards the exit border. Simultaneously, the incoming referee group, also at the command \"Mae\", advances along the sideline to the entrance center.",
     step_exit_sogo_ni_rei_desc: "As soon as crossing the court boundary, the exiting trio forms an equilateral triangle, turns to face one another, and executes Sogo-ni-rei (mutual bow), while the new trio is ready at center.",
+    sectionGlobalLabel: "General Settings",
+    procCtxTitle: "FIK Protocol & Guidelines",
+    procCtxDesc: "Canonical refereeing protocol on wooden flooring (dojo), per FIK / AJKF regulations (2023/2025).",
+    procCtxFlagsTitle: "Flag Protocol (Shinpanki)",
+    procCtxShushin: "<strong>Shushin:</strong> Right Red / Left White",
+    procCtxFukushin: "<strong>Fukushin:</strong> Right White / Left Red",
+    procCtxMovement: "<strong>Entry / Rotation / Exit:</strong> In right hand (Red covering White).",
+    procCtxGeomTitle: "Court Geometry (Shiai-jo)",
+    procCtxGeomDist: "Fukushin: fixed 4.0 m distance (inside the kaishisen).",
+    procCtxGeomEntry: "Tangential march: ~0.45 m from the outer boundary.",
+    procCtxGeomStep: "Court entry: ~1.0 m inside after \"Ippomae\".",
+    procCtxTip: '<i class="fas fa-info-circle text-[#bc002d] mr-1"></i> Use the floating panel on the right to navigate chapters, steps, and speed.',
     helpModalTitle: "Simulator Guide & Guidelines",
     helpCloseBtn: "Close Guide",
-    helpTabUsage: "How to Use",
-    helpTabModes: "Viewing Modes",
-    helpTabViz: "Zones & Geometry",
-    helpTabAdvanced: "Parameters",
-    helpTabScenarios: "Scenarios",
+    helpTabGlobal: "Modules & Settings",
+    helpTabProcedures: "FIK Procedures",
+    helpTabCombat: "Reactive Combat",
+    helpTabAdvanced: "Logic & Parameters",
+    helpTabScenarios: "Test Scenarios",
     helpTabConcept: "Martial Concept",
     helpTabDisclaimer: "Disclaimer & Rules",
-    helpUsageBody: `<p class="mb-3"><strong>Basic Interaction:</strong> Click and drag the competitors (White / Red) across the court to observe how the referee trio reacts dynamically.</p>
-<p class="mb-3"><strong>Isosceles Triangle:</strong> The three referees (Shushin and two Fukushin) must maintain an isosceles triangle framing the competitors, keeping the combatants in their field of view and minimizing blind spots.</p>
-<p><strong>Court Resizing:</strong> You can choose 9x9m, 10x10m or 11x11m court size at any time, and reset the layout via the reset button.</p>`,
-    helpModesBody: `<p class="mb-3"><strong>Technical Mode:</strong> Diagrammatic vector display with geometric markers (W, R, S, F1, F2), sightlines, referee triangle, combat axes, referee areas of responsibility, and real-time state machine debug values.</p>
-<p class="mb-3"><strong>Rendered Mode:</strong> Realistic top-down court on wooden dojo floor. Features authentic pixel art sprites for athletes (with red and white tasuki ribbon markings on the back) and referees holding official flags.</p>
-<p><strong>Canonical Referees:</strong> In accordance with FIK rules, the Shushin holds the red flag in the right hand while Fukushin mirror the flags symmetrically for harmonious signaling.</p>`,
-    helpVizBody: `<ul class="space-y-2 list-disc list-inside">
-<li><strong>Referee Triangle:</strong> Dashed line connecting the 3 referees, forming the core isosceles triangle.</li>
-<li><strong>Dynamic Combat Axis / Square:</strong> Central confrontation line between combatants and mobile bounding square formed by the referee sectors.</li>
-<li><strong>Shushin and Fukushin Areas:</strong> Polygonal regions illustrating each referee's movement responsibility (lower half for the Shushin and diagonal triangles for each Fukushin).</li>
-<li><strong>Directional Indicators:</strong> Sight vectors indicating where each person is looking.</li>
-<li><strong>Motion Trails:</strong> Traces displaying referee positioning paths.</li>
-<li><strong>Debug Mode:</strong> Real-time numerical display of angles, state machines (STANDARD, VERTEX, S_BASE, FLIP) and freeze status.</li>
-</ul>`,
-    helpAdvancedBody: `<div class="space-y-3">
-<p><strong>Motion:</strong></p>
-<ul class="space-y-1 list-disc list-inside text-xs pl-2 text-gray-300">
-<li><strong>Smoothing (k):</strong> Calibrates inertia and response time of the referee trio: higher values yield snappy, instantaneous reactions; lower values produce fluid, natural movement.</li>
-</ul>
-<p><strong>Transition Thresholds (5 Angular Limits):</strong> Angular boundaries in degrees that govern formation transitions (when the Shushin temporarily transitions away from the apex of the isosceles triangle), adhering to referee areas of responsibility while maintaining clear sightlines of the competitors:</p>
-<ul class="space-y-1 list-disc list-inside text-xs pl-2 text-gray-300">
-<li><strong>Enter Vertex (default 90°):</strong> Combat angle where Shushin begins transitioning toward the triangle base.</li>
-<li><strong>Exit Vertex (default 45°):</strong> Hysteresis threshold to return to Standard formation smoothly.</li>
-<li><strong>Enter S_Base (default 123°):</strong> Angle where Shushin assumes the inverted base position.</li>
-<li><strong>Exit S_Base (default 90°):</strong> Return from S_Base back to Vertex.</li>
-<li><strong>Enter Flip (default 135°):</strong> Quadrant inversion to maintain geometry without crossing referee paths.</li>
-</ul>
-<p><strong>Internal Stabilization (Freeze):</strong> In clinch situations (<em>tsubazeriai</em>) or accumulated rapid spins, the engine automatically stabilizes referee positions to eliminate erratic movements.</p>
+    helpGlobalBody: `<div class="space-y-4">
+  <div class="bg-gradient-to-r from-[#bc002d]/20 to-transparent p-4 rounded-xl border border-[#bc002d]/30">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-globe text-[#bc002d]"></i> Kendo Shinpan Simulator Overview
+    </h3>
+    <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">
+      Interactive educational refereeing simulator developed by Adrian Yoneda (Renshi 7th Dan Kendo). Operates across two complementary, high-fidelity modules on wooden flooring (<em>shiai-jo</em>).
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-2">
+      <div class="flex items-center gap-2 font-bold text-sm text-white">
+        <span class="w-6 h-6 rounded-full bg-[#bc002d] text-white flex items-center justify-center text-xs">1</span>
+        <span>FIK Procedures Module</span>
+      </div>
+      <p class="text-xs text-gray-300 leading-relaxed">
+        Step-by-step animated demonstration of the <strong>official canonical protocol</strong> established by the International Kendo Federation (FIK / AJKF 2023 & 2025). Covers court entrance, trapezoid march, bowed greetings (Rei), position rotations, referee substitution (<em>Shinpan Koutai</em>), and exit with Sogo-ni-rei.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-2">
+      <div class="flex items-center gap-2 font-bold text-sm text-white">
+        <span class="w-6 h-6 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs">2</span>
+        <span>Reactive Combat Module</span>
+      </div>
+      <p class="text-xs text-gray-300 leading-relaxed">
+        Real-time interactive engine where you drag combatants <strong>Shiro</strong> (White) and <strong>Aka</strong> (Red) across the court to observe how the referee trio (Shushin and two Fukushin) dynamically repositions to maintain the <strong>isosceles triangle</strong> and extinguish blind spots.
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-sliders-h text-amber-400"></i> General Settings (Fixed Left Header)
+    </h4>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-300">
+      <div class="flex items-start gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <i class="fas fa-language text-blue-400 mt-0.5"></i>
+        <div>
+          <strong class="text-white block">Idioma / Language / 言語:</strong>
+          Instant trilingual switcher across Portuguese, English, and Japanese for all UI text, step explanations, and command badges.
+        </div>
+      </div>
+      <div class="flex items-start gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <i class="fas fa-ruler-combined text-green-400 mt-0.5"></i>
+        <div>
+          <strong class="text-white block">Court Size:</strong>
+          Select between <strong>9 x 9 m</strong>, <strong>10 x 10 m</strong>, or <strong>11 x 11 m</strong>, dynamically adjusting court bounds and canonical FIK geometric distances.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-200 flex items-start gap-2">
+    <i class="fas fa-info-circle text-amber-400 mt-0.5 flex-shrink-0"></i>
+    <span><strong>Adaptive Panel:</strong> When toggling modules via the top bar, the left panel automatically adapts, presenting didactic protocol notes in Procedures mode and interactive debug controls in Combat mode.</span>
+  </div>
 </div>`,
-    helpScenariosBody: `<p class="mb-3">The simulator offers 8 automated test routines for motion analysis and demonstrations:</p>
-<ul class="space-y-1.5 list-disc list-inside text-xs">
-<li><strong>1A: Slow 360º Turn:</strong> Demonstrates steady rotational tracking.</li>
-<li><strong>1B: Vertex Test:</strong> Evaluates entry and exit from Vertex mode.</li>
-<li><strong>1C: S_BASE Test:</strong> Verifies the Shushin base quadrant.</li>
-<li><strong>1D: Reverse 360º Turn:</strong> Tests clockwise vs counter-clockwise angular hysteresis.</li>
-<li><strong>2: Taiatari Swap:</strong> Fast position exchange between competitors (body collision).</li>
-<li><strong>3: Tsubazeriai Spin:</strong> Close combat rapid spinning (triggers freeze).</li>
-<li><strong>4 & 5: Inversions near 90º and 135º:</strong> Critical transition threshold validations.</li>
-</ul>`,
-    helpConceptBody: `<p class="mb-3"><em>"Referees must naturalize their movement to free their minds for accurate and immediate judging of ippon."</em></p>
-<p class="mb-3">Poor positioning causes blind spots. The referee team acts as a single synchronized unit: poor positioning by one compromises the positioning of the other two.</p>
-<p>Because live seminar opportunities are rare, this simulator was designed to translate theoretical guidelines into dynamic, visual practice.</p>`,
-    helpDisclaimerBody: `<div class="p-3 bg-red-950/40 border border-red-800/40 rounded-lg mb-3">
-<strong class="text-red-400 block mb-1">Important Disclaimer:</strong>
-<p class="text-xs leading-relaxed text-gray-300">This educational tool was developed through personal initiative. Being algorithmic and mathematical, it may show irregular behavior in extreme situations. Always apply critical judgment and seek mentorship from senior referees.</p>
-</div>
-<p class="text-xs mb-2"><strong>Canonical References:</strong></p>
-<ul class="text-xs list-disc list-inside space-y-1 text-gray-400">
-<li>Regulations of Kendo Shiai and Shinpan (FIK, Jul/2023)</li>
-<li>Handbook for Kendo Shiai and Shinpan Management (FIK, Jul/2025)</li>
-</ul>
-<div class="mt-3 pt-3 border-t border-white/10 text-xs text-gray-400">
-<p><strong>Author:</strong> Adrian Yu Yoneda (Renshi 7th Dan / Iaido 5th Dan — Brazil)</p>
-<p>Contact & feedback: <em>adrian.yoneda@gmail.com</em></p>
+    helpProceduresBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-scroll text-[#bc002d]"></i> FIK Procedures Module Guide
+    </h3>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      This module strictly replicates the referee trio movements, standing positions, vocal commands, and bows on wooden dojo flooring, in full compliance with FIK Regulations (Jul/2023) and the <em>FIK Handbook for Kendo Shiai and Shinpan Management</em> (2025).
+    </p>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-gamepad text-[#bc002d]"></i> Operating the Floating Stepper Controls
+    </h4>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-gray-300">
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white flex items-center gap-1.5 mb-1"><i class="fas fa-play text-green-400"></i> Playback & Navigation:</strong>
+        Use <strong>Play / Pause</strong> for continuous playback. Use <strong>Prev</strong> and <strong>Next</strong> to inspect each step individually.
+      </div>
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white flex items-center gap-1.5 mb-1"><i class="fas fa-tachometer-alt text-blue-400"></i> March Speed:</strong>
+        Toggle between <strong>0.5x</strong> (step footwork inspection), <strong>1.0x</strong> (standard seminar speed), <strong>1.5x</strong>, and <strong>2.0x</strong>.
+      </div>
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white flex items-center gap-1.5 mb-1"><i class="fas fa-check-square text-amber-400"></i> Pause on Each Step (Didactic):</strong>
+        When enabled, automatically pauses at the completion of each step, allowing you to read the detailed official note and verify postural alignment.
+      </div>
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white flex items-center gap-1.5 mb-1"><i class="fas fa-chair text-purple-400"></i> Seats & Rotation Mode:</strong>
+        Choose <strong>Left</strong> or <strong>Right</strong> for referee table positioning, and toggle rotation between <strong>Regular</strong> and <strong>Substitution</strong> (Shinpan Koutai).
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-list-ol text-blue-400"></i> Three Canonical Chapters Breakdown
+    </h4>
+    <div class="space-y-3 text-xs text-gray-300">
+      <div class="border-l-2 border-[#bc002d] pl-3 py-0.5">
+        <strong class="text-white block font-semibold">1. Entrance & Formation (8 steps):</strong>
+        External line-up (Fukushin - Shushin - Fukushin) &rarr; "Mae" command and tangential march &rarr; 90° inward turn toward court &rarr; "Ippomae" right-left-right entry (~1m inside boundary) &rarr; "Rei" bow &rarr; Fukushin march along trapezoid legs (inside kaishisen with 4.0m separation) while Shushin stands &rarr; Fukushin turn inward to center &rarr; Simultaneous flag separation.
+      </div>
+      <div class="border-l-2 border-amber-500 pl-3 py-0.5">
+        <strong class="text-white block font-semibold">2A. Regular Rotation (Without Substitution - 5 steps):</strong>
+        Flags gathered in right hand &rarr; Axis turn toward next vertex &rarr; Straight-line march along triangle sides &rarr; Counter-clockwise turn toward center &rarr; Simultaneous flag separation.
+      </div>
+      <div class="border-l-2 border-green-500 pl-3 py-0.5">
+        <strong class="text-white block font-semibold">2B. Referee Substitution — Shinpan Koutai (8 steps):</strong>
+        Flags in right hand &rarr; Turn and march to vertex &rarr; Standing referees turn to center; exiting referee turns to incoming substitute and rolls flags (white inside, red outside) &rarr; Substitute enters synchronously &rarr; Mutual bow (Rei) &rarr; Exiting referee turns 90° and steps backwards out of court facing inside &rarr; Bow to court and simultaneous flag separation.
+      </div>
+      <div class="border-l-2 border-purple-500 pl-3 py-0.5">
+        <strong class="text-white block font-semibold">3. Closing & Exit (7 steps):</strong>
+        Simultaneous flag rolling &rarr; Fukushin march back along trapezoid to Shushin &rarr; Inward turn and alignment 1m from boundary &rarr; "Rei" bow to Shomen &rarr; "Hidari-muke" / "Migi-muke" turn &rarr; "Mae" straight-line exit march while incoming trio enters &rarr; Equilateral triangle dispersion and mutual bow (Sogo-ni-rei).
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-black/40 p-3.5 rounded-xl border border-white/10 space-y-2 text-xs">
+    <h4 class="font-bold text-white flex items-center gap-1.5 text-xs uppercase tracking-wider">
+      <i class="fas fa-flag text-amber-400"></i> Strict Flag Handling Rules (Shinpanki)
+    </h4>
+    <ul class="space-y-1.5 text-gray-300 list-disc list-inside">
+      <li><strong>During Movement (Entrance, Rotation, and Exit):</strong> Both flags are held <em>exclusively in the right hand</em> at the side of the body, rolled, with the red flag covering the white flag.</li>
+      <li><strong>During Active Combat:</strong>
+        <ul class="pl-4 mt-1 space-y-1 list-none">
+          <li>&bull; <strong class="text-white">Shushin:</strong> Red Flag in right hand / White Flag in left hand.</li>
+          <li>&bull; <strong class="text-white">Fukushin:</strong> White Flag in right hand / Red Flag in left hand.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>`,
+    helpCombatBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-fist-raised text-[#2563eb]"></i> Reactive Combat Module Guide
+    </h3>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      The Reactive Combat module models the kinematic laws governing referee positioning in response to the fast-paced actions of two competitors on the wooden floor.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+      <strong class="text-white text-sm flex items-center gap-1.5"><i class="fas fa-hand-pointer text-blue-400"></i> Direct Interaction</strong>
+      <p class="leading-relaxed">
+        Click and drag competitors <strong>W</strong> (<em>Shiro</em> / White) and <strong>R</strong> (<em>Aka</em> / Red) anywhere on the court. The referee trio will automatically reposition to maintain the isosceles triangle.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+      <strong class="text-white text-sm flex items-center gap-1.5"><i class="fas fa-undo-alt text-[#bc002d]"></i> Position Reset</strong>
+      <p class="leading-relaxed">
+        The <strong>Reset Positions</strong> button (in the left footer or floating when collapsed) returns competitors immediately to the central <em>kaishisen</em> markers and resets referee formations.
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-layer-group text-green-400"></i> The 2 Viewing Modes
+    </h4>
+    <div class="space-y-2.5 text-xs text-gray-300">
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white block font-semibold mb-1">Rendered Mode (Authentic Top-down View):</strong>
+        Tailored for seminars and big-screen projection. Renders traditional wooden flooring with white court lines, kenshi wearing Hakama, Keikogi, and colored <em>Tasuki</em> back ribbons, plus formally attired referees holding flags in canonical hands.
+      </div>
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white block font-semibold mb-1">Technical Mode (Analytical Vector Diagram & Debug):</strong>
+        Focused on mathematical zones. Displays labeled circles (W, R, S, F1, F2), sightlines, referee polygonal responsibility sectors, and real-time numerical debug angles and states.
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-eye text-amber-400"></i> On-Court Visualization Options
+    </h4>
+    <ul class="space-y-1.5 list-disc list-inside">
+      <li><strong>Referees Triangle:</strong> Dashed line connecting the 3 referees, forming the core isosceles triangle.</li>
+      <li><strong>Combat Axis / Dynamic Square:</strong> Direct confrontation axis and bounding sector.</li>
+      <li><strong>Responsibility Areas:</strong> Shaded polygons showing the primary viewing sector for each referee.</li>
+      <li><strong>Directional Indicators:</strong> Sight arrows indicating the body facing and eye direction of each participant.</li>
+      <li><strong>Motion Trails:</strong> Curves tracing referee movement paths across the wooden floor.</li>
+    </ul>
+  </div>
+</div>`,
+    helpAdvancedBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-sliders-h text-[#bc002d]"></i> Kinematic Logic & Advanced Parameters
+    </h3>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      Referee movement is calculated using an angular and vector model designed to optimize <em>yuko-datotsu</em> visibility by maintaining an isosceles triangle with the combatants at its center of gravity.
+    </p>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-wave-square text-blue-400"></i> Motion Smoothing (k)
+    </h4>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      The <strong>Smoothing (k)</strong> parameter (1.0 to 15.0) controls the inertial convergence rate:
+    </p>
+    <ul class="space-y-1 text-xs text-gray-300 list-disc list-inside pl-2">
+      <li><strong>High Values (8.0 to 15.0):</strong> Immediate and agile response with minimal inertia, useful for fast mathematical tests.</li>
+      <li><strong>Default Value (5.0):</strong> Natural balance that mimics human referee footwork and body momentum.</li>
+      <li><strong>Low Values (1.0 to 3.0):</strong> High inertia, yielding slower, dampened approach curves.</li>
+    </ul>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-compass text-amber-400"></i> The 5 Angular Transition Thresholds
+    </h4>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      As the combat line rotates, the Shushin transitions away from the triangle apex toward the base, swapping roles smoothly with the Fukushin to avoid crossing sightlines:
+    </p>
+    <div class="space-y-2 text-xs text-gray-300">
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">1. Enter VERTEX (default 90°):</strong> Combat angle where Shushin begins moving toward the base.
+      </div>
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">2. Exit VERTEX &rarr; STANDARD (default 45°):</strong> Return threshold with wide hysteresis (45° vs 90°) to prevent jittery oscillations.
+      </div>
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">3. Enter S_BASE (default 123°):</strong> Angle where Shushin fully assumes the inverted base position.
+      </div>
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">4. Exit S_BASE &rarr; VERTEX (default 90°):</strong> Orderly transition back toward intermediate zone.
+      </div>
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">5. Enter FLIP (default 135°):</strong> Symmetrical quadrant inversion ensuring referees maintain geometry without colliding.
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-snowflake text-cyan-400"></i> Automatic Stabilization (Freeze) in Tsubazeriai
+    </h4>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      During clinch situations (<em>tsubazeriai</em>) or accumulated rapid spins in a tight radius, a human referee maintains posture rather than running frantically in circles. The simulator mirrors this wisdom: upon detecting high rotational variance in a small radius, it triggers the <strong>FROZEN</strong> state, keeping referees stable until combat breaks.
+    </p>
+  </div>
+</div>`,
+    helpScenariosBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-play-circle text-[#bc002d]"></i> Automated Test Scenarios Battery
+    </h3>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      The simulator provides 8 automated kinematic routines across the court floor. Each scenario was designed to validate specific aspects of refereeing movement.
+    </p>
+  </div>
+
+  <div class="space-y-2.5 text-xs text-gray-300">
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">1A</span>
+        <span>Slow 360º Turn</span>
+      </div>
+      <p class="leading-relaxed">
+        Smooth, continuous rotation around the shiai-jo center. Demonstrates harmonious trio rotation and triangle maintenance at controlled speed.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">1B</span>
+        <span>Vertex Test</span>
+      </div>
+      <p class="leading-relaxed">
+        Shifts competitors across the 90º threshold to verify smooth entry and exit from Vertex mode by the Shushin.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">1C</span>
+        <span>S_BASE Test</span>
+      </div>
+      <p class="leading-relaxed">
+        Drives competitors beyond 123º to confirm Shushin inverted base positioning and Fukushin angular coverage.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">1D</span>
+        <span>Reverse 360º Turn</span>
+      </div>
+      <p class="leading-relaxed">
+        Full counter-clockwise spin immediately reversing clockwise, validating mathematical hysteresis and algorithmic symmetry.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">2</span>
+        <span>Taiatari Swap (Body Collision)</span>
+      </div>
+      <p class="leading-relaxed">
+        Simulates an abrupt position swap between competitors in a split second, proving referee stability without erratic spins.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">3</span>
+        <span>Tsubazeriai Spin</span>
+      </div>
+      <p class="leading-relaxed">
+        Close clinch combat rapidly spinning within a tiny radius, triggering the Freeze mechanism to maintain referee composure.
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">4 & 5</span>
+        <span>Inversions Near 90º and 135º</span>
+      </div>
+      <p class="leading-relaxed">
+        Deliberate oscillations right on critical boundary angles, confirming state-machine stability without jitter.
+      </p>
+    </div>
+  </div>
+</div>`,
+    helpConceptBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-yin-yang text-[#bc002d]"></i> Martial Concept & Refereeing Philosophy
+    </h3>
+    <blockquote class="border-l-4 border-[#bc002d] pl-4 italic text-xs text-gray-200 py-1 leading-relaxed bg-black/20 rounded-r-lg">
+      "Referees must naturalize their physical movement until it becomes a spontaneous reflex, freeing their minds to remain serene and fully focused on the immediate evaluation of ippon."
+      <span class="block text-right text-gray-400 font-semibold mt-1 not-italic">— Adrian Yoneda (Renshi 7th Dan)</span>
+    </blockquote>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-eye text-amber-400"></i> Shinpan-me: Judging Yuko-Datotsu
+    </h4>
+    <p class="leading-relaxed">
+      In Kendo, a valid point (<em>yuko-datotsu</em>) occurs in a fraction of a second and requires the simultaneous alignment of spiritual, technical, and physical elements: <strong>Ki-Ken-Tai-Ichi</strong> (unity of spirit, sword, and body), contact with the correct strike zone (<em>Datotsubu</em>), correct edge alignment (<em>Hasuji</em>), resolute posture, and post-strike vigilance (<em>Zanshin</em>).
+    </p>
+    <p class="leading-relaxed">
+      If a referee is hesitating about footwork or has sightlines blocked by a fellow referee or competitor, the judging opportunity is irrecoverably lost.
+    </p>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-project-diagram text-blue-400"></i> Synchronization of the Referee Trio
+    </h4>
+    <p class="leading-relaxed">
+      The referee trio acts as a single <strong>coordinated living organism</strong>. Poor positioning or hesitation by one referee immediately breaks the isosceles triangle, forcing colleagues into geometric errors and creating unacceptable blind spots.
+    </p>
+    <p class="leading-relaxed">
+      Hence, referee development requires mastering not just written rulebooks, but collective spatial awareness across the wooden floor.
+    </p>
+  </div>
+</div>`,
+    helpDisclaimerBody: `<div class="space-y-4">
+  <div class="p-4 bg-red-950/40 border border-red-800/40 rounded-xl space-y-2">
+    <strong class="text-red-400 text-sm font-bold flex items-center gap-2">
+      <i class="fas fa-exclamation-triangle"></i> Important Disclaimer
+    </strong>
+    <p class="text-xs leading-relaxed text-gray-300">
+      This educational tool was developed through personal initiative for pedagogical purposes. Based on simplified computational kinematic models, it does not represent an absolute or dogma.
+    </p>
+    <p class="text-xs leading-relaxed text-gray-300">
+      In live dojo practice and official competitions, guidance from senior masters and experienced referees is paramount and must always prevail.
+    </p>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-book text-amber-400"></i> Official Canonical References
+    </h4>
+    <ul class="space-y-1.5 list-disc list-inside pl-2">
+      <li><strong>Regulations of Kendo Shiai and Shinpan:</strong> International Kendo Federation (FIK, Jul/2023).</li>
+      <li><strong>Handbook for Kendo Shiai and Shinpan Management:</strong> International Kendo Federation (FIK, Jul/2025).</li>
+    </ul>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-400">
+    <div class="flex items-center gap-2 text-white font-semibold">
+      <i class="fas fa-user-tie text-[#bc002d]"></i> Authorship & Contact
+    </div>
+    <p>
+      <strong>Concept & Technical Lead:</strong> Adrian Yu Yoneda (Renshi 7th Dan Kendo / 5th Dan Iaido — São Paulo, Brazil).
+    </p>
+    <p>
+      Inquiries and feedback: <a href="mailto:adrian.yoneda@gmail.com" class="text-blue-400 underline hover:text-blue-300">adrian.yoneda@gmail.com</a>
+    </p>
+  </div>
 </div>`
   },
   jp: {
@@ -530,69 +1242,424 @@ export const i18n: Record<string, Record<string, string>> = {
     step_exit_turn_sideways_desc: "主審の「左向け」（または「右向け」）の合図で、3名の審判員はその場で90度回転し、退場口へ向けて縦隊を整える。",
     step_exit_march_straight_desc: "主審の「前」の合図で退場する審判団は直進して退場口へ進む。同時に、次の審判団も主審の「前」の合図で境界線に沿って中央入口まで進む。",
     step_exit_sogo_ni_rei_desc: "試合場境界線を越えた直後、退場する審判団は正三角形に開き、互いに向き合って相互の礼（三人礼）を行い、次の審判団は中央で開始の準備を整える。",
+    sectionGlobalLabel: "基本設定",
+    procCtxTitle: "FIK公式所作・規定",
+    procCtxDesc: "FIK/全日本剣道連盟の公式規定（2023/2025年）に基づく、試合場（板張り・道場）での審判所作。",
+    procCtxFlagsTitle: "審判旗の所作（旗の保持）",
+    procCtxShushin: "<strong>主審:</strong> 右手・赤 / 左手・白",
+    procCtxFukushin: "<strong>副審:</strong> 右手・白 / 左手・赤",
+    procCtxMovement: "<strong>入退場・交代時:</strong> 右手に保持（赤旗で白旗を巻く）。",
+    procCtxGeomTitle: "試合場の幾何学配置",
+    procCtxGeomDist: "副審間: 固定4.0m間隔（開始線の内側）。",
+    procCtxGeomEntry: "外周行進: 境界線の外側約0.45mを進行。",
+    procCtxGeomStep: "入場位置: 「一歩前」後、境界線の内側約1.0m。",
+    procCtxTip: '<i class="fas fa-info-circle text-[#bc002d] mr-1"></i> 右側の浮動パネルで章・段階の切り替えや再生速度を操作できます。',
     helpModalTitle: "シミュレーター手引と基本理念",
     helpCloseBtn: "閉じる",
-    helpTabUsage: "使い方",
-    helpTabModes: "表示モード",
-    helpTabViz: "ゾーンと幾何学",
-    helpTabAdvanced: "パラメータ",
-    helpTabScenarios: "シナリオ",
-    helpTabConcept: "審判の理念",
-    helpTabDisclaimer: "免責事項・規定",
-    helpUsageBody: `<p class="mb-3"><strong>基本操作:</strong> 試合者（白・赤）をドラッグして移動させると、審判3名（主審1名・副審2名）が連携して二等辺三角形を保つ様子を観察できます。</p>
-<p class="mb-3"><strong>二等辺三角形の維持:</strong> 審判団は常に死角を最小化し、有効打突を正確に視認できる位置関係を維持します。</p>
-<p><strong>試合場設定:</strong> ヘッダーから試合場の広さ（9m, 10m, 11m）を変更でき、リセットボタンで初期位置に戻せます。</p>`,
-    helpModesBody: `<p class="mb-3"><strong>テクニカルモード:</strong> 幾何学的・論理的な表示。各位置（W, R, S, F1, F2）、視線ベクトル、審判三角形、戦闘軸、審判担当エリア、状態機械（Debug）のリアルタイム数値を表示します。</p>
-<p class="mb-3"><strong>レンダリングモード:</strong> 板張りの試合場を俯瞰するリアルなドット絵表示。背中に白襷・赤襷を着けた試合者と、正規の紅白旗を持つ審判員が表示されます。</p>
-<p><strong>旗の保持規則:</strong> FIK規則に基づき、主審は右手に赤旗・左手に白旗を持ち、副審は対称的に構えます。</p>`,
-    helpVizBody: `<ul class="space-y-2 list-disc list-inside">
-<li><strong>審判の三角形:</strong> 3名の審判を結ぶ点線（二等辺三角形の可視化）。</li>
-<li><strong>試合ライン／ダイナミックスクエア:</strong> 試合者間の攻防軸および各審判エリアの統合によって形成される可動スクエア。</li>
-<li><strong>主審・副審の担当エリア:</strong> 各審判の移動責任範囲を示す多角形領域（下半分が主審、上部対角の2つの三角形が各副審のエリア）。</li>
-<li><strong>方向インジケーター:</strong> 各参加者の視線・身体の向き。</li>
-<li><strong>移動軌跡:</strong> 審判員の移動経路のトレース。</li>
-<li><strong>デバッグモード:</strong> 角度、遷移モード（STANDARD, VERTEX, S_BASE, FLIP）、固定判定を表示。</li>
-</ul>`,
-    helpAdvancedBody: `<div class="space-y-3">
-<p><strong>動き:</strong></p>
-<ul class="space-y-1 list-disc list-inside text-xs pl-2 text-gray-300">
-<li><strong>平滑化係数 (k):</strong> 慣性と反応速度を調整。高＝機敏で即座の反応、低＝滑らかで自然な追従。</li>
-</ul>
-<p><strong>遷移しきい値（5つの角度しきい値）:</strong> 隊形遷移の角度しきい値（主審が一時的に二等辺三角形の頂点を離れる際、各審判の担当エリアを尊重し、試合者の視認性を確保するための角度基準）:</p>
-<ul class="space-y-1 list-disc list-inside text-xs pl-2 text-gray-300">
-<li><strong>VERTEX 進入角（初期値 90°）:</strong> 主審が三角形の底辺側へ移動を開始する角度。</li>
-<li><strong>VERTEX 解除角（初期値 45°）:</strong> STANDARD モードへ復帰するための安全ヒステリシス。</li>
-<li><strong>S_BASE 進入角（初期値 123°）:</strong> 主審が反転底辺へ完全に移行する角度。</li>
-<li><strong>S_BASE 解除角（初期値 90°）:</strong> S_BASE から VERTEX への復帰角。</li>
-<li><strong>FLIP 進入角（初期値 135°）:</strong> 審判同士が交差することなく隊形幾何学を維持するための象限反転角。</li>
-</ul>
-<p><strong>内部安定化 (Freeze):</strong> 鍔迫り合いや急激な回転時、審判団が無駄に激しく動かないよう自動で位置を一時安定化します。</p>
+    helpTabGlobal: "モジュールと基本設定",
+    helpTabProcedures: "FIK公式所作",
+    helpTabCombat: "対戦動作シミュレーション",
+    helpTabAdvanced: "力学・判定パラメータ",
+    helpTabScenarios: "検証シナリオ",
+    helpTabConcept: "武道理念・審判眼",
+    helpTabDisclaimer: "免責事項・参考規定",
+    helpGlobalBody: `<div class="space-y-4">
+  <div class="bg-gradient-to-r from-[#bc002d]/20 to-transparent p-4 rounded-xl border border-[#bc002d]/30">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-globe text-[#bc002d]"></i> 剣道審判シミュレーター 概要
+    </h3>
+    <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">
+      米田裕 Adrian Yoneda（剣道教士七段）が開発した審判法教育支援システムです。試合場（板張り・道場）における高精度な2つのモジュールを搭載しています。
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-2">
+      <div class="flex items-center gap-2 font-bold text-sm text-white">
+        <span class="w-6 h-6 rounded-full bg-[#bc002d] text-white flex items-center justify-center text-xs">1</span>
+        <span>FIK公式所作モジュール</span>
+      </div>
+      <p class="text-xs text-gray-300 leading-relaxed">
+        国際剣道連盟（FIK・全日本剣道連盟 2023/2025年）の公式規定に基づく<strong>審判員の入場・所作・位置移動・交代・退場</strong>を段階別に再現するアニメーション教材です。
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-2">
+      <div class="flex items-center gap-2 font-bold text-sm text-white">
+        <span class="w-6 h-6 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs">2</span>
+        <span>対戦動作シミュレーション</span>
+      </div>
+      <p class="text-xs text-gray-300 leading-relaxed">
+        試合者<strong>白（Shiro）</strong>と<strong>赤（Aka）</strong>を自由にドラッグし、審判3名（主審1名・副審2名）が死角をなくすために<strong>二等辺三角形</strong>を保ちながら連動する様子を動的に検証できます。
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-sliders-h text-amber-400"></i> 基本設定（左パネル固定ヘッダー）
+    </h4>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-300">
+      <div class="flex items-start gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <i class="fas fa-language text-blue-400 mt-0.5"></i>
+        <div>
+          <strong class="text-white block">Idioma / Language / 言語:</strong>
+          日本語・ポルトガル語・英語を即座に切り替え可能です。
+        </div>
+      </div>
+      <div class="flex items-start gap-2 bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <i class="fas fa-ruler-combined text-green-400 mt-0.5"></i>
+        <div>
+          <strong class="text-white block">試合場の広さ:</strong>
+          <strong>9 x 9 m</strong>、<strong>10 x 10 m</strong>、<strong>11 x 11 m</strong> から選択可能で、FIK規定の幾何学的寸法が自動適応されます。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-200 flex items-start gap-2">
+    <i class="fas fa-info-circle text-amber-400 mt-0.5 flex-shrink-0"></i>
+    <span><strong>適応型パネル:</strong> 画面上部のモジュール切り替えに連動し、左パネルが自動で「所作解説カード」または「対戦操作・デバッグ設定」に切り替わります。</span>
+  </div>
 </div>`,
-    helpScenariosBody: `<p class="mb-3">動きの検証と教育のための8種類の自動シナリオ:</p>
-<ul class="space-y-1.5 list-disc list-inside text-xs">
-<li><strong>1A: ゆっくり360度回転:</strong> 通常の追従旋回。</li>
-<li><strong>1B: VERTEX テスト:</strong> VERTEXモードへの進入・解除。</li>
-<li><strong>1C: S_BASE テスト:</strong> 主審の基本位置検証。</li>
-<li><strong>1D: 逆360度回転:</strong> 時計回り・反時計回りのヒステリシス検証。</li>
-<li><strong>2: 体当たり入れ替わり:</strong> 瞬時の位置交換（体当たり）。</li>
-<li><strong>3: 鍔迫り合いスピン:</strong> 近距離回転と固定判定。</li>
-<li><strong>4・5: 90度／135度付近の入れ替わり:</strong> 臨界角での遷移検証。</li>
-</ul>`,
-    helpConceptBody: `<p class="mb-3"><em>「審判員は移動を自然体で行い、意識を有効打突の見極めに集中させる必要があります。」</em></p>
-<p class="mb-3">不適切な位置取りは死角を生みます。審判3名は緊密に連携しており、1名の位置取りの乱れが他の2名の適切な位置取りを妨げます。</p>
-<p>講習会等の機会が限られる中、理論を直感的・動的に学習するために本シミュレーターは開発されました。</p>`,
-    helpDisclaimerBody: `<div class="p-3 bg-red-950/40 border border-red-800/40 rounded-lg mb-3">
-<strong class="text-red-400 block mb-1">免責事項 (Disclaimer):</strong>
-<p class="text-xs leading-relaxed text-gray-300">本ツールは個人開発の教育支援シミュレーターです。数理アルゴリズムに基づくため、極端な条件下では不自然な挙動を示す場合があります。判断に迷う際は必ず高段者・経験豊富な審判員の指導を仰いでください。</p>
-</div>
-<p class="text-xs mb-2"><strong>参考公式規定:</strong></p>
-<ul class="text-xs list-disc list-inside space-y-1 text-gray-400">
-<li>剣道試合・審判規則（国際剣道連盟 FIK、2023年7月）</li>
-<li>剣道試合・審判・運営の手引き（国際剣道連盟 FIK、2025年7月）</li>
-</ul>
-<div class="mt-3 pt-3 border-t border-white/10 text-xs text-gray-400">
-<p><strong>開発者:</strong> 米田裕 Adrian Yoneda（教士七段・居合道五段／ブラジル・サンパウロ）</p>
-<p>連絡先: <em>adrian.yoneda@gmail.com</em></p>
+    helpProceduresBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-scroll text-[#bc002d]"></i> FIK公式所作モジュール手引
+    </h3>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      国際剣道連盟の『剣道試合・審判規則』（2023年7月）および『剣道試合・審判・運営の手引き』（2025年7月）に厳格に準拠した、試合場（板張り・道場）での審判団の移動・号令・礼法を再現します。
+    </p>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-gamepad text-[#bc002d]"></i> コントロールパネルの操作方法
+    </h4>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-gray-300">
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white flex items-center gap-1.5 mb-1"><i class="fas fa-play text-green-400"></i> 再生と段階移動:</strong>
+        <strong>再生／一時停止</strong>で連続再生。「前へ」「次へ」で1段階ずつ詳細に確認できます。
+      </div>
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white flex items-center gap-1.5 mb-1"><i class="fas fa-tachometer-alt text-blue-400"></i> 行進速度:</strong>
+        <strong>0.5x</strong>（歩法の詳細確認）、<strong>1.0x</strong>（講習会基準）、<strong>1.5x</strong>、<strong>2.0x</strong>に切り替え可能です。
+      </div>
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white flex items-center gap-1.5 mb-1"><i class="fas fa-check-square text-amber-400"></i> 段階ごとに一時停止（学習用）:</strong>
+        有効にすると各段階の完了時に自動停止し、解説文と姿勢を落ち着いて確認できます。
+      </div>
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white flex items-center gap-1.5 mb-1"><i class="fas fa-chair text-purple-400"></i> 審判員席・交代設定:</strong>
+        審判員席の位置（<strong>左</strong>／<strong>右</strong>）および交代方法（<strong>通常</strong>／<strong>交代・三人礼</strong>）を選択できます。
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-list-ol text-blue-400"></i> 公式3章の構成
+    </h4>
+    <div class="space-y-3 text-xs text-gray-300">
+      <div class="border-l-2 border-[#bc002d] pl-3 py-0.5">
+        <strong class="text-white block font-semibold">第1章: 入場と定位置への移動（全8段階）</strong>
+        場外整列（副審・主審・副審） &rarr; 主審の「前」で行進 &rarr; 試合場中央で90度回転 &rarr; 「一歩前」（右足・左足・右足）で境界線から約1m入場 &rarr; 「礼」 &rarr; 主審はその場に留まり、副審2名は台形の脚に沿って開始線の内側を進み約4m間隔で定位置へ &rarr; 副審が内側に向き直る &rarr; 旗を両手に分ける。
+      </div>
+      <div class="border-l-2 border-amber-500 pl-3 py-0.5">
+        <strong class="text-white block font-semibold">第2章A: 通常の巡回交代（全5段階）</strong>
+        旗を右手にまとめる &rarr; 次の頂点へ向き直る &rarr; 三角形の辺に沿って直進 &rarr; 反時計回りに中央を向く &rarr; 旗を分ける。
+      </div>
+      <div class="border-l-2 border-green-500 pl-3 py-0.5">
+        <strong class="text-white block font-semibold">第2章B: 審判員交代・三人礼（全8段階）</strong>
+        旗を右手に保持 &rarr; 移動 &rarr; 残る2名は中央を向き、退場審判員は入場審判員に向き直り旗を巻く &rarr; 入場審判員が入場 &rarr; 相互の礼 &rarr; 退場審判員は90度回転し試合場を向いたまま後退退場 &rarr; 試合場への礼・場内は旗を分ける。
+      </div>
+      <div class="border-l-2 border-purple-500 pl-3 py-0.5">
+        <strong class="text-white block font-semibold">第3章: 試合終了と退場（全7段階）</strong>
+        一斉に旗を巻く &rarr; 副審が台形に沿って主審の位置へ戻る &rarr; 内側を向いて整列 &rarr; 「礼」（正面） &rarr; 「左向け」（または右向け） &rarr; 「前」で退場行進（次の審判団と同期） &rarr; 場外で正三角形に開き三人礼（相互の礼）。
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-black/40 p-3.5 rounded-xl border border-white/10 space-y-2 text-xs">
+    <h4 class="font-bold text-white flex items-center gap-1.5 text-xs uppercase tracking-wider">
+      <i class="fas fa-flag text-amber-400"></i> 審判旗の保持規則（厳格規定）
+    </h4>
+    <ul class="space-y-1.5 text-gray-300 list-disc list-inside">
+      <li><strong>移動時（入退場・位置交代）:</strong> 旗を巻き（白旗を内、赤旗を外）、<em>必ず右手に持ち</em>、体の横に自然に保持します。</li>
+      <li><strong>試合中:</strong>
+        <ul class="pl-4 mt-1 space-y-1 list-none">
+          <li>&bull; <strong class="text-white">主審:</strong> 右手に赤旗／左手に白旗。</li>
+          <li>&bull; <strong class="text-white">副審:</strong> 右手に白旗／左手に赤旗。</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>`,
+    helpCombatBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-fist-raised text-[#2563eb]"></i> 対戦動作シミュレーション手引
+    </h3>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      板張りの試合場における選手2名の激しい動きに対し、審判団がどのように二等辺三角形を保ち続けるかを数理モデルで再現します。
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+      <strong class="text-white text-sm flex items-center gap-1.5"><i class="fas fa-hand-pointer text-blue-400"></i> 直感的な操作</strong>
+      <p class="leading-relaxed">
+        選手<strong>W</strong>（白）および<strong>R</strong>（赤）をドラッグして動かすと、審判団が三角形を維持するように即座に追従します。
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+      <strong class="text-white text-sm flex items-center gap-1.5"><i class="fas fa-undo-alt text-[#bc002d]"></i> 位置のリセット</strong>
+      <p class="leading-relaxed">
+        「位置をリセット」ボタンで、選手を開始線（開始位置）に戻し、審判団の隊形を初期状態に戻します。
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-layer-group text-green-400"></i> 2つの表示モード
+    </h4>
+    <div class="space-y-2.5 text-xs text-gray-300">
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white block font-semibold mb-1">レンダリングモード（リアルな見取り表示）:</strong>
+        講習会や大画面投影用。板張りの道場床、道着・袴・防具を着け背中に紅白の襷を締めた選手、正規の紅白旗を持つ審判員を表示します。
+      </div>
+      <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
+        <strong class="text-white block font-semibold mb-1">テクニカルモード（幾何学・デバッグ）:</strong>
+        各位置（W, R, S, F1, F2）、視線ベクトル、審判担当エリア、リアルタイム角度および状態機械（Debug）の数値を表示します。
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-eye text-amber-400"></i> 表示オプション
+    </h4>
+    <ul class="space-y-1.5 list-disc list-inside">
+      <li><strong>審判の三角形:</strong> 3名の審判を結ぶ二等辺三角形の点線。</li>
+      <li><strong>試合ライン／ダイナミックスクエア:</strong> 試合軸と可動スクエア。</li>
+      <li><strong>担当エリア:</strong> 各審判が責任を持つ視野ゾーンのポリゴン。</li>
+      <li><strong>方向インジケーター:</strong> 各参加者の身体・視線の向き。</li>
+      <li><strong>移動軌跡:</strong> 審判員の移動経路のトレース。</li>
+    </ul>
+  </div>
+</div>`,
+    helpAdvancedBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-sliders-h text-[#bc002d]"></i> 力学ロジックと詳細パラメータ
+    </h3>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      有効打突の見極めを最適化するため、選手を重心とする二等辺三角形の幾何学モデルに基づいて計算されています。
+    </p>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-wave-square text-blue-400"></i> 平滑化係数 (k)
+    </h4>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      審判員の移動の慣性と反応速度を制御します:
+    </p>
+    <ul class="space-y-1 text-xs text-gray-300 list-disc list-inside pl-2">
+      <li><strong>高値 (8.0〜15.0):</strong> 即座で機敏な追従。</li>
+      <li><strong>標準値 (5.0):</strong> 人間の審判員の自然な歩法と体重移動を再現。</li>
+      <li><strong>低値 (1.0〜3.0):</strong> 慣性が強く滑らかな追従。</li>
+    </ul>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-compass text-amber-400"></i> 5つの角度遷移しきい値
+    </h4>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      試合軸が回転する際、主審は一時的に頂点を離れて底辺側へ移動し、副審と役割を交代して視界を確保します:
+    </p>
+    <div class="space-y-2 text-xs text-gray-300">
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">1. VERTEX 進入角（初期値 90°）:</strong> 主審が底辺側へ移動を開始する角度。
+      </div>
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">2. VERTEX 解除角（初期値 45°）:</strong> 通常隊形へ復帰する安全ヒステリシス。
+      </div>
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">3. S_BASE 進入角（初期値 123°）:</strong> 主審が反転底辺へ完全に移行する角度。
+      </div>
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">4. S_BASE 解除角（初期値 90°）:</strong> S_BASEから中間域への復帰角。
+      </div>
+      <div class="bg-black/40 p-2 rounded-lg border border-white/5">
+        <strong class="text-white">5. FLIP 進入角（初期値 135°）:</strong> 審判同士が交差することなく隊形幾何学を維持するための象限反転角。
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-snowflake text-cyan-400"></i> 鍔迫り合い時の自動固定 (Freeze)
+    </h4>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      鍔迫り合いや狭い範囲での急速な回転時、審判員が無駄に走り回るのを防ぐため、自動で <strong>FROZEN</strong>（固定状態）に入り、位置を安定させます。
+    </p>
+  </div>
+</div>`,
+    helpScenariosBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-play-circle text-[#bc002d]"></i> 自動検証シナリオ一覧
+    </h3>
+    <p class="text-xs text-gray-300 leading-relaxed">
+      審判員の動きを検証するための8種類の自動動作シナリオを搭載しています。
+    </p>
+  </div>
+
+  <div class="space-y-2.5 text-xs text-gray-300">
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">1A</span>
+        <span>ゆっくり360度回転</span>
+      </div>
+      <p class="leading-relaxed">
+        試合場中央を中心とする一定速度の旋回追従。二等辺三角形の維持を検証します。
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">1B</span>
+        <span>VERTEX テスト</span>
+      </div>
+      <p class="leading-relaxed">
+        90度付近の臨界角での滑らかなVERTEXモードへの進入・解除を検証します。
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">1C</span>
+        <span>S_BASE テスト</span>
+      </div>
+      <p class="leading-relaxed">
+        123度以上の回転で主審が反転底辺へ移行する際の副審の視野カバーを検証します。
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">1D</span>
+        <span>逆360度回転</span>
+      </div>
+      <p class="leading-relaxed">
+        時計回りから反時計回りへの即時反転によるヒステリシスの安定性を検証します。
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">2</span>
+        <span>体当たり入れ替わり</span>
+      </div>
+      <p class="leading-relaxed">
+        瞬時の位置交換（体当たり）による審判団の安定したポジショニングを検証します。
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">3</span>
+        <span>鍔迫り合いスピン</span>
+      </div>
+      <p class="leading-relaxed">
+        近距離での急旋回により固定判定（Freeze）が作動する様子を確認します。
+      </p>
+    </div>
+
+    <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+      <div class="flex items-center gap-2 font-bold text-white text-xs mb-1">
+        <span class="px-2 py-0.5 rounded bg-[#bc002d] text-white font-mono text-[11px]">4 & 5</span>
+        <span>90度・135度付近の往復</span>
+      </div>
+      <p class="leading-relaxed">
+        臨界角の微小振動に対する状態機械の安定性を検証します。
+      </p>
+    </div>
+  </div>
+</div>`,
+    helpConceptBody: `<div class="space-y-4">
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
+    <h3 class="text-base font-bold text-white flex items-center gap-2">
+      <i class="fas fa-yin-yang text-[#bc002d]"></i> 剣道審判の武道理念
+    </h3>
+    <blockquote class="border-l-4 border-[#bc002d] pl-4 italic text-xs text-gray-200 py-1 leading-relaxed bg-black/20 rounded-r-lg">
+      「審判員は移動を自然体で行い、意識を有効打突の見極めに集中させる必要があります。」
+      <span class="block text-right text-gray-400 font-semibold mt-1 not-italic">— 米田裕 Adrian Yoneda（剣道教士七段）</span>
+    </blockquote>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-eye text-amber-400"></i> 審判眼: 有効打突の見極め
+    </h4>
+    <p class="leading-relaxed">
+      剣道の有効打突は一瞬の出来事であり、<strong>気剣体の一致</strong>、竹刀の<strong>打突部</strong>での正確な刃筋（<strong>刃筋正しく</strong>）、充実した気魄、適正な姿勢、そして打突後の<strong>残心</strong>を同時に判断する必要があります。
+    </p>
+    <p class="leading-relaxed">
+      足の運びや位置取りに迷いがあったり、死角が生じたりすると、一瞬の判断の機を逃してしまいます。
+    </p>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-project-diagram text-blue-400"></i> 審判団の協調（三位一体）
+    </h4>
+    <p class="leading-relaxed">
+      審判3名は緊密に連携した一つの生きた組織体です。1名の位置取りの乱れが三角形を崩し、他の2名の位置取りを妨げ、死角を生み出します。
+    </p>
+    <p class="leading-relaxed">
+      規則の知識だけでなく、板張りの試合場における空間感覚の共有が極めて重要です。
+    </p>
+  </div>
+</div>`,
+    helpDisclaimerBody: `<div class="space-y-4">
+  <div class="p-4 bg-red-950/40 border border-red-800/40 rounded-xl space-y-2">
+    <strong class="text-red-400 text-sm font-bold flex items-center gap-2">
+      <i class="fas fa-exclamation-triangle"></i> 免責事項（教育利用について）
+    </strong>
+    <p class="text-xs leading-relaxed text-gray-300">
+      本ツールは個人開発の教育支援シミュレーターです。数理アルゴリズムに基づくため、極端な条件下では不自然な挙動を示す場合があります。
+    </p>
+    <p class="text-xs leading-relaxed text-gray-300">
+      実際の道場や公式大会においては、常に高段者・経験豊富な審判員の指導と判断を最優先としてください。
+    </p>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
+    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+      <i class="fas fa-book text-amber-400"></i> 参考公式規定
+    </h4>
+    <ul class="space-y-1.5 list-disc list-inside pl-2">
+      <li><strong>剣道試合・審判規則:</strong> 国際剣道連盟（FIK、2023年7月）</li>
+      <li><strong>剣道試合・審判・運営の手引き:</strong> 国際剣道連盟（FIK、2025年7月）</li>
+    </ul>
+  </div>
+
+  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-400">
+    <div class="flex items-center gap-2 text-white font-semibold">
+      <i class="fas fa-user-tie text-[#bc002d]"></i> 開発者・連絡先
+    </div>
+    <p>
+      <strong>開発・監修:</strong> 米田裕 Adrian Yu Yoneda（剣道教士七段・居合道五段／ブラジル・サンパウロ）
+    </p>
+    <p>
+      連絡先・フィードバック: <a href="mailto:adrian.yoneda@gmail.com" class="text-blue-400 underline hover:text-blue-300">adrian.yoneda@gmail.com</a>
+    </p>
+  </div>
 </div>`
   }
 };
