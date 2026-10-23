@@ -135,7 +135,7 @@ export const i18n: Record<string, Record<string, string>> = {
     step_exit_sogo_ni_rei_desc: "Assim que cruzam os limites da quadra, o trio que está saindo abre a formação de triângulo equilátero, viram-se entre si e realizam o Sogo-ni-rei, enquanto o novo trio está pronto no centro para iniciar.",
     sectionGlobalLabel: "Configurações Gerais",
     procCtxTitle: "Diretrizes & Protocolo FIK",
-    procCtxDesc: "Coreografia protocolar de arbitragem em piso de madeira (dojo), conforme normas da FIK / AJKF (2023/2025).",
+    procCtxDesc: "Coreografia protocolar de arbitragem em shiai-jo, conforme normas da FIK.",
     procCtxFlagsTitle: "Porte das Bandeiras (Shinpanki)",
     procCtxShushin: "<strong>Shushin:</strong> Direita Vermelha / Esquerda Branca",
     procCtxFukushin: "<strong>Fukushin:</strong> Direita Branca / Esquerda Vermelha",
@@ -159,7 +159,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-globe text-[#bc002d]"></i> Visão Geral da Plataforma Kendo Shinpan Simulator
     </h3>
     <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">
-      Plataforma educacional interativa voltada ao estudo, visualização e aperfeiçoamento da arbitragem marcial de Kendo. O simulador tem como objetivo proporcionar o domínio visual, espacial e regulamentar do posicionamento e deslocamento dos árbitros através de dois módulos complementares de alta fidelidade em piso de madeira (<em>shiai-jo</em>).
+      Plataforma educacional interativa voltada ao estudo, visualização e aperfeiçoamento da arbitragem de Kendo. O simulador tem como objetivo proporcionar o domínio visual, espacial e regulamentar do posicionamento e deslocamento dos árbitros através de dois módulos complementares de alta fidelidade em <em>shiai-jo</em>.
     </p>
   </div>
 
@@ -170,7 +170,7 @@ export const i18n: Record<string, Record<string, string>> = {
         <span>Módulo de Procedimentos FIK</span>
       </div>
       <p class="text-xs text-gray-300 leading-relaxed">
-        Demonstração animada passo a passo da <strong>coreografia protocolar oficial</strong> da Federação Internacional de Kendo (FIK / AJKF 2023 & 2025). Abrange a entrada em quadra, alinhamentos geométricos, marcha pelo trapézio, saudações (Rei), rotações de postos, troca de árbitros (<em>Shinpan Koutai</em>) e saída sincronizada com Sogo-ni-rei.
+        Demonstração animada passo a passo da <strong>coreografia protocolar oficial</strong> da <em>International Kendo Federation</em> (FIK). Abrange a entrada em quadra, alinhamentos geométricos, saudações (<em>Rei</em>), rotações de postos, troca de árbitros (<em>Shinpan Koutai</em>) e saída.
       </p>
     </div>
 
@@ -218,7 +218,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-scroll text-[#bc002d]"></i> Guia do Módulo de Procedimentos FIK
     </h3>
     <p class="text-xs text-gray-300 leading-relaxed">
-      Este módulo reproduz com rigor canônico todos os movimentos, posições, comandos de voz e saudações do trio de arbitragem em piso de madeira (dojo), em conformidade com as regras oficiais da <em>International Kendo Federation</em> (FIK, Jul/2023) e o manual <em>FIK Handbook for Kendo Shiai and Shinpan Management</em> (2025).
+      Este módulo reproduz com rigor todos os movimentos, posições, comandos de voz e saudações do trio de arbitragem em <em>shiai-jo</em>, em conformidade com as regras oficiais da <em>International Kendo Federation</em> (FIK) e o manual <em>FIK Handbook for Kendo Shiai and Shinpan Management</em>.
     </p>
   </div>
 
@@ -253,7 +253,7 @@ export const i18n: Record<string, Record<string, string>> = {
     <div class="space-y-3 text-xs text-gray-300">
       <div class="border-l-2 border-[#bc002d] pl-3 py-0.5">
         <strong class="text-white block font-semibold">1. Entrada & Formação (8 etapas):</strong>
-        Perfilamento externo (Fukushin - Shushin - Fukushin) &rarr; Comando "Mae" e marcha tangencial retilínea &rarr; Giro simultâneo de 90° voltado para a quadra &rarr; Comando "Ippomae" e passada direita-esquerda-direita entrando na quadra (~1m da linha) &rarr; Comando "Rei" e saudação conjunta &rarr; Fukushin marcham pelas pernas do trapézio isósceles (por dentro dos kaishisen mantendo 4,0m entre si) enquanto o Shushin permanece fixo &rarr; Giro dos Fukushin estritamente para o interior da quadra &rarr; Separação simultânea das bandeiras.
+        Perfilamento externo (Fukushin - Shushin - Fukushin) &rarr; Comando "Mae" e marcha tangencial retilínea &rarr; Giro simultâneo de 90° voltado para a quadra &rarr; Comando "Ippomae" e passada direita-esquerda-direita entrando na quadra (~1m da linha) &rarr; Comando "Rei" e saudação conjunta &rarr; Fukushin marcham em linha reta (por dentro dos kaishisen) enquanto o Shushin permanece fixo &rarr; Giro dos Fukushin estritamente para o interior da quadra &rarr; Separação simultânea das bandeiras.
       </div>
       <div class="border-l-2 border-amber-500 pl-3 py-0.5">
         <strong class="text-white block font-semibold">2A. Rotação Regular (Sem Troca - 5 etapas):</strong>
@@ -261,11 +261,11 @@ export const i18n: Record<string, Record<string, string>> = {
       </div>
       <div class="border-l-2 border-green-500 pl-3 py-0.5">
         <strong class="text-white block font-semibold">2B. Rotação com Troca — Shinpan Koutai (8 etapas):</strong>
-        Bandeiras na mão direita &rarr; Giro e deslocamento ao próximo vértice &rarr; Árbitros mantidos viram-se ao centro; o árbitro sainte vira-se para o substituto externo e enrola as bandeiras (branca por dentro, vermelha por fora) &rarr; Substituto ingressa na quadra sincronizado &rarr; Saudação mútua (Rei) &rarr; Sainte gira 90° e recua de costas voltado para a quadra &rarr; Saudação à quadra e separação simultânea das bandeiras em quadra.
+        Bandeiras na mão direita &rarr; Giro e deslocamento ao próximo vértice &rarr; Árbitros mantidos viram-se ao centro; o árbitro sainte vira-se para o substituto externo e enrola as bandeiras (branca por dentro, vermelha por fora) &rarr; Substituto ingressa na quadra sincronizado &rarr; Saudação mútua (Rei) &rarr; Sainte gira 90° e recua de costas voltado para a quadra &rarr; Saudação à quadra; árbitros atuantes fazem a separação simultânea das bandeiras em quadra.
       </div>
       <div class="border-l-2 border-purple-500 pl-3 py-0.5">
         <strong class="text-white block font-semibold">3. Encerramento & Saída (7 etapas):</strong>
-        Enrolar simultâneo das bandeiras &rarr; Fukushin retornam ao Shushin pelo trapézio &rarr; Giro para dentro e alinhamento a 1m da linha &rarr; Comando "Rei" ao Shomen &rarr; Comando "Hidari-muke" ou "Migi-muke" &rarr; Comando "Mae" e marcha em tandem até a borda de saída, enquanto o novo trio entra &rarr; Dispersão em triângulo equilátero e saudação mútua externa (Sogo-ni-rei).
+        Enrolar simultâneo das bandeiras (branca por dentro, vermelha por fora) &rarr; Fukushin retornam ao Shushin em linha reta (por dentro dos kaishisen) &rarr; Giro para dentro e alinhamento a 1m da linha &rarr; Comando "Rei" ao Shomen &rarr; Comando "Hidari-muke" ou "Migi-muke" &rarr; Comando "Mae" e marcha até fora da quadra, enquanto o novo trio entra &rarr; Dispersão em triângulo equilátero e saudação mútua externa (Sogo-ni-rei).
       </div>
     </div>
   </div>
@@ -275,7 +275,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-flag text-amber-400"></i> Regras Rigorosas de Porte das Bandeiras (Shinpanki)
     </h4>
     <ul class="space-y-1.5 text-gray-300 list-disc list-inside">
-      <li><strong>Em Deslocamento (Marcha de Entrada, Rotação e Saída):</strong> Ambas as bandeiras devem ser portadas <em>exclusivamente na mão direita</em>, ao lado do corpo, enroladas, com a bandeira vermelha cobrindo a bandeira branca.</li>
+      <li><strong>Em Deslocamento (Marcha de Entrada, Rotação e Saída):</strong> Ambas as bandeiras devem ser portadas <em>exclusivamente na mão direita</em>, ao lado do corpo; no caso da entrada e saída, as bandeiras devem estar enroladas (branca por dentro, vermelha por fora).</li>
       <li><strong>Em Posição de Combate:</strong>
         <ul class="pl-4 mt-1 space-y-1 list-none">
           <li>&bull; <strong class="text-white">Shushin:</strong> Bandeira Vermelha na mão direita / Bandeira Branca na mão esquerda.</li>
@@ -318,26 +318,13 @@ export const i18n: Record<string, Record<string, string>> = {
     <div class="space-y-2.5 text-xs text-gray-300">
       <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
         <strong class="text-white block font-semibold mb-1">Modo Renderizado (Visualização Zenital Marcial):</strong>
-        Projetado para seminários e projeções em tela grande. Exibe a quadra em piso de madeira clássico com marcações brancas, atletas com uniforme de Kendo e <em>Tasuki</em> vermelho e branco nas costas, além dos três árbitros vestidos formalmente portando suas bandeiras conforme a canônica marcial.
+        Exibe a quadra em piso de madeira clássico com marcações brancas, atletas com uniforme de Kendo e <em>Tasuki</em> vermelho e branco nas costas, além dos três árbitros uniformizados portando suas bandeiras.
       </div>
       <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
         <strong class="text-white block font-semibold mb-1">Modo Técnico (Diagrama Analítico & Depuração):</strong>
         Focado no estudo das zonas matemáticas. Apresenta os círculos com letras de identificação (W, R, S, F1, F2), as linhas de visão, as áreas poligonais de cada árbitro e o painel Debug com medição angular e estados da máquina de movimentação.
       </div>
     </div>
-  </div>
-
-  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
-    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
-      <i class="fas fa-eye text-amber-400"></i> Opções de Visualização em Quadra (Painel Esquerdo)
-    </h4>
-    <ul class="space-y-1.5 list-disc list-inside">
-      <li><strong>Triângulo dos Árbitros:</strong> Linha tracejada que conecta os 3 árbitros, evidenciando o triângulo isósceles.</li>
-      <li><strong>Eixo / Quadrado Dinâmico:</strong> Linha de confronto direto entre os lutadores e quadrado móvel representativo do setor de ação.</li>
-      <li><strong>Áreas de Responsabilidade:</strong> Polígonos sombreados delimitando a área primária de atuação de cada árbitro.</li>
-      <li><strong>Indicadores de Direção:</strong> Vetores apontando a orientação corporal e a linha de olhar de cada interveniente.</li>
-      <li><strong>Trilhas de Movimento:</strong> Linhas de rastro que registram as curvas de deslocamento dos árbitros no piso da quadra.</li>
-    </ul>
   </div>
 </div>`,
     helpAdvancedBody: `<div class="space-y-4">
@@ -346,7 +333,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-sliders-h text-[#bc002d]"></i> Lógica Cinemática & Parâmetros Avançados
     </h3>
     <p class="text-xs text-gray-300 leading-relaxed">
-      A movimentação do trio baseia-se em um modelo vetorial e angular que busca otimizar a visualização do <em>yuko-datotsu</em> através da manutenção de um triângulo isósceles com os atletas no centro de gravidade.
+      A movimentação do trio baseia-se em um modelo vetorial e angular que busca otimizar a visualização do <em>yuko-datotsu</em> através da manutenção de um triângulo isósceles com o centro dos atletas no centro do triângulo.
     </p>
   </div>
 
@@ -369,23 +356,23 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-compass text-amber-400"></i> Os 5 Limiares Angulares de Transição (Thresholds)
     </h4>
     <p class="text-xs text-gray-300 leading-relaxed">
-      Em combate real, a linha entre os lutadores gira. Quando atinge ângulos críticos, o Shushin deixa temporariamente de ser o vértice do triângulo e desloca-se para a base oposta, invertendo papéis com os Fukushin para não cruzar a linha de visão:
+      Em combate real, a linha entre os lutadores gira. Quando atinge ângulos críticos, o Fukushin transita de lado e o Shushin deixa temporariamente de ser o vértice do triângulo isósceles:
     </p>
     <div class="space-y-2 text-xs text-gray-300">
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">1. Entrada VERTEX (padrão 90°):</strong> Ângulo de combate no qual o Shushin inicia a transição suave em direção à base do triângulo.
+        <strong class="text-white">1. Entrada VERTEX (padrão 90°):</strong> Ângulo de combate no qual um Fukushin inicia a transição suave em direção ao lado do Shushin.
       </div>
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
         <strong class="text-white">2. Saída VERTEX &rarr; STANDARD (padrão 45°):</strong> Limiar de retorno à formação padrão. Possui uma ampla histerese angular (de 90° para 45°) para evitar que os árbitros fiquem oscilando de um lado para o outro em combates na fronteira angular.
       </div>
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">3. Entrada S_BASE (padrão 123°):</strong> Ponto em que o Shushin assume integralmente a base invertida.
+        <strong class="text-white">3. Entrada S_BASE (padrão 123°):</strong> Ponto em que o Shushin transita para o outro lado.
       </div>
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
         <strong class="text-white">4. Saída S_BASE &rarr; VERTEX (padrão 90°):</strong> Limiar de retorno de S_BASE para a zona intermediária.
       </div>
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">5. Entrada FLIP (padrão 135°):</strong> Inversão simétrica de quadrante para preservar a geometria sem colisão de trajetórias.
+        <strong class="text-white">5. Entrada FLIP (padrão 135°):</strong> Ponto em que o outro Fukushin transita para o outro lado, retornando o triângulo isósceles padrão (Shushin no vértice).
       </div>
     </div>
   </div>
@@ -395,7 +382,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-snowflake text-cyan-400"></i> Estabilização Automática (Freeze) em Tsubazeriai
     </h4>
     <p class="text-xs text-gray-300 leading-relaxed">
-      Quando os atletas entram em combate corpo a corpo (<em>tsubazeriai</em>) ou realizam múltiplos giros rápidos acumulados em curta distância, um árbitro humano não corre desordenadamente em círculos. O simulador replica essa sabedoria marcial: ao detectar alta rotação em curto raio, o motor aciona o estado <strong>FROZEN</strong>, mantendo as posições estáveis até que haja definição ou ruptura espacial.
+      Quando os atletas entram em combate corpo a corpo (<em>tsubazeriai</em>) ou realizam múltiplos giros rápidos acumulados em curta distância, um árbitro humano não corre desordenadamente em círculos. O simulador replica esse comportamento: ao detectar alta rotação em curto raio, o motor aciona o estado <strong>FROZEN</strong>, mantendo as posições estáveis até que haja definição ou ruptura espacial.
     </p>
   </div>
 </div>`,
@@ -522,21 +509,20 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-exclamation-triangle"></i> Aviso Importante (Disclaimer Educacional)
     </strong>
     <p class="text-xs leading-relaxed text-gray-300">
-      Esta ferramenta foi desenvolvida por iniciativa pessoal e tem caráter estritamente didático e educacional. Baseando-se em modelos matemáticos e algorítmicos simplificados de cinemática computacional, não constitui uma verdade dogmática incontestável.
+      Esta ferramenta foi desenvolvida por iniciativa pessoal e tem caráter estritamente didático e educacional. Baseando-se em modelos matemáticos e algorítmicos de cinemática computacional, não constitui uma verdade incontestável.
     </p>
     <p class="text-xs leading-relaxed text-gray-300">
-      Em situações reais no dojo ou competições oficiais, a orientação dos mestres e árbitros de alta graduação é soberana e deve sempre prevalecer.
+      Em caso de dúvidas, busque sempre a orientação de seus senseis e árbitros experientes.
     </p>
   </div>
 
   <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
     <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
-      <i class="fas fa-book text-amber-400"></i> Referências Canônicas Oficiais
+      <i class="fas fa-book text-amber-400"></i> Referências Oficiais
     </h4>
     <ul class="space-y-1.5 list-disc list-inside pl-2">
       <li><strong>Regulations of Kendo Shiai and Shinpan:</strong> International Kendo Federation (FIK, Julho/2023).</li>
       <li><strong>Handbook for Kendo Shiai and Shinpan Management:</strong> International Kendo Federation (FIK, Julho/2025).</li>
-      <li><strong>Diretrizes de Formação de Árbitros da CBK:</strong> Confederação Brasileira de Kendo.</li>
     </ul>
   </div>
 
@@ -689,7 +675,7 @@ export const i18n: Record<string, Record<string, string>> = {
     step_exit_sogo_ni_rei_desc: "As soon as crossing the court boundary, the exiting trio forms an equilateral triangle, turns to face one another, and executes Sogo-ni-rei (mutual bow), while the new trio is ready at center.",
     sectionGlobalLabel: "General Settings",
     procCtxTitle: "FIK Protocol & Guidelines",
-    procCtxDesc: "Canonical refereeing protocol on wooden flooring (dojo), per FIK / AJKF regulations (2023/2025).",
+    procCtxDesc: "Official protocol choreography of refereeing on shiai-jo, per FIK regulations.",
     procCtxFlagsTitle: "Flag Protocol (Shinpanki)",
     procCtxShushin: "<strong>Shushin:</strong> Right Red / Left White",
     procCtxFukushin: "<strong>Fukushin:</strong> Right White / Left Red",
@@ -713,7 +699,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-globe text-[#bc002d]"></i> Kendo Shinpan Simulator Overview
     </h3>
     <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">
-      Interactive educational platform dedicated to the study, visualization, and enhancement of martial refereeing in Kendo. The simulator aims to provide comprehensive visual, spatial, and regulatory mastery of referee positioning and movement across two complementary, high-fidelity modules on wooden flooring (<em>shiai-jo</em>).
+      Interactive educational platform dedicated to the study, visualization, and enhancement of Kendo refereeing. The simulator aims to provide comprehensive visual, spatial, and regulatory mastery of referee positioning and movement across two complementary, high-fidelity modules on <em>shiai-jo</em>.
     </p>
   </div>
 
@@ -724,7 +710,7 @@ export const i18n: Record<string, Record<string, string>> = {
         <span>FIK Procedures Module</span>
       </div>
       <p class="text-xs text-gray-300 leading-relaxed">
-        Step-by-step animated demonstration of the <strong>official canonical protocol</strong> established by the International Kendo Federation (FIK / AJKF 2023 & 2025). Covers court entrance, trapezoid march, bowed greetings (Rei), position rotations, referee substitution (<em>Shinpan Koutai</em>), and exit with Sogo-ni-rei.
+        Step-by-step animated demonstration of the <strong>official protocol choreography</strong> established by the <em>International Kendo Federation</em> (FIK). Covers court entry, geometric alignments, salutes (<em>Rei</em>), position rotations, referee substitution (<em>Shinpan Koutai</em>), and exit.
       </p>
     </div>
 
@@ -772,7 +758,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-scroll text-[#bc002d]"></i> FIK Procedures Module Guide
     </h3>
     <p class="text-xs text-gray-300 leading-relaxed">
-      This module strictly replicates the referee trio movements, standing positions, vocal commands, and bows on wooden dojo flooring, in full compliance with FIK Regulations (Jul/2023) and the <em>FIK Handbook for Kendo Shiai and Shinpan Management</em> (2025).
+      This module accurately reproduces all movements, positions, voice commands, and salutes of the referee trio on the <em>shiai-jo</em>, in compliance with the official rules of the <em>International Kendo Federation</em> (FIK) and the <em>FIK Handbook for Kendo Shiai and Shinpan Management</em>.
     </p>
   </div>
 
@@ -807,7 +793,7 @@ export const i18n: Record<string, Record<string, string>> = {
     <div class="space-y-3 text-xs text-gray-300">
       <div class="border-l-2 border-[#bc002d] pl-3 py-0.5">
         <strong class="text-white block font-semibold">1. Entrance & Formation (8 steps):</strong>
-        External line-up (Fukushin - Shushin - Fukushin) &rarr; "Mae" command and tangential march &rarr; 90° inward turn toward court &rarr; "Ippomae" right-left-right entry (~1m inside boundary) &rarr; "Rei" bow &rarr; Fukushin march along trapezoid legs (inside kaishisen with 4.0m separation) while Shushin stands &rarr; Fukushin turn inward to center &rarr; Simultaneous flag separation.
+        External line-up (Fukushin - Shushin - Fukushin) &rarr; "Mae" command and straight tangential march &rarr; Simultaneous 90° turn facing the court &rarr; "Ippomae" command and right-left-right step entering the court (~1m from boundary line) &rarr; "Rei" command and mutual bow &rarr; Fukushin march straight ahead (inside the kaishisen) while Shushin remains fixed &rarr; Fukushin turn strictly toward court interior &rarr; Simultaneous flag separation.
       </div>
       <div class="border-l-2 border-amber-500 pl-3 py-0.5">
         <strong class="text-white block font-semibold">2A. Regular Rotation (Without Substitution - 5 steps):</strong>
@@ -815,11 +801,11 @@ export const i18n: Record<string, Record<string, string>> = {
       </div>
       <div class="border-l-2 border-green-500 pl-3 py-0.5">
         <strong class="text-white block font-semibold">2B. Referee Substitution — Shinpan Koutai (8 steps):</strong>
-        Flags in right hand &rarr; Turn and march to vertex &rarr; Standing referees turn to center; exiting referee turns to incoming substitute and rolls flags (white inside, red outside) &rarr; Substitute enters synchronously &rarr; Mutual bow (Rei) &rarr; Exiting referee turns 90° and steps backwards out of court facing inside &rarr; Bow to court and simultaneous flag separation.
+        Flags in right hand &rarr; Turn and move to next vertex &rarr; Continuing referees turn to center; exiting referee turns toward external substitute and rolls flags (white inside, red outside) &rarr; Substitute enters court in synchronization &rarr; Mutual bow (Rei) &rarr; Exiting referee turns 90° and steps backward facing the court &rarr; Salute to the court; active referees perform simultaneous flag separation on court.
       </div>
       <div class="border-l-2 border-purple-500 pl-3 py-0.5">
         <strong class="text-white block font-semibold">3. Closing & Exit (7 steps):</strong>
-        Simultaneous flag rolling &rarr; Fukushin march back along trapezoid to Shushin &rarr; Inward turn and alignment 1m from boundary &rarr; "Rei" bow to Shomen &rarr; "Hidari-muke" / "Migi-muke" turn &rarr; "Mae" straight-line exit march while incoming trio enters &rarr; Equilateral triangle dispersion and mutual bow (Sogo-ni-rei).
+        Simultaneous flag rolling (white inside, red outside) &rarr; Fukushin return to Shushin in a straight line (inside the kaishisen) &rarr; Inward turn and 1m line alignment &rarr; "Rei" command to Shomen &rarr; "Hidari-muke" or "Migi-muke" command &rarr; "Mae" command and march out of the court while new trio enters &rarr; Equilateral triangle dispersal and mutual external bow (Sogo-ni-rei).
       </div>
     </div>
   </div>
@@ -829,7 +815,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-flag text-amber-400"></i> Strict Flag Handling Rules (Shinpanki)
     </h4>
     <ul class="space-y-1.5 text-gray-300 list-disc list-inside">
-      <li><strong>During Movement (Entrance, Rotation, and Exit):</strong> Both flags are held <em>exclusively in the right hand</em> at the side of the body, rolled, with the red flag covering the white flag.</li>
+      <li><strong>During Movement (Entrance, Rotation, and Exit):</strong> Both flags must be held <em>strictly in the right hand</em>, beside the body; in the case of entry and exit, flags must be rolled (white inside, red outside).</li>
       <li><strong>During Active Combat:</strong>
         <ul class="pl-4 mt-1 space-y-1 list-none">
           <li>&bull; <strong class="text-white">Shushin:</strong> Red Flag in right hand / White Flag in left hand.</li>
@@ -871,27 +857,14 @@ export const i18n: Record<string, Record<string, string>> = {
     </h4>
     <div class="space-y-2.5 text-xs text-gray-300">
       <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
-        <strong class="text-white block font-semibold mb-1">Rendered Mode (Authentic Top-down View):</strong>
-        Tailored for seminars and big-screen projection. Renders traditional wooden flooring with white court lines, kenshi wearing Hakama, Keikogi, and colored <em>Tasuki</em> back ribbons, plus formally attired referees holding flags in canonical hands.
+        <strong class="text-white block font-semibold mb-1">Rendered Mode (Martial Top-Down View):</strong>
+        Displays the classic wooden flooring court with white markings, combatants in Kendo uniforms with red and white <em>Tasuki</em> on their backs, and the three uniformed referees carrying their flags.
       </div>
       <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
-        <strong class="text-white block font-semibold mb-1">Technical Mode (Analytical Vector Diagram & Debug):</strong>
-        Focused on mathematical zones. Displays labeled circles (W, R, S, F1, F2), sightlines, referee polygonal responsibility sectors, and real-time numerical debug angles and states.
+        <strong class="text-white block font-semibold mb-1">Technical Mode (Analytical Diagram & Debug):</strong>
+        Focused on mathematical zones. Shows identification circles (W, R, S, F1, F2), sightlines, polygonal referee responsibility areas, and the Debug panel with angular measurements and state machine status.
       </div>
     </div>
-  </div>
-
-  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
-    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
-      <i class="fas fa-eye text-amber-400"></i> On-Court Visualization Options
-    </h4>
-    <ul class="space-y-1.5 list-disc list-inside">
-      <li><strong>Referees Triangle:</strong> Dashed line connecting the 3 referees, forming the core isosceles triangle.</li>
-      <li><strong>Combat Axis / Dynamic Square:</strong> Direct confrontation axis and bounding sector.</li>
-      <li><strong>Responsibility Areas:</strong> Shaded polygons showing the primary viewing sector for each referee.</li>
-      <li><strong>Directional Indicators:</strong> Sight arrows indicating the body facing and eye direction of each participant.</li>
-      <li><strong>Motion Trails:</strong> Curves tracing referee movement paths across the wooden floor.</li>
-    </ul>
   </div>
 </div>`,
     helpAdvancedBody: `<div class="space-y-4">
@@ -900,21 +873,21 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-sliders-h text-[#bc002d]"></i> Kinematic Logic & Advanced Parameters
     </h3>
     <p class="text-xs text-gray-300 leading-relaxed">
-      Referee movement is calculated using an angular and vector model designed to optimize <em>yuko-datotsu</em> visibility by maintaining an isosceles triangle with the combatants at its center of gravity.
+      Referee trio movement is based on a vector and angular model that seeks to optimize the viewing of <em>yuko-datotsu</em> by maintaining an isosceles triangle with the center of the combatants at the center of the triangle.
     </p>
   </div>
 
   <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-3">
     <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
-      <i class="fas fa-wave-square text-blue-400"></i> Motion Smoothing (k)
+      <i class="fas fa-wave-square text-blue-400"></i> Movement Smoothing (k)
     </h4>
     <p class="text-xs text-gray-300 leading-relaxed">
-      The <strong>Smoothing (k)</strong> parameter (1.0 to 15.0) controls the inertial convergence rate:
+      Controls referee inertial convergence rate (adjustable from 1.0 to 15.0):
     </p>
     <ul class="space-y-1 text-xs text-gray-300 list-disc list-inside pl-2">
-      <li><strong>High Values (8.0 to 15.0):</strong> Immediate and agile response with minimal inertia, useful for fast mathematical tests.</li>
-      <li><strong>Default Value (5.0):</strong> Natural balance that mimics human referee footwork and body momentum.</li>
-      <li><strong>Low Values (1.0 to 3.0):</strong> High inertia, yielding slower, dampened approach curves.</li>
+      <li><strong>High values (8.0 to 15.0):</strong> Agile, instantaneous response with minimal latency.</li>
+      <li><strong>Default value (5.0):</strong> Natural balance simulating human referee mass and fluid footwork.</li>
+      <li><strong>Low values (1.0 to 3.0):</strong> High inertia with slower, heavily damped approach arcs.</li>
     </ul>
   </div>
 
@@ -923,33 +896,33 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-compass text-amber-400"></i> The 5 Angular Transition Thresholds
     </h4>
     <p class="text-xs text-gray-300 leading-relaxed">
-      As the combat line rotates, the Shushin transitions away from the triangle apex toward the base, swapping roles smoothly with the Fukushin to avoid crossing sightlines:
+      In live combat, the line between combatants rotates. When it reaches critical angles, the Fukushin transitions to the side and the Shushin temporarily ceases to be the apex of the isosceles triangle:
     </p>
     <div class="space-y-2 text-xs text-gray-300">
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">1. Enter VERTEX (default 90°):</strong> Combat angle where Shushin begins moving toward the base.
+        <strong class="text-white">1. VERTEX Entry (default 90°):</strong> Combat angle at which a Fukushin begins a smooth transition toward the Shushin's side.
       </div>
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">2. Exit VERTEX &rarr; STANDARD (default 45°):</strong> Return threshold with wide hysteresis (45° vs 90°) to prevent jittery oscillations.
+        <strong class="text-white">2. VERTEX &rarr; STANDARD Exit (default 45°):</strong> Return threshold to standard formation. Features a wide angular hysteresis (from 90° to 45°) to prevent referees from oscillating back and forth during borderline combat.
       </div>
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">3. Enter S_BASE (default 123°):</strong> Angle where Shushin fully assumes the inverted base position.
+        <strong class="text-white">3. S_BASE Entry (default 123°):</strong> Point at which the Shushin transitions to the opposite side.
       </div>
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">4. Exit S_BASE &rarr; VERTEX (default 90°):</strong> Orderly transition back toward intermediate zone.
+        <strong class="text-white">4. S_BASE &rarr; VERTEX Exit (default 90°):</strong> Return threshold from S_BASE to the intermediate zone.
       </div>
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">5. Enter FLIP (default 135°):</strong> Symmetrical quadrant inversion ensuring referees maintain geometry without colliding.
+        <strong class="text-white">5. FLIP Entry (default 135°):</strong> Point at which the other Fukushin transitions to the opposite side, restoring the standard isosceles triangle (Shushin at the apex).
       </div>
     </div>
   </div>
 
   <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
     <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
-      <i class="fas fa-snowflake text-cyan-400"></i> Automatic Stabilization (Freeze) in Tsubazeriai
+      <i class="fas fa-snowflake text-cyan-400"></i> Automatic Freeze Stabilization in Tsubazeriai
     </h4>
     <p class="text-xs text-gray-300 leading-relaxed">
-      During clinch situations (<em>tsubazeriai</em>) or accumulated rapid spins in a tight radius, a human referee maintains posture rather than running frantically in circles. The simulator mirrors this wisdom: upon detecting high rotational variance in a small radius, it triggers the <strong>FROZEN</strong> state, keeping referees stable until combat breaks.
+      When combatants engage in close infighting (<em>tsubazeriai</em>) or execute multiple rapid clustered spins over a short radius, a human referee does not run around erratically in circles. The simulator replicates this behavior: upon detecting high rotation in a tight radius, the engine triggers the <strong>FROZEN</strong> state, holding positions steady until spatial definition or breakup occurs.
     </p>
   </div>
 </div>`,
@@ -1076,20 +1049,20 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-exclamation-triangle"></i> Important Disclaimer
     </strong>
     <p class="text-xs leading-relaxed text-gray-300">
-      This educational tool was developed through personal initiative for pedagogical purposes. Based on simplified computational kinematic models, it does not represent an absolute or dogma.
+      This tool was developed through personal initiative for strictly didactic and educational purposes. Based on mathematical and computational kinematic models, it does not constitute an incontestable truth.
     </p>
     <p class="text-xs leading-relaxed text-gray-300">
-      In live dojo practice and official competitions, guidance from senior masters and experienced referees is paramount and must always prevail.
+      In case of doubt, always seek the guidance of your sensei and experienced referees.
     </p>
   </div>
 
   <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
     <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
-      <i class="fas fa-book text-amber-400"></i> Official Canonical References
+      <i class="fas fa-book text-amber-400"></i> Official References
     </h4>
     <ul class="space-y-1.5 list-disc list-inside pl-2">
-      <li><strong>Regulations of Kendo Shiai and Shinpan:</strong> International Kendo Federation (FIK, Jul/2023).</li>
-      <li><strong>Handbook for Kendo Shiai and Shinpan Management:</strong> International Kendo Federation (FIK, Jul/2025).</li>
+      <li><strong>Regulations of Kendo Shiai and Shinpan:</strong> International Kendo Federation (FIK, July/2023).</li>
+      <li><strong>Handbook for Kendo Shiai and Shinpan Management:</strong> International Kendo Federation (FIK, July/2025).</li>
     </ul>
   </div>
 
@@ -1242,7 +1215,7 @@ export const i18n: Record<string, Record<string, string>> = {
     step_exit_sogo_ni_rei_desc: "試合場境界線を越えた直後、退場する審判団は正三角形に開き、互いに向き合って相互の礼（三人礼）を行い、次の審判団は中央で開始の準備を整える。",
     sectionGlobalLabel: "基本設定",
     procCtxTitle: "FIK公式所作・規定",
-    procCtxDesc: "FIK/全日本剣道連盟の公式規定（2023/2025年）に基づく、試合場（板張り・道場）での審判所作。",
+    procCtxDesc: "国際剣道連盟（FIK）の公式規則に基づく試合場（shiai-jo）での審判所作。",
     procCtxFlagsTitle: "審判旗の所作（旗の保持）",
     procCtxShushin: "<strong>主審:</strong> 右手・赤 / 左手・白",
     procCtxFukushin: "<strong>副審:</strong> 右手・白 / 左手・赤",
@@ -1266,7 +1239,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-globe text-[#bc002d]"></i> 剣道審判シミュレーター 概要
     </h3>
     <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">
-      剣道審判法の学習、可視化、および技術向上を目的とした対話型教育支援プラットフォームです。試合場（板張り・道場）における審判員の正確な位置取り、幾何学的連携、および規則運用の習得を目指し、2つの高精度な補完モジュールを提供します。
+      剣道審判法の学習、可視化、および技術向上を目的とした対話型教育支援プラットフォームです。試合場（<em>shiai-jo</em>）における審判員の正確な位置取り、空間的連携、および規則運用の習得を目指し、2つの高精度な補完モジュールを提供します。
     </p>
   </div>
 
@@ -1277,7 +1250,7 @@ export const i18n: Record<string, Record<string, string>> = {
         <span>FIK公式所作モジュール</span>
       </div>
       <p class="text-xs text-gray-300 leading-relaxed">
-        国際剣道連盟（FIK・全日本剣道連盟 2023/2025年）の公式規定に基づく<strong>審判員の入場・所作・位置移動・交代・退場</strong>を段階別に再現するアニメーション教材です。
+        国際剣道連盟（FIK）の<strong>公式所作規定</strong>に基づく審判員の入退場、幾何学的整列、礼法（<em>Rei</em>）、巡回、審判員交代（<em>Shinpan Koutai</em>）を段階別に再現するアニメーション教材です。
       </p>
     </div>
 
@@ -1287,7 +1260,7 @@ export const i18n: Record<string, Record<string, string>> = {
         <span>対戦動作シミュレーション</span>
       </div>
       <p class="text-xs text-gray-300 leading-relaxed">
-        試合者<strong>白（Shiro）</strong>と<strong>赤（Aka）</strong>を自由にドラッグし、審判3名（主審1名・副審2名）が死角をなくすために<strong>二等辺三角形</strong>を保ちながら連動する様子を動的に検証できます。
+        白（<strong>Shiro</strong>）と赤（<strong>Aka</strong>）の選手をリアルタイムにドラッグし、審判団（主審1名・副審2名）が<strong>二等辺三角形</strong>を維持しながら死角を無くす位置修正アルゴリズムを検証できます。
       </p>
     </div>
   </div>
@@ -1325,7 +1298,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-scroll text-[#bc002d]"></i> FIK公式所作モジュール手引
     </h3>
     <p class="text-xs text-gray-300 leading-relaxed">
-      国際剣道連盟の『剣道試合・審判規則』（2023年7月）および『剣道試合・審判・運営の手引き』（2025年7月）に厳格に準拠した、試合場（板張り・道場）での審判団の移動・号令・礼法を再現します。
+      本モジュールは、国際剣道連盟（FIK）「剣道試合・審判規則」および「剣道試合・審判・運営の手引き」に厳格に準拠し、試合場（<em>shiai-jo</em>）における審判団のすべての動作、位置、号令、礼法を再現します。
     </p>
   </div>
 
@@ -1360,7 +1333,7 @@ export const i18n: Record<string, Record<string, string>> = {
     <div class="space-y-3 text-xs text-gray-300">
       <div class="border-l-2 border-[#bc002d] pl-3 py-0.5">
         <strong class="text-white block font-semibold">第1章: 入場と定位置への移動（全8段階）</strong>
-        場外整列（副審・主審・副審） &rarr; 主審の「前」で行進 &rarr; 試合場中央で90度回転 &rarr; 「一歩前」（右足・左足・右足）で境界線から約1m入場 &rarr; 「礼」 &rarr; 主審はその場に留まり、副審2名は台形の脚に沿って開始線の内側を進み約4m間隔で定位置へ &rarr; 副審が内側に向き直る &rarr; 旗を両手に分ける。
+        場外整列（副審・主審・副審） &rarr;「前」の号令で行進 &rarr; 境界線手前で90度内向き &rarr;「一歩前」（右・左・右で約1m進入）&rarr;「礼」&rarr; 副審は直線に前進（開始線の内側）し、主審はその場に待機 &rarr; 副審の内向き &rarr; 旗の同時分離。
       </div>
       <div class="border-l-2 border-amber-500 pl-3 py-0.5">
         <strong class="text-white block font-semibold">第2章A: 通常の巡回交代（全5段階）</strong>
@@ -1368,11 +1341,11 @@ export const i18n: Record<string, Record<string, string>> = {
       </div>
       <div class="border-l-2 border-green-500 pl-3 py-0.5">
         <strong class="text-white block font-semibold">第2章B: 審判員交代・三人礼（全8段階）</strong>
-        旗を右手に保持 &rarr; 移動 &rarr; 残る2名は中央を向き、退場審判員は入場審判員に向き直り旗を巻く &rarr; 入場審判員が入場 &rarr; 相互の礼 &rarr; 退場審判員は90度回転し試合場を向いたまま後退退場 &rarr; 試合場への礼・場内は旗を分ける。
+        旗を右手で束ねる &rarr; 次の頂点へ移動 &rarr; 残る審判員は中央、交代審判員は外の交代員へ向き旗を巻く（白旗を内、赤旗を外）&rarr; 交代員の進入 &rarr; 相互の礼（Rei）&rarr; 交代審判員は90度向きを変え後退退場 &rarr; 試合場への礼、担当審判員は旗を同時に分離。
       </div>
       <div class="border-l-2 border-purple-500 pl-3 py-0.5">
         <strong class="text-white block font-semibold">第3章: 試合終了と退場（全7段階）</strong>
-        一斉に旗を巻く &rarr; 副審が台形に沿って主審の位置へ戻る &rarr; 内側を向いて整列 &rarr; 「礼」（正面） &rarr; 「左向け」（または右向け） &rarr; 「前」で退場行進（次の審判団と同期） &rarr; 場外で正三角形に開き三人礼（相互の礼）。
+        旗の同時巻き（白旗を内、赤旗を外）&rarr; 副審が直線（開始線内側）で主審位置へ戻る &rarr; 内向き1m整列 &rarr; 正面への礼 &rarr;「左向け／右向け」&rarr;「前」の号令で試合場外へ行進退場（次組が進入）&rarr; 正三角形での相互の礼（相図に礼）。
       </div>
     </div>
   </div>
@@ -1382,7 +1355,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-flag text-amber-400"></i> 審判旗の保持規則（厳格規定）
     </h4>
     <ul class="space-y-1.5 text-gray-300 list-disc list-inside">
-      <li><strong>移動時（入退場・位置交代）:</strong> 旗を巻き（白旗を内、赤旗を外）、<em>必ず右手に持ち</em>、体の横に自然に保持します。</li>
+      <li><strong>移動時（入退場・巡回・退場）:</strong> 旗は<em>右手</em>のみに揃えて保持。入退場時は必ず巻いた状態（白旗を内、赤旗を外）とします。</li>
       <li><strong>試合中:</strong>
         <ul class="pl-4 mt-1 space-y-1 list-none">
           <li>&bull; <strong class="text-white">主審:</strong> 右手に赤旗／左手に白旗。</li>
@@ -1424,36 +1397,23 @@ export const i18n: Record<string, Record<string, string>> = {
     </h4>
     <div class="space-y-2.5 text-xs text-gray-300">
       <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
-        <strong class="text-white block font-semibold mb-1">レンダリングモード（リアルな見取り表示）:</strong>
-        講習会や大画面投影用。板張りの道場床、道着・袴・防具を着け背中に紅白の襷を締めた選手、正規の紅白旗を持つ審判員を表示します。
+        <strong class="text-white block font-semibold mb-1">描画モード:</strong>
+        白線のある木目調の試合場、紅白の襷を着けた剣道着姿の選手、正装で審判旗を保持する3名の審判員を表示します。
       </div>
       <div class="bg-black/40 p-2.5 rounded-lg border border-white/5">
-        <strong class="text-white block font-semibold mb-1">テクニカルモード（幾何学・デバッグ）:</strong>
-        各位置（W, R, S, F1, F2）、視線ベクトル、審判担当エリア、リアルタイム角度および状態機械（Debug）の数値を表示します。
+        <strong class="text-white block font-semibold mb-1">技術モード:</strong>
+        数理的分析に特化。選手・審判員の識別円（W, R, S, F1, F2）、視線、各審判員の守備領域ポリゴン、角度計測および状態機械のデバッグ数値を表示します。
       </div>
     </div>
-  </div>
-
-  <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
-    <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
-      <i class="fas fa-eye text-amber-400"></i> 表示オプション
-    </h4>
-    <ul class="space-y-1.5 list-disc list-inside">
-      <li><strong>審判の三角形:</strong> 3名の審判を結ぶ二等辺三角形の点線。</li>
-      <li><strong>試合ライン／ダイナミックスクエア:</strong> 試合軸と可動スクエア。</li>
-      <li><strong>担当エリア:</strong> 各審判が責任を持つ視野ゾーンのポリゴン。</li>
-      <li><strong>方向インジケーター:</strong> 各参加者の身体・視線の向き。</li>
-      <li><strong>移動軌跡:</strong> 審判員の移動経路のトレース。</li>
-    </ul>
   </div>
 </div>`,
     helpAdvancedBody: `<div class="space-y-4">
   <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
     <h3 class="text-base font-bold text-white flex items-center gap-2">
-      <i class="fas fa-sliders-h text-[#bc002d]"></i> 力学ロジックと詳細パラメータ
+      <i class="fas fa-sliders-h text-[#bc002d]"></i> 幾何学ロジックと詳細パラメータ
     </h3>
     <p class="text-xs text-gray-300 leading-relaxed">
-      有効打突の見極めを最適化するため、選手を重心とする二等辺三角形の幾何学モデルに基づいて計算されています。
+      選手2名の中心を二等辺三角形の中心に捉え、有効打突の見極め角度を最大化するベクトル・角度モデルに基づいています。
     </p>
   </div>
 
@@ -1462,12 +1422,12 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-wave-square text-blue-400"></i> 平滑化係数 (k)
     </h4>
     <p class="text-xs text-gray-300 leading-relaxed">
-      審判員の移動の慣性と反応速度を制御します:
+      審判員の追従速度・慣性を1.0〜15.0で調整（標準値: 5.0）。
     </p>
     <ul class="space-y-1 text-xs text-gray-300 list-disc list-inside pl-2">
-      <li><strong>高値 (8.0〜15.0):</strong> 即座で機敏な追従。</li>
-      <li><strong>標準値 (5.0):</strong> 人間の審判員の自然な歩法と体重移動を再現。</li>
-      <li><strong>低値 (1.0〜3.0):</strong> 慣性が強く滑らかな追従。</li>
+      <li><strong>高値 (8.0〜15.0):</strong> 俊敏な即時追従。</li>
+      <li><strong>標準値 (5.0):</strong> 人間の審判員の足さばきと体重移動を再現する自然な追従。</li>
+      <li><strong>低値 (1.0〜3.0):</strong> 緩やかな追従。</li>
     </ul>
   </div>
 
@@ -1476,23 +1436,23 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-compass text-amber-400"></i> 5つの角度遷移しきい値
     </h4>
     <p class="text-xs text-gray-300 leading-relaxed">
-      試合軸が回転する際、主審は一時的に頂点を離れて底辺側へ移動し、副審と役割を交代して視界を確保します:
+      実際の試合では選手の攻防軸が回転します。臨界角度に達すると、副審がサイドを移行し、主審は一時的に二等辺三角形の頂点を離れます:
     </p>
     <div class="space-y-2 text-xs text-gray-300">
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">1. VERTEX 進入角（初期値 90°）:</strong> 主審が底辺側へ移動を開始する角度。
+        <strong class="text-white">1. VERTEX 進入角 (標準 90°):</strong> 副審の1名が主審の側方へ向けて滑らかに移行を開始する角度。
       </div>
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">2. VERTEX 解除角（初期値 45°）:</strong> 通常隊形へ復帰する安全ヒステリシス。
+        <strong class="text-white">2. VERTEX &rarr; STANDARD 解除角 (標準 45°):</strong> 標準隊形への復帰しきい値。境界付近での細かな揺らぎを防ぐため広いヒステリシスを設けています。
       </div>
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">3. S_BASE 進入角（初期値 123°）:</strong> 主審が反転底辺へ完全に移行する角度。
+        <strong class="text-white">3. S_BASE 進入角 (標準 123°):</strong> 主審が反対側へと完全に移行するポイント。
       </div>
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">4. S_BASE 解除角（初期値 90°）:</strong> S_BASEから中間域への復帰角。
+        <strong class="text-white">4. S_BASE &rarr; VERTEX 解除角 (標準 90°):</strong> S_BASEから中間領域への復帰しきい値。
       </div>
       <div class="bg-black/40 p-2 rounded-lg border border-white/5">
-        <strong class="text-white">5. FLIP 進入角（初期値 135°）:</strong> 審判同士が交差することなく隊形幾何学を維持するための象限反転角。
+        <strong class="text-white">5. FLIP 進入角 (標準 135°):</strong> もう1名の副審が反対側へと移行し、主審を頂点とする標準的な二等辺三角形隊形が復帰するポイント。
       </div>
     </div>
   </div>
@@ -1502,7 +1462,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-snowflake text-cyan-400"></i> 鍔迫り合い時の自動固定 (Freeze)
     </h4>
     <p class="text-xs text-gray-300 leading-relaxed">
-      鍔迫り合いや狭い範囲での急速な回転時、審判員が無駄に走り回るのを防ぐため、自動で <strong>FROZEN</strong>（固定状態）に入り、位置を安定させます。
+      選手が鍔迫り合いに入ったり、狭い半径で連続して激しく旋回した場合、審判員が無駄に走り回るのを防ぐため、本シミュレーターはこの挙動を再現し、一時的に位置を固定（<strong>FROZEN</strong>）します。
     </p>
   </div>
 </div>`,
@@ -1626,19 +1586,19 @@ export const i18n: Record<string, Record<string, string>> = {
     helpDisclaimerBody: `<div class="space-y-4">
   <div class="p-4 bg-red-950/40 border border-red-800/40 rounded-xl space-y-2">
     <strong class="text-red-400 text-sm font-bold flex items-center gap-2">
-      <i class="fas fa-exclamation-triangle"></i> 免責事項（教育利用について）
+      <i class="fas fa-exclamation-triangle"></i> 免責事項
     </strong>
     <p class="text-xs leading-relaxed text-gray-300">
-      本ツールは個人開発の教育支援シミュレーターです。数理アルゴリズムに基づくため、極端な条件下では不自然な挙動を示す場合があります。
+      本ツールは個人開発の教育支援シミュレーターです。数理アルゴリズムに基づくため、絶対的な真理を主張するものではありません。
     </p>
     <p class="text-xs leading-relaxed text-gray-300">
-      実際の道場や公式大会においては、常に高段者・経験豊富な審判員の指導と判断を最優先としてください。
+      疑問点がある場合は、常に指導の先生方（sensei）や経験豊富な審判員にご相談ください。
     </p>
   </div>
 
   <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
     <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
-      <i class="fas fa-book text-amber-400"></i> 参考公式規定
+      <i class="fas fa-book text-amber-400"></i> 公式参考規定
     </h4>
     <ul class="space-y-1.5 list-disc list-inside pl-2">
       <li><strong>剣道試合・審判規則:</strong> 国際剣道連盟（FIK、2023年7月）</li>
