@@ -173,9 +173,9 @@ function setActiveHelpTab(tab: string) {
   document.querySelectorAll('.help-tab-btn').forEach(btn => {
     const t = btn.getAttribute('data-tab');
     if (t === tab) {
-      btn.className = 'help-tab-btn px-3 py-1.5 rounded-lg bg-[#bc002d] text-white transition whitespace-nowrap cursor-pointer flex items-center gap-1.5';
+      btn.className = 'help-tab-btn px-2.5 py-1.5 text-[11px] sm:text-xs rounded-lg bg-[#bc002d] text-white transition whitespace-nowrap cursor-pointer flex items-center gap-1.5';
     } else {
-      btn.className = 'help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5';
+      btn.className = 'help-tab-btn px-2.5 py-1.5 text-[11px] sm:text-xs rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5';
     }
   });
   renderHelpTabContent();
@@ -800,10 +800,9 @@ function updateUIStrings() {
   setHtml('ui-proc-ctx-shushin', s.procCtxShushin || '<strong>Shushin:</strong> Direita Vermelha / Esquerda Branca');
   setHtml('ui-proc-ctx-fukushin', s.procCtxFukushin || '<strong>Fukushin:</strong> Direita Branca / Esquerda Vermelha');
   setHtml('ui-proc-ctx-movement', s.procCtxMovement || '<strong>Entrada / Rotação / Saída:</strong> Na mão direita (Vermelha cobre a Branca).');
-  setText('ui-proc-ctx-geom-title', s.procCtxGeomTitle || 'Geometria da Quadra (Shiai-jo)');
-  setText('ui-proc-ctx-geom-dist', s.procCtxGeomDist || 'Fukushin: distância fixa de 4,0 m (por dentro do kaishisen).');
-  setText('ui-proc-ctx-geom-entry', s.procCtxGeomEntry || 'Marcha tangencial: a ~0,45 m da borda externa.');
-  setText('ui-proc-ctx-geom-step', s.procCtxGeomStep || 'Entrada na quadra: ~1,0 m após o "Ippomae".');
+  setText('ui-proc-ctx-geom-title', s.procCtxGeomTitle || 'Geometria de posicionamento dos Shinpan-in');
+  setText('ui-proc-ctx-geom-triangle', s.procCtxGeomTriangle || 'Triângulo isósceles com vértices a ~1,0 m da borda da quadra.');
+  setText('ui-proc-ctx-geom-fukushin', s.procCtxGeomFukushin || 'Fukushin: distância aproximada de 4,0 m entre eles, por relação geométrica.');
   setHtml('ui-proc-ctx-tip', s.procCtxTip || '');
 
   // Help modal tabs

@@ -1,6 +1,6 @@
 # Kendo Shinpan Simulator — Regras e Diretrizes do Projeto
 
-Este repositório contém o **Kendo Shinpan Simulator** (Simulador Interativo de Movimentação de Arbitragem), concebido e orientado pelo Prof. Adrian Yoneda (Renshi 7º Dan — Brasil).
+Este repositório contém o **Kendo Shinpan Simulator** (Simulador Interativo de Movimentação de Arbitragem), concebido e orientado por Adrian Yu Yoneda (Renshi 7º Dan — Brasil).
 
 ## 1. Visão e Integração da Plataforma
 - Esta ferramenta integra a **Plataforma Educacional Integrada de Kendo**, operando em conjunto com o *Nihon Kendo Kata Studio*.

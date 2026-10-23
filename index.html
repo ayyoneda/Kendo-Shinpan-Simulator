@@ -129,12 +129,11 @@
             <!-- Geometry references card -->
             <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs space-y-2">
               <div class="font-bold text-[10px] uppercase text-gray-400 flex items-center gap-1.5">
-                <i class="fas fa-drafting-compass text-blue-400"></i> <span id="ui-proc-ctx-geom-title">Geometria da Quadra (Shiai-jo)</span>
+                <i class="fas fa-drafting-compass text-blue-400"></i> <span id="ui-proc-ctx-geom-title">Geometria de posicionamento dos Shinpan-in</span>
               </div>
               <ul class="space-y-1 text-[11px] text-gray-300 list-disc list-inside">
-                <li id="ui-proc-ctx-geom-dist">Fukushin: distância fixa de 4,0 m (por dentro do kaishisen).</li>
-                <li id="ui-proc-ctx-geom-entry">Marcha tangencial: a ~0,45 m da borda externa.</li>
-                <li id="ui-proc-ctx-geom-step">Entrada na quadra: ~1,0 m após o "Ippomae".</li>
+                <li id="ui-proc-ctx-geom-triangle">Triângulo isósceles com vértices a ~1,0 m da borda da quadra.</li>
+                <li id="ui-proc-ctx-geom-fukushin">Fukushin: distância aproximada de 4,0 m entre eles, por relação geométrica.</li>
               </ul>
             </div>
 
@@ -291,7 +290,7 @@
 
       <!-- HELP MODAL OVERLAY -->
       <div id="help-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
-        <div class="bg-[#18181b]/95 border border-white/20 rounded-2xl shadow-2xl w-[94vw] max-w-5xl max-h-[88vh] flex flex-col text-gray-200 overflow-hidden">
+        <div class="bg-[#18181b]/95 border border-white/20 rounded-2xl shadow-2xl w-[96vw] max-w-6xl max-h-[88vh] flex flex-col text-gray-200 overflow-hidden">
           
           <!-- Modal Header -->
           <div class="p-4 px-6 border-b border-white/10 flex justify-between items-center bg-white/5">
@@ -305,26 +304,26 @@
           </div>
 
           <!-- Tabs Navigation -->
-          <div class="flex overflow-x-auto gap-1 p-2 px-4 border-b border-white/10 bg-black/40 text-xs font-semibold custom-scrollbar" id="help-tabs-nav">
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg bg-[#bc002d] text-white transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="global" id="tab-btn-global">
+          <div class="flex overflow-x-auto gap-1 p-1.5 px-3 border-b border-white/10 bg-black/40 text-xs font-semibold custom-scrollbar" id="help-tabs-nav">
+            <button class="help-tab-btn px-2.5 py-1.5 text-[11px] sm:text-xs rounded-lg bg-[#bc002d] text-white transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="global" id="tab-btn-global">
               <i class="fas fa-globe"></i> <span id="ui-help-tab-global">Módulos & Configurações</span>
             </button>
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="procedures" id="tab-btn-procedures">
+            <button class="help-tab-btn px-2.5 py-1.5 text-[11px] sm:text-xs rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="procedures" id="tab-btn-procedures">
               <i class="fas fa-scroll"></i> <span id="ui-help-tab-procedures">Procedimentos FIK</span>
             </button>
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="combat" id="tab-btn-combat">
+            <button class="help-tab-btn px-2.5 py-1.5 text-[11px] sm:text-xs rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="combat" id="tab-btn-combat">
               <i class="fas fa-fist-raised"></i> <span id="ui-help-tab-combat">Combate Reativo</span>
             </button>
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="advanced" id="tab-btn-advanced">
+            <button class="help-tab-btn px-2.5 py-1.5 text-[11px] sm:text-xs rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="advanced" id="tab-btn-advanced">
               <i class="fas fa-sliders-h"></i> <span id="ui-help-tab-advanced">Lógica & Parâmetros</span>
             </button>
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="scenarios" id="tab-btn-scenarios">
+            <button class="help-tab-btn px-2.5 py-1.5 text-[11px] sm:text-xs rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="scenarios" id="tab-btn-scenarios">
               <i class="fas fa-play-circle"></i> <span id="ui-help-tab-scenarios">Cenários de Teste</span>
             </button>
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="concept" id="tab-btn-concept">
+            <button class="help-tab-btn px-2.5 py-1.5 text-[11px] sm:text-xs rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="concept" id="tab-btn-concept">
               <i class="fas fa-yin-yang"></i> <span id="ui-help-tab-concept">Conceito Marcial</span>
             </button>
-            <button class="help-tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="disclaimer" id="tab-btn-disclaimer">
+            <button class="help-tab-btn px-2.5 py-1.5 text-[11px] sm:text-xs rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition whitespace-nowrap cursor-pointer flex items-center gap-1.5" data-tab="disclaimer" id="tab-btn-disclaimer">
               <i class="fas fa-balance-scale"></i> <span id="ui-help-tab-disclaimer">Disclaimer & Regras</span>
             </button>
           </div>

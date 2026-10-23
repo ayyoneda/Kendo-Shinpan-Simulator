@@ -56,7 +56,7 @@ export const i18n: Record<string, Record<string, string>> = {
     freezeAngle: "Rotação acumulada (°)",
     freezeTime: "Duração do congelamento (ms)",
     scaleLabel: "Escala:",
-    author: "Desenvolvido por: Adrian Yoneda",
+    author: "Idealização e desenvolvimento: Adrian Yu Yoneda",
     scenariosTitle: "Cenários de Movimentação",
     modeCombat: "Combate Reativo",
     modeProcedures: "Procedimentos FIK",
@@ -140,10 +140,9 @@ export const i18n: Record<string, Record<string, string>> = {
     procCtxShushin: "<strong>Shushin:</strong> Direita Vermelha / Esquerda Branca",
     procCtxFukushin: "<strong>Fukushin:</strong> Direita Branca / Esquerda Vermelha",
     procCtxMovement: "<strong>Entrada / Rotação / Saída:</strong> Na mão direita (Vermelha cobre a Branca).",
-    procCtxGeomTitle: "Geometria da Quadra (Shiai-jo)",
-    procCtxGeomDist: "Fukushin: distância fixa de 4,0 m (por dentro do kaishisen).",
-    procCtxGeomEntry: "Marcha tangencial: a ~0,45 m da borda externa.",
-    procCtxGeomStep: "Entrada na quadra: ~1,0 m após o \"Ippomae\".",
+    procCtxGeomTitle: "Geometria de posicionamento dos Shinpan-in",
+    procCtxGeomTriangle: "Triângulo isósceles com vértices a ~1,0 m da borda da quadra.",
+    procCtxGeomFukushin: "Fukushin: distância aproximada de 4,0 m entre eles, por relação geométrica.",
     procCtxTip: '<i class="fas fa-info-circle text-[#bc002d] mr-1"></i> Utilize o painel flutuante à direita para navegar entre capítulos, etapas e velocidade.',
     helpModalTitle: "Guia do Simulador & Fundamentos",
     helpCloseBtn: "Fechar Guia",
@@ -160,7 +159,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-globe text-[#bc002d]"></i> Visão Geral da Plataforma Kendo Shinpan Simulator
     </h3>
     <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">
-      Ferramenta educacional interativa de arbitragem marcial desenvolvida pelo Prof. Adrian Yoneda (Renshi 7º Dan Kendo). O simulador opera em dois módulos complementares de alta fidelidade em piso de madeira (<em>shiai-jo</em>).
+      Plataforma educacional interativa voltada ao estudo, visualização e aperfeiçoamento da arbitragem marcial de Kendo. O simulador tem como objetivo proporcionar o domínio visual, espacial e regulamentar do posicionamento e deslocamento dos árbitros através de dois módulos complementares de alta fidelidade em piso de madeira (<em>shiai-jo</em>).
     </p>
   </div>
 
@@ -489,7 +488,7 @@ export const i18n: Record<string, Record<string, string>> = {
     </h3>
     <blockquote class="border-l-4 border-[#bc002d] pl-4 italic text-xs text-gray-200 py-1 leading-relaxed bg-black/20 rounded-r-lg">
       "Acredito que o árbitro deve naturalizar sua movimentação até que ela se torne um reflexo espontâneo, liberando sua mente para manter-se límpida e focada no julgamento imediato do ippon."
-      <span class="block text-right text-gray-400 font-semibold mt-1 not-italic">— Prof. Adrian Yoneda (Renshi 7º Dan)</span>
+      <span class="block text-right text-gray-400 font-semibold mt-1 not-italic">— Adrian Yu Yoneda (Renshi 7º Dan)</span>
     </blockquote>
   </div>
 
@@ -498,10 +497,10 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-eye text-amber-400"></i> Shinpan-me: O Julgamento do Yuko-Datotsu
     </h4>
     <p class="leading-relaxed">
-      No Kendo, um ponto válido (<em>yuko-datotsu</em>) dura uma fração de segundo e requer a convergência simultânea de requisitos espirituais, técnicos e físicos: <strong>Ki-Ken-Tai-Ichi</strong> (união de espírito, espada e corpo), contato com a parte correta da lâmina de bambu (<em>Datotsubu</em>), ângulo de corte exato (<em>Hasuji</em>), postura digna e presença de espírito após o golpe (<em>Zanshin</em>).
+      No Kendo, um ponto válido (<em>yuko-datotsu</em>) dura uma fração de segundo e requer a convergência simultânea de requisitos espirituais, técnicos e físicos: <strong>Ki-Ken-Tai-Ichi</strong> (união de espírito, espada e corpo), contato com a parte correta da <em>shinai</em> (<em>Datotsubu</em>) no local correto do <em>kendo-gu</em> do oponente (<em>Datotsubui</em>), ângulo de corte exato (<em>Hasuji</em>), postura digna e presença de espírito após o golpe (<em>Zanshin</em>).
     </p>
     <p class="leading-relaxed">
-      Se o árbitro estiver em dúvida sobre onde posicionar seus pés ou com a linha de visão obstruída pelo corpo de outro árbitro ou atleta, o momento do julgamento é irremediavelmente perdido.
+      Se o árbitro estiver em dúvida sobre onde se posicionar ou com a linha de visão obstruída, o momento do julgamento é irremediavelmente perdido.
     </p>
   </div>
 
@@ -510,10 +509,10 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-project-diagram text-blue-400"></i> A Sinergia do Trio de Arbitragem
     </h4>
     <p class="leading-relaxed">
-      O trio de arbitragem atua como um <strong>organismo vivo e articulado</strong>. O posicionamento incorreto ou a hesitação de um dos árbitros rompe imediatamente o equilíbrio do triângulo isósceles, forçando os outros dois colegas ao erro geométrico e criando pontos cegos imperdoáveis.
+      O trio de arbitragem atua como um <strong>organismo vivo e articulado</strong>. O posicionamento incorreto ou a hesitação de um dos árbitros rompe imediatamente o equilíbrio do triângulo isósceles, forçando os outros dois colegas ao erro geométrico e criando pontos cegos.
     </p>
     <p class="leading-relaxed">
-      Por isso, a formação de árbitros requer o domínio não apenas das regras escritas, mas da sensibilidade espacial coletiva sobre o piso de madeira do shiai-jo.
+      Por isso, a formação de árbitros requer o domínio não apenas das regras escritas, mas da sensibilidade espacial coletiva sobre o <em>shiai-jo</em>.
     </p>
   </div>
 </div>`,
@@ -546,7 +545,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-user-tie text-[#bc002d]"></i> Autoria & Contato
     </div>
     <p>
-      <strong>Idealização & Coordenação Técnica:</strong> Prof. Adrian Yu Yoneda (Renshi 7º Dan Kendo / 5º Dan Iaido — São Paulo, Brasil).
+      <strong>Idealização e desenvolvimento:</strong> Adrian Yu Yoneda (Renshi 7º Dan Kendo / 5º Dan Iaido — São Paulo, Brasil).
     </p>
     <p>
       Dúvidas, sugestões e colaborações para aprimoramento da ferramenta: <a href="mailto:adrian.yoneda@gmail.com" class="text-blue-400 underline hover:text-blue-300">adrian.yoneda@gmail.com</a>
@@ -611,7 +610,7 @@ export const i18n: Record<string, Record<string, string>> = {
     freezeAngle: "Accumulated rotation (°)",
     freezeTime: "Freeze duration (ms)",
     scaleLabel: "Scale:",
-    author: "Developed by: Adrian Yoneda (Brazil)",
+    author: "Concept & development: Adrian Yu Yoneda",
     scenariosTitle: "Movement Scenarios",
     modeCombat: "Reactive Combat",
     modeProcedures: "FIK Procedures",
@@ -695,10 +694,9 @@ export const i18n: Record<string, Record<string, string>> = {
     procCtxShushin: "<strong>Shushin:</strong> Right Red / Left White",
     procCtxFukushin: "<strong>Fukushin:</strong> Right White / Left Red",
     procCtxMovement: "<strong>Entry / Rotation / Exit:</strong> In right hand (Red covering White).",
-    procCtxGeomTitle: "Court Geometry (Shiai-jo)",
-    procCtxGeomDist: "Fukushin: fixed 4.0 m distance (inside the kaishisen).",
-    procCtxGeomEntry: "Tangential march: ~0.45 m from the outer boundary.",
-    procCtxGeomStep: "Court entry: ~1.0 m inside after \"Ippomae\".",
+    procCtxGeomTitle: "Referee Positioning Geometry (Shinpan-in)",
+    procCtxGeomTriangle: "Isosceles triangle with vertices ~1.0 m from the court boundary.",
+    procCtxGeomFukushin: "Fukushin: approximate 4.0 m distance between them, by geometric relationship.",
     procCtxTip: '<i class="fas fa-info-circle text-[#bc002d] mr-1"></i> Use the floating panel on the right to navigate chapters, steps, and speed.',
     helpModalTitle: "Simulator Guide & Guidelines",
     helpCloseBtn: "Close Guide",
@@ -715,7 +713,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-globe text-[#bc002d]"></i> Kendo Shinpan Simulator Overview
     </h3>
     <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">
-      Interactive educational refereeing simulator developed by Adrian Yoneda (Renshi 7th Dan Kendo). Operates across two complementary, high-fidelity modules on wooden flooring (<em>shiai-jo</em>).
+      Interactive educational platform dedicated to the study, visualization, and enhancement of martial refereeing in Kendo. The simulator aims to provide comprehensive visual, spatial, and regulatory mastery of referee positioning and movement across two complementary, high-fidelity modules on wooden flooring (<em>shiai-jo</em>).
     </p>
   </div>
 
@@ -1044,7 +1042,7 @@ export const i18n: Record<string, Record<string, string>> = {
     </h3>
     <blockquote class="border-l-4 border-[#bc002d] pl-4 italic text-xs text-gray-200 py-1 leading-relaxed bg-black/20 rounded-r-lg">
       "Referees must naturalize their physical movement until it becomes a spontaneous reflex, freeing their minds to remain serene and fully focused on the immediate evaluation of ippon."
-      <span class="block text-right text-gray-400 font-semibold mt-1 not-italic">— Adrian Yoneda (Renshi 7th Dan)</span>
+      <span class="block text-right text-gray-400 font-semibold mt-1 not-italic">— Adrian Yu Yoneda (Renshi 7th Dan)</span>
     </blockquote>
   </div>
 
@@ -1053,22 +1051,22 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-eye text-amber-400"></i> Shinpan-me: Judging Yuko-Datotsu
     </h4>
     <p class="leading-relaxed">
-      In Kendo, a valid point (<em>yuko-datotsu</em>) occurs in a fraction of a second and requires the simultaneous alignment of spiritual, technical, and physical elements: <strong>Ki-Ken-Tai-Ichi</strong> (unity of spirit, sword, and body), contact with the correct strike zone (<em>Datotsubu</em>), correct edge alignment (<em>Hasuji</em>), resolute posture, and post-strike vigilance (<em>Zanshin</em>).
+      In Kendo, a valid point (<em>yuko-datotsu</em>) lasts a fraction of a second and requires the simultaneous convergence of spiritual, technical, and physical requirements: <strong>Ki-Ken-Tai-Ichi</strong> (unity of spirit, sword, and body), contact with the correct part of the <em>shinai</em> (<strong>Datotsubu</strong>) onto the correct target on the opponent's <em>kendo-gu</em> (<strong>Datotsubui</strong>), exact cutting angle (<strong>Hasuji</strong>), dignified posture, and alert composure following the strike (<strong>Zanshin</strong>).
     </p>
     <p class="leading-relaxed">
-      If a referee is hesitating about footwork or has sightlines blocked by a fellow referee or competitor, the judging opportunity is irrecoverably lost.
+      If a referee is uncertain about where to position themselves or has an obstructed line of sight, the moment of judgment is irrecoverably lost.
     </p>
   </div>
 
   <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
     <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
-      <i class="fas fa-project-diagram text-blue-400"></i> Synchronization of the Referee Trio
+      <i class="fas fa-project-diagram text-blue-400"></i> The Synergy of the Referee Trio
     </h4>
     <p class="leading-relaxed">
-      The referee trio acts as a single <strong>coordinated living organism</strong>. Poor positioning or hesitation by one referee immediately breaks the isosceles triangle, forcing colleagues into geometric errors and creating unacceptable blind spots.
+      The referee trio acts as a <strong>living, articulate organism</strong>. Incorrect positioning or hesitation by one referee immediately breaks the balance of the isosceles triangle, forcing the other two colleagues into geometric error and creating blind spots.
     </p>
     <p class="leading-relaxed">
-      Hence, referee development requires mastering not just written rulebooks, but collective spatial awareness across the wooden floor.
+      Therefore, referee development requires mastering not only the written rules, but a collective spatial sensitivity across the <em>shiai-jo</em>.
     </p>
   </div>
 </div>`,
@@ -1100,7 +1098,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-user-tie text-[#bc002d]"></i> Authorship & Contact
     </div>
     <p>
-      <strong>Concept & Technical Lead:</strong> Adrian Yu Yoneda (Renshi 7th Dan Kendo / 5th Dan Iaido — São Paulo, Brazil).
+      <strong>Concept & Development:</strong> Adrian Yu Yoneda (Renshi 7th Dan Kendo / 5th Dan Iaido — São Paulo, Brazil).
     </p>
     <p>
       Inquiries and feedback: <a href="mailto:adrian.yoneda@gmail.com" class="text-blue-400 underline hover:text-blue-300">adrian.yoneda@gmail.com</a>
@@ -1165,7 +1163,7 @@ export const i18n: Record<string, Record<string, string>> = {
     freezeAngle: "累積回転角 (°)",
     freezeTime: "固定時間 (ms)",
     scaleLabel: "スケール:",
-    author: "開発: 米田裕（ブラジル）",
+    author: "考案・開発: 米田裕",
     scenariosTitle: "移動シナリオ",
     modeCombat: "試合シミュレーション",
     modeProcedures: "FIK 審判手順",
@@ -1249,10 +1247,9 @@ export const i18n: Record<string, Record<string, string>> = {
     procCtxShushin: "<strong>主審:</strong> 右手・赤 / 左手・白",
     procCtxFukushin: "<strong>副審:</strong> 右手・白 / 左手・赤",
     procCtxMovement: "<strong>入退場・交代時:</strong> 右手に保持（赤旗で白旗を巻く）。",
-    procCtxGeomTitle: "試合場の幾何学配置",
-    procCtxGeomDist: "副審間: 固定4.0m間隔（開始線の内側）。",
-    procCtxGeomEntry: "外周行進: 境界線の外側約0.45mを進行。",
-    procCtxGeomStep: "入場位置: 「一歩前」後、境界線の内側約1.0m。",
+    procCtxGeomTitle: "審判員の配置幾何学",
+    procCtxGeomTriangle: "二等辺三角形の各頂点は境界線から約1.0mに位置。",
+    procCtxGeomFukushin: "副審間: 幾何学的関係に基づき約4.0m間隔。",
     procCtxTip: '<i class="fas fa-info-circle text-[#bc002d] mr-1"></i> 右側の浮動パネルで章・段階の切り替えや再生速度を操作できます。',
     helpModalTitle: "シミュレーター手引と基本理念",
     helpCloseBtn: "閉じる",
@@ -1269,7 +1266,7 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-globe text-[#bc002d]"></i> 剣道審判シミュレーター 概要
     </h3>
     <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">
-      米田裕 Adrian Yoneda（剣道教士七段）が開発した審判法教育支援システムです。試合場（板張り・道場）における高精度な2つのモジュールを搭載しています。
+      剣道審判法の学習、可視化、および技術向上を目的とした対話型教育支援プラットフォームです。試合場（板張り・道場）における審判員の正確な位置取り、幾何学的連携、および規則運用の習得を目指し、2つの高精度な補完モジュールを提供します。
     </p>
   </div>
 
@@ -1598,7 +1595,7 @@ export const i18n: Record<string, Record<string, string>> = {
     </h3>
     <blockquote class="border-l-4 border-[#bc002d] pl-4 italic text-xs text-gray-200 py-1 leading-relaxed bg-black/20 rounded-r-lg">
       「審判員は移動を自然体で行い、意識を有効打突の見極めに集中させる必要があります。」
-      <span class="block text-right text-gray-400 font-semibold mt-1 not-italic">— 米田裕 Adrian Yoneda（剣道教士七段）</span>
+      <span class="block text-right text-gray-400 font-semibold mt-1 not-italic">— 米田裕（教士七段）</span>
     </blockquote>
   </div>
 
@@ -1607,22 +1604,22 @@ export const i18n: Record<string, Record<string, string>> = {
       <i class="fas fa-eye text-amber-400"></i> 審判眼: 有効打突の見極め
     </h4>
     <p class="leading-relaxed">
-      剣道の有効打突は一瞬の出来事であり、<strong>気剣体の一致</strong>、竹刀の<strong>打突部</strong>での正確な刃筋（<strong>刃筋正しく</strong>）、充実した気魄、適正な姿勢、そして打突後の<strong>残心</strong>を同時に判断する必要があります。
+      剣道における有効打突（<em>有効打突</em>）は一瞬の出来事であり、精神的・技術的・身体的条件の同時充足が求められます。すなわち、<strong>気剣体の一致</strong>（気・剣・体の一致）、竹刀の適正な部位（<strong>打突部</strong>）による相手の剣道具の適正な部位（<strong>打突部位</strong>）への打撃、正確な刃筋（<strong>刃筋正しく</strong>）、そして打突後の充実した気魄と適正な姿勢（<strong>残心</strong>）です。
     </p>
     <p class="leading-relaxed">
-      足の運びや位置取りに迷いがあったり、死角が生じたりすると、一瞬の判断の機を逃してしまいます。
+      審判員が自身の位置取りに迷いを持ったり、視線が遮られたりすると、その判定の機は不可逆的に失われてしまいます。
     </p>
   </div>
 
   <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-300">
     <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
-      <i class="fas fa-project-diagram text-blue-400"></i> 審判団の協調（三位一体）
+      <i class="fas fa-project-diagram text-blue-400"></i> 審判団の協調（三位一体の連携）
     </h4>
     <p class="leading-relaxed">
-      審判3名は緊密に連携した一つの生きた組織体です。1名の位置取りの乱れが三角形を崩し、他の2名の位置取りを妨げ、死角を生み出します。
+      審判員3名は<strong>一つの生きた有機的組織</strong>として機能します。1名の不適切な位置取りや躊躇は、直ちに二等辺三角形の均衡を崩し、他の2名の同僚を幾何学的誤りに追い込み、死角を生み出します。
     </p>
     <p class="leading-relaxed">
-      規則の知識だけでなく、板張りの試合場における空間感覚の共有が極めて重要です。
+      そのため、審判員の育成には成文化された規則の習得だけでなく、試合場（<em>shiai-jo</em>）における集団的空間感覚の体得が不可欠です。
     </p>
   </div>
 </div>`,
@@ -1651,10 +1648,10 @@ export const i18n: Record<string, Record<string, string>> = {
 
   <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2 text-xs text-gray-400">
     <div class="flex items-center gap-2 text-white font-semibold">
-      <i class="fas fa-user-tie text-[#bc002d]"></i> 開発者・連絡先
+      <i class="fas fa-user-tie text-[#bc002d]"></i> 考案・開発・連絡先
     </div>
     <p>
-      <strong>開発・監修:</strong> 米田裕 Adrian Yu Yoneda（剣道教士七段・居合道五段／ブラジル・サンパウロ）
+      <strong>考案・開発:</strong> 米田裕（剣道教士七段・居合道五段／ブラジル・サンパウロ）
     </p>
     <p>
       連絡先・フィードバック: <a href="mailto:adrian.yoneda@gmail.com" class="text-blue-400 underline hover:text-blue-300">adrian.yoneda@gmail.com</a>
