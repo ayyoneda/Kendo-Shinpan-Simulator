@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./tutorial/tutorial.css";
 
 body {
   background-color: #1a1a1a;

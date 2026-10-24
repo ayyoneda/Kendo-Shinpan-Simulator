@@ -43,11 +43,17 @@
         <button id="btn-mode-rpg" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition cursor-pointer">Modo Renderizado</button>
       </div>
 
-      <!-- Top-Right Floating Help Button -->
-      <button id="help-btn" class="absolute top-4 right-4 p-2.5 px-3.5 bg-black/60 backdrop-blur-md rounded-full shadow-2xl border border-white/10 text-gray-300 hover:text-white hover:bg-black/80 transition flex items-center gap-2 z-20 text-xs font-semibold cursor-pointer" title="Ajuda & Diretrizes">
-        <i class="fas fa-question-circle text-sm text-[#bc002d]"></i>
-        <span class="hidden sm:inline" id="ui-help-btn-label">Ajuda</span>
-      </button>
+      <!-- Top-Right Floating Action Buttons (Tutorial & Help) -->
+      <div class="absolute top-4 right-4 z-20 flex items-center gap-2">
+        <button id="tutorial-btn" class="p-2.5 px-3.5 bg-black/60 backdrop-blur-md rounded-full shadow-2xl border border-white/10 text-gray-300 hover:text-white hover:bg-black/80 transition flex items-center gap-2 text-xs font-semibold cursor-pointer" title="Tutorial Guiado Interativo">
+          <i class="fas fa-graduation-cap text-sm text-blue-400"></i>
+          <span class="hidden sm:inline" id="ui-tutorial-btn-label">Tutorial</span>
+        </button>
+        <button id="help-btn" class="p-2.5 px-3.5 bg-black/60 backdrop-blur-md rounded-full shadow-2xl border border-white/10 text-gray-300 hover:text-white hover:bg-black/80 transition flex items-center gap-2 text-xs font-semibold cursor-pointer" title="Ajuda & Diretrizes">
+          <i class="fas fa-question-circle text-sm text-[#bc002d]"></i>
+          <span class="hidden sm:inline" id="ui-help-btn-label">Ajuda</span>
+        </button>
+      </div>
 
       <!-- Glass Panel Controls -->
       <div id="controls-container" class="absolute top-4 left-4 w-[340px] max-h-[90vh] rounded-xl shadow-2xl flex flex-col z-10 transition-transform duration-300 bg-black/50 backdrop-blur-2xl border border-white/10 text-gray-300 overflow-hidden">
@@ -57,6 +63,9 @@
           <div class="flex justify-between items-center">
             <h1 id="ui-app-title" class="text-lg font-bold text-white m-0 leading-none">Kendo Shinpan</h1>
             <div class="flex items-center gap-2">
+              <button id="panel-tutorial-btn" class="text-gray-400 hover:text-white transition p-1 text-sm cursor-pointer" title="Tutorial Guiado">
+                <i class="fas fa-graduation-cap text-blue-400"></i>
+              </button>
               <button id="panel-help-btn" class="text-gray-400 hover:text-white transition p-1 text-sm cursor-pointer" title="Ajuda">
                 <i class="fas fa-question-circle"></i>
               </button>
@@ -334,7 +343,10 @@
           </div>
 
           <!-- Modal Footer -->
-          <div class="p-3 px-6 bg-black/40 border-t border-white/10 flex justify-end">
+          <div class="p-3 px-6 bg-black/40 border-t border-white/10 flex justify-between items-center">
+            <button id="help-modal-tutorial-btn" class="px-4 py-2 rounded-lg bg-blue-600/30 hover:bg-blue-600/50 text-blue-300 border border-blue-500/40 font-semibold text-xs transition cursor-pointer flex items-center gap-1.5">
+              <i class="fas fa-graduation-cap"></i> <span id="ui-help-modal-tut-btn">Iniciar Tutorial Guiado</span>
+            </button>
             <button id="help-modal-bottom-close" class="px-5 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium text-xs transition cursor-pointer">
               Fechar Guia
             </button>
@@ -491,6 +503,32 @@
         <button id="proc-expand-btn" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white flex items-center justify-center text-xs transition cursor-pointer" title="Expandir Painel">
           <i class="fas fa-chevron-left text-[9px]"></i>
         </button>
+      </div>
+
+      <!-- FIRST VISIT WELCOME INVITATION TOAST -->
+      <div id="tutorial-welcome-toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-[#18181b]/95 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl p-4 max-w-md w-[92vw] flex flex-col gap-2.5 text-gray-200">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-7 h-7 rounded-full bg-[#bc002d]/20 border border-[#bc002d]/40 flex items-center justify-center text-[#bc002d] text-sm flex-shrink-0">
+              <i class="fas fa-graduation-cap"></i>
+            </span>
+            <span class="font-bold text-xs sm:text-sm text-white" id="ui-welcome-toast-title">Bem-vindo ao Kendo Shinpan Simulator!</span>
+          </div>
+          <button id="welcome-toast-close" class="text-gray-400 hover:text-white p-1 text-xs cursor-pointer">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <p class="text-xs text-gray-300 leading-relaxed m-0" id="ui-welcome-toast-desc">
+          Deseja fazer um tour rápido de 1 minuto para conhecer as ferramentas e funções?
+        </p>
+        <div class="flex items-center justify-end gap-2 pt-1">
+          <button id="welcome-toast-dismiss" class="px-3 py-1.5 rounded-lg text-gray-400 hover:text-white text-xs font-medium cursor-pointer transition">
+            <span id="ui-welcome-toast-dismiss">Agora não</span>
+          </button>
+          <button id="welcome-toast-start" class="px-4 py-1.5 rounded-lg bg-[#bc002d] hover:bg-red-800 text-white font-bold text-xs shadow-md cursor-pointer transition flex items-center gap-1.5 transform active:scale-95">
+            <i class="fas fa-play text-[10px]"></i> <span id="ui-welcome-toast-start">Iniciar Tour</span>
+          </button>
+        </div>
       </div>
 
       <div id="ui-author" class="fixed right-3 bottom-2 text-[11px] text-white/50 pointer-events-none z-0"></div>

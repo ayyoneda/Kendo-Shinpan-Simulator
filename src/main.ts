@@ -6,6 +6,8 @@ import type { Vector2D } from './math/vector';
 import { i18n } from './i18n';
 import { ScenarioRunner, scenarios } from './engine/Scenarios';
 import { ProcedureManager } from './engine/procedures/ProcedureManager';
+import { TutorialManager } from './tutorial/TutorialManager';
+import { TUTORIAL_CHAPTERS, TUTORIAL_STEPS } from './tutorial/tutorialSteps';
 
 // State and Engine
 const store = new SimulationStore();
@@ -44,6 +46,15 @@ const helpModal = document.getElementById('help-modal') as HTMLElement;
 const helpModalClose = document.getElementById('help-modal-close') as HTMLButtonElement;
 const helpModalBottomClose = document.getElementById('help-modal-bottom-close') as HTMLButtonElement;
 const helpTabContent = document.getElementById('help-tab-content') as HTMLElement;
+const helpModalTutorialBtn = document.getElementById('help-modal-tutorial-btn') as HTMLButtonElement | null;
+
+// Tutorial Elements
+const tutorialBtn = document.getElementById('tutorial-btn') as HTMLButtonElement | null;
+const panelTutorialBtn = document.getElementById('panel-tutorial-btn') as HTMLButtonElement | null;
+const tutorialWelcomeToast = document.getElementById('tutorial-welcome-toast') as HTMLElement | null;
+const welcomeToastClose = document.getElementById('welcome-toast-close') as HTMLButtonElement | null;
+const welcomeToastDismiss = document.getElementById('welcome-toast-dismiss') as HTMLButtonElement | null;
+const welcomeToastStart = document.getElementById('welcome-toast-start') as HTMLButtonElement | null;
 
 // Mode Toggles & Sections
 const btnModeTech = document.getElementById('btn-mode-tech') as HTMLButtonElement;
@@ -571,6 +582,65 @@ if (btnSimCombat) btnSimCombat.addEventListener('click', () => setSimulationMode
 if (btnSimProcedure) btnSimProcedure.addEventListener('click', () => setSimulationMode('PROCEDURE'));
 if (procCloseBtn) procCloseBtn.addEventListener('click', () => setSimulationMode('COMBAT'));
 
+// Tutorial Manager Instance
+const tutorialManager = new TutorialManager({
+  chapters: TUTORIAL_CHAPTERS,
+  steps: TUTORIAL_STEPS,
+  translate: (key) => i18n[currentLang]?.[key] || key,
+  onStepChange: (step) => {
+    if (step.requiredMode && store.state.simulationMode !== step.requiredMode) {
+      setSimulationMode(step.requiredMode);
+    }
+  },
+  onFinish: () => {
+    try {
+      localStorage.setItem('kendo_shinpan_tutorial_seen', 'true');
+    } catch {}
+  }
+});
+
+const startGuidedTour = (chapterId?: string) => {
+  closeHelpModal();
+  if (tutorialWelcomeToast) tutorialWelcomeToast.classList.add('hidden');
+  tutorialManager.start(chapterId);
+};
+
+if (tutorialBtn) tutorialBtn.addEventListener('click', () => startGuidedTour());
+if (panelTutorialBtn) panelTutorialBtn.addEventListener('click', () => startGuidedTour());
+if (helpModalTutorialBtn) helpModalTutorialBtn.addEventListener('click', () => startGuidedTour());
+
+// First visit welcome invitation toast events
+if (welcomeToastClose) {
+  welcomeToastClose.addEventListener('click', () => {
+    if (tutorialWelcomeToast) tutorialWelcomeToast.classList.add('hidden');
+    try { localStorage.setItem('kendo_shinpan_tutorial_seen', 'true'); } catch {}
+  });
+}
+
+if (welcomeToastDismiss) {
+  welcomeToastDismiss.addEventListener('click', () => {
+    if (tutorialWelcomeToast) tutorialWelcomeToast.classList.add('hidden');
+    try { localStorage.setItem('kendo_shinpan_tutorial_seen', 'true'); } catch {}
+  });
+}
+
+if (welcomeToastStart) {
+  welcomeToastStart.addEventListener('click', () => {
+    try { localStorage.setItem('kendo_shinpan_tutorial_seen', 'true'); } catch {}
+    startGuidedTour();
+  });
+}
+
+// Check first-time visit on load
+setTimeout(() => {
+  try {
+    const seen = localStorage.getItem('kendo_shinpan_tutorial_seen');
+    if (!seen && tutorialWelcomeToast) {
+      tutorialWelcomeToast.classList.remove('hidden');
+    }
+  } catch {}
+}, 1000);
+
 if (procMinimizeBtn) {
   procMinimizeBtn.addEventListener('click', () => {
     if (procedureWidget) procedureWidget.classList.add('hidden');
@@ -835,6 +905,18 @@ function updateUIStrings() {
   setText('ui-proc-prev', s.btnPrev || 'Anterior');
   setText('ui-proc-play', procedureManager.isPlaying() ? (s.btnPause || 'Pausar') : (s.btnPlay || 'Reproduzir'));
   setText('ui-proc-next', s.btnNext || 'Próximo');
+
+  // Tutorial UI Strings
+  tutorialManager.setTranslator((key) => i18n[currentLang]?.[key] || key);
+  setText('ui-tutorial-btn-label', currentLang === 'jp' ? 'ツアー' : (currentLang === 'en' ? 'Tutorial' : 'Tutorial'));
+  if (tutorialBtn) tutorialBtn.title = s.tutBtnOpenTutorial || 'Tutorial Guiado';
+  if (panelTutorialBtn) panelTutorialBtn.title = s.tutBtnOpenTutorial || 'Tutorial Guiado';
+  setText('ui-help-modal-tut-btn', s.tutBtnOpenTutorial || 'Iniciar Tutorial Guiado');
+  setText('ui-welcome-toast-title', s.tutWelcomeToastTitle || 'Bem-vindo ao Kendo Shinpan Simulator!');
+  setText('ui-welcome-toast-desc', s.tutWelcomeToastDesc || '');
+  setText('ui-welcome-toast-start', s.tutWelcomeToastStart || 'Iniciar Tour');
+  setText('ui-welcome-toast-dismiss', s.tutWelcomeToastDismiss || 'Agora não');
+
   renderer.currentLang = currentLang;
   updateProcedureUI();
 }

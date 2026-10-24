@@ -1,0 +1,69 @@
+/* Kendo Shinpan Simulator — Guided Tutorial Styles */
+
+#tutorial-root {
+  transition: opacity 0.25s ease-out;
+}
+
+#tutorial-cutout,
+#tutorial-spotlight-border {
+  transition: x 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              y 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              height 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              opacity 0.25s ease;
+}
+
+.tutorial-pulse {
+  animation: tutorialPulseGlow 1.8s infinite ease-in-out;
+}
+
+@keyframes tutorialPulseGlow {
+  0%, 100% {
+    stroke-opacity: 0.95;
+    stroke-width: 2px;
+  }
+  50% {
+    stroke-opacity: 0.3;
+    stroke-width: 3.5px;
+  }
+}
+
+#tutorial-popover {
+  animation: tutorialPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes tutorialPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Hide scrollbar for chapter pills navigation */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Welcome invitation toast / banner */
+#tutorial-welcome-toast {
+  animation: toastSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastSlideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
